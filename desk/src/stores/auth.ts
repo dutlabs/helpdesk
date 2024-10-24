@@ -50,7 +50,7 @@ export const useAuthStore = defineStore("auth", () => {
   const login = createResource({
     url: URI_LOGIN,
     onError() {
-      throw new Error("Invalid email or password");
+      throw new Error(__("Invalid email or password"));
     },
     onSuccess() {
       user.value = sessionUser();

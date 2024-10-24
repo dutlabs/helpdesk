@@ -21,7 +21,7 @@ export async function copy(s: string) {
   const { copy: c } = useClipboard();
   c(s).then(() =>
     createToast({
-      title: "Copied to clipboard",
+      title: __("Copied to clipboard"),
       icon: "check",
       iconClasses: "text-green-600",
     })
@@ -64,7 +64,7 @@ export const dateTooltipFormat = "ddd, MMM D, YYYY h:mm A";
 
 export function errorMessage(title, message) {
   createToast({
-    title: title || "Error",
+    title: title || __("Error"),
     text: message,
     icon: "x",
     iconClasses: "text-red-600",
