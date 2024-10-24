@@ -23,7 +23,7 @@
       </a>
     </div>
     <div>
-      <div class="font-medium">Or via our e-mail</div>
+      <div class="font-medium">{{ __('Or via our e-mail') }}</div>
       <a class="text-sm text-gray-800" :href="'mailto:' + email">
         {{ email }}
       </a>
