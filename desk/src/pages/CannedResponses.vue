@@ -6,7 +6,7 @@
       </template>
       <template #right-header>
         <Button
-          label="Create"
+          :label="__('Create')"
           theme="gray"
           variant="solid"
           @click="
@@ -41,7 +41,7 @@
             <Dropdown
               :options="[
                 {
-                  label: 'Delete',
+                  label: __('Delete'),
                   icon: 'trash-2',
                   onClick: () => deleteItem(cannedResponse.name),
                 },
@@ -125,7 +125,7 @@ import { dayjs } from "@/dayjs";
 const { getUser } = useUserStore();
 
 const breadcrumbs = [
-  { label: "Canned Responses", route: { name: "CannedResponses" } },
+  { label: __("Canned Responses"), route: { name: "CannedResponses" } },
 ];
 
 const title = ref(null);

@@ -4,7 +4,7 @@
     class="rounded border bg-cyan-50 px-5 py-3 text-base"
   >
     <div class="mb-2 font-medium px-4">
-      These articles may already cover what you are looking for
+      {{ __('These articles may already cover what you are looking for') }}
       <RouterLink
         class="group cursor-pointer space-x-1 hover:text-gray-900"
         :to="{
@@ -12,7 +12,7 @@
         }"
         target="_blank"
       >
-        <span class="text-xs underline">(View All)</span>
+        <span class="text-xs underline">{{ __('(View All)') }}</span>
       </RouterLink>
     </div>
     <dl>

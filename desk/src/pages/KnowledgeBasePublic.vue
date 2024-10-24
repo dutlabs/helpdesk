@@ -8,10 +8,10 @@
               <BrandLogo class="flex" />
             </RouterLink>
             <span class="text-gray-600">/</span>
-            <span class="font-medium text-gray-900">Knowledge Base</span>
+            <span class="font-medium text-gray-900">{{ __('Knowledge Base') }}</span>
           </div>
           <Button
-            label="Search"
+            :label="__('Search')"
             theme="gray"
             variant="outline"
             @click="showSearch = !showSearch"

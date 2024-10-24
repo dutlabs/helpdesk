@@ -8,7 +8,7 @@
       <template #default="{ error, openFileSelector }">
         <span>
           <Button
-            label="Upload Logo"
+            :label="__('Upload Logo')"
             :loading="r.loading"
             class="w-max"
             variant="outline"
@@ -27,8 +27,7 @@ import { createResource, FileUploader } from "frappe-ui";
 import { capture } from "@/telemetry";
 
 const help =
-  "this will be used in many places, including login and loading screens. \
-	An image with transparent background and a resolution of 160 x 32 is preferred";
+  __("this will be used in many places, including login and loading screens. An image with transparent background and a resolution of 160 x 32 is preferred");
 const imageUrl: Ref<string> = ref(null);
 
 const r = createResource({

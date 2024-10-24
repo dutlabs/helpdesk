@@ -3,7 +3,7 @@
     <PageTitle title="Escalation Rules">
       <template #right>
         <Button
-          label="New rule"
+          :label="__('New rule')"
           theme="gray"
           variant="solid"
           @click="openDialog(null)"
@@ -22,7 +22,7 @@
     >
       <template #is_enabled="{ data }">
         <Badge :theme="data.is_enabled ? 'green' : 'red'" variant="subtle">
-          {{ data.is_enabled ? "Enabled" : "Disabled" }}
+          {{ data.is_enabled ? __("Enabled") : __("Disabled") }}
         </Badge>
       </template>
     </ListView>
@@ -44,25 +44,25 @@ import EscalationRuleDialog from "./EscalationRuleDialog.vue";
 
 const showDialog = ref(false);
 const selectedRule = ref(null);
-const emptyMessage = "No Escalation Rules Found";
+const emptyMessage = __("No Escalation Rules Found");
 const columns = [
   {
-    label: "Priority",
+    label: __("Priority"),
     key: "priority",
     width: "w-64",
   },
   {
-    label: "Team",
+    label: __("Team"),
     key: "team",
     width: "w-64",
   },
   {
-    label: "Ticket type",
+    label: __("Ticket type"),
     key: "ticket_type",
     width: "w-64",
   },
   {
-    label: "Status",
+    label: __("Status"),
     key: "is_enabled",
     width: "w-20",
   },
@@ -82,7 +82,7 @@ const rules = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Escalation rules",
+    title: __("Escalation rules"),
   };
 });
 

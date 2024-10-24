@@ -36,33 +36,33 @@ const emit = defineEmits<{
 const status = toRef(props, "status");
 const showDeleteDialog = ref(false);
 const primary = computed(() => ({
-  label: status.value === "Published" ? "Unpublish" : "Publish",
+  label: status.value === "Published" ? __("Unpublish") : __("Publish"),
   theme: "gray",
   variant: "solid",
   onClick: () => emit("toggleStatus"),
 }));
 const dropdownOptions = [
   {
-    label: "Edit",
+    label: __("Edit"),
     icon: IconEdit,
     onClick: () => emit("toggleEditMode"),
   },
   {
-    label: "Delete",
+    label: __("Delete"),
     icon: IconTrash,
     onClick: () => (showDeleteDialog.value = !showDeleteDialog.value),
   },
 ];
 const deleteDialogOptions = {
-  title: "Delete",
-  message: "Are you sure you want to delete? This action can not be reversed",
+  title: __("Delete"),
+  message: __("Are you sure you want to delete? This action can not be reversed"),
   icon: {
     name: "alert-triangle",
     appearance: "warning",
   },
   actions: [
     {
-      label: "Confirm",
+      label: __("Confirm"),
       theme: "red",
       variant: "solid",
       onClick: () => emit("delete"),

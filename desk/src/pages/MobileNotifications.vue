@@ -2,14 +2,14 @@
   <LayoutHeader>
     <template #left-header>
       <Breadcrumbs
-        :items="[{ label: 'Notifications', route: { name: 'Notifications' } }]"
+        :items="[{ label: __('Notifications'), route: { name: 'Notifications' } }]"
       />
     </template>
     <template #right-header>
-      <Tooltip :text="'Mark all as read'">
+      <Tooltip :text="__('Mark all as read')">
         <div>
           <Button
-            :label="'Mark all as read'"
+            :label="__('Mark all as read')"
             @click="() => notificationStore.clear.submit()"
           >
             <template #prefix>
@@ -40,13 +40,13 @@
               n.user_from.name
             }}</span>
             <span v-if="n.notification_type === 'Mention'"
-              >mentioned you in ticket</span
+              >{{ __('mentioned you in ticket') }}</span
             >
             <span v-if="n.notification_type === 'Assignment'"
-              >assigned you a ticket</span
+              >{{ __('assigned you a ticket') }}</span
             >
             <span v-if="n.notification_type === 'Reaction'"
-              >has reopened the ticket</span
+              >{{ __('has reopened the ticket') }}</span
             >
             <span class="font-medium text-gray-900">{{
               n.reference_ticket
@@ -65,7 +65,7 @@
   <div v-else class="flex flex-1 flex-col items-center gap-2">
     <LucideBell class="h-20 w-20 text-gray-300" />
     <div class="text-lg font-medium text-gray-500">
-      {{ "No new notifications" }}
+      {{ __("No new notifications") }}
     </div>
   </div>
 </template>

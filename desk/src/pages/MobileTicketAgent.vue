@@ -45,7 +45,7 @@
           class="rounded bg-gray-100 px-2 py-1.5 text-base text-gray-800"
           @click="showAssignmentModal = true"
         >
-          Assign
+          {{ __('Assign') }}
         </button>
       </div>
       <!-- right side -->
@@ -141,7 +141,7 @@
     />
     <Dialog v-model="showSubjectDialog">
       <template #body-title>
-        <h3>Rename</h3>
+        <h3>{{ __('Rename') }}</h3>
       </template>
       <template #body-content>
         <FormControl
@@ -150,7 +150,7 @@
           size="sm"
           variant="subtle"
           :disabled="false"
-          label="New Subject"
+          :label="__('New Subject')"
         />
       </template>
       <template #actions>
@@ -165,7 +165,7 @@
             }
           "
         >
-          Confirm
+          {{ __('Confirm') }}
         </Button>
         <Button class="ml-2" @click="showSubjectDialog = false"> Close </Button>
       </template>
@@ -261,7 +261,7 @@ const ticket = createResource({
 });
 
 const breadcrumbs = computed(() => {
-  let items = [{ label: "Tickets", route: { name: "TicketsAgent" } }];
+  let items = [{ label: __("Tickets"), route: { name: "TicketsAgent" } }];
   items.push({
     label: ticket.data?.subject,
     route: { name: "TicketAgent" },
@@ -292,23 +292,23 @@ const tabIndex = ref(0);
 const tabs: TabObject[] = [
   {
     name: "details",
-    label: "Details",
+    label: __("Details"),
     icon: DetailsIcon,
     condition: () => isMobileView.value,
   },
   {
     name: "activity",
-    label: "Activity",
+    label: __("Activity"),
     icon: ActivityIcon,
   },
   {
     name: "email",
-    label: "Emails",
+    label: __("Emails"),
     icon: EmailIcon,
   },
   {
     name: "comment",
-    label: "Comments",
+    label: __("Comments"),
     icon: CommentIcon,
   },
 ];
@@ -411,7 +411,7 @@ function updateTicket(fieldname: string, value: string) {
       isLoading.value = false;
       ticket.reload();
       createToast({
-        title: "Ticket updated",
+        title: __("Ticket updated"),
         icon: "check",
         iconClasses: "text-green-600",
       });
@@ -422,7 +422,7 @@ function updateTicket(fieldname: string, value: string) {
       const title =
         e.messages && e.messages.length > 0
           ? e.messages[0]
-          : "Failed to update ticket";
+          : __("Failed to update ticket");
 
       createToast({
         title,

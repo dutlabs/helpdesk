@@ -8,7 +8,7 @@
     <div class="flex grow overflow-hidden">
       <KnowledgeBaseSidebar v-model="currentCategory" />
       <KnowledgeBaseCategory
-        v-if="currentCategory !== 'Explore all articles'"
+        v-if="currentCategory !== __('Explore all articles')"
         :category-id="currentCategory"
       />
       <KnowledgeBaseCategory v-else show-all-articles />
@@ -29,7 +29,7 @@ const defaultCategory = computed(
   () => router.currentRoute.value.query.category as string
 );
 
-const currentCategory = ref(defaultCategory.value || "Explore all articles");
+const currentCategory = ref(defaultCategory.value || __("Explore all articles"));
 
 const breadcrumbs = computed(() => {
   const { category, subCategory } = router.currentRoute.value.query as {
@@ -38,7 +38,7 @@ const breadcrumbs = computed(() => {
   };
   let items = [
     {
-      label: "Knowledge Base",
+      label: __("Knowledge Base"),
       route: {
         name: "KnowledgeBasePublicNew",
         query: { category },

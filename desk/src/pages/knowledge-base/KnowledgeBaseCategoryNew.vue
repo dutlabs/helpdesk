@@ -1,10 +1,10 @@
 <template>
-  <Dialog v-bind="attrs" :options="{ title: 'New category' }">
+  <Dialog v-bind="attrs" :options="{ title: __('New category') }">
     <template #body-content>
       <form @submit.prevent="newCategoryRes.submit">
         <div class="space-y-4">
           <div class="space-y-2">
-            <div class="text-xs text-gray-700">Title</div>
+            <div class="text-xs text-gray-700">{{ __('Title') }}</div>
             <div class="flex items-center gap-2">
               <KnowledgeBaseIconSelector
                 :icon="newCategoryIcon"
@@ -12,20 +12,20 @@
               />
               <FormControl
                 v-model="newCategoryName"
-                placeholder="A brief guide"
+                :placeholder="__('A brief guide')"
                 type="text"
               />
             </div>
           </div>
           <div class="space-y-2">
-            <div class="text-xs text-gray-700">Description</div>
+            <div class="text-xs text-gray-700">{{ __('Description') }}</div>
             <FormControl
               v-model="newCategoryDescription"
-              placeholder="A short description"
+              :placeholder="__('A short description')"
               type="textarea"
             />
           </div>
-          <Button class="w-full" label="Create" theme="gray" variant="solid" />
+          <Button class="w-full" :label="__('Create')" theme="gray" variant="solid" />
         </div>
       </form>
     </template>

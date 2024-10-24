@@ -4,12 +4,12 @@
       <div class="space-y-4">
         <EscalationRuleDialogFieldList
           v-model:doc="doc"
-          title="Criteria"
+          :title="__('Criteria')"
           :items="criteria"
         />
         <EscalationRuleDialogFieldList
           v-model:doc="doc"
-          title="Actions"
+          :title="__('Actions')"
           :items="actions"
         />
       </div>
@@ -43,7 +43,7 @@ const rule = createDocumentResource({
     debounce: 3000,
     onSuccess() {
       createToast({
-        title: "Rule updated",
+        title: __("Rule updated"),
         icon: "check",
         iconClasses: "text-green-500",
       });
@@ -53,12 +53,12 @@ const rule = createDocumentResource({
   delete: {
     onSuccess() {
       createToast({
-        title: "Rule deleted",
+        title: __("Rule deleted"),
         icon: "check",
         iconClasses: "text-green-500",
       });
     },
-    onError: useError({ title: "Error deleting rule" }),
+    onError: useError({ title: __("Error deleting rule") }),
   },
 });
 
@@ -66,7 +66,7 @@ const newRule = createResource({
   url: "frappe.client.insert",
   onSuccess(data) {
     createToast({
-      title: "Rule created",
+      title: __("Rule created"),
       icon: "check",
       iconClasses: "text-green-500",
     });
@@ -74,7 +74,7 @@ const newRule = createResource({
     rule.name = data.name;
     rule.reload();
   },
-  onError: useError({ title: "Error creating rule" }),
+  onError: useError({ title: __("Error creating rule") }),
 });
 
 const doc = computed({
@@ -113,16 +113,16 @@ function save() {
 }
 
 const options = computed(() => ({
-  title: isNew.value ? "New rule" : "Edit rule",
+  title: isNew.value ? __("New rule") : __("Edit rule"),
   actions: [
     {
-      label: isNew.value ? "Create" : "Save",
+      label: isNew.value ? __("Create") : __("Save"),
       theme: "gray",
       variant: "subtle",
       onClick: () => save(),
     },
     {
-      label: doc.value?.is_enabled ? "Disable" : "Enable",
+      label: doc.value?.is_enabled ? __("Disable") : __("Enable"),
       theme: doc.value?.is_enabled ? "red" : "green",
       variant: "subtle",
       onClick: () =>
@@ -130,7 +130,7 @@ const options = computed(() => ({
       hidden: isNew.value,
     },
     {
-      label: "Delete",
+      label: __("Delete"),
       theme: "red",
       variant: "subtle",
       onClick: () => rule.delete.submit(),
@@ -141,17 +141,17 @@ const options = computed(() => ({
 
 const criteria = [
   {
-    label: "Priority is",
+    label: __("Priority is"),
     doctype: "HD Ticket Priority",
     key: "priority",
   },
   {
-    label: "Team is",
+    label: __("Team is"),
     doctype: "HD Team",
     key: "team",
   },
   {
-    label: "Ticket type is",
+    label: __("Ticket type is"),
     doctype: "HD Ticket Type",
     key: "ticket_type",
   },
@@ -159,22 +159,22 @@ const criteria = [
 
 const actions = [
   {
-    label: "Change priority to",
+    label: __("Change priority to"),
     doctype: "HD Ticket Priority",
     key: "to_priority",
   },
   {
-    label: "Change team to",
+    label: __("Change team to"),
     doctype: "HD Team",
     key: "to_team",
   },
   {
-    label: "Change ticket type to",
+    label: __("Change ticket type to"),
     doctype: "HD Ticket Type",
     key: "to_ticket_type",
   },
   {
-    label: "Assign to",
+    label: __("Assign to"),
     doctype: "HD Agent",
     key: "to_agent",
   },

@@ -10,10 +10,10 @@
           </div>
         </Tooltip>
         <Icon v-if="isPinned" icon="lucide:dot" class="text-gray-500" />
-        <Badge v-if="isPinned" label="Pinned" theme="blue" variant="outline" />
+        <Badge v-if="isPinned" :label="__('Pinned')" theme="blue" variant="outline" />
       </div>
       <div class="flex items-center gap-1">
-        <Badge label="Comment" theme="green" variant="outline" />
+        <Badge :label="__('Comment')" theme="green" variant="outline" />
         <Dropdown :options="options">
           <template #default>
             <Button theme="gray" variant="ghost">
@@ -58,12 +58,12 @@ const IconUnpin = h(Icon, { icon: "lucide:pin-off" });
 const options = computed(() =>
   [
     {
-      label: isPinned.value ? "Unpin" : "Pin",
+      label: isPinned.value ? __("Unpin") : __("Pin"),
       icon: isPinned.value ? IconUnpin : IconPin,
       onClick: () => togglePin.submit(),
     },
     {
-      label: "Delete",
+      label: __("Delete"),
       icon: IconTrash,
       onClick: () => deleteComment.submit(),
       isHidden: user.value.email !== authStore.userId,
@@ -91,7 +91,7 @@ const deleteComment = createResource({
   onSuccess() {
     emitter.emit("update:ticket");
     createToast({
-      title: "Comment deleted",
+      title: __("Comment deleted"),
       icon: "check",
       iconClasses: "text-green-500",
     });

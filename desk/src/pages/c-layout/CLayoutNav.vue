@@ -34,7 +34,7 @@ const router = useRouter();
 const authStore = useAuthStore();
 const options = [
   {
-    label: "Knowledge Base",
+    label: __("Knowledge Base"),
     icon: "book-open",
     onClick: () => {
       const path = router.resolve({ name: "KBHome" });
@@ -42,7 +42,7 @@ const options = [
     },
   },
   {
-    label: "My Account",
+    label: __("My Account"),
     icon: "user",
     onClick: () => {
       const protocol = window.location.protocol;
@@ -52,7 +52,7 @@ const options = [
     },
   },
   {
-    label: "Log out",
+    label: __("Log out"),
     icon: "log-out",
     onClick: () => authStore.logout(),
   },

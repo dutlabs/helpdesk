@@ -22,14 +22,14 @@ const emit = defineEmits<{
 }>();
 
 const primary = {
-  label: "Create",
+  label: __("Create"),
   theme: "gray",
   variant: "solid",
   onClick: () => emit("create"),
 };
 
 const secondary = {
-  label: "Discard",
+  label: __("Discard"),
   theme: "gray",
   variant: "subtle",
   onClick: () => emit("discard"),

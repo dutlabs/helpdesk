@@ -7,7 +7,7 @@
       <template #right>
         <div class="space-x-2">
           <Button
-            label="Edit"
+            :label="__('Edit')"
             theme="gray"
             variant="outline"
             @click="showEdit = !showEdit"
@@ -17,7 +17,7 @@
             </template>
           </Button>
           <Button
-            label="Add new"
+            :label="__('Add new')"
             theme="gray"
             variant="solid"
             @click="showNewSubCategory = !showNewSubCategory"
@@ -31,7 +31,7 @@
     </KnowledgeBaseCategoryHeader>
     <EmptyMessage
       v-if="isEmpty(subCategories.data)"
-      message="This category is empty"
+      :message="_('This category is empty')"
     />
     <div v-else class="gap-4.5 grid grid-cols-3 px-5">
       <HCard
@@ -50,7 +50,7 @@
         </template>
       </HCard>
     </div>
-    <Dialog v-model="showEdit" :options="{ title: 'Edit' }">
+    <Dialog v-model="showEdit" :options="{ title: __('Edit') }">
       <template #body-content>
         <div class="space-y-4">
           <div class="space-y-2">
@@ -62,7 +62,7 @@
               />
               <FormControl
                 v-model="category.doc.category_name"
-                placeholder="A brief guide"
+                :placeholder="__('A brief guide')"
                 type="text"
               />
             </div>
@@ -71,13 +71,13 @@
             <div class="text-xs text-gray-700">Description</div>
             <FormControl
               v-model="category.doc.description"
-              placeholder="A short description"
+              :placeholder="__('A short description')"
               type="textarea"
             />
           </div>
           <Button
             class="w-full"
-            label="Save"
+            :label="__('Save')"
             theme="gray"
             variant="solid"
             @click="saveCategory"
@@ -87,7 +87,7 @@
     </Dialog>
     <Dialog
       v-model="showNewSubCategory"
-      :options="{ title: 'New Sub category' }"
+      :options="{ title: __('New Sub category') }"
     >
       <template #body-content>
         <form @submit.prevent="newSubCategory.submit">
@@ -95,19 +95,19 @@
             <FormControl
               v-model="newSubCategoryName"
               type="text"
-              label="Name"
-              placeholder="Name"
+              :label="__('Name')"
+              :placeholder="__('Name')"
             />
             <FormControl
               v-model="newSubCategoryDescription"
               type="textarea"
-              label="Description"
-              placeholder="Description"
+              :label="__('Description')"
+              :placeholder="__('Description')"
             />
             <Button
               :disabled="isEmpty(newSubCategoryName)"
               class="w-full"
-              label="Create"
+              :label="__('Create')"
               theme="gray"
               variant="solid"
             />
@@ -164,12 +164,12 @@ const category = createDocumentResource({
   setValue: {
     onSuccess() {
       createToast({
-        title: "Category updated",
+        title: __("Category updated"),
         icon: "check",
         iconClasses: "text-green-500",
       });
     },
-    onError: useError({ title: "Error updating category" }),
+    onError: useError({ title: __("Error updating category") }),
   },
 });
 
@@ -198,14 +198,14 @@ const newSubCategory = createResource({
   },
   validate(params) {
     if (isEmpty(params.doc.category_name)) {
-      return "Category name is required";
+      return __("Category name is required");
     }
   },
   onSuccess() {
     showNewSubCategory.value = false;
     subCategories.reload();
   },
-  onError: useError({ title: "Error creating sub category" }),
+  onError: useError({ title: __("Error creating sub category") }),
 });
 
 const subCategories = createListManager({

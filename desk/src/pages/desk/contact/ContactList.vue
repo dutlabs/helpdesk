@@ -2,11 +2,11 @@
   <div class="flex flex-col">
     <LayoutHeader>
       <template #left-header>
-        <div class="text-lg font-medium text-gray-900">Contacts</div>
+        <div class="text-lg font-medium text-gray-900">{{ __('Contacts') }}</div>
       </template>
       <template #right-header>
         <Button
-          label="New contact"
+          :label="__('New contact')"
           theme="gray"
           variant="solid"
           @click="isDialogVisible = !isDialogVisible"
@@ -60,17 +60,17 @@ const selectedContact = ref(null);
 
 const columns: Column[] = [
   {
-    label: "Name",
+    label: __("Name"),
     key: "name",
     width: "w-80",
   },
   {
-    label: "Email",
+    label: __("Email"),
     key: "email_id",
     width: "w-80",
   },
   {
-    label: "Phone",
+    label: __("Phone"),
     key: "phone",
     width: "w-80",
   },
@@ -90,7 +90,7 @@ const contacts = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Contacts",
+    title: __("Contacts"),
   };
 });
 
@@ -106,7 +106,7 @@ function openContact(id: string): void {
 
 function handleContactUpdated(): void {
   createToast({
-    title: "Contact updated",
+    title: __("Contact updated"),
     icon: "check",
     iconClasses: "text-green-500",
   });

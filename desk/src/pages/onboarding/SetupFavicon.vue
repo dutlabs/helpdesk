@@ -8,7 +8,7 @@
       <template #default="{ error, openFileSelector }">
         <span>
           <Button
-            label="Upload Favicon"
+            :label="__('Upload Favicon')"
             :loading="r.loading"
             class="w-max"
             variant="outline"
@@ -27,9 +27,7 @@ import { createResource, FileUploader } from "frappe-ui";
 import { capture } from "@/telemetry";
 
 const help =
-  "A favicon enhances your website by providing a small, recognizable icon that \
-	appears in browser tabs. It improves brand recognition, adds professionalism, \
-	aids navigation, establishes trust, and maintains brand consistency";
+  __("A favicon enhances your website by providing a small, recognizable icon that appears in browser tabs. It improves brand recognition, adds professionalism, aids navigation, establishes trust, and maintains brand consistency");
 const imageUrl: Ref<string> = ref(null);
 
 const r = createResource({

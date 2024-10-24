@@ -6,7 +6,7 @@
       </template>
       <template #right-header>
         <Button
-          label="New agent"
+          :label="__('New agent')"
           theme="gray"
           variant="solid"
           @click="isDialogVisible = !isDialogVisible"
@@ -34,7 +34,7 @@
             size="md"
             theme="orange"
             variant="subtle"
-            >Inactive</Badge
+            >{{ __('Inactive') }}</Badge
           >
         </div>
       </template>
@@ -64,17 +64,17 @@ const { apply, storage } = useFilter("HD Ticket");
 const isDialogVisible = ref(false);
 const columns = [
   {
-    label: "Name",
+    label: __("Name"),
     key: "name",
     width: "w-80",
   },
   {
-    label: "Email",
+    label: __("Email"),
     key: "email",
     width: "w-80",
   },
   {
-    label: "Username",
+    label: __("Username"),
     key: "username",
     width: "w-80",
   },
@@ -104,7 +104,7 @@ const agents = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Agents",
+    title: __("Agents"),
   };
 });
 

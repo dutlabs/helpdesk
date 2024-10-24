@@ -31,8 +31,8 @@
         <FormControl
           v-model="subject"
           type="text"
-          label="Subject*"
-          placeholder="A short description"
+          :label="__('Subject*')"
+          :placeholder="__('A short description')"
         />
         <TicketNewArticles v-if="isCustomerPortal" :search="subject" />
         <div v-if="isCustomerPortal">
@@ -40,7 +40,7 @@
             v-show="subject.length <= 2 && description.length === 0"
             class="text-p-sm text-gray-500 ml-1"
           >
-            Please enter a subject to continue
+            {{ __('Please enter a subject to continue') }}
           </h4>
           <TicketTextEditor
             v-show="subject.length > 2 || description.length > 0"
@@ -52,7 +52,7 @@
           >
             <template #bottom-right>
               <Button
-                label="Submit"
+                :label="__('Submit')"
                 theme="gray"
                 variant="solid"
                 :disabled="
@@ -71,12 +71,12 @@
           ref="editor"
           v-model:attachments="attachments"
           v-model:content="description"
-          placeholder="Detailed explanation"
+          :placeholder="__('Detailed explanation')"
           expand
         >
           <template #bottom-right>
             <Button
-              label="Submit"
+              :label="__('Submit')"
               theme="gray"
               variant="solid"
               :disabled="
@@ -158,7 +158,7 @@ const ticket = createResource({
     const toVerify = [...fields, "subject", "description"];
     for (const field of toVerify) {
       if (isEmpty(params.doc[field.fieldname || field])) {
-        return `${field.label || field} is required`;
+        return __('{0} is required', [field.label || field]);
       }
     }
   },
@@ -193,13 +193,13 @@ function sanitize(html: string) {
 const breadcrumbs = computed(() => {
   const items = [
     {
-      label: "Tickets",
+      label: __("Tickets"),
       route: {
         name: "TicketsCustomer",
       },
     },
     {
-      label: "New Ticket",
+      label: __("New Ticket"),
       route: {
         name: "TicketNew",
       },
@@ -209,7 +209,7 @@ const breadcrumbs = computed(() => {
 });
 
 usePageMeta(() => ({
-  title: "New Ticket",
+  title: __("New Ticket"),
 }));
 
 const { userId: userID } = useAuthStore();
