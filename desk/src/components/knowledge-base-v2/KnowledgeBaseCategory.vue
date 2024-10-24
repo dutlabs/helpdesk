@@ -14,7 +14,7 @@
       <FormControl
         type="text"
         class="w-full"
-        placeholder="Search (title, subtitle, author)"
+        :placeholder="__('Search (title, subtitle, author)')"
         size="md"
         v-model="categorySearch"
         @input="searchArticles"
@@ -49,7 +49,7 @@
       <!-- Article List View -->
       <section class="flex flex-col gap-3" v-if="!!_articles.length">
         <h4 class="text-lg font-semibold text-gray-900">
-          {{ showAllArticles ? "All Articles" : "Articles" }}
+          {{ showAllArticles ? __("All Articles") : __("Articles") }}
         </h4>
         <!-- Article Container -->
         <div class="flex flex-col gap-x-2 divide-y max-w-full">
@@ -66,7 +66,7 @@
         v-else
         class="flex items center justify-center h-[300px] w-full text-gray-600"
       >
-        No articles found
+        {{ __('No articles found') }}
       </div>
     </div>
   </div>
@@ -74,7 +74,7 @@
     v-else
     class="flex items-center justify-center h-[300px] w-full text-gray-600"
   >
-    No articles found
+    {{ __('No articles found') }}
   </div>
 </template>
 
@@ -183,7 +183,7 @@ watch(
       category: string;
       subCategory: string;
     };
-    if (!subCategory && category !== "Explore all articles") {
+    if (!subCategory && category !== __("Explore all articles")) {
       categoryTreeResource.update({
         params: {
           category: category,

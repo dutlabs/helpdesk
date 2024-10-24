@@ -9,7 +9,7 @@
       @event:filter="(e) => emitToParent(e, 'event:filter')"
     />
     <div class="flex items-center gap-2">
-      <Button :label="'Refresh'" @click="emit('event:reload')">
+      <Button :label="__('Refresh')" @click="emit('event:reload')">
         <template #icon>
           <RefreshIcon class="h-4 w-4" />
         </template>
@@ -100,7 +100,7 @@ import { RefreshIcon } from "@/components/icons";
 import { useScreenSize } from "@/composables/screen";
 
 const authStore = useAuthStore();
-let currentPreset = ref("All Tickets");
+let currentPreset = ref(__("All Tickets"));
 
 const props = defineProps({
   filter: {
@@ -124,16 +124,16 @@ const props = defineProps({
 const { isMobileView } = useScreenSize();
 
 const quickFilterList = computed(() => {
-  let filters = [{ name: "name", label: "ID", fieldtype: "Data" }];
+  let filters = [{ name: "name", label: __("ID"), fieldtype: "Data" }];
   return filters;
 });
 
 const presetFilters = computed(() => {
   const _presetFilters = [
     {
-      label: "All Tickets",
+      label: __("All Tickets"),
       onClick: (e) => {
-        setTitle("Helpdesk");
+        setTitle(__("Helpdesk"));
         emitToParent(
           {
             event: "clear",
@@ -143,7 +143,7 @@ const presetFilters = computed(() => {
       },
     },
     {
-      label: "My Open Tickets",
+      label: __("My Open Tickets"),
       onClick: (e) => {
         const preset = getPresetFilters("Open");
         emitToParent(
@@ -156,7 +156,7 @@ const presetFilters = computed(() => {
       },
     },
     {
-      label: "My Closed Tickets",
+      label: __("My Closed Tickets"),
       onClick: (e) => {
         const preset = getPresetFilters("Closed");
         emitToParent(
@@ -172,7 +172,7 @@ const presetFilters = computed(() => {
   if (!props.isCustomerPortal) {
     _presetFilters.push(
       {
-        label: "My Replied Tickets",
+        label: __("My Replied Tickets"),
         onClick: (e) => {
           const preset = getPresetFilters("Replied");
           emitToParent(
@@ -185,7 +185,7 @@ const presetFilters = computed(() => {
         },
       },
       {
-        label: "My Resolved Tickets",
+        label: __("My Resolved Tickets"),
         onClick: (e) => {
           const preset = getPresetFilters("Resolved");
           emitToParent(
@@ -207,8 +207,8 @@ function setTitle(title: string) {
 }
 
 function getPresetFilters(status: string) {
-  setTitle(`My ${status} Tickets`);
-  document.title = `My ${status} Tickets`;
+  setTitle(__('My {0} Tickets', [status]));
+  document.title = __('My {0} Tickets', [status]);
 
   const filtersToApply = {
     status: ["=", status],
@@ -251,9 +251,9 @@ const emit = defineEmits([
 function emitToParent(data, event) {
   if (event === "event:filter") {
     if (data.event === "clear") {
-      currentPreset.value = "All Tickets";
+      currentPreset.value = __("All Tickets");
     } else {
-      currentPreset.value = "Filtered Tickets";
+      currentPreset.value = __("Filtered Tickets");
     }
   }
   emit(event, data);

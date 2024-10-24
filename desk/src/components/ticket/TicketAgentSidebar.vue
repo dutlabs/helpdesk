@@ -52,7 +52,7 @@ function update(val) {
 function copyToClipboard() {
   navigator.clipboard.writeText(`${props.ticket.name}`);
   createToast({
-    title: "Copied to clipboard",
+    title: __("Copied to clipboard"),
     text: props.ticket.name,
     icon: "check",
     iconClasses: "text-green-600",

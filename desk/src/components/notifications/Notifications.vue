@@ -13,7 +13,7 @@
     <div
       class="sticky top-0 z-10 flex items-center justify-between border-b bg-white px-5 py-2.5"
     >
-      <span class="text-lg font-medium">Notifications</span>
+      <span class="text-lg font-medium">{{ __('Notifications') }}</span>
       <span>
         <Button
           theme="blue"
@@ -56,13 +56,13 @@
                 n.user_from.name
               }}</span>
               <span v-if="n.notification_type === 'Mention'"
-                >mentioned you in ticket</span
+                >{{ __('mentioned you in ticket') }}</span
               >
               <span v-if="n.notification_type === 'Assignment'"
-                >assigned you a ticket</span
+                >{{ __('assigned you a ticket') }}</span
               >
               <span v-if="n.notification_type === 'Reaction'"
-                >has reopened the ticket</span
+                >{{ __('has reopened the ticket') }}</span
               >
               <span class="font-medium text-gray-900">{{
                 n.reference_ticket

@@ -7,7 +7,7 @@
         </span>
         <span> added a</span>
         <span class="max-w-xs truncate font-medium text-gray-800">
-          comment
+          {{ __('comment') }}
         </span>
         <span class="px-1">&middot;</span>
         <Tooltip :text="dateFormat(creation, dateTooltipFormat)">
@@ -18,7 +18,7 @@
       </div>
       <div v-if="authStore.userId === commentedBy" class="px-4">
         <Dropdown
-          :options="[{ label: 'Delete', onClick: () => (showDialog = true) }]"
+          :options="[{ label: __('Delete'), onClick: () => (showDialog = true) }]"
         >
           <Button
             icon="more-horizontal"
@@ -36,12 +36,12 @@
   <Dialog
     v-model="showDialog"
     :options="{
-      title: 'Delete Comment',
-      message: 'Are you sure you want to confirm this action?',
+      title: __('Delete Comment'),
+      message: __('Are you sure you want to confirm this action?'),
       actions: [
-        { label: 'Cancel', onClick: () => (showDialog = false) },
+        { label: __('Cancel'), onClick: () => (showDialog = false) },
         {
-          label: 'Delete',
+          label: __('Delete'),
           onClick: () => deleteComment.submit(),
           variant: 'solid',
         },
@@ -78,7 +78,7 @@ const deleteComment = createResource({
   onSuccess() {
     emit("update");
     createToast({
-      title: "Comment deleted",
+      title: __("Comment deleted"),
       icon: "check",
       iconClasses: "text-green-500",
     });

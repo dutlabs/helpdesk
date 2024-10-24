@@ -4,7 +4,7 @@
     <div role="heading" aria-level="1" class="flex flex-col gap-1">
       <h5 class="text-lg font-semibold">Setup Email</h5>
       <p class="text-sm text-gray-600">
-        Choose the email service provider you want to configure.
+       {{ __('Choose the email service provider you want to configure.') }}
       </p>
     </div>
     <!-- email service provider selection -->
@@ -77,14 +77,14 @@
     <!-- action button -->
     <div v-if="selectedService" class="mt-auto flex justify-between">
       <Button
-        label="Back"
+        :label="__('Back')"
         theme="gray"
         variant="outline"
         :disabled="addEmailRes.loading"
         @click="emit('update:step', 'email-list')"
       />
       <Button
-        label="Create"
+        :label="__('Create')"
         variant="solid"
         :loading="addEmailRes.loading"
         @click="createEmailAccount"
@@ -146,14 +146,14 @@ const addEmailRes = createResource({
   },
   onSuccess: () => {
     createToast({
-      title: "Email account created successfully",
+      title: __("Email account created successfully"),
       icon: "check",
       iconClasses: "text-green-600",
     });
     emit("update:step", "email-list");
   },
   onError: () => {
-    error.value = "Failed to create email account, Invalid credentials";
+    error.value = __("Failed to create email account, Invalid credentials");
   },
 });
 

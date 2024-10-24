@@ -1,7 +1,7 @@
 <template>
   <NestedPopover>
     <template #target>
-      <Button label="Columns">
+      <Button :label="__('Columns')">
         <template v-if="hideLabel">
           <ColumnsIcon class="h-4" />
         </template>
@@ -58,7 +58,7 @@
                 <Button
                   class="w-full !justify-start !text-gray-600"
                   variant="ghost"
-                  label="Add Column"
+                  :label="__('Add Column')"
                   @click="togglePopover()"
                 >
                   <template #prefix>
@@ -88,31 +88,31 @@
                 v-model="column.label"
                 type="text"
                 size="md"
-                label="Label"
+                :label="__('Label')"
                 class="w-full"
-                placeholder="Column Label"
+                :placeholder="__('Column Label')"
               />
               <FormControl
                 v-model="column.width"
                 type="text"
                 size="md"
-                label="Width"
+                :label="__('Width')"
                 class="w-full"
-                placeholder="Column Width"
-                description="Width can be in number, pixel or rem (eg. 3, 30px, 10rem)"
+                :placeholder="__('Column Width')"
+                :description="__('Width can be in number, pixel or rem (eg. 3, 30px, 10rem)')"
                 :debounce="500"
               />
             </div>
             <div class="flex w-full gap-2 border-t pt-2">
               <Button
                 variant="subtle"
-                label="Cancel"
+                :label="__('Cancel')"
                 class="w-full flex-1"
                 @click="cancelUpdate"
               />
               <Button
                 variant="solid"
-                label="Update"
+                :label="__('Update')"
                 class="w-full flex-1"
                 @click="update"
               />

@@ -1,7 +1,7 @@
 <template>
   <NestedPopover>
     <template #target>
-      <Button ref="sortButtonRef" label="Sort">
+      <Button ref="sortButtonRef" :label="__('Sort')">
         <template v-if="hideLabel">
           <SortIcon class="h-4" />
         </template>
@@ -34,7 +34,7 @@
                 class="!w-32"
                 :value="sort.fieldname"
                 :options="sortableFields"
-                placeholder="Sort by"
+                :placeholder="__('Sort by')"
                 @change="(field) => updateSort(i, field)"
               />
               <FormControl
@@ -45,7 +45,7 @@
                   { label: 'Ascending', value: 'asc' },
                   { label: 'Descending', value: 'desc' },
                 ]"
-                placeholder="Sort by"
+                :placeholder="__('Sort by')"
                 @change="(e) => updateSort(i, null, e.target.value)"
               />
               <Button variant="ghost" icon="x" @click="removeSort(i)" />
@@ -55,20 +55,20 @@
             v-else
             class="mb-3 flex h-7 items-center px-3 text-sm text-gray-600"
           >
-            Empty - Choose a field to sort by
+            {{ __('Empty - Choose a field to sort by') }}
           </div>
           <div class="flex items-center justify-between gap-2">
             <Autocomplete
               :options="sortableFields"
               value=""
-              placeholder="Sort by"
+              :placeholder="__('Sort by')"
               @change="(e) => setSort(e)"
             >
               <template #target="{ togglePopover }">
                 <Button
                   class="!text-gray-600"
                   variant="ghost"
-                  label="Add Sort"
+                  :label="__('Add Sort')"
                   @click="togglePopover()"
                 >
                   <template #prefix>
@@ -81,7 +81,7 @@
               v-if="sorts?.length"
               class="!text-gray-600"
               variant="ghost"
-              label="Clear Sort"
+              :label="__('Clear Sort')"
               @click="clearSort(close)"
             />
           </div>

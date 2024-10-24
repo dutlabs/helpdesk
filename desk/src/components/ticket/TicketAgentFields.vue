@@ -34,7 +34,7 @@
           v-else
           class="form-control"
           :options="o.store.dropdown"
-          :placeholder="`Add ${o.label}`"
+          :placeholder="__('Add {0}', [o.label])"
           :value="ticket[o.field]"
           @change="update(o.field, $event.value)"
         />
@@ -88,30 +88,30 @@ const options = computed(() => {
   return [
     {
       field: "ticket_type",
-      label: "Ticket type",
+      label: __("Ticket type"),
       store: useTicketTypeStore(),
     },
     {
       field: "priority",
-      label: "Priority",
+      label: __("Priority"),
       store: useTicketPriorityStore(),
     },
     {
       field: "agent_group",
-      label: "Team",
+      label: __("Team"),
       store: useTeamStore(),
     },
     {
       field: "customer",
-      label: "Customer",
+      label: __("Customer"),
       type: "select",
-      placeholder: "Select Customer",
+      placeholder: __("Select Customer"),
     },
     {
       field: "subject",
-      label: "Subject",
+      label: __("Subject"),
       type: "textarea",
-      placeholder: "Problem in XYZ",
+      placeholder: __("Problem in XYZ"),
     },
   ];
 });
@@ -127,7 +127,7 @@ const customFields = computed(() => {
 function update(field: Field["fieldname"], value: FieldValue, event = null) {
   if (field === "subject" && value === "") {
     createToast({
-      title: "Subject is required",
+      title: __("Subject is required"),
       icon: "x",
       iconClasses: "text-red-600",
     });

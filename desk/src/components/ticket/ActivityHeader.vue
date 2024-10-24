@@ -13,7 +13,7 @@
       <template #prefix>
         <FeatherIcon name="plus" class="h-4 w-4" />
       </template>
-      <span>{{ "New Email" }}</span>
+      <span>{{ __("New Email") }}</span>
     </Button>
     <Button
       v-else-if="title == 'Comments'"
@@ -23,7 +23,7 @@
       <template #prefix>
         <FeatherIcon name="plus" class="h-4 w-4" />
       </template>
-      <span>{{ "New Comment" }}</span>
+      <span>{{ __("New Comment") }}</span>
     </Button>
     <Dropdown v-else :options="defaultActions" @click.stop>
       <template v-slot="{ open }">
@@ -31,7 +31,7 @@
           <template #prefix>
             <FeatherIcon name="plus" class="h-4 w-4" />
           </template>
-          <span>{{ "New" }}</span>
+          <span>{{ __("New") }}</span>
           <template #suffix>
             <FeatherIcon
               :name="open ? 'chevron-up' : 'chevron-down'"
@@ -64,12 +64,12 @@ const defaultActions = computed(() => {
   let actions = [
     {
       icon: h(EmailIcon, { class: "h-4 w-4" }),
-      label: "New Email",
+      label: __("New Email"),
       onClick: () => communicationAreaRef.value.toggleEmailBox(),
     },
     {
       icon: h(CommentIcon, { class: "h-4 w-4" }),
-      label: "New Comment",
+      label: __("New Comment"),
       onClick: () => communicationAreaRef.value.toggleCommentBox(),
     },
   ];

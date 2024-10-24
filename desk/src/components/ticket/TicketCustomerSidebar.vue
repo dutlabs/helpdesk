@@ -2,7 +2,7 @@
   <div class="flex w-[382px] flex-col border-l gap-4">
     <!-- Ticket ID -->
     <div class="flex items-center justify-between border-b px-5 py-3">
-      <span class="cursor-copy text-lg font-semibold">Ticket details</span>
+      <span class="cursor-copy text-lg font-semibold">{{ __('Ticket details') }}</span>
     </div>
     <!-- user info and sla info -->
     <div class="flex flex-col gap-4 pt-0 px-5 py-3 border-b">
@@ -92,13 +92,13 @@ const slaData = computed(() => {
   const resolution = resolutionData();
   return [
     {
-      title: "First Response",
+      title: __("First Response"),
       value: ticket.data.first_responded_on || ticket.data.response_by,
       label: firstResponse.label,
       theme: firstResponse.color,
     },
     {
-      title: "Resolution",
+      title: __("Resolution"),
       value: ticket.data.resolution_date || ticket.data.resolution_by,
       label: resolution.label,
       theme: resolution.color,
@@ -113,9 +113,7 @@ function firstResponseData() {
     dayjs().isBefore(dayjs(ticket.data.response_by))
   ) {
     firstResponse = {
-      label: `Due in ${formatTime(
-        dayjs(ticket.data.response_by).diff(dayjs(), "s")
-      )}`,
+      label: __("Due in {0}", [formatTime(dayjs(ticket.data.response_by).diff(dayjs(), "s"))]),
       color: "orange",
     };
   } else if (
@@ -124,17 +122,12 @@ function firstResponseData() {
     )
   ) {
     firstResponse = {
-      label: `Fulfilled in ${formatTime(
-        dayjs(ticket.data.first_responded_on).diff(
-          dayjs(ticket.data.creation),
-          "s"
-        )
-      )}`,
+      label: __("Fulfilled in {0}", formatTime(dayjs(ticket.data.first_responded_on).diff(dayjs(ticket.data.creation), "s"))),
       color: "green",
     };
   } else {
     firstResponse = {
-      label: "Failed",
+      label: __("Failed"),
       color: "red",
     };
   }
@@ -148,26 +141,19 @@ function resolutionData() {
     dayjs().isBefore(ticket.data.resolution_by)
   ) {
     resolution = {
-      label: `Due in ${formatTime(
-        dayjs(ticket.data.resolution_by).diff(dayjs(), "s")
-      )}`,
+      label: __("Due in {0}", [formatTime(dayjs(ticket.data.resolution_by).diff(dayjs(), "s"))]),
       color: "orange",
     };
   } else if (
     dayjs(ticket.data.resolution_date).isBefore(ticket.data.resolution_by)
   ) {
     resolution = {
-      label: `Fulfilled in ${formatTime(
-        dayjs(ticket.data.resolution_date).diff(
-          dayjs(ticket.data.creation),
-          "s"
-        )
-      )}`,
+      label: __("Fulfilled in {0}", [formatTime(dayjs(ticket.data.resolution_date).diff(dayjs(ticket.data.creation), "s"))]),
       color: "green",
     };
   } else {
     resolution = {
-      label: "Failed",
+      label: __("Failed"),
       color: "red",
     };
   }
@@ -176,11 +162,11 @@ function resolutionData() {
 
 const ticketBasicInfo = computed(() => [
   {
-    label: "Ticket ID",
+    label: __("Ticket ID"),
     value: ticket.data.name,
   },
   {
-    label: "Status",
+    label: __("Status"),
     value: transformStatus(ticket.data.status),
     bold: true,
   },
@@ -189,15 +175,15 @@ const ticketBasicInfo = computed(() => [
 const ticketAdditionalInfo = computed(() => {
   const fields = [
     {
-      label: "Subject",
+      label: __("Subject"),
       value: ticket.data.subject,
     },
     {
-      label: "Team",
+      label: __("Team"),
       value: ticket.data.agent_group || "-",
     },
     {
-      label: "Priority",
+      label: __("Priority"),
       value: ticket.data.priority,
     },
   ];

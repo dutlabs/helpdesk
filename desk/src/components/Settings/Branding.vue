@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-4">
-    <h1 class="text-lg font-semibold">Customise your Helpdesk</h1>
+    <h1 class="text-lg font-semibold">{{ __('Customise your Helpdesk') }}</h1>
 
     <!-- Brand Logo & Favicon -->
     <div v-for="config in brandingConfig" class="flex flex-col gap-2">
@@ -24,7 +24,7 @@
             <Button
               @click="openFileSelector()"
               iconLeft="upload"
-              label="Upload Image"
+              :label="__('Upload Image')"
               :loading="config.loading"
             />
           </template>
@@ -32,7 +32,7 @@
 
         <div v-else>
           <Button
-            label="Remove"
+            :label="__('Remove')"
             @click="update('', config.doctype, config.fieldname)"
             iconLeft="trash"
             :loading="config.loading"
@@ -76,14 +76,14 @@ const loadingState = reactive({
 
 const brandingConfig = computed(() => [
   {
-    title: "Brand Logo",
+    title: __("Brand Logo"),
     image: state.brandLogo,
     doctype: "HD Settings",
     fieldname: "brand_logo",
     loading: loadingState.logoLoading,
   },
   {
-    title: "Brand Favicon",
+    title: __("Brand Favicon"),
     image: state.brandFavicon,
     doctype: "Website Settings",
     fieldname: "favicon",
@@ -103,7 +103,7 @@ const settingsResource = createResource({
   },
   onError() {
     createToast({
-      title: "Failed to update, please try again",
+      title: __("Failed to update, please try again"),
       icon: "x",
       iconClasses: "text-red-600",
     });
@@ -129,7 +129,7 @@ function handleLogoChange(url: string) {
   loadingState.logoLoading = false;
 
   createToast({
-    title: "Brand Logo Updated",
+    title: __("Brand Logo Updated"),
     icon: "check",
     iconClasses: "text-green-600",
   });
@@ -140,8 +140,8 @@ function handleFaviconChange(url: string) {
   loadingState.faviconLoading = false;
 
   createToast({
-    title: "Favicon Updated",
-    text: "Please refresh the page to see the changes",
+    title: __("Favicon Updated"),
+    text: __("Please refresh the page to see the changes"),
     icon: "check",
     iconClasses: "text-green-600",
   });

@@ -12,7 +12,7 @@
       </div>
     </Tooltip>
   </div>
-  <div v-if="show_others && content !== 'created this ticket'">
+  <div v-if="show_others && content !== __('created this ticket')">
     <div
       v-for="relatedActivity in relatedActivities"
       :key="relatedActivity.creation"
@@ -32,7 +32,7 @@
     </div>
   </div>
   <Button
-    v-if="relatedActivities.length && content !== 'created this ticket'"
+    v-if="relatedActivities.length && content !== __('created this ticket')"
     :label="
       show_others ? 'Hide' : `${relatedActivities.length} other activities`
     "

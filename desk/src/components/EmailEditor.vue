@@ -18,7 +18,7 @@
           v-model="toEmailsClone"
           class="flex-1"
           :validate="validateEmail"
-          :error-message="(value) => `${value} is an invalid email address`"
+          :error-message="(value) => __('{0} is an invalid email address', [value])"
         />
         <Button
           :label="'CC'"
@@ -42,7 +42,7 @@
           v-model="ccEmailsClone"
           class="flex-1"
           :validate="validateEmail"
-          :error-message="(value) => `${value} is an invalid email address`"
+          :error-message="(value) => __('{0} is an invalid email address', [value])"
         />
       </div>
       <div
@@ -56,7 +56,7 @@
           v-model="bccEmailsClone"
           class="flex-1"
           :validate="validateEmail"
-          :error-message="(value) => `${value} is an invalid email address`"
+          :error-message="(value) => __('{0} is an invalid email address', [value])"
         />
       </div>
     </template>
@@ -287,26 +287,26 @@ function addToReply(
 }
 
 const textEditorMenuButtons = [
-  "Paragraph",
-  ["Heading 2", "Heading 3", "Heading 4", "Heading 5", "Heading 6"],
-  "Separator",
-  "Bold",
-  "Italic",
-  "Separator",
-  "Bullet List",
-  "Numbered List",
-  "Separator",
-  "Align Left",
-  "Align Center",
-  "Align Right",
-  "FontColor",
-  "Separator",
-  "Image",
-  "Video",
-  "Link",
-  "Blockquote",
-  "Code",
-  "Horizontal Rule",
+  __("Paragraph"),
+  [__("Heading 2"), __("Heading 3"), __("Heading 4"), __("Heading 5"), __("Heading 6")],
+  __("Separator"),
+  __("Bold"),
+  __("Italic"),
+  __("Separator"),
+  __("Bullet List"),
+  __("Numbered List"),
+  __("Separator"),
+  __("Align Left"),
+  __("Align Center"),
+  __("Align Right"),
+  __("Font Color"),
+  __("Separator"),
+  __("Image"),
+  __("Video"),
+  __("Link"),
+  __("Blockquote"),
+  __("Code"),
+  __("Horizontal Rule"),
   [
     "InsertTable",
     "AddColumnBefore",

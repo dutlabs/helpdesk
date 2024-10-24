@@ -66,19 +66,17 @@ const firstResponseBadge = computed(() => {
   let firstResponse = null;
   if (!props.firstRespondedOn && dayjs().isBefore(dayjs(props.responseBy))) {
     firstResponse = {
-      label: `Due in ${formatTime(dayjs(props.responseBy).diff(dayjs(), "s"))}`,
+      label: __("Due in {0}", [formatTime(dayjs(props.responseBy).diff(dayjs(), "s"))]),
       color: "orange",
     };
   } else if (dayjs(props.firstRespondedOn).isBefore(dayjs(props.responseBy))) {
     firstResponse = {
-      label: `Fulfilled in ${formatTime(
-        dayjs(props.firstRespondedOn).diff(dayjs(props.ticketCreatedOn), "s")
-      )}`,
+      label: __("Fulfilled in {0}", [formatTime(dayjs(props.firstRespondedOn).diff(dayjs(props.ticketCreatedOn), "s"))]),
       color: "green",
     };
   } else {
     firstResponse = {
-      label: "Failed",
+      label: __("Failed"),
       color: "red",
     };
   }
@@ -89,21 +87,17 @@ const resolutionBadge = computed(() => {
   let resolution = null;
   if (!props.resolutionDate && dayjs().isBefore(props.resolutionBy)) {
     resolution = {
-      label: `Due in ${formatTime(
-        dayjs(props.resolutionBy).diff(dayjs(), "s")
-      )}`,
+      label: __("Due in {0}", [formatTime(dayjs(props.resolutionBy).diff(dayjs(), "s"))]),
       color: "orange",
     };
   } else if (dayjs(props.resolutionDate).isBefore(props.resolutionBy)) {
     resolution = {
-      label: `Fulfilled in ${formatTime(
-        dayjs(props.resolutionDate).diff(dayjs(props.ticketCreatedOn), "s")
-      )}`,
+      label: __("Fulfilled in {0}", [formatTime(dayjs(props.resolutionDate).diff(dayjs(props.ticketCreatedOn), "s"))]),
       color: "green",
     };
   } else {
     resolution = {
-      label: "Failed",
+      label: __("Failed"),
       color: "red",
     };
   }
@@ -112,7 +106,7 @@ const resolutionBadge = computed(() => {
 
 const sections = computed(() => [
   {
-    label: "First Response",
+    label: __("First Response"),
     tooltipValue: dateFormat(
       props.firstRespondedOn || props.responseBy,
       dateTooltipFormat
@@ -121,7 +115,7 @@ const sections = computed(() => [
     badgeColor: firstResponseBadge.value.color,
   },
   {
-    label: "Resolution",
+    label: __("Resolution"),
     tooltipValue: dateFormat(
       props.resolutionDate || props.resolutionBy,
       dateTooltipFormat
@@ -130,7 +124,7 @@ const sections = computed(() => [
     badgeColor: resolutionBadge.value.color,
   },
   {
-    label: "Source",
+    label: __("Source"),
     value: props.source,
   },
 ]);

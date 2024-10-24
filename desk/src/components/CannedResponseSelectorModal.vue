@@ -1,11 +1,11 @@
 <template>
-  <Dialog v-model="show" :options="{ title: 'Canned Responses', size: '4xl' }">
+  <Dialog v-model="show" :options="{ title: __('Canned Responses'), size: '4xl' }">
     <template #body-content>
       <TextInput
         ref="searchInput"
         v-model="search"
         type="text"
-        :placeholder="'Site Down'"
+        :placeholder="__('Site Down')"
       >
         <template #prefix>
           <FeatherIcon name="search" class="h-4 w-4 text-gray-500" />
@@ -36,7 +36,7 @@
       <div v-else class="mt-2">
         <div class="flex h-56 flex-col items-center justify-center">
           <div class="text-lg text-gray-500">
-            {{ "No templates found" }}
+            {{ __("No templates found") }}
           </div>
         </div>
       </div>

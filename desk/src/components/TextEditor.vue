@@ -34,7 +34,7 @@
             </div>
             <div class="flex items-center gap-2">
               <Button
-                label="Discard"
+                :label="__('Discard')"
                 theme="gray"
                 variant="subtle"
                 @click="
@@ -78,15 +78,15 @@ const e = ref(null);
 const editor = computed(() => e.value.editor);
 const authStore = useAuthStore();
 const fixedMenu = [
-  "Paragraph",
-  ["Heading 2", "Heading 3", "Heading 4", "Heading 5"],
-  "Bullet List",
-  "Numbered List",
-  "Image",
-  "Video",
-  "Link",
-  "Blockquote",
-  "Code",
+  __("Paragraph"),
+  [__("Heading 2"), __("Heading 3"), __("Heading 4"), __("Heading 5")],
+  __("Bullet List"),
+  __("Numbered List"),
+  __("Image"),
+  __("Video"),
+  __("Link"),
+  __("Blockquote"),
+  __("Code"),
 ];
 
 defineExpose({

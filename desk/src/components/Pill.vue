@@ -17,7 +17,7 @@ import IconX from "~icons/lucide/x";
 defineProps({
   label: {
     type: String,
-    default: "Button",
+    default: __("Button"),
     require: true,
   },
   disabled: {

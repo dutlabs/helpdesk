@@ -48,7 +48,7 @@ const router = useRouter();
 const articleSubTitle = computed(
   () =>
     props.article.subtitle ||
-    "This article helps you understand the topic effectively."
+    __("This article helps you understand the topic effectively.")
 );
 
 const articleImg = computed(

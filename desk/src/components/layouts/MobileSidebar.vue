@@ -20,7 +20,7 @@
             <div class="mb-3 flex flex-col">
               <SidebarLink
                 class="relative"
-                label="Notifications"
+                :label="__('Notifications')"
                 :icon="LucideBell"
                 :on-click="() => (sidebarOpened = false)"
                 :is-expanded="true"
@@ -106,7 +106,7 @@ const menuOptions = computed(() => {
 
 const customerPortalDropdown = computed(() => [
   {
-    label: "Log out",
+    label: __("Log out"),
     icon: "log-out",
     onClick: () => authStore.logout(),
   },
@@ -117,7 +117,7 @@ const agentPortalDropdown = computed(() => [
     component: markRaw(Apps),
   },
   {
-    label: "Customer portal",
+    label: __("Customer portal"),
     icon: "users",
     onClick: () => {
       const path = router.resolve({ name: CUSTOMER_PORTAL_LANDING });
@@ -126,16 +126,16 @@ const agentPortalDropdown = computed(() => [
   },
   {
     icon: "life-buoy",
-    label: "Support",
+    label: __("Support"),
     onClick: () => window.open("https://t.me/frappedesk"),
   },
   {
     icon: "book-open",
-    label: "Docs",
+    label: __("Docs"),
     onClick: () => window.open("https://docs.frappe.io/helpdesk"),
   },
   {
-    label: "Log out",
+    label: __("Log out"),
     icon: "log-out",
     onClick: () => authStore.logout(),
   },

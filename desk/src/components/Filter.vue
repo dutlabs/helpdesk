@@ -1,7 +1,7 @@
 <template>
   <NestedPopover>
     <template #target>
-      <Button label="Filter" :class="filters?.length ? 'rounded-r-none' : ''">
+      <Button :label="__('Filter')" :class="filters?.length ? 'rounded-r-none' : ''">
         <template #prefix>
           <FilterIcon class="h-4" />
         </template>
@@ -13,7 +13,7 @@
           </div>
         </template>
       </Button>
-      <Tooltip v-if="filters?.length" :text="'Clear all Filter'">
+      <Tooltip v-if="filters?.length" :text="__('Clear all Filter')">
         <Button
           class="rounded-l-none border-l"
           icon="x"
@@ -45,7 +45,7 @@
                   <Autocomplete
                     :value="filter.field.fieldname"
                     :options="filterableFields"
-                    placeholder="Filter by..."
+                    :placeholder="__('Filter by...')"
                     @change="(field) => updateFilter(idx, field)"
                   />
                 </div>
@@ -54,7 +54,7 @@
                     v-model="filter.operator"
                     type="select"
                     :options="getOperators(filter.field.fieldtype)"
-                    placeholder="Operator"
+                    :placeholder="__('Operator')"
                     @change="
                       (e) => updateFilter(idx, null, null, e.target.value)
                     "
@@ -74,7 +74,7 @@
                     "
                     v-else
                     v-model="filter.value"
-                    placeholder="Value"
+                    :placeholder="__('Value')"
                     @change="(e) => updateFilter(idx, null, e.target.value)"
                   />
                 </div>
@@ -87,7 +87,7 @@
                   <Autocomplete
                     :value="filter.field.fieldname"
                     :options="filterableFields"
-                    placeholder="Filter by..."
+                    :placeholder="__('Filter by...')"
                     @change="(field) => updateFilter(idx, field)"
                   />
                 </div>
@@ -96,7 +96,7 @@
                     v-model="filter.operator"
                     type="select"
                     :options="getOperators(filter.field.fieldtype)"
-                    placeholder="Operator"
+                    :placeholder="__('Operator')"
                     @change="
                       (e) => updateFilter(idx, null, null, e.target.value)
                     "
@@ -116,7 +116,7 @@
                     "
                     v-else
                     v-model="filter.value"
-                    placeholder="Value"
+                    :placeholder="__('Value')"
                     @change="(e) => updateFilter(idx, null, e.target.value)"
                   />
                 </div>
@@ -128,20 +128,20 @@
             v-else
             class="mb-3 flex h-7 items-center px-3 text-sm text-gray-600"
           >
-            Empty - Choose a field to filter by
+            {{ __('Empty - Choose a field to filter by') }}
           </div>
           <div class="flex items-center justify-between gap-2">
             <Autocomplete
               value=""
               :options="filterableFields"
-              placeholder="Filter by..."
+              :placeholder="__('Filter by...')"
               @change="(e) => setfilter(e)"
             >
               <template #target="{ togglePopover }">
                 <Button
                   class="!text-gray-600"
                   variant="ghost"
-                  label="Add filter"
+                  :label="__('Add filter')"
                   @click="() => togglePopover()"
                 >
                   <template #prefix>
@@ -154,7 +154,7 @@
               v-if="filters.length"
               class="!text-gray-600"
               variant="ghost"
-              label="Clear all filter"
+              :label="__('Clear all filter')"
               @click="() => clearfilter(close)"
             />
           </div>
@@ -313,10 +313,10 @@ function getOperators(fieldtype: string) {
   if (typeString.includes(fieldtype)) {
     options.push(
       ...[
-        { label: "Equals", value: "equals" },
-        { label: "Not Equals", value: "not equals" },
-        { label: "Like", value: "like" },
-        { label: "Not Like", value: "not like" },
+        { label: __("Equals"), value: "equals" },
+        { label: __("Not Equals"), value: "not equals" },
+        { label: __("Like"), value: "like" },
+        { label: __("Not Like"), value: "not like" },
       ]
     );
   }
@@ -327,16 +327,16 @@ function getOperators(fieldtype: string) {
         { label: ">", value: ">" },
         { label: "<=", value: "<=" },
         { label: ">=", value: ">=" },
-        { label: "Equals", value: "equals" },
-        { label: "Not Equals", value: "not equals" },
+        { label: __("Equals"), value: "equals" },
+        { label: __("Not Equals"), value: "not equals" },
       ]
     );
   }
   if (typeSelect.includes(fieldtype) || typeLink.includes(fieldtype)) {
     options.push(
       ...[
-        { label: "Is", value: "is" },
-        { label: "Is Not", value: "is not" },
+        { label: __("Is"), value: "is" },
+        { label: __("Is Not"), value: "is not" },
       ]
     );
   }
@@ -359,8 +359,8 @@ function getValSelect(fieldtype: string, options: string) {
     return h(FormControl, {
       type: "select",
       options: [
-        { label: "Yes", value: 1 },
-        { label: "No", value: 0 },
+        { label: __("Yes"), value: 1 },
+        { label: __("No"), value: 0 },
       ],
     });
   } else {

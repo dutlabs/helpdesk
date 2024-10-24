@@ -54,12 +54,12 @@
       <span>{{ emptyText }}</span>
       <Button
         v-if="title == 'Emails'"
-        label="New Email"
+        :label="__('New Email')"
         @click="communicationAreaRef.toggleEmailBox()"
       />
       <Button
         v-else-if="title == 'Comments'"
-        label="New Comment"
+        :label="__('New Comment')"
         @click="communicationAreaRef.toggleCommentBox()"
       />
     </div>
@@ -97,11 +97,11 @@ const emit = defineEmits(["email:reply", "update"]);
 const communicationAreaRef: Ref = inject("communicationArea");
 
 const emptyText = computed(() => {
-  let text = "No Activities";
+  let text = __("No Activities");
   if (props.title == "Emails") {
-    text = "No Email Communications";
+    text = __("No Email Communications");
   } else if (props.title == "Comments") {
-    text = "No Comments";
+    text = __("No Comments");
     return text;
   }
 });

@@ -62,7 +62,7 @@
           </div>
           <div class="mt-2 flex items-center justify-end space-x-2 sm:mt-0">
             <Button
-              label="Discard"
+              :label="__('Discard')"
               @click="
                 () => {
                   newComment = '';
@@ -72,7 +72,7 @@
             />
             <Button
               variant="solid"
-              label="Submit"
+              :label="__('Submit')"
               :disabled="commentEmpty"
               :loading="loading"
               @click="
@@ -163,26 +163,26 @@ async function submitComment() {
 }
 
 const textEditorMenuButtons = [
-  "Paragraph",
-  ["Heading 2", "Heading 3", "Heading 4", "Heading 5", "Heading 6"],
-  "Separator",
-  "Bold",
-  "Italic",
-  "Separator",
-  "Bullet List",
-  "Numbered List",
-  "Separator",
-  "Align Left",
-  "Align Center",
-  "Align Right",
-  "FontColor",
-  "Separator",
-  "Image",
-  "Video",
-  "Link",
-  "Blockquote",
-  "Code",
-  "Horizontal Rule",
+  __("Paragraph"),
+  [__("Heading 2"), __("Heading 3"), __("Heading 4"), __("Heading 5"), __("Heading 6")],
+  __("Separator"),
+  __("Bold"),
+  __("Italic"),
+  __("Separator"),
+  __("Bullet List"),
+  __("Numbered List"),
+  __("Separator"),
+  __("Align Left"),
+  __("Align Center"),
+  __("Align Right"),
+  __("Font Color"),
+  __("Separator"),
+  __("Image"),
+  __("Video"),
+  __("Link"),
+  __("Blockquote"),
+  __("Code"),
+  __("Horizontal Rule"),
   [
     "InsertTable",
     "AddColumnBefore",
