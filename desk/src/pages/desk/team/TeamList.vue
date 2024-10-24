@@ -34,7 +34,7 @@
           <FormControl
             v-model="newTeamTitle"
             :label="__('Title')"
-            :placeholder="__(Product experts)"
+            :placeholder="__('Product experts')"
             type="text"
           />
           <Button
