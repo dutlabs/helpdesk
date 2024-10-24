@@ -3,7 +3,7 @@
     <div class="text-gray-700">
       {{ help }}
     </div>
-    <Button label="Let's go!" variant="outline" class="w-max" @click="next" />
+    <Button :label="__(`Let's go!`)" variant="outline" class="w-max" @click="next" />
   </div>
 </template>
 
