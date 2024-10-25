@@ -27,7 +27,7 @@
               >
                 <div class="flex items-center gap-2">
                   <DragIcon class="h-3.5" />
-                  <div>{{ element.label }}</div>
+                  <div>{{ __(element.label) }}</div>
                 </div>
                 <div class="flex cursor-pointer items-center gap-1">
                   <Button
@@ -70,7 +70,7 @@
             <Button
               class="w-full !justify-start !text-gray-600"
               variant="ghost"
-              label="Reset to Default"
+              :label="__('Reset to Default')"
               @click="resetToDefault(close)"
             >
               <template #prefix>
