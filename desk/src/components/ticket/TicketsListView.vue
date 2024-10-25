@@ -133,7 +133,7 @@
       class="flex flex-col items-center gap-3 text-xl font-medium text-gray-500"
     >
       <TicketIcon class="h-10 w-10" />
-      <span>No Tickets Found</span>
+      <span>{{ __('No Tickets Found' )}}</span>
     </div>
   </div>
   <ListFooter
