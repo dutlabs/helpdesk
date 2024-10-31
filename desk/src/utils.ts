@@ -1,4 +1,11 @@
-import { useClipboard, useDateFormat, useTimeAgo } from "@vueuse/core";
+import {
+  useClipboard,
+  useDateFormat,
+  useTimeAgo,
+  UseTimeAgoMessages,
+  UseTimeAgoUnitNamesDefault,
+} from "@vueuse/core";
+import { useI18n } from "vue-i18n";
 import { toast } from "frappe-ui";
 import zod from "zod";
 /**
@@ -57,7 +64,46 @@ export function dateFormat(date, format) {
 }
 
 export function timeAgo(date) {
-  return useTimeAgo(date).value;
+  const { t } = useI18n();
+
+  const I18N_MESSAGES: UseTimeAgoMessages<UseTimeAgoUnitNamesDefault> = {
+    justNow: t("timeAgo.just-now"),
+    past: (n) => (RegExp(/\d/).exec(n) ? t("timeAgo.ago", [n]) : n),
+    future: (n) => (RegExp(/\d/).exec(n) ? t("timeAgo.in", [n]) : n),
+    month: (n, past) => {
+      if (n === 1) {
+        return past ? t("timeAgo.last-month") : t("timeAgo.next-month");
+      }
+      return n + " " + t("timeAgo.month", n);
+    },
+    year: (n, past) => {
+      if (n === 1) {
+        return past ? t("timeAgo.last-year") : t("timeAgo.next-year");
+      }
+      return n + " " + t("timeAgo.year", n);
+    },
+    day: (n, past) => {
+      if (n === 1) {
+        return past ? t("timeAgo.yesterday") : t("timeAgo.tomorrow");
+      }
+      return n + " " + t("timeAgo.day", n);
+    },
+    week: (n, past) => {
+      if (n === 1) {
+        return past ? t("timeAgo.last-week") : t("timeAgo.next-week");
+      }
+      return n + " " + t("timeAgo.week", n);
+    },
+    hour: (n) => `${n} ${t("timeAgo.hour", n)}`,
+    minute: (n) => `${n} ${t("timeAgo.minute", n)}`,
+    second: (n) => n + " " + t("timeAgo.second", n),
+    invalid: "",
+  };
+
+  return useTimeAgo(date, {
+    fullDateFormatter: (date) => date.toLocaleDateString(),
+    messages: I18N_MESSAGES,
+  }).value;
 }
 
 export const dateTooltipFormat = "ddd, MMM D, YYYY h:mm A";
