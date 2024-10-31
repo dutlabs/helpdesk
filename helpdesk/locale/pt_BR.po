@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helpdesk VERSION\n"
 "Report-Msgid-Bugs-To: hello@frappe.io\n"
-"POT-Creation-Date: 2024-10-30 16:41-0506\n"
-"PO-Revision-Date: 2024-10-28 17:12-2454\n"
+"POT-Creation-Date: 2024-10-31 09:41-0506\n"
+"PO-Revision-Date: 2024-10-28 17:12-2706\n"
 "Last-Translator: hello@frappe.io\n"
 "Language-Team: hello@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "Um breve guia"
 msgid "A favicon enhances your website by providing a small, recognizable icon that appears in browser tabs. It improves brand recognition, adds professionalism, aids navigation, establishes trust, and maintains brand consistency"
 msgstr "Um favicon melhora o seu site ao fornecer um pequeno ícone reconhecível que aparece nas abas do navegador. Ele aumenta o reconhecimento da marca, adiciona profissionalismo, facilita a navegação, estabelece confiança e mantém a consistência da marca."
 
-#: desk/src/pages/TicketNew.vue:35
+#: desk/src/pages/TicketNew.vue:39
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:74
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategoryNew.vue:24
 msgid "A short description"
@@ -100,7 +100,7 @@ msgstr "Ação a ser realizada ao clicar no botão. O documento estará disponí
 msgid "Actions"
 msgstr "Ações"
 
-#: desk/src/pages/MobileTicketAgent.vue:301 desk/src/pages/TicketAgent.vue:251
+#: desk/src/pages/MobileTicketAgent.vue:301 desk/src/pages/TicketAgent.vue:253
 msgid "Activity"
 msgstr "Atividade"
 
@@ -215,6 +215,10 @@ msgstr "Agente {0} não pertence à equipe {1}"
 msgid "Agents"
 msgstr "Agentes"
 
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:766
+msgid "Agreement status"
+msgstr "Status de acordo"
+
 #: desk/src/components/CommentTextEditor.vue:176
 #: desk/src/components/EmailEditor.vue:300
 #: desk/src/pages/KnowledgeBaseArticle.vue:364
@@ -247,7 +251,7 @@ msgstr "Alinhar à direita"
 msgid "All"
 msgstr "Tudo"
 
-#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:52
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:54
 msgid "All Articles"
 msgstr "Todos os Artigos"
 
@@ -321,9 +325,13 @@ msgid "Article updated"
 msgstr "Artigo atualizado"
 
 #: desk/src/components/command-palette/CP.vue:127
-#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:52
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:54
 msgid "Articles"
 msgstr "Artigos"
+
+#: desk/src/components/list-view/LV.vue:80
+msgid "article"
+msgstr "artigo"
 
 #: desk/src/pages/MobileTicketAgent.vue:48 desk/src/pages/TicketAgent.vue:25
 msgid "Assign"
@@ -339,6 +347,7 @@ msgstr "Atribuir A"
 msgid "Assign to"
 msgstr "Atribuir a"
 
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:792
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:68
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:55
 msgid "Assigned To"
@@ -502,7 +511,8 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: desk/src/components/CannedResponseSelectorModal.vue:2
-#: desk/src/pages/CannedResponses.vue:128
+#: desk/src/pages/CannedResponses.vue:129
+#: desk/src/pages/CannedResponses.vue:160
 msgid "Canned Responses"
 msgstr "Respostas Pré-Definidas"
 
@@ -510,7 +520,8 @@ msgstr "Respostas Pré-Definidas"
 msgid "Canned responses"
 msgstr "Respostas Pré-Definidas"
 
-#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:10
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:11
+#: desk/src/pages/knowledge-base/KnowledgeBaseSidebar.vue:11
 msgid "Categories"
 msgstr "Categorias"
 
@@ -582,7 +593,7 @@ msgstr "Limpar todos os filtros"
 msgid "Click on Add to Holidays. This will populate the holidays table with all the dates that fall on the selected weekly off. Repeat the process for populating the dates for all your weekly holidays"
 msgstr "Clique em Adicionar aos Feriados. Isso preencherá a tabela de feriados com todas as datas que caem nos dias de folga selecionados. Repita o processo para preencher as datas de todos os seus feriados semanais."
 
-#: desk/src/pages/TicketCustomer.vue:10
+#: desk/src/pages/TicketAgent.vue:134 desk/src/pages/TicketCustomer.vue:10
 msgid "Close"
 msgstr "Fechar"
 
@@ -596,6 +607,7 @@ msgstr "Fechar"
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:51
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:38
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:77
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:421
 msgid "Closed"
 msgstr "Fechado"
@@ -653,7 +665,7 @@ msgstr "Comentário apagado"
 msgid "Commented By"
 msgstr "Comentado Por"
 
-#: desk/src/pages/MobileTicketAgent.vue:311 desk/src/pages/TicketAgent.vue:261
+#: desk/src/pages/MobileTicketAgent.vue:311 desk/src/pages/TicketAgent.vue:263
 msgid "Comments"
 msgstr "Comentários"
 
@@ -673,6 +685,7 @@ msgstr "Confirmar"
 #. Label of a Link field in DocType 'HD Ticket'
 #: helpdesk/helpdesk/doctype/hd_organization_contact_item/hd_organization_contact_item.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:759
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:62
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.py:44
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:49
@@ -764,8 +777,14 @@ msgstr "Criar Novo Contato"
 
 #: desk/src/pages/TicketsCustomer.vue:125
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleTopEdit.vue:10
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:805
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:864
 msgid "Created"
 msgstr "Criado"
+
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:153
+msgid "Created on"
+msgstr "Criado em"
 
 #: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:7
 msgid "Criteria"
@@ -780,8 +799,13 @@ msgstr "Critério"
 #: desk/src/components/desk/global/NewContactDialog.vue:126
 #: desk/src/components/ticket/TicketAgentFields.vue:106
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:785
 msgid "Customer"
 msgstr "Cliente"
+
+#: desk/src/components/list-view/LV.vue:80
+msgid "customer"
+msgstr "cliente"
 
 #: desk/src/components/desk/global/NewCustomerDialog.vue:66
 msgid "Customer Created Successfully"
@@ -815,7 +839,8 @@ msgid "Customer updated"
 msgstr "Cliente atualizado"
 
 #: desk/src/components/layouts/layoutSettings.ts:43
-#: desk/src/pages/desk/customer/CustomerList.vue:86
+#: desk/src/pages/desk/customer/CustomerList.vue:6
+#: desk/src/pages/desk/customer/CustomerList.vue:88
 msgid "Customers"
 msgstr "Clientes"
 
@@ -915,7 +940,7 @@ msgstr "Descrição"
 msgid "Description Weight"
 msgstr "Peso da Descrição"
 
-#: desk/src/pages/TicketNew.vue:74
+#: desk/src/pages/TicketNew.vue:78
 msgid "Detailed explanation"
 msgstr "Explicação detalhada"
 
@@ -979,7 +1004,7 @@ msgstr "Documentação"
 #. Label of a Data field in DocType 'HD Customer'
 #: desk/src/components/desk/global/NewCustomerDialog.vue:20
 #: desk/src/pages/desk/customer/CustomerDialog.vue:31
-#: desk/src/pages/desk/customer/CustomerList.vue:66
+#: desk/src/pages/desk/customer/CustomerList.vue:68
 #: helpdesk/helpdesk/doctype/hd_customer/hd_customer.json
 msgid "Domain"
 msgstr "Domínio"
@@ -998,6 +1023,10 @@ msgstr "Download"
 #: helpdesk/helpdesk/doctype/hd_article_category/hd_article_category.json
 msgid "Draft"
 msgstr "Rascunho"
+
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:152
+msgid "Due date"
+msgstr "Data de vencimento"
 
 #: desk/src/components/ticket/TicketAgentDetails.vue:69
 #: desk/src/components/ticket/TicketAgentDetails.vue:90
@@ -1069,7 +1098,7 @@ msgstr "Conta de e-mail atualizada com sucesso"
 msgid "Email should not be empty"
 msgstr "E-mail não deve ficar vazio"
 
-#: desk/src/pages/MobileTicketAgent.vue:306 desk/src/pages/TicketAgent.vue:256
+#: desk/src/pages/MobileTicketAgent.vue:306 desk/src/pages/TicketAgent.vue:258
 #: desk/src/pages/desk/contact/ContactDialog.vue:35
 msgid "Emails"
 msgstr "E-mails"
@@ -1212,9 +1241,9 @@ msgstr "Primeira Resposta Esperada"
 msgid "Expected Resolution"
 msgstr "Resolução Esperada"
 
-#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:186
-#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:47
-#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:48
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:188
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:49
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:50
 #: desk/src/pages/knowledge-base-v2/KnowledgeBasePublic.vue:11
 #: desk/src/pages/knowledge-base-v2/KnowledgeBasePublic.vue:32
 msgid "Explore all articles"
@@ -1245,11 +1274,9 @@ msgstr "Link Externo"
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:156
 #: desk/src/components/ticket/TicketsListView.vue:66
 #: desk/src/components/ticket/TicketsListView.vue:88
-#: desk/src/components/ticket/TicketsListView.vue:292
 #: desk/src/pages/TicketsCustomer.vue:43 desk/src/pages/TicketsCustomer.vue:65
 #: desk/src/pages/ticket/TicketCustomerTemplateFields.vue:59
 #: desk/src/pages/ticket/TicketCustomerTemplateFields.vue:78
-#: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.py:227
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 msgid "Failed"
 msgstr "Falhou"
@@ -1262,7 +1289,7 @@ msgstr "Falha ao criar conta de e-mail, credenciais inválidas"
 msgid "Failed to update email account, Invalid credentials"
 msgstr "Falha ao atualizar conta de e-mail, credenciais inválidas"
 
-#: desk/src/pages/MobileTicketAgent.vue:425 desk/src/pages/TicketAgent.vue:374
+#: desk/src/pages/MobileTicketAgent.vue:425 desk/src/pages/TicketAgent.vue:376
 msgid "Failed to update ticket"
 msgstr "Falha ao atualizar chamado"
 
@@ -1362,8 +1389,6 @@ msgid "First Response"
 msgstr "Primeira Resposta"
 
 #. Option for the 'SLA Status' (Select) field in DocType 'HD Ticket'
-#: desk/src/components/ticket/TicketsListView.vue:294
-#: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.py:226
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 msgid "First Response Due"
 msgstr "Primeira Resposta Devida"
@@ -1383,6 +1408,11 @@ msgstr "Hora da Primeira Resposta para Tickets"
 #: desk/src/components/desk/global/NewContactDialog.vue:242
 msgid "First name should not be empty"
 msgstr "Nome não deve ficar vazio"
+
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:773
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:839
+msgid "First response"
+msgstr "Primeira resposta"
 
 #: desk/src/components/CommentTextEditor.vue:178
 #: desk/src/components/EmailEditor.vue:302
@@ -1427,14 +1457,12 @@ msgstr "De"
 #. Option for the 'SLA Status' (Select) field in DocType 'HD Ticket'
 #: desk/src/components/ticket/TicketsListView.vue:60
 #: desk/src/components/ticket/TicketsListView.vue:82
-#: desk/src/components/ticket/TicketsListView.vue:291
 #: desk/src/pages/TicketsCustomer.vue:37 desk/src/pages/TicketsCustomer.vue:59
 #: desk/src/pages/ticket/TicketCustomerTemplateFields.vue:58
 #: desk/src/pages/ticket/TicketCustomerTemplateFields.vue:68
 #: desk/src/pages/ticket/TicketCustomerTemplateFields.vue:77
 #: desk/src/pages/ticket/TicketCustomerTemplateFields.vue:85
 #: desk/src/pages/ticket/TicketCustomerTemplateFields.vue:92
-#: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.py:224
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 msgid "Fulfilled"
 msgstr "Atendido"
@@ -1755,6 +1783,10 @@ msgstr "Esconder condição"
 msgid "Hide from customer"
 msgstr "Ocultar do cliente"
 
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:154
+msgid "High to low priority"
+msgstr "Prioridade alta a baixa"
+
 #. Label of a Link field in DocType 'HD Service Level Agreement'
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.json
 msgid "Holiday List"
@@ -1986,6 +2018,14 @@ msgstr "Rótulo"
 msgid "Last Name"
 msgstr "Sobrenome"
 
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:798
+msgid "Last modified"
+msgstr "Última atualização"
+
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:156
+msgid "Last modified on"
+msgstr "Última modificação em"
+
 #. Label of a Int field in DocType 'HD Article Category'
 #: helpdesk/helpdesk/doctype/hd_article_category/hd_article_category.json
 msgid "Left"
@@ -2039,6 +2079,10 @@ msgstr "Sair"
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
 msgid "Logo"
 msgstr "Logo"
+
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:155
+msgid "Low to high priority"
+msgstr "Prioridade baixa a alta"
 
 #. Description of the 'Integer value' (Int) field in DocType 'HD Ticket
 #. Priority'
@@ -2131,7 +2175,7 @@ msgstr "Meus {0} Chamados"
 #. Label of a Data field in DocType 'HD Team'
 #: desk/src/pages/desk/agent/AgentList.vue:67
 #: desk/src/pages/desk/contact/ContactList.vue:63
-#: desk/src/pages/desk/customer/CustomerList.vue:61
+#: desk/src/pages/desk/customer/CustomerList.vue:63
 #: desk/src/pages/desk/team/TeamList.vue:70
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:98
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:99
@@ -2171,7 +2215,7 @@ msgstr "Nova Sub-Categoria"
 msgid "New Subject"
 msgstr "Novo Assunto"
 
-#: desk/src/pages/TicketNew.vue:202 desk/src/pages/TicketNew.vue:212
+#: desk/src/pages/TicketNew.vue:206 desk/src/pages/TicketNew.vue:216
 #: desk/src/pages/TicketsCustomer.vue:9
 msgid "New Ticket"
 msgstr "Novo Chamado"
@@ -2192,7 +2236,7 @@ msgstr "Nova categoria"
 msgid "New contact"
 msgstr "Novo contato"
 
-#: desk/src/pages/desk/customer/CustomerList.vue:9
+#: desk/src/pages/desk/customer/CustomerList.vue:11
 msgid "New customer"
 msgstr "Novo cliente"
 
@@ -2248,8 +2292,8 @@ msgstr "Nenhum chamado encontrado"
 msgid "No agents found, please add"
 msgstr "Nenhum agente encontrado, por favor, adicione"
 
-#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:69
-#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:77
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:71
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:79
 msgid "No articles found"
 msgstr "Nenhum artigo encontrado"
 
@@ -2283,7 +2327,7 @@ msgstr "Nenhum template encontrado"
 
 #: desk/src/components/list-view/LV.vue:86
 msgid "No {0} found"
-msgstr "Nenhum {0} encontrado"
+msgstr "{0} não encontrados"
 
 #: desk/src/components/Filter.vue:317 desk/src/components/Filter.vue:331
 msgid "Not Equals"
@@ -2351,6 +2395,7 @@ msgstr "Mais uma vez, bem-vindo ao Frappe Helpdesk! Vamos torcer por uma jornada
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:48
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:35
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:77
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:403
 msgid "Open"
 msgstr "Aberto"
@@ -2403,8 +2448,6 @@ msgid "Password is required"
 msgstr "Senha é obrigatória"
 
 #. Option for the 'SLA Status' (Select) field in DocType 'HD Ticket'
-#: desk/src/components/ticket/TicketsListView.vue:295
-#: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.py:228
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 msgid "Paused"
 msgstr "Pausado"
@@ -2439,7 +2482,7 @@ msgstr "Texto de exemplo"
 msgid "Please add an email account to continue."
 msgstr "Por favor, adicionar uma conta de e-mail para continuar"
 
-#: desk/src/pages/TicketNew.vue:43
+#: desk/src/pages/TicketNew.vue:47
 msgid "Please enter a subject to continue"
 msgstr "Por favor, adicione um assunto para continuar"
 
@@ -2500,6 +2543,8 @@ msgstr "Prioridades"
 #: helpdesk/helpdesk/doctype/hd_service_level_priority/hd_service_level_priority.json
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:738
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:832
 #: helpdesk/helpdesk/doctype/hd_ticket_type/hd_ticket_type.json
 msgid "Priority"
 msgstr "Prioridade"
@@ -2645,6 +2690,7 @@ msgstr "Renomear equipe"
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:49
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:36
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:77
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:409
 msgid "Replied"
 msgstr "Respondido"
@@ -2674,6 +2720,8 @@ msgstr "Restaurar para o Padrão"
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:101
 #: desk/src/pages/TicketsCustomer.vue:120
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:779
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:845
 msgid "Resolution"
 msgstr "Resolução"
 
@@ -2693,8 +2741,6 @@ msgid "Resolution Details"
 msgstr "Detalhes da Resolução"
 
 #. Option for the 'SLA Status' (Select) field in DocType 'HD Ticket'
-#: desk/src/components/ticket/TicketsListView.vue:293
-#: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.py:225
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 msgid "Resolution Due"
 msgstr "Prazo de Resolução"
@@ -2716,6 +2762,7 @@ msgstr "Tempo de Resolução"
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:50
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:37
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:77
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:415
 msgid "Resolved"
 msgstr "Resolvido"
@@ -3054,6 +3101,8 @@ msgstr "A Hora de Início não pode ser maior ou igual à Hora de Término"
 #: helpdesk/helpdesk/doctype/hd_pause_service_level_agreement_on_status/hd_pause_service_level_agreement_on_status.json
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement_fulfilled_on_status/hd_service_level_agreement_fulfilled_on_status.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:732
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:826
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:44
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:31
 msgid "Status"
@@ -3077,11 +3126,17 @@ msgstr "Ainda precisa de ajuda? Crie um chamado"
 msgid "Sub Category"
 msgstr "Sub-Categoria"
 
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:34
+msgid "Sub-categories"
+msgstr "Sub-categorias"
+
 #. Label of a Data field in DocType 'HD Ticket'
 #: desk/src/components/ticket/TicketAgentFields.vue:112
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:178
 #: desk/src/pages/TicketsCustomer.vue:100
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:726
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:820
 #: helpdesk/helpdesk/report/ticket_search_analysis/ticket_search_analysis.py:30
 msgid "Subject"
 msgstr "Assunto"
@@ -3095,13 +3150,13 @@ msgstr "Peso do Assunto"
 msgid "Subject is required"
 msgstr "Assunto é obrigatório"
 
-#: desk/src/pages/TicketNew.vue:34
+#: desk/src/pages/TicketNew.vue:38
 msgid "Subject*"
 msgstr "Assunto*"
 
 #: desk/src/components/CommentTextEditor.vue:75
-#: desk/src/components/EmailEditor.vue:131 desk/src/pages/TicketNew.vue:55
-#: desk/src/pages/TicketNew.vue:79 desk/src/pages/ticket/TicketFeedback.vue:9
+#: desk/src/components/EmailEditor.vue:131 desk/src/pages/TicketNew.vue:59
+#: desk/src/pages/TicketNew.vue:83 desk/src/pages/ticket/TicketFeedback.vue:9
 msgid "Submit"
 msgstr "Enviar"
 
@@ -3208,6 +3263,8 @@ msgstr "Para:"
 #: desk/src/pages/desk/escalation/EscalationRuleList.vue:55
 #: helpdesk/helpdesk/doctype/hd_escalation_rule/hd_escalation_rule.json
 #: helpdesk/helpdesk/doctype/hd_team_item/hd_team_item.json
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:752
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:851
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
 msgid "Team"
 msgstr "Equipe"
@@ -3387,7 +3444,7 @@ msgstr "Tipo do chamado é"
 msgid "Ticket type is mandatory"
 msgstr "Tipo de ticket é obrigatório"
 
-#: desk/src/pages/MobileTicketAgent.vue:414 desk/src/pages/TicketAgent.vue:363
+#: desk/src/pages/MobileTicketAgent.vue:414 desk/src/pages/TicketAgent.vue:365
 msgid "Ticket updated"
 msgstr "Chamado atualizado"
 
@@ -3402,7 +3459,7 @@ msgstr "Análise de Pesquisa de Chamados"
 #: desk/src/components/layouts/layoutSettings.ts:18
 #: desk/src/components/layouts/layoutSettings.ts:56
 #: desk/src/pages/InvalidPage.vue:9 desk/src/pages/MobileTicketAgent.vue:264
-#: desk/src/pages/TicketAgent.vue:220 desk/src/pages/TicketNew.vue:196
+#: desk/src/pages/TicketAgent.vue:222 desk/src/pages/TicketNew.vue:200
 #: desk/src/pages/Tickets.vue:67 desk/src/pages/TicketsCustomer.vue:158
 #: desk/src/pages/ticket/TicketBreadcrumbs.vue:7
 msgid "Tickets"
@@ -3497,6 +3554,7 @@ msgstr "Terça-feira"
 #. Label of a Select field in DocType 'HD Preset Filter'
 #: helpdesk/helpdesk/doctype/hd_notification/hd_notification.json
 #: helpdesk/helpdesk/doctype/hd_preset_filter/hd_preset_filter.json
+#: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:745
 msgid "Type"
 msgstr "Tipo"
 
@@ -3528,6 +3586,10 @@ msgstr "Desafixar"
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleActionsView.vue:39
 msgid "Unpublish"
 msgstr "Despublicar"
+
+#: helpdesk/consts.py:3
+msgid "Unspecified"
+msgstr "Não especificado"
 
 #: desk/src/components/ColumnSettings.vue:115
 #: desk/src/components/canned-response/CannedResponseModal.vue:8
@@ -3724,6 +3786,10 @@ msgstr "depois"
 msgid "agents"
 msgstr "agentes"
 
+#: desk/src/components/list-view/LV.vue:80
+msgid "agent"
+msgstr "agente"
+
 #: desk/src/components/notifications/Notifications.vue:62
 #: desk/src/pages/MobileNotifications.vue:46
 msgid "assigned you a ticket"
@@ -3856,7 +3922,7 @@ msgstr "tipo"
 msgid "{0} is an invalid email address"
 msgstr "{0} é um endereço de e-mail inválido"
 
-#: desk/src/pages/TicketNew.vue:161
+#: desk/src/pages/TicketNew.vue:165
 msgid "{0} is required"
 msgstr "{0} é obrigatório"
 
