@@ -30,6 +30,5 @@ d.extend(utc);
 d.extend(timezone);
 d.tz.setDefault(authStore.timezone);
 d.locale("pt");
-console.log("TIMEZONE: ", authStore.timezone);
 
 export const dayjs = d;
