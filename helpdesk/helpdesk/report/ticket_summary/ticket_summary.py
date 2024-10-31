@@ -74,7 +74,7 @@ class TicketSummary:
                 }
             )
 
-        self.statuses = ["Open", "Replied", "Resolved", "Closed"]
+        self.statuses = [_("Open"), _("Replied"), _("Resolved"), _("Closed")]
         for status in self.statuses:
             self.columns.append(
                 {
@@ -111,11 +111,11 @@ class TicketSummary:
             )
 
         self.metrics = [
-            "Avg First Response Time",
-            "Avg Response Time",
-            "Avg Hold Time",
-            "Avg Resolution Time",
-            "Avg User Resolution Time",
+            _("Avg First Response Time"),
+            _("Avg Response Time"),
+            _("Avg Hold Time"),
+            _("Avg Resolution Time"),
+            _("Avg User Resolution Time"),
         ]
 
         for metric in self.metrics:

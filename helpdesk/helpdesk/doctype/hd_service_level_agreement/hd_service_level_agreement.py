@@ -221,11 +221,11 @@ class HDServiceLevelAgreement(Document):
     def handle_agreement_status(self, doc: Document):
         is_failed = self.is_first_response_failed(doc) or self.is_resolution_failed(doc)
         options = {
-            _("Fulfilled"): True,
-            _("Resolution Due"): self.apply_sla_for_resolution and not doc.resolution_date,
-            _("First Response Due"): not doc.first_responded_on,
-            _("Failed"): is_failed,
-            _("Paused"): doc.on_hold_since,
+            "Fulfilled": True,
+            "Resolution Due": self.apply_sla_for_resolution and not doc.resolution_date,
+            "First Response Due": not doc.first_responded_on,
+            "Failed": is_failed,
+            "Paused": doc.on_hold_since,
         }
         for status in options:
             if options[status]:
@@ -279,7 +279,7 @@ class HDServiceLevelAgreement(Document):
             res = add_to_date(res, seconds=time_required, as_datetime=True)
         return res
 
-    def get_working_days(self) -> dict[str, dict]:
+    def get_working_days(self) -> list:
         workdays = []
         for row in self.support_and_resolution:
             workdays.append(row.workday)

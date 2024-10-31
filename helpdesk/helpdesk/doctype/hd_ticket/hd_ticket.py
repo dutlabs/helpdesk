@@ -149,11 +149,11 @@ class HDTicket(Document):
             return query
 
         return {
-            "Due date": ("resolution_by", Order.asc),
-            "Created on": ("creation", Order.asc),
-            "High to low priority": lambda q: by_priority(q, Order.asc),
-            "Low to high priority": lambda q: by_priority(q, Order.desc),
-            "Last modified on": "modified",
+            _("Due date"): ("resolution_by", Order.asc),
+            _("Created on"): ("creation", Order.asc),
+            _("High to low priority"): lambda q: by_priority(q, Order.asc),
+            _("Low to high priority"): lambda q: by_priority(q, Order.desc),
+            _("Last modified on"): "modified",
         }
 
     def publish_update(self):
@@ -668,7 +668,7 @@ class HDTicket(Document):
                 pass
 
     def apply_escalation_rule(self):
-        if not self.status == "Open" or self.is_new():
+        if self.status != "Open" or self.is_new():
             return
         escalation_rule = self.get_escalation_rule()
         if not escalation_rule:
