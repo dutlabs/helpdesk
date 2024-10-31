@@ -259,11 +259,11 @@ msgstr "Todos os Artigos"
 #: desk/src/components/ViewControls.vue:134
 #: desk/src/components/ViewControls.vue:254
 msgid "All Tickets"
-msgstr "Todos os chamados"
+msgstr "Todos os tickets"
 
 #: desk/src/pages/TicketsCustomer.vue:164
 msgid "All tickets"
-msgstr "Todos os chamados"
+msgstr "Todos os tickets"
 
 #. Label of a Check field in DocType 'HD Settings'
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
@@ -273,7 +273,7 @@ msgstr "Permitir reset de SLA"
 #. Label of a Check field in DocType 'HD Settings'
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
 msgid "Allow anyone to create tickets"
-msgstr "Permitir que qualquer pessoa crie chamados"
+msgstr "Permitir que qualquer pessoa crie tickets"
 
 #: desk/src/pages/desk/escalation/EscalationRuleDialogFieldList.vue:12
 msgid "Any"
@@ -553,7 +553,7 @@ msgstr "Mudar equipe para"
 
 #: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:172
 msgid "Change ticket type to"
-msgstr "Mudar tipo de chamado para"
+msgstr "Mudar tipo de ticket para"
 
 #. Label of a Card Break in the Helpdesk Workspace
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
@@ -614,11 +614,11 @@ msgstr "Fechado"
 
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:312
 msgid "Closed or rated tickets cannot be updated by non-agents"
-msgstr "Chamados fechados ou avaliados não podem ser atualizados por não-agentes."
+msgstr "Tickets fechados ou avaliados não podem ser atualizados por não-agentes."
 
 #: desk/src/pages/TicketsCustomer.vue:176
 msgid "Closed tickets"
-msgstr "Chamados encerrados"
+msgstr "Tickets encerrados"
 
 #: desk/src/components/CommentTextEditor.vue:184
 #: desk/src/components/EmailEditor.vue:308
@@ -1291,7 +1291,7 @@ msgstr "Falha ao atualizar conta de e-mail, credenciais inválidas"
 
 #: desk/src/pages/MobileTicketAgent.vue:425 desk/src/pages/TicketAgent.vue:376
 msgid "Failed to update ticket"
-msgstr "Falha ao atualizar chamado"
+msgstr "Falha ao atualizar ticket"
 
 #: desk/src/components/Settings/Branding.vue:106
 msgid "Failed to update, please try again"
@@ -1339,7 +1339,7 @@ msgstr "Nome do Campo"
 
 #: helpdesk/helpdesk/doctype/hd_ticket_template/hd_ticket_template.py:24
 msgid "Field `{0}` does not exist in Ticket"
-msgstr "Campo `{0}` não existe no chamado"
+msgstr "Campo `{0}` não existe no ticket"
 
 #. Label of a Table field in DocType 'HD Ticket Template'
 #: helpdesk/helpdesk/doctype/hd_ticket_template/hd_ticket_template.json
@@ -1362,7 +1362,7 @@ msgstr "Filtrar por..."
 
 #: desk/src/components/ViewControls.vue:256
 msgid "Filtered Tickets"
-msgstr "Chamados Filtrados"
+msgstr "Tickets Filtrados"
 
 #. Label of a Table field in DocType 'HD Preset Filter'
 #: helpdesk/helpdesk/doctype/hd_preset_filter/hd_preset_filter.json
@@ -1683,7 +1683,7 @@ msgstr "Comentário de Ticket HD"
 #. Name of a DocType
 #: helpdesk/helpdesk/doctype/hd_ticket_feedback_option/hd_ticket_feedback_option.json
 msgid "HD Ticket Feedback Option"
-msgstr "Opção de Feedback do Chamado"
+msgstr "Opção de Feedback do Ticket"
 
 #. Name of a DocType
 #: helpdesk/helpdesk/doctype/hd_ticket_priority/hd_ticket_priority.json
@@ -1854,7 +1854,7 @@ msgstr "Se ativado, e-mails de saída podem ser enviados desta conta."
 
 #: desk/src/components/Settings/emailConfig.ts:31
 msgid "If enabled, tickets can be created from the incoming emails on this account."
-msgstr "Se ativado, chamados podem ser criados a partir dos e-mails recebidos nesta conta."
+msgstr "Se ativado, tickets podem ser criados a partir dos e-mails recebidos nesta conta."
 
 #: desk/src/pages/onboarding/SuccessMessage.vue:11
 msgid "If you find any bugs, report them at the issue tracker"
@@ -2147,7 +2147,7 @@ msgstr "Minha Conta"
 
 #: desk/src/components/ViewControls.vue:159
 msgid "My Closed Tickets"
-msgstr "Meus Chamados Encerrados"
+msgstr "Meus Tickets Encerrados"
 
 #: desk/src/pages/onboarding/SetupName.vue:32
 msgid "My Helpdesk"
@@ -2155,20 +2155,20 @@ msgstr "Meu Helpdesk"
 
 #: desk/src/components/ViewControls.vue:146
 msgid "My Open Tickets"
-msgstr "Meus Chamados Abertos"
+msgstr "Meus Tickets Abertos"
 
 #: desk/src/components/ViewControls.vue:175
 msgid "My Replied Tickets"
-msgstr "Meus Chamados Respondidos"
+msgstr "Meus Tickets Respondidos"
 
 #: desk/src/components/ViewControls.vue:188
 msgid "My Resolved Tickets"
-msgstr "Meus Chamados Resolvidos"
+msgstr "Meus Tickets Resolvidos"
 
 #: desk/src/components/ViewControls.vue:210
 #: desk/src/components/ViewControls.vue:211
 msgid "My {0} Tickets"
-msgstr "Meus {0} Chamados"
+msgstr "Meus {0} Tickets"
 
 #. Label of a Data field in DocType 'HD Article Category'
 #. Label of a Data field in DocType 'HD Organization'
@@ -2218,7 +2218,7 @@ msgstr "Novo Assunto"
 #: desk/src/pages/TicketNew.vue:206 desk/src/pages/TicketNew.vue:216
 #: desk/src/pages/TicketsCustomer.vue:9
 msgid "New Ticket"
-msgstr "Novo Chamado"
+msgstr "Novo Ticket"
 
 #: desk/src/pages/desk/agent/AgentList.vue:9
 msgid "New agent"
@@ -2286,7 +2286,7 @@ msgstr "Nenhuma Equipe Encontrada"
 
 #: desk/src/components/ticket/TicketsListView.vue:136
 msgid "No Tickets Found"
-msgstr "Nenhum chamado encontrado"
+msgstr "Nenhum ticket encontrado"
 
 #: desk/src/pages/desk/team/TeamSingle.vue:97
 msgid "No agents found, please add"
@@ -2402,7 +2402,7 @@ msgstr "Aberto"
 
 #: desk/src/pages/TicketsCustomer.vue:170
 msgid "Open tickets"
-msgstr "Chamados abertos"
+msgstr "Tickets abertos"
 
 #. Label of a Date field in DocType 'HD Ticket'
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
@@ -2610,7 +2610,7 @@ msgstr "Intervalo"
 
 #: desk/src/pages/ticket/TicketFeedback.vue:5
 msgid "Rate this ticket"
-msgstr "Avalie este chamado"
+msgstr "Avalie este ticket"
 
 #. Label of a Rating field in DocType 'HD Ticket'
 #. Label of a Rating field in DocType 'HD Ticket Feedback Option'
@@ -3119,7 +3119,7 @@ msgstr "Ainda tem perguntas? Estamos aqui para ajudar você."
 
 #: desk/src/pages/KnowledgeBaseArticle.vue:61
 msgid "Still need help? Create a ticket"
-msgstr "Ainda precisa de ajuda? Crie um chamado"
+msgstr "Ainda precisa de ajuda? Crie um ticket"
 
 #. Label of a Link field in DocType 'HD Article Sub Category Item'
 #: helpdesk/helpdesk/doctype/hd_article_sub_category_item/hd_article_sub_category_item.json
@@ -3361,7 +3361,7 @@ msgstr "Quinta-feira"
 #: helpdesk/helpdesk/doctype/hd_notification/hd_notification.json
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
 msgid "Ticket"
-msgstr "Chamado"
+msgstr "Ticket"
 
 #. Name of a report
 #. Label of a Link in the Helpdesk Workspace
@@ -3373,11 +3373,11 @@ msgstr "Análise de Tickets"
 #. Label of a Card Break in the Helpdesk Workspace
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
 msgid "Ticket Configuration"
-msgstr "Configuração de Chamado"
+msgstr "Configuração de Ticket"
 
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:165
 msgid "Ticket ID"
-msgstr "ID de Chamado"
+msgstr "ID de Ticket"
 
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:56
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.py:77
@@ -3389,7 +3389,7 @@ msgstr "Prioridade de Ticket"
 #. Label of a Section Break field in DocType 'HD Settings'
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
 msgid "Ticket Restrictions"
-msgstr "Restrições de Chamado"
+msgstr "Restrições de Ticket"
 
 #. Label of a Link field in DocType 'HD Ticket'
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
@@ -3416,7 +3416,7 @@ msgstr "Tipo de Ticket"
 
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:5
 msgid "Ticket details"
-msgstr "Detalhes do chamado"
+msgstr "Detalhes do ticket"
 
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:302
 msgid "Ticket must be resolved with a feedback"
@@ -3436,7 +3436,7 @@ msgstr "Tipo de ticket"
 
 #: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:154
 msgid "Ticket type is"
-msgstr "Tipo do chamado é"
+msgstr "Tipo do ticket é"
 
 #. Label of a Check field in DocType 'HD Settings'
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
@@ -3446,12 +3446,12 @@ msgstr "Tipo de ticket é obrigatório"
 
 #: desk/src/pages/MobileTicketAgent.vue:414 desk/src/pages/TicketAgent.vue:365
 msgid "Ticket updated"
-msgstr "Chamado atualizado"
+msgstr "Ticket atualizado"
 
 #. Name of a report
 #: helpdesk/helpdesk/report/ticket_search_analysis/ticket_search_analysis.json
 msgid "Ticket-Search Analysis"
-msgstr "Análise de Pesquisa de Chamados"
+msgstr "Análise de Pesquisa de Tickets"
 
 #: desk/src/components/command-palette/CP.vue:115
 #: desk/src/components/command-palette/CP.vue:155
@@ -3463,7 +3463,7 @@ msgstr "Análise de Pesquisa de Chamados"
 #: desk/src/pages/Tickets.vue:67 desk/src/pages/TicketsCustomer.vue:158
 #: desk/src/pages/ticket/TicketBreadcrumbs.vue:7
 msgid "Tickets"
-msgstr "Chamados"
+msgstr "Tickets"
 
 #. Label of a Data field in DocType 'HD Article'
 #. Label of a Data field in DocType 'HD Canned Response'
@@ -3674,7 +3674,7 @@ msgstr "Vídeo"
 
 #: desk/src/pages/onboarding/OnboardingIntro.vue:17
 msgid "We're excited to have you join us and explore the world of efficient customer support. We are here to transform the way you handle customer inquiries, streamline ticket management, and deliver outstanding service."
-msgstr "Estamos empolgados em tê-lo conosco e em explorar o mundo do suporte ao cliente eficiente. Estamos aqui para transformar a maneira como você lida com consultas de clientes, otimizar a gestão de chamados e oferecer um serviço excepcional."
+msgstr "Estamos empolgados em tê-lo conosco e em explorar o mundo do suporte ao cliente eficiente. Estamos aqui para transformar a maneira como você lida com consultas de clientes, otimizar a gestão de tickets e oferecer um serviço excepcional."
 
 #. Option for the 'Workday' (Select) field in DocType 'HD Service Day'
 #. Option for the 'Weekly Off' (Select) field in DocType 'HD Service Holiday
@@ -3793,7 +3793,7 @@ msgstr "agente"
 #: desk/src/components/notifications/Notifications.vue:62
 #: desk/src/pages/MobileNotifications.vue:46
 msgid "assigned you a ticket"
-msgstr "atribuiu um chamado a você"
+msgstr "atribuiu um ticket a você"
 
 #. Option for the 'Filter Type' (Select) field in DocType 'HD Preset Filter
 #. Item'
@@ -3818,7 +3818,7 @@ msgstr "contato"
 #: desk/src/components/HistoryBox.vue:15 desk/src/components/HistoryBox.vue:35
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:191
 msgid "created this ticket"
-msgstr "criou este chamado"
+msgstr "criou este ticket"
 
 #: desk/src/pages/desk/customer/CustomerDialog.vue:31
 msgid "example.com"
@@ -3827,7 +3827,7 @@ msgstr "exemplo.com"
 #: desk/src/components/notifications/Notifications.vue:65
 #: desk/src/pages/MobileNotifications.vue:49
 msgid "has reopened the ticket"
-msgstr "reabriu este chamado"
+msgstr "reabriu este ticket"
 
 #: desk/src/components/Settings/EmailEdit.vue:21
 msgid "here"
@@ -3869,7 +3869,7 @@ msgstr "tipo"
 #: desk/src/components/notifications/Notifications.vue:59
 #: desk/src/pages/MobileNotifications.vue:43
 msgid "mentioned you in ticket"
-msgstr "mencionou você no chamado"
+msgstr "mencionou você no ticket"
 
 #. Option for the 'Filter Type' (Select) field in DocType 'HD Preset Filter
 #. Item'
