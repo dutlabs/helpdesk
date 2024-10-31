@@ -331,8 +331,8 @@ const filterableFields = createResource({
   transform: (data) => {
     return data
       .sort((fieldA, fieldB) => {
-        const labelA = fieldA.label.toUpperCase();
-        const labelB = fieldB.label.toUpperCase();
+        const labelA = __(fieldA.label.toUpperCase());
+        const labelB = __(fieldB.label.toUpperCase());
         if (labelA < labelB) {
           return -1;
         }

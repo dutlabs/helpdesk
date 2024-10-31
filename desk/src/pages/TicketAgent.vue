@@ -22,7 +22,7 @@
           class="rounded bg-gray-100 px-2 py-1.5 text-base text-gray-800"
           @click="showAssignmentModal = true"
         >
-          {{ __('Assign') }}
+          {{ __("Assign") }}
         </button>
         <Dropdown :options="dropdownOptions">
           <template #default="{ open }">
@@ -46,8 +46,13 @@
     <div v-if="ticket.data" class="flex h-screen overflow-hidden">
       <div class="flex flex-1 flex-col">
         <!-- ticket activities -->
-        <div class="overflow-y-auto flex-1">
-          <Tabs v-model="tabIndex" v-slot="{ tab }" :tabs="tabs" class="h-full">
+        <div class="flex-1 overflow-y-auto">
+          <Tabs
+            v-slot="{ tab }: { tab: TabObject }"
+            v-model="tabIndex"
+            :tabs="tabs"
+            class="h-full"
+          >
             <TicketAgentActivities
               ref="ticketAgentActivitiesRef"
               :activities="filterActivities(tab.name)"
@@ -99,7 +104,7 @@
     />
     <Dialog v-model="showSubjectDialog">
       <template #body-title>
-        <h3>{{ __('Rename') }}</h3>
+        <h3>{{ __("Rename") }}</h3>
       </template>
       <template #body-content>
         <FormControl
@@ -108,7 +113,7 @@
           size="sm"
           variant="subtle"
           :disabled="false"
-          label="New Subject"
+          :label="__('New Subject')"
         />
       </template>
       <template #actions>
@@ -123,7 +128,7 @@
             }
           "
         >
-          {{ __('Confirm') }}
+          {{ __("Confirm") }}
         </Button>
         <Button class="ml-2" @click="showSubjectDialog = false"> Close </Button>
       </template>
@@ -229,7 +234,7 @@ watch(
 
 const dropdownOptions = computed(() =>
   ticketStatusStore.options.map((o) => ({
-    label: o,
+    label: __(o),
     value: o,
     onClick: () => updateTicket("status", o),
     icon: () =>

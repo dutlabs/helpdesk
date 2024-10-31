@@ -110,6 +110,7 @@
 import { ref } from "vue";
 import {
   createListResource,
+  usePageMeta,
   Breadcrumbs,
   Dropdown,
   TextEditor,
@@ -153,4 +154,10 @@ async function deleteItem(name) {
   });
   cannedResponses.reload();
 }
+
+usePageMeta(() => {
+  return {
+    title: __("Canned Responses"),
+  };
+});
 </script>

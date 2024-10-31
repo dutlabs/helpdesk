@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <LayoutHeader>
       <template #left-header>
-        <div class="text-lg font-medium text-gray-900">Agents</div>
+        <div class="text-lg font-medium text-gray-900">{{ __('Agents') }}</div>
       </template>
       <template #right-header>
         <Button

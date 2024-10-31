@@ -56,7 +56,7 @@
               />
             </div>
             <div v-else class="text-base text-gray-900">
-              {{ __('No members found in team: {0}'), [teamId] }}
+              {{ __('No members found in team: {0}', [teamId]) }}
             </div>
             <Switch
               v-model="ignoreRestrictions"
