@@ -221,11 +221,11 @@ class HDServiceLevelAgreement(Document):
     def handle_agreement_status(self, doc: Document):
         is_failed = self.is_first_response_failed(doc) or self.is_resolution_failed(doc)
         options = {
-            "Fulfilled": True,
-            "Resolution Due": self.apply_sla_for_resolution and not doc.resolution_date,
-            "First Response Due": not doc.first_responded_on,
-            "Failed": is_failed,
-            "Paused": doc.on_hold_since,
+            _("Fulfilled"): True,
+            _("Resolution Due"): self.apply_sla_for_resolution and not doc.resolution_date,
+            _("First Response Due"): not doc.first_responded_on,
+            _("Failed"): is_failed,
+            _("Paused"): doc.on_hold_since,
         }
         for status in options:
             if options[status]:
