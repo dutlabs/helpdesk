@@ -18,9 +18,9 @@
         </Button>
       </template>
     </LayoutHeader>
-    <div class="flex overflow-hidden h-full">
+    <div class="flex h-full overflow-hidden">
       <!-- Main Ticket Comm -->
-      <section class="flex flex-col flex-1">
+      <section class="flex flex-1 flex-col">
         <!-- show for only mobile -->
         <TicketCustomerTemplateFields v-if="isMobileView" />
 

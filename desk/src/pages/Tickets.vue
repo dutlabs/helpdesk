@@ -125,7 +125,7 @@ const tickets = createResource({
       } else {
         row._assign = {
           name: "",
-          label: __("Unassigned"),
+          label: "Unassigned",
           image: "",
         };
       }
@@ -331,8 +331,8 @@ const filterableFields = createResource({
   transform: (data) => {
     return data
       .sort((fieldA, fieldB) => {
-        const labelA = __(fieldA.label.toUpperCase());
-        const labelB = __(fieldB.label.toUpperCase());
+        const labelA = fieldA.label.toUpperCase();
+        const labelB = fieldB.label.toUpperCase();
         if (labelA < labelB) {
           return -1;
         }
@@ -344,7 +344,7 @@ const filterableFields = createResource({
       })
       .map((field) => {
         return {
-          label: __(field.label),
+          label: field.label,
           value: field.fieldname,
           ...field,
         };

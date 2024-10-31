@@ -1,13 +1,13 @@
 <template>
   <span class="grid grid-cols-1 gap-4 border-b px-5 py-2.5 sm:grid-cols-3">
     <div class="space-y-1.5">
-      <span class="block text-sm text-gray-700"> {{ __('Status') }} </span>
+      <span class="block text-sm text-gray-700"> {{ __("Status") }} </span>
       <span class="block break-words text-base font-medium text-gray-900">
         {{ transformStatus(ticket.data.status) }}
       </span>
     </div>
     <div class="space-y-1.5">
-      <span class="block text-sm text-gray-700"> {{ __('Priority') }} </span>
+      <span class="block text-sm text-gray-700"> {{ __("Priority") }} </span>
       <span class="block break-words text-base font-medium text-gray-900">
         {{ ticket.data.priority }}
       </span>
@@ -55,8 +55,8 @@ const slaData = computed(() => {
   const responseSla =
     ticket.data.first_responded_on &&
     dayjs(ticket.data.first_responded_on).isBefore(ticket.data.response_by)
-      ? __("Fulfilled")
-      : __("Failed");
+      ? "Fulfilled"
+      : "Failed";
 
   //TODO: no resolution date for unclassified tickets, configurable?
   if (ticket.data.priority === "Unclassified") {
@@ -65,7 +65,7 @@ const slaData = computed(() => {
         title: __("Expected First Response"),
         showSla: ticket.data.first_responded_on,
         label: responseSla,
-        theme: responseSla === __("Fulfilled") ? "green" : "red",
+        theme: responseSla === "Fulfilled" ? "green" : "red",
         value: ticket.data.response_by,
       },
     ];
@@ -74,22 +74,22 @@ const slaData = computed(() => {
   const resolutionSla =
     ticket.data.resolution_date &&
     dayjs(ticket.data.resolution_date).isBefore(ticket.data.resolution_by)
-      ? __("Fulfilled")
-      : __("Failed");
+      ? "Fulfilled"
+      : "Failed";
 
   return [
     {
       title: __("Expected First Response"),
       showSla: ticket.data.first_responded_on,
       label: responseSla,
-      theme: responseSla === __("Fulfilled") ? "green" : "red",
+      theme: responseSla === "Fulfilled" ? "green" : "red",
       value: ticket.data.response_by,
     },
     {
       title: __("Expected Resolution"),
       showSla: ticket.data.resolution_date,
       label: resolutionSla,
-      theme: resolutionSla === __("Fulfilled") ? "green" : "red",
+      theme: resolutionSla === "Fulfilled" ? "green" : "red",
       value: ticket.data.resolution_by,
     },
   ];
@@ -107,9 +107,9 @@ const customFields = computed(() => {
 function transformStatus(status: string) {
   switch (status) {
     case "Replied":
-      return __("Awaiting reply");
+      return "Awaiting reply";
     default:
-      return __(status);
+      return status;
   }
 }
 </script>

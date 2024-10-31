@@ -22,7 +22,7 @@
     >
       <template #status="{ data }">
         <Badge
-          :label="__(transformStatus(data.status))"
+          :label="transformStatus(data.status)"
           :theme="ticketStatusStore.colorMap[data.status]"
           variant="outline"
         />
@@ -155,7 +155,9 @@ const tickets = createListManager({
   },
 });
 
-const breadcrumbs = [{ label: __("Tickets"), route: { name: "TicketsCustomer" } }];
+const breadcrumbs = [
+  { label: __("Tickets"), route: { name: "TicketsCustomer" } },
+];
 
 const ACTIVE_TICKET_TYPES = ["Open", "Replied"];
 const dropdownTitle = ref("All tickets");
