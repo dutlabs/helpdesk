@@ -133,7 +133,7 @@
       class="flex flex-col items-center gap-3 text-xl font-medium text-gray-500"
     >
       <TicketIcon class="h-10 w-10" />
-      <span>{{ __('No Tickets Found' )}}</span>
+      <span>{{ __("No Tickets Found") }}</span>
     </div>
   </div>
   <ListFooter
@@ -288,10 +288,10 @@ function handleFieldClick(e, name: string, value: string | [string]) {
 
 //TODO: move all constants to relevant composables
 const slaStatusColorMap = {
-  Fulfilled: "green",
-  Failed: "red",
-  "Resolution Due": "orange",
-  "First Response Due": "orange",
-  Paused: "blue",
+  [__("Fulfilled")]: "green",
+  [__("Failed")]: "red",
+  [__("Resolution Due")]: "orange",
+  [__("First Response Due")]: "orange",
+  [__("Paused")]: "blue",
 };
 </script>

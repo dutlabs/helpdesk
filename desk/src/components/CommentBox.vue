@@ -5,9 +5,9 @@
         <span class="font-medium text-gray-800">
           {{ commenter }}
         </span>
-        <span> added a</span>
+        <span> {{ ' ' + __('added a') }} </span>
         <span class="max-w-xs truncate font-medium text-gray-800">
-          {{ __('comment') }}
+          {{ ' ' + __('comment') }}
         </span>
         <span class="px-1">&middot;</span>
         <Tooltip :text="dateFormat(creation, dateTooltipFormat)">

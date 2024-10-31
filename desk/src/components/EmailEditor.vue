@@ -13,7 +13,7 @@
   >
     <template #top>
       <div class="mx-10 flex items-center gap-2 border-y py-2.5">
-        <span class="text-xs text-gray-500">TO:</span>
+        <span class="text-xs text-gray-500">{{ __('TO:') }}</span>
         <MultiSelectInput
           v-model="toEmailsClone"
           class="flex-1"
@@ -112,7 +112,7 @@
         </div>
         <div class="mt-2 flex items-center justify-end space-x-2 sm:mt-0">
           <Button
-            label="Discard"
+            :label="__('Discard')"
             @click="
               () => {
                 ccEmailsClone = [];
@@ -128,7 +128,7 @@
             variant="solid"
             :disabled="emailEmpty"
             :loading="loading"
-            label="Submit"
+            :label="__('Submit')"
             @click="
               () => {
                 loading = true;

@@ -4,7 +4,7 @@
       <span class="font-medium text-gray-800">
         {{ user }}
       </span>
-      <span> {{ content }}</span>
+      <span> {{ __(content) }}</span>
     </div>
     <Tooltip :text="dateFormat(creation, dateTooltipFormat)">
       <div class="text-gray-600">
@@ -34,7 +34,7 @@
   <Button
     v-if="relatedActivities.length && content !== __('created this ticket')"
     :label="
-      show_others ? 'Hide' : `${relatedActivities.length} other activities`
+      show_others ? __('Hide') : __('{0} other activities', [relatedActivities.length])
     "
     variant="outline"
     class="mt-2"

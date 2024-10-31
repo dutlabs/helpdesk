@@ -277,7 +277,7 @@ function updateFilter(filter, value) {
           field: {
             fieldname: filter.name,
             fieldtype: filter.fieldtype,
-            label: filter.label,
+            label: __(filter.label),
           },
           filterToApply: {
             [filter.name]: ["=", value],
