@@ -130,7 +130,9 @@
         >
           {{ __("Confirm") }}
         </Button>
-        <Button class="ml-2" @click="showSubjectDialog = false"> Close </Button>
+        <Button class="ml-2" @click="showSubjectDialog = false">
+          {{ __("Close") }}
+        </Button>
       </template>
     </Dialog>
   </div>
@@ -293,7 +295,7 @@ const activities = computed(() => {
 
   if (!showFullActivity.value) {
     return [...emailProps, ...commentProps].sort(
-      (a, b) => new Date(a.creation) - new Date(b.creation)
+      (a, b) => new Date(a.creation).getTime() - new Date(b.creation).getTime()
     );
   }
 
@@ -310,7 +312,7 @@ const activities = computed(() => {
   );
 
   const sorted = [...emailProps, ...commentProps, ...historyProps].sort(
-    (a, b) => new Date(a.creation) - new Date(b.creation)
+    (a, b) => new Date(a.creation).getTime() - new Date(b.creation).getTime()
   );
 
   const data = [];

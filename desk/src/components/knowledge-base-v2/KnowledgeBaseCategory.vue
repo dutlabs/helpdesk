@@ -30,7 +30,9 @@
         class="flex flex-col gap-3 mb-8"
         v-if="!!category.subCategories.length"
       >
-        <h3 class="text-lg font-semibold text-gray-900">Sub-categories</h3>
+        <h3 class="text-lg font-semibold text-gray-900">
+          {{ __("Sub-categories") }}
+        </h3>
         <!-- sub category card container-->
         <div class="flex gap-5 flex-wrap text-lg">
           <!-- sub category card -->

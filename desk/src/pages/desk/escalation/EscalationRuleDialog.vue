@@ -48,7 +48,7 @@ const rule = createDocumentResource({
         iconClasses: "text-green-500",
       });
     },
-    onError: useError({ title: "Error updating rule" }),
+    onError: useError({ title: __("Error updating rule") }),
   },
   delete: {
     onSuccess() {

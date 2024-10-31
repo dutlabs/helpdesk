@@ -66,12 +66,18 @@ const firstResponseBadge = computed(() => {
   let firstResponse = null;
   if (!props.firstRespondedOn && dayjs().isBefore(dayjs(props.responseBy))) {
     firstResponse = {
-      label: __("Due in {0}", [formatTime(dayjs(props.responseBy).diff(dayjs(), "s"))]),
+      label: __("Due in {0}", [
+        formatTime(dayjs(props.responseBy).diff(dayjs(), "s")),
+      ]),
       color: "orange",
     };
   } else if (dayjs(props.firstRespondedOn).isBefore(dayjs(props.responseBy))) {
     firstResponse = {
-      label: __("Fulfilled in {0}", [formatTime(dayjs(props.firstRespondedOn).diff(dayjs(props.ticketCreatedOn), "s"))]),
+      label: __("Fulfilled in {0}", [
+        formatTime(
+          dayjs(props.firstRespondedOn).diff(dayjs(props.ticketCreatedOn), "s")
+        ),
+      ]),
       color: "green",
     };
   } else {
@@ -87,12 +93,18 @@ const resolutionBadge = computed(() => {
   let resolution = null;
   if (!props.resolutionDate && dayjs().isBefore(props.resolutionBy)) {
     resolution = {
-      label: __("Due in {0}", [formatTime(dayjs(props.resolutionBy).diff(dayjs(), "s"))]),
+      label: __("Due in {0}", [
+        formatTime(dayjs(props.resolutionBy).diff(dayjs(), "s")),
+      ]),
       color: "orange",
     };
   } else if (dayjs(props.resolutionDate).isBefore(props.resolutionBy)) {
     resolution = {
-      label: __("Fulfilled in {0}", [formatTime(dayjs(props.resolutionDate).diff(dayjs(props.ticketCreatedOn), "s"))]),
+      label: __("Fulfilled in {0}", [
+        formatTime(
+          dayjs(props.resolutionDate).diff(dayjs(props.ticketCreatedOn), "s")
+        ),
+      ]),
       color: "green",
     };
   } else {

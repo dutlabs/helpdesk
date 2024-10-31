@@ -1,11 +1,13 @@
 <template>
-  <div class="flex w-[382px] flex-col border-l gap-4">
+  <div class="flex w-[382px] flex-col gap-4 border-l">
     <!-- Ticket ID -->
     <div class="flex items-center justify-between border-b px-5 py-3">
-      <span class="cursor-copy text-lg font-semibold">{{ __('Ticket details') }}</span>
+      <span class="cursor-copy text-lg font-semibold">{{
+        __("Ticket details")
+      }}</span>
     </div>
     <!-- user info and sla info -->
-    <div class="flex flex-col gap-4 pt-0 px-5 py-3 border-b">
+    <div class="flex flex-col gap-4 border-b px-5 py-3 pt-0">
       <!-- user info -->
       <div class="flex gap-2">
         <Avatar
@@ -19,7 +21,7 @@
               {{ ticket.data.contact.name }}
             </div>
           </Tooltip>
-          <div class="flex gap-1.5" v-if="!ticket.data.feedback_rating">
+          <div v-if="!ticket.data.feedback_rating" class="flex gap-1.5">
             <Tooltip :text="ticket.data.contact.email_id">
               <Button class="h-7 w-7" @click="emit('open')">
                 <EmailIcon class="h-4 w-4" />
@@ -31,8 +33,9 @@
 
       <!-- Ticket Info -->
       <div
+        v-for="(field, index) in ticketBasicInfo"
+        :key="index"
         class="flex items-center text-base leading-5"
-        v-for="field in ticketBasicInfo"
       >
         <span class="w-[126px] text-sm text-gray-600">{{ field.label }}</span>
         <span class="text-base text-gray-800">
@@ -46,7 +49,7 @@
         :key="data.label"
         class="flex items-center text-base"
       >
-        <div class="w-[126px] text-gray-600 text-sm">{{ data.title }}</div>
+        <div class="w-[126px] text-sm text-gray-600">{{ data.title }}</div>
 
         <div class="break-words text-base text-gray-800">
           <Tooltip :text="dayjs(data.value).long()">
@@ -61,10 +64,11 @@
       class="border-b px-6 py-3 text-base text-gray-600"
       :ticket="ticket.data"
     />
-    <div class="flex flex-col gap-4 pt-0 px-5 py-3">
+    <div class="flex flex-col gap-4 px-5 py-3 pt-0">
       <div
+        v-for="(field, index) in ticketAdditionalInfo"
+        :key="index"
         class="flex items-center text-base leading-5"
-        v-for="field in ticketAdditionalInfo"
       >
         <span class="w-[126px] text-sm text-gray-600">{{ field.label }}</span>
         <span class="text-base text-gray-800">

@@ -31,7 +31,7 @@
     </KnowledgeBaseCategoryHeader>
     <EmptyMessage
       v-if="isEmpty(subCategories.data)"
-      :message="_('This category is empty')"
+      :message="__('This category is empty')"
     />
     <div v-else class="gap-4.5 grid grid-cols-3 px-5">
       <HCard

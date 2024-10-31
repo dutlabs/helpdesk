@@ -55,7 +55,7 @@
             v-else
             class="mb-3 flex h-7 items-center px-3 text-sm text-gray-600"
           >
-            {{ __('Empty - Choose a field to sort by') }}
+            {{ __("Empty - Choose a field to sort by") }}
           </div>
           <div class="flex items-center justify-between gap-2">
             <Autocomplete

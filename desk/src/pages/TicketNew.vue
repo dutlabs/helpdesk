@@ -7,16 +7,20 @@
     </LayoutHeader>
     <!-- Container -->
     <div
-      class="max-w-screen-lg flex flex-col gap-5 m-5 w-full h-full flex-1 self-center"
+      class="m-5 flex h-full w-full max-w-screen-lg flex-1 flex-col gap-5 self-center"
     >
       <!-- custom fields descriptions -->
       <div v-if="Boolean(template.data?.about)" class="">
-        <div class="prose-f" v-html="sanitize(template.data.about)" />
+        <div
+          v-if="template.data?.about"
+          class="prose-f"
+          v-text="sanitize(template.data.about)"
+        />
       </div>
       <!-- custom fields -->
       <div
-        class="grid grid-cols-1 gap-4 sm:grid-cols-3"
         v-if="Boolean(visibleFields)"
+        class="grid grid-cols-1 gap-4 sm:grid-cols-3"
       >
         <UniInput
           v-for="field in visibleFields"
@@ -38,9 +42,9 @@
         <div v-if="isCustomerPortal">
           <h4
             v-show="subject.length <= 2 && description.length === 0"
-            class="text-p-sm text-gray-500 ml-1"
+            class="text-p-sm ml-1 text-gray-500"
           >
-            {{ __('Please enter a subject to continue') }}
+            {{ __("Please enter a subject to continue") }}
           </h4>
           <TicketTextEditor
             v-show="subject.length > 2 || description.length > 0"
@@ -105,7 +109,7 @@ import sanitizeHtml from "sanitize-html";
 import { isEmpty } from "lodash";
 import { useError } from "@/composables/error";
 import { LayoutHeader, UniInput } from "@/components";
-import TicketBreadcrumbs from "./ticket/TicketBreadcrumbs.vue";
+// import TicketBreadcrumbs from "./ticket/TicketBreadcrumbs.vue";
 import TicketNewArticles from "./ticket/TicketNewArticles.vue";
 import TicketTextEditor from "./ticket/TicketTextEditor.vue";
 import { useAuthStore } from "@/stores/auth";
@@ -158,7 +162,7 @@ const ticket = createResource({
     const toVerify = [...fields, "subject", "description"];
     for (const field of toVerify) {
       if (isEmpty(params.doc[field.fieldname || field])) {
-        return __('{0} is required', [field.label || field]);
+        return __("{0} is required", [field.label || field]);
       }
     }
   },

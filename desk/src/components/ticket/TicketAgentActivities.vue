@@ -1,11 +1,11 @@
 <template>
-  <div class="flex-1 flex flex-col">
+  <div class="flex flex-1 flex-col">
     <ActivityHeader :title="title" />
     <div v-if="activities.length">
       <div v-for="(activity, i) in activities" :key="activity.key">
         <!-- single activity -->
         <div
-          class="w-full activity px-3 sm:px-10 grid grid-cols-[30px_minmax(auto,_1fr)] gap-2 sm:gap-4"
+          class="activity grid w-full grid-cols-[30px_minmax(auto,_1fr)] gap-2 px-3 sm:gap-4 sm:px-10"
         >
           <div
             class="relative flex justify-center after:absolute after:left-[50%] after:top-0 after:-z-10 after:border-l after:border-gray-200"
@@ -48,7 +48,7 @@
     </div>
     <div
       v-else
-      class="h-full flex flex-col items-center justify-center gap-3 text-xl font-medium text-gray-500"
+      class="flex h-full flex-col items-center justify-center gap-3 text-xl font-medium text-gray-500"
     >
       <component :is="emptyTextIcon" class="h-10 w-10" />
       <span>{{ emptyText }}</span>
@@ -102,8 +102,8 @@ const emptyText = computed(() => {
     text = __("No Email Communications");
   } else if (props.title == "Comments") {
     text = __("No Comments");
-    return text;
   }
+  return text;
 });
 
 const emptyTextIcon = computed(() => {

@@ -288,10 +288,10 @@ function handleFieldClick(e, name: string, value: string | [string]) {
 
 //TODO: move all constants to relevant composables
 const slaStatusColorMap = {
-  [__("Fulfilled")]: "green",
-  [__("Failed")]: "red",
-  [__("Resolution Due")]: "orange",
-  [__("First Response Due")]: "orange",
-  [__("Paused")]: "blue",
+  Fulfilled: "green",
+  Failed: "red",
+  "Resolution Due": "orange",
+  "First Response Due": "orange",
+  Paused: "blue",
 };
 </script>

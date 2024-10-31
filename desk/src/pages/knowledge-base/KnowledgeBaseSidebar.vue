@@ -7,7 +7,9 @@
     }"
   >
     <div class="flex items-center justify-between">
-      <div class="text-sm font-medium text-gray-600">Categories</div>
+      <div class="text-sm font-medium text-gray-600">
+        {{ __("Categories") }}
+      </div>
       <Button
         theme="gray"
         variant="ghost"
