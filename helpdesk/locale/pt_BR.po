@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helpdesk VERSION\n"
 "Report-Msgid-Bugs-To: hello@frappe.io\n"
-"POT-Creation-Date: 2024-10-31 09:41-0506\n"
-"PO-Revision-Date: 2024-10-28 17:12-2706\n"
+"POT-Creation-Date: 2024-10-31 14:46-0506\n"
+"PO-Revision-Date: 2024-10-28 17:12-2906\n"
 "Last-Translator: hello@frappe.io\n"
 "Language-Team: hello@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -289,6 +289,10 @@ msgstr "Aplicar SLA para o Tempo de Resolução"
 msgid "Apply To"
 msgstr "Aplicar a"
 
+#: desk/src/components/Apps.vue:12
+msgid "Apps"
+msgstr "Apps"
+
 #. Option for the 'Status' (Select) field in DocType 'HD Article'
 #. Option for the 'Status' (Select) field in DocType 'HD Article Category'
 #: helpdesk/helpdesk/doctype/hd_article/hd_article.json
@@ -329,10 +333,6 @@ msgstr "Artigo atualizado"
 msgid "Articles"
 msgstr "Artigos"
 
-#: desk/src/components/list-view/LV.vue:80
-msgid "article"
-msgstr "artigo"
-
 #: desk/src/pages/MobileTicketAgent.vue:48 desk/src/pages/TicketAgent.vue:25
 msgid "Assign"
 msgstr "Atribuir"
@@ -350,6 +350,12 @@ msgstr "Atribuir a"
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:792
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:68
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:55
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:44
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:141
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:184
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:214
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:268
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:361
 msgid "Assigned To"
 msgstr "Atribuído A"
 
@@ -414,6 +420,26 @@ msgstr "Automação"
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 msgid "Average Response Time"
 msgstr "Tempo Médio de Resposta"
+
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:114
+msgid "Avg First Response Time"
+msgstr "Tempo Médio de Primeira Resposta"
+
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:116
+msgid "Avg Hold Time"
+msgstr "Tempo Médio de Espera"
+
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:117
+msgid "Avg Resolution Time"
+msgstr "Tempo Médio de Resolução"
+
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:115
+msgid "Avg Response Time"
+msgstr "Tempo Médio de Resposta"
+
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:118
+msgid "Avg User Resolution Time"
+msgstr "Tempo Médio de Resolução por Usuário"
 
 #: desk/src/pages/ticket/TicketCustomerTemplateFields.vue:110
 msgid "Awaiting reply"
@@ -608,6 +634,7 @@ msgstr "Fechar"
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:51
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:38
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:77
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:378
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:421
 msgid "Closed"
 msgstr "Fechado"
@@ -689,7 +716,10 @@ msgstr "Confirmar"
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:62
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.py:44
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:49
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:33
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:36
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:138
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:182
 msgid "Contact"
 msgstr "Contato"
 
@@ -802,10 +832,6 @@ msgstr "Critério"
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:785
 msgid "Customer"
 msgstr "Cliente"
-
-#: desk/src/components/list-view/LV.vue:80
-msgid "customer"
-msgstr "cliente"
 
 #: desk/src/components/desk/global/NewCustomerDialog.vue:66
 msgid "Customer Created Successfully"
@@ -1028,10 +1054,8 @@ msgstr "Rascunho"
 msgid "Due date"
 msgstr "Data de vencimento"
 
-#: desk/src/components/ticket/TicketAgentDetails.vue:69
-#: desk/src/components/ticket/TicketAgentDetails.vue:90
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:116
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:144
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:120
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:148
 msgid "Due in {0}"
 msgstr "Vencimento em {0}"
 
@@ -1216,6 +1240,10 @@ msgstr "Erro ao atualizar o contato"
 msgid "Error updating customer"
 msgstr "Erro ao atualizar o cliente"
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:51
+msgid "Error updating rule"
+msgstr "Erro ao atualizar a regra"
+
 #: desk/src/pages/desk/team/TeamSingle.vue:172
 msgid "Error updating team"
 msgstr "Erro ao atualizar a equipe"
@@ -1268,10 +1296,10 @@ msgid "External link"
 msgstr "Link Externo"
 
 #. Option for the 'SLA Status' (Select) field in DocType 'HD Ticket'
-#: desk/src/components/ticket/TicketAgentDetails.vue:79
-#: desk/src/components/ticket/TicketAgentDetails.vue:100
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:130
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:156
+#: desk/src/components/ticket/TicketAgentDetails.vue:85
+#: desk/src/components/ticket/TicketAgentDetails.vue:112
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:134
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:160
 #: desk/src/components/ticket/TicketsListView.vue:66
 #: desk/src/components/ticket/TicketsListView.vue:88
 #: desk/src/pages/TicketsCustomer.vue:43 desk/src/pages/TicketsCustomer.vue:65
@@ -1382,8 +1410,8 @@ msgstr "Nome"
 msgid "First Responded On"
 msgstr "Primeira Resposta Em"
 
-#: desk/src/components/ticket/TicketAgentDetails.vue:109
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:95
+#: desk/src/components/ticket/TicketAgentDetails.vue:121
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:99
 #: desk/src/pages/TicketsCustomer.vue:115
 msgid "First Response"
 msgstr "Primeira Resposta"
@@ -1467,10 +1495,8 @@ msgstr "De"
 msgid "Fulfilled"
 msgstr "Atendido"
 
-#: desk/src/components/ticket/TicketAgentDetails.vue:74
-#: desk/src/components/ticket/TicketAgentDetails.vue:95
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:125
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:151
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:129
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:155
 msgid "Fulfilled in {0}"
 msgstr "Atendido em {0}"
 
@@ -2396,6 +2422,7 @@ msgstr "Mais uma vez, bem-vindo ao Frappe Helpdesk! Vamos torcer por uma jornada
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:48
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:35
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:77
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:375
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:403
 msgid "Open"
 msgstr "Aberto"
@@ -2535,7 +2562,7 @@ msgstr "Prioridades"
 #. Label of a Link field in DocType 'HD Ticket'
 #. Label of a Link field in DocType 'HD Ticket Type'
 #: desk/src/components/ticket/TicketAgentFields.vue:96
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:186
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:190
 #: desk/src/pages/TicketsCustomer.vue:110
 #: desk/src/pages/desk/escalation/EscalationRuleList.vue:50
 #: desk/src/pages/ticket/TicketCustomerTemplateFields.vue:10
@@ -2691,6 +2718,7 @@ msgstr "Renomear equipe"
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:49
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:36
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:77
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:376
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:409
 msgid "Replied"
 msgstr "Respondido"
@@ -2716,8 +2744,8 @@ msgid "Reset to Default"
 msgstr "Restaurar para o Padrão"
 
 #. Label of a Tab Break field in DocType 'HD Ticket'
-#: desk/src/components/ticket/TicketAgentDetails.vue:118
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:101
+#: desk/src/components/ticket/TicketAgentDetails.vue:130
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:105
 #: desk/src/pages/TicketsCustomer.vue:120
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:779
@@ -2763,6 +2791,7 @@ msgstr "Tempo de Resolução"
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:50
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:37
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:77
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:377
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:415
 msgid "Resolved"
 msgstr "Resolvido"
@@ -2844,10 +2873,22 @@ msgstr "SLA"
 msgid "SLA Creation"
 msgstr "Criação de SLA"
 
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:98
+msgid "SLA Failed"
+msgstr "SLA Falhou"
+
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:99
+msgid "SLA Fulfilled"
+msgstr "SLA Atendido"
+
 #. Label of a Table field in DocType 'HD Service Level Agreement'
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.json
 msgid "SLA Fulfilled On"
 msgstr "SLA Atendido Em"
+
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:100
+msgid "SLA Ongoing"
+msgstr "SLA Em Andamento"
 
 #. Label of a Table field in DocType 'HD Service Level Agreement'
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.json
@@ -3052,7 +3093,7 @@ msgstr "Ordenar"
 msgid "Sort by"
 msgstr "Ordenar por"
 
-#: desk/src/components/ticket/TicketAgentDetails.vue:127
+#: desk/src/components/ticket/TicketAgentDetails.vue:139
 msgid "Source"
 msgstr "Origem"
 
@@ -3091,7 +3132,7 @@ msgstr "A Hora de Início não pode ser maior ou igual à Hora de Término"
 #. Status'
 #. Label of a Select field in DocType 'HD Service Level Agreement Fulfilled On
 #. Label of a Select field in DocType 'HD Ticket'
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:169
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:173
 #: desk/src/pages/TicketsCustomer.vue:105
 #: desk/src/pages/desk/escalation/EscalationRuleList.vue:65
 #: desk/src/pages/knowledge-base/KnowledgeBaseSubcategory.vue:165
@@ -3132,7 +3173,7 @@ msgstr "Sub-categorias"
 
 #. Label of a Data field in DocType 'HD Ticket'
 #: desk/src/components/ticket/TicketAgentFields.vue:112
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:178
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:182
 #: desk/src/pages/TicketsCustomer.vue:100
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:726
@@ -3259,7 +3300,7 @@ msgstr "Para:"
 #. Label of a Link field in DocType 'HD Team Item'
 #. Label of a Link in the Helpdesk Workspace
 #: desk/src/components/ticket/TicketAgentFields.vue:101
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:182
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:186
 #: desk/src/pages/desk/escalation/EscalationRuleList.vue:55
 #: helpdesk/helpdesk/doctype/hd_escalation_rule/hd_escalation_rule.json
 #: helpdesk/helpdesk/doctype/hd_team_item/hd_team_item.json
@@ -3375,14 +3416,17 @@ msgstr "Análise de Tickets"
 msgid "Ticket Configuration"
 msgstr "Configuração de Ticket"
 
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:165
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:169
 msgid "Ticket ID"
 msgstr "ID de Ticket"
 
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.js:56
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.py:77
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.js:43
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:66
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:69
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:140
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:188
 msgid "Ticket Priority"
 msgstr "Prioridade de Ticket"
 
@@ -3409,12 +3453,15 @@ msgstr "Resumo de Ticket"
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 #: helpdesk/helpdesk/report/ticket_analytics/ticket_analytics.py:66
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:55
 #: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:58
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:139
+#: helpdesk/helpdesk/report/ticket_summary/ticket_summary.py:186
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
 msgid "Ticket Type"
 msgstr "Tipo de Ticket"
 
-#: desk/src/components/ticket/TicketCustomerSidebar.vue:5
+#: desk/src/components/ticket/TicketCustomerSidebar.vue:6
 msgid "Ticket details"
 msgstr "Detalhes do ticket"
 
@@ -3586,10 +3633,6 @@ msgstr "Desafixar"
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleActionsView.vue:39
 msgid "Unpublish"
 msgstr "Despublicar"
-
-#: helpdesk/consts.py:3
-msgid "Unspecified"
-msgstr "Não especificado"
 
 #: desk/src/components/ColumnSettings.vue:115
 #: desk/src/components/canned-response/CannedResponseModal.vue:8
@@ -3785,10 +3828,6 @@ msgstr "depois"
 #: desk/src/pages/desk/team/TeamSingle.vue:101
 msgid "agents"
 msgstr "agentes"
-
-#: desk/src/components/list-view/LV.vue:80
-msgid "agent"
-msgstr "agente"
 
 #: desk/src/components/notifications/Notifications.vue:62
 #: desk/src/pages/MobileNotifications.vue:46
