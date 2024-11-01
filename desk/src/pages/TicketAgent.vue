@@ -22,11 +22,11 @@
           class="rounded bg-gray-100 px-2 py-1.5 text-base text-gray-800"
           @click="showAssignmentModal = true"
         >
-          Assign
+          {{ __("Assign") }}
         </button>
         <Dropdown :options="dropdownOptions">
           <template #default="{ open }">
-            <Button :label="ticket.data.status">
+            <Button :label="__(ticket.data.status)">
               <template #prefix>
                 <IndicatorIcon
                   :class="ticketStatusStore.textColorMap[ticket.data.status]"
@@ -46,8 +46,13 @@
     <div v-if="ticket.data" class="flex h-screen overflow-hidden">
       <div class="flex flex-1 flex-col">
         <!-- ticket activities -->
-        <div class="overflow-y-auto flex-1">
-          <Tabs v-model="tabIndex" v-slot="{ tab }" :tabs="tabs" class="h-full">
+        <div class="flex-1 overflow-y-auto">
+          <Tabs
+            v-slot="{ tab }: { tab: TabObject }"
+            v-model="tabIndex"
+            :tabs="tabs"
+            class="h-full"
+          >
             <TicketAgentActivities
               ref="ticketAgentActivitiesRef"
               :activities="filterActivities(tab.name)"
@@ -99,7 +104,7 @@
     />
     <Dialog v-model="showSubjectDialog">
       <template #body-title>
-        <h3>Rename</h3>
+        <h3>{{ __("Rename") }}</h3>
       </template>
       <template #body-content>
         <FormControl
@@ -108,7 +113,7 @@
           size="sm"
           variant="subtle"
           :disabled="false"
-          label="New Subject"
+          :label="__('New Subject')"
         />
       </template>
       <template #actions>
@@ -123,9 +128,11 @@
             }
           "
         >
-          Confirm
+          {{ __("Confirm") }}
         </Button>
-        <Button class="ml-2" @click="showSubjectDialog = false"> Close </Button>
+        <Button class="ml-2" @click="showSubjectDialog = false">
+          {{ __("Close") }}
+        </Button>
       </template>
     </Dialog>
   </div>
@@ -212,7 +219,7 @@ const ticket = createResource({
 });
 
 const breadcrumbs = computed(() => {
-  let items = [{ label: "Tickets", route: { name: "TicketsAgent" } }];
+  let items = [{ label: __("Tickets"), route: { name: "TicketsAgent" } }];
   items.push({
     label: ticket.data?.subject,
     route: { name: "TicketAgent" },
@@ -229,7 +236,7 @@ watch(
 
 const dropdownOptions = computed(() =>
   ticketStatusStore.options.map((o) => ({
-    label: o,
+    label: o, // TODO: This was with gettext function, is it necessary?
     value: o,
     onClick: () => updateTicket("status", o),
     icon: () =>
@@ -243,17 +250,17 @@ const tabIndex = ref(0);
 const tabs: TabObject[] = [
   {
     name: "activity",
-    label: "Activity",
+    label: __("Activity"),
     icon: ActivityIcon,
   },
   {
     name: "email",
-    label: "Emails",
+    label: __("Emails"),
     icon: EmailIcon,
   },
   {
     name: "comment",
-    label: "Comments",
+    label: __("Comments"),
     icon: CommentIcon,
   },
 ];
@@ -288,7 +295,7 @@ const activities = computed(() => {
 
   if (!showFullActivity.value) {
     return [...emailProps, ...commentProps].sort(
-      (a, b) => new Date(a.creation) - new Date(b.creation)
+      (a, b) => new Date(a.creation).getTime() - new Date(b.creation).getTime()
     );
   }
 
@@ -305,7 +312,7 @@ const activities = computed(() => {
   );
 
   const sorted = [...emailProps, ...commentProps, ...historyProps].sort(
-    (a, b) => new Date(a.creation) - new Date(b.creation)
+    (a, b) => new Date(a.creation).getTime() - new Date(b.creation).getTime()
   );
 
   const data = [];
@@ -355,7 +362,7 @@ function updateTicket(fieldname: string, value: string) {
       isLoading.value = false;
       ticket.reload();
       createToast({
-        title: "Ticket updated",
+        title: __("Ticket updated"),
         icon: "check",
         iconClasses: "text-green-600",
       });
@@ -366,7 +373,7 @@ function updateTicket(fieldname: string, value: string) {
       const title =
         e.messages && e.messages.length > 0
           ? e.messages[0]
-          : "Failed to update ticket";
+          : __("Failed to update ticket");
 
       createToast({
         title,

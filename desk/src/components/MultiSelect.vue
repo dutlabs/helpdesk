@@ -36,7 +36,7 @@ const props = defineProps({
   placeholder: {
     type: String,
     required: false,
-    default: "Type...",
+    default: __("Type..."),
   },
   validate: {
     type: Function,

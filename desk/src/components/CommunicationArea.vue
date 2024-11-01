@@ -1,13 +1,11 @@
 <template>
-  <div class="flex flex-col comm-area">
-    <div
-      class="flex justify-between gap-3 border-t px-4 lg:px-10 py-4 md:py-2.5"
-    >
+  <div class="comm-area flex flex-col">
+    <div class="flex justify-between gap-3 border-t p-4 md:py-2.5 lg:px-10">
       <div class="flex gap-1.5">
         <Button
           ref="sendEmailRef"
           variant="ghost"
-          label="Reply"
+          :label="__('Reply')"
           :class="[showEmailBox ? '!bg-gray-300 hover:!bg-gray-200' : '']"
           @click="toggleEmailBox()"
         >
@@ -17,7 +15,7 @@
         </Button>
         <Button
           variant="ghost"
-          label="Comment"
+          :label="__('Comment')"
           :class="[showCommentBox ? '!bg-gray-300 hover:!bg-gray-200' : '']"
           @click="toggleCommentBox()"
         >
@@ -33,7 +31,7 @@
         v-model:attachments="attachments"
         :editable="showCommentBox"
         :doctype="doctype"
-        placeholder="Add a comment..."
+        :placeholder="__('Add a comment...')"
         @submit="
           () => {
             showCommentBox = false;

@@ -3,28 +3,28 @@
     <form class="space-y-4" @submit.prevent="submit">
       <Input
         v-model="accountName"
-        label="Account name"
-        placeholder="John Doe (Example.com)"
+        :label="__('Account name')"
+        :placeholder="__('John Doe (Example.com)')"
         type="text"
         required
       />
       <Input
         v-model="email"
-        label="Email"
-        placeholder="john.doe@example.com"
+        :label="__('Email')"
+        :placeholder="__('john.doe@example.com')"
         type="email"
         required
       />
       <Input
         v-model="password"
-        label="Password"
+        :label="__('Password')"
         placeholder="••••••••"
         type="password"
         required
       />
     </form>
     <Button
-      label="Finish!"
+      :label="Finish!"
       :disabled="!accountName || !email || !password"
       :loading="insertRes.loading"
       class="w-max"

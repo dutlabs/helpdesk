@@ -2,9 +2,9 @@
   <div class="flex h-full flex-col gap-4">
     <!-- title and desc -->
     <div role="heading" aria-level="1" class="flex flex-col gap-1">
-      <h5 class="text-lg font-semibold">Setup Email</h5>
+      <h5 class="text-lg font-semibold">{{ __("Setup Email") }}</h5>
       <p class="text-sm text-gray-600">
-        Choose the email service provider you want to configure.
+        {{ __("Choose the email service provider you want to configure.") }}
       </p>
     </div>
     <!-- email service provider selection -->
@@ -26,7 +26,7 @@
       <!-- email service provider info -->
       <div class="flex items-center gap-2 rounded-md p-2 ring-1 ring-gray-200">
         <IconAlert
-          class="h-6 w-5 w-min-5 w-max-5 min-h-5 max-w-5 text-blue-500"
+          class="w-min-5 w-max-5 min-h-5 max-w-5 h-6 w-5 text-blue-500"
         />
         <div class="text-wrap text-xs text-gray-700">
           {{ selectedService.info }}
@@ -34,7 +34,7 @@
             :href="selectedService.link"
             target="_blank"
             class="text-blue-500 underline"
-            >here</a
+            >{{ __("here") }}</a
           >
           .
         </div>
@@ -68,7 +68,7 @@
               :name="field.name"
               :type="field.type"
             />
-            <p class="text-xs text-gray-500">{{ field.description }}</p>
+            <p class="text-p-sm text-gray-500">{{ field.description }}</p>
           </div>
         </div>
         <ErrorMessage v-if="error" class="ml-1" :message="error" />
@@ -77,14 +77,14 @@
     <!-- action button -->
     <div v-if="selectedService" class="mt-auto flex justify-between">
       <Button
-        label="Back"
+        :label="__('Back')"
         theme="gray"
         variant="outline"
         :disabled="addEmailRes.loading"
         @click="emit('update:step', 'email-list')"
       />
       <Button
-        label="Create"
+        :label="__('Create')"
         variant="solid"
         :loading="addEmailRes.loading"
         @click="createEmailAccount"
@@ -146,14 +146,14 @@ const addEmailRes = createResource({
   },
   onSuccess: () => {
     createToast({
-      title: "Email account created successfully",
+      title: __("Email account created successfully"),
       icon: "check",
       iconClasses: "text-green-600",
     });
     emit("update:step", "email-list");
   },
   onError: () => {
-    error.value = "Failed to create email account, Invalid credentials";
+    error.value = __("Failed to create email account, Invalid credentials");
   },
 });
 

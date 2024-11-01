@@ -4,10 +4,15 @@
       <template #right>
         <Button
           v-if="showReopenButton"
-          label="Reopen"
+          :label="__('Reopen')"
           theme="gray"
           variant="solid"
-          @click="setValue.submit({ fieldname: 'status', value: 'Open' })"
+          @click="
+            setValue.submit({
+              fieldname: 'status',
+              value: 'Open',
+            })
+          "
         >
           <template #prefix>
             <Icon icon="lucide:repeat-2" />
@@ -41,7 +46,7 @@
       >
         <template #bottom-right>
           <Button
-            label="Send"
+            :label="__('Send')"
             theme="gray"
             variant="solid"
             :disabled="$refs.editor.editor.isEmpty || send.loading"
@@ -83,7 +88,7 @@ const ticket = createResource({
   },
   onError: () => {
     createToast({
-      title: "You are not allowed to view this ticket",
+      title: __("You are not allowed to view this ticket"),
       icon: "x",
       iconClasses: "text-red-600",
     });
@@ -92,7 +97,7 @@ const ticket = createResource({
 });
 provide(ITicket, ticket);
 const editor = ref(null);
-const placeholder = "Type a message";
+const placeholder = __("Type a message");
 const editorContent = ref("");
 const attachments = ref([]);
 const showFeedbackDialog = ref(false);

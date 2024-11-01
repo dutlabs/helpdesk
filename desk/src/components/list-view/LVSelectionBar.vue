@@ -21,7 +21,7 @@
       <div class="text-gray-300">&#x007C;</div>
       <Button
         :disabled="resource.data?.length === selection.storage.size"
-        label="Select all"
+        :label="__('Select all')"
         variant="ghost"
         @click="toggle()"
       />

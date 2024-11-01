@@ -6,7 +6,7 @@
       </template>
       <template #right-header>
         <RouterLink :to="{ name: 'TicketAgentNew' }">
-          <Button label="Create" theme="gray" variant="solid">
+          <Button :label="__('Create')" theme="gray" variant="solid">
             <template #prefix>
               <LucidePlus class="h-4 w-4" />
             </template>
@@ -55,7 +55,7 @@ import { ViewControls, LayoutHeader } from "@/components";
 import { useUserStore } from "@/stores/user";
 const { getUser } = useUserStore();
 
-const breadcrumbs = [{ label: "Tickets", route: { name: "TicketsAgent" } }];
+const breadcrumbs = [{ label: __("Tickets"), route: { name: "TicketsAgent" } }];
 let storage = useStorage("tickets_agent", {
   filtersToApply: {},
   filters: [],
@@ -107,7 +107,7 @@ const tickets = createResource({
       } else {
         row._assign = {
           name: "",
-          label: "Unassigned",
+          label: __("Unassigned"),
           image: "",
         };
       }

@@ -1,11 +1,14 @@
 <template>
-  <Dialog v-model="show" :options="{ title: 'Canned Responses', size: '4xl' }">
+  <Dialog
+    v-model="show"
+    :options="{ title: __('Canned Responses'), size: '4xl' }"
+  >
     <template #body-content>
       <TextInput
         ref="searchInput"
         v-model="search"
         type="text"
-        :placeholder="'Site Down'"
+        :placeholder="__('Site Down')"
       >
         <template #prefix>
           <FeatherIcon name="search" class="h-4 w-4 text-gray-500" />
@@ -13,7 +16,7 @@
       </TextInput>
       <div
         v-if="filteredTemplates.length"
-        class="mt-2 grid max-h-[560px] grid-cols-1 md:grid-cols-3 gap-2 overflow-y-auto"
+        class="mt-2 grid max-h-[560px] grid-cols-1 gap-2 overflow-y-auto md:grid-cols-3"
       >
         <div
           v-for="template in filteredTemplates"
@@ -36,7 +39,7 @@
       <div v-else class="mt-2">
         <div class="flex h-56 flex-col items-center justify-center">
           <div class="text-lg text-gray-500">
-            {{ "No templates found" }}
+            {{ __("No templates found") }}
           </div>
         </div>
       </div>

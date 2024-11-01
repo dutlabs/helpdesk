@@ -60,7 +60,7 @@ class HDServiceLevelAgreement(Document):
 
         # Check if repeated priority
         # flake8: noqa
-        if not len(set(priorities)) == len(priorities):
+        if len(set(priorities)) != len(priorities):
             repeated_priority = get_repeated(priorities)
             frappe.throw(_("Priority {0} has been repeated.").format(repeated_priority))
 
@@ -91,7 +91,7 @@ class HDServiceLevelAgreement(Document):
 
         # Check for repeated workday
         # flake8: noqa
-        if not len(set(support_days)) == len(support_days):
+        if len(set(support_days)) != len(support_days):
             repeated_days = get_repeated(support_days)
             frappe.throw(_("Workday {0} has been repeated.").format(repeated_days))
 

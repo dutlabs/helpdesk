@@ -62,11 +62,11 @@ const component = computed(() => {
     return h(Autocomplete, {
       options: [
         {
-          label: "Yes",
+          label: __("Yes"),
           value: 1,
         },
         {
-          label: "No",
+          label: __("No"),
           value: 0,
         },
       ],
@@ -97,9 +97,9 @@ const transValue = computed(() => {
 
 const placeholder = computed(() => {
   if (props.field.fieldtype === "Data" && !props.field.url_method) {
-    return "Type something";
+    return __("Type something");
   }
-  return "Select an option";
+  return __("Select an option");
 });
 
 function emitUpdate(fieldname: Field["fieldname"], value: Value) {

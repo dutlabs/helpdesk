@@ -57,13 +57,13 @@
                 row.first_responded_on &&
                 dayjs(row.first_responded_on).isBefore(item)
               "
-              label="Fulfilled"
+              :label="__('Fulfilled')"
               theme="green"
               variant="outline"
             />
             <Badge
               v-else-if="dayjs(row.first_responded_on).isAfter(item)"
-              label="Failed"
+              :label="__('Failed')"
               theme="red"
               variant="outline"
             />
@@ -76,13 +76,13 @@
               v-if="
                 row.resolution_date && dayjs(row.resolution_date).isBefore(item)
               "
-              label="Fulfilled"
+              :label="__('Fulfilled')"
               theme="green"
               variant="outline"
             />
             <Badge
               v-else-if="dayjs(row.resolution_date).isAfter(item)"
-              label="Failed"
+              :label="__('Failed')"
               theme="red"
               variant="outline"
             />
@@ -108,7 +108,7 @@
               hideLabel: true,
               items: [
                 {
-                  label: 'Export',
+                  label: __('Export'),
                   icon: () =>
                     h(FeatherIcon, { name: 'download', class: 'h-4 w-4' }),
                   onClick: () => {
@@ -130,7 +130,7 @@
       class="flex flex-col items-center gap-3 text-xl font-medium text-gray-500"
     >
       <TicketIcon class="h-10 w-10" />
-      <span>No Tickets Found</span>
+      <span>{{ __("No Tickets Found") }}</span>
     </div>
   </div>
   <ListFooter
@@ -144,10 +144,10 @@
   <Dialog
     v-model="showExportDialog"
     :options="{
-      title: 'Export',
+      title: __('Export'),
       actions: [
         {
-          label: 'Download',
+          label: __('Download'),
           variant: 'solid',
           onClick: () => {
             emit('event:export', {
@@ -167,15 +167,15 @@
       <FormControl
         v-model="export_type"
         variant="outline"
-        :label="'Export Type'"
+        :label="__('Export Type')"
         type="select"
         :options="[
           {
-            label: 'Excel',
+            label: __('Excel'),
             value: 'Excel',
           },
           {
-            label: 'CSV',
+            label: __('CSV'),
             value: 'CSV',
           },
         ]"
@@ -185,7 +185,7 @@
         <FormControl
           v-model="export_all"
           type="checkbox"
-          :label="`Export All ${options.totalCount} Record(s)`"
+          :label="__('Export All {0} Record(s)', [options.totalCount])"
         />
       </div>
     </template>

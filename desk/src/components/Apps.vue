@@ -11,17 +11,17 @@
           <AppsIcon />
           <span class="whitespace-nowrap">Apps</span>
         </div>
-        <ChevronRight class="h-4 w-4 stroke-1.5" />
+        <ChevronRight class="stroke-1.5 h-4 w-4" />
       </button>
     </template>
     <template #body>
       <div
-        class="grid grid-cols-3 justify-between mx-3 p-2 rounded-lg border border-gray-100 bg-white shadow-xl"
+        class="mx-3 grid grid-cols-3 justify-between rounded-lg border border-gray-100 bg-white p-2 shadow-xl"
       >
         <div v-for="app in apps.data" key="name">
           <a
             :href="app.route"
-            class="flex flex-col gap-1.5 rounded justify-center items-center py-2 px-3 hover:bg-gray-100"
+            class="flex flex-col items-center justify-center gap-1.5 rounded py-2 px-3 hover:bg-gray-100"
           >
             <img class="size-8" :src="app.logo" />
             <div class="text-sm" @click="app.onClick">

@@ -2,14 +2,16 @@
   <div class="flex flex-col">
     <LayoutHeader>
       <template #left-header>
-        <div class="text-lg font-medium text-gray-900">Knowledge base</div>
+        <div class="text-lg font-medium text-gray-900">
+          {{ __("Knowledge base") }}
+        </div>
       </template>
     </LayoutHeader>
     <div class="flex grow">
       <KnowledgeBaseSidebar />
       <RouterView :key="$route.fullPath" v-slot="{ Component }">
         <component :is="Component" v-if="Component" />
-        <EmptyMessage v-else message="Select a category" />
+        <EmptyMessage v-else :message="__('Select a category')" />
       </RouterView>
     </div>
   </div>
@@ -23,7 +25,7 @@ import LayoutHeader from "@/components/LayoutHeader.vue";
 
 usePageMeta(() => {
   return {
-    title: "Knowledge base",
+    title: __("Knowledge base"),
   };
 });
 </script>

@@ -7,7 +7,9 @@
     }"
   >
     <div class="flex items-center justify-between">
-      <div class="text-sm font-medium text-gray-600">Categories</div>
+      <div class="text-sm font-medium text-gray-600">
+        {{ __("Categories") }}
+      </div>
       <Button
         theme="gray"
         variant="ghost"
@@ -27,6 +29,7 @@
         :is-expanded="true"
         :label="category.category_name"
         :on-click="() => toCategory(category.name)"
+        class="truncate"
       />
     </div>
     <KnowledgeBaseCategoryNew

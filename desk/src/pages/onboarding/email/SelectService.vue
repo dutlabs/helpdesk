@@ -15,7 +15,7 @@
         @click="service = s.name"
       >
         <Tooltip :text="s.name">
-          <img :src="s.icon" class="h-12 w-12" />
+          <img :src="s.icon" :alt="s.name" class="h-12 w-12" />
         </Tooltip>
       </div>
     </div>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <Button
-      label="Continue"
+      :label="__('Continue')"
       :disabled="isEmpty(service)"
       class="w-max"
       variant="outline"
@@ -61,8 +61,9 @@ const services = [
   {
     name: "GMail",
     icon: LogoGmail,
-    info: "Setting up GMail requires you to enable two factor authentication \
-		and app specific passwords. Read more at https://support.google.com/accounts/answer/185833",
+    info: __(
+      "Setting up GMail requires you to enable two factor authentication and app specific passwords. Read more at https://support.google.com/accounts/answer/185833"
+    ),
   },
   {
     name: "Outlook",

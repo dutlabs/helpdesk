@@ -22,11 +22,11 @@
       <div class="absolute z-10 mt-2 rounded bg-white p-3 shadow">
         <div class="flex space-x-2">
           <div class="space-y-1">
-            <Input class="w-16" v-model="hours" type="number" />
+            <Input v-model="hours" class="w-16" type="number" />
             <div>hours</div>
           </div>
           <div class="space-y-1">
-            <Input class="w-16" v-model="minutes" type="number" />
+            <Input v-model="minutes" class="w-16" type="number" />
             <div>minutes</div>
           </div>
         </div>
@@ -41,10 +41,10 @@ import { ref } from "@vue/reactivity";
 
 export default {
   name: "TimeDurationInput",
-  props: ["modelValue"],
   components: {
     Input,
   },
+  props: ["modelValue"],
   setup() {
     const hours = ref(0);
     const minutes = ref(0);
@@ -59,6 +59,14 @@ export default {
       editing,
     };
   },
+  watch: {
+    hours(newValue) {
+      this.updateModelValue();
+    },
+    minutes(newValue) {
+      this.updateModelValue();
+    },
+  },
   mounted() {
     if (this.modelValue) {
       this.timeStr = this.convertSecondsToTimeStr(this.modelValue);
@@ -67,14 +75,6 @@ export default {
       this.hours = time.hours ? time.hours : 0;
       this.minutes = time.minutes ? time.minutes : 0;
     }
-  },
-  watch: {
-    hours(newValue) {
-      this.updateModelValue();
-    },
-    minutes(newValue) {
-      this.updateModelValue();
-    },
   },
   methods: {
     updateModelValue() {

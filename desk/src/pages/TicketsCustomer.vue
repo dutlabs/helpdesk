@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle title="Tickets">
+    <PageTitle :title="__('Tickets')">
       <template #right>
         <div class="flex gap-2">
           <div
@@ -25,7 +25,7 @@
           >
             <Button
               class="bg-gray-900 text-white hover:bg-gray-800"
-              label="New ticket"
+              :label="__('New Ticket')"
               icon-right="plus"
             />
           </RouterLink>
@@ -52,13 +52,13 @@
               data.first_responded_on &&
               dayjs(data.first_responded_on).isBefore(data.response_by)
             "
-            label="Fulfilled"
+            :label="__('Fulfilled')"
             theme="green"
             variant="outline"
           />
           <Badge
             v-else-if="dayjs(data.first_responded_on).isAfter(data.response_by)"
-            label="Failed"
+            :label="__('Failed')"
             theme="red"
             variant="outline"
           />
@@ -74,13 +74,13 @@
               data.resolution_date &&
               dayjs(data.resolution_date).isBefore(data.resolution_by)
             "
-            label="Fulfilled"
+            :label="__('Fulfilled')"
             theme="green"
             variant="outline"
           />
           <Badge
             v-else-if="dayjs(data.resolution_date).isAfter(data.resolution_by)"
-            label="Failed"
+            :label="__('Failed')"
             theme="red"
             variant="outline"
           />
@@ -116,32 +116,32 @@ const columns = [
     width: "w-12",
   },
   {
-    label: "Subject",
+    label: __("Subject"),
     key: "subject",
     width: "w-96",
   },
   {
-    label: "Status",
+    label: __("Status"),
     key: "status",
     width: "w-32",
   },
   {
-    label: "Priority",
+    label: __("Priority"),
     key: "priority",
     width: "w-32",
   },
   {
-    label: "First Response",
+    label: __("First Response"),
     key: "response_by",
     width: "w-32",
   },
   {
-    label: "Resolution",
+    label: __("Resolution"),
     key: "resolution_by",
     width: "w-32",
   },
   {
-    label: "Created",
+    label: __("Created"),
     key: "creation",
     width: "w-32",
   },
@@ -178,19 +178,19 @@ const ACTIVE_TICKET_TYPES = ["Open", "Replied"];
 const dropdownTitle = ref("All tickets");
 const dropdownOptions = [
   {
-    label: "All tickets",
+    label: __("All tickets"),
     onClick() {
       filter("All tickets", { status: undefined });
     },
   },
   {
-    label: "Open tickets",
+    label: __("Open tickets"),
     onClick() {
       filter("Open tickets", { status: ["in", ACTIVE_TICKET_TYPES] });
     },
   },
   {
-    label: "Closed tickets",
+    label: __("Closed tickets"),
     onClick() {
       filter("Closed tickets", { status: ["not in", ACTIVE_TICKET_TYPES] });
     },

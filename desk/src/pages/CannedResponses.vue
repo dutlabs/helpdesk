@@ -6,7 +6,7 @@
       </template>
       <template #right-header>
         <Button
-          label="Create"
+          :label="__('Create')"
           theme="gray"
           variant="solid"
           @click="
@@ -26,7 +26,7 @@
     <div class="flex-1 overflow-y-auto p-2">
       <div
         v-if="cannedResponses?.data?.data?.length"
-        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-5 pb-3"
+        class="grid grid-cols-1 gap-4 px-5 pb-3 md:grid-cols-3 lg:grid-cols-4"
       >
         <div
           v-for="cannedResponse in cannedResponses.data.data"
@@ -41,7 +41,7 @@
             <Dropdown
               :options="[
                 {
-                  label: 'Delete',
+                  label: __('Delete'),
                   icon: 'trash-2',
                   onClick: () => deleteItem(cannedResponse.name),
                 },
@@ -109,7 +109,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import {
-  createResource,
+  createListResource,
+  usePageMeta,
   Breadcrumbs,
   Dropdown,
   TextEditor,
@@ -125,7 +126,7 @@ import { dayjs } from "@/dayjs";
 const { getUser } = useUserStore();
 
 const breadcrumbs = [
-  { label: "Canned Responses", route: { name: "CannedResponses" } },
+  { label: __("Canned Responses"), route: { name: "CannedResponses" } },
 ];
 
 const title = ref(null);
@@ -133,11 +134,9 @@ const message = ref(null);
 const name = ref(null);
 const showNewDialog = ref(false);
 
-const cannedResponses = createResource({
-  url: "helpdesk.api.doc.get_list_data",
-  params: {
-    doctype: "HD Canned Response",
-  },
+const cannedResponses = createListResource({
+  doctype: "HD Canned Response",
+  fields: ["name", "title", "message", "owner", "modified"],
   auto: true,
 });
 
@@ -155,4 +154,10 @@ async function deleteItem(name) {
   });
   cannedResponses.reload();
 }
+
+usePageMeta(() => {
+  return {
+    title: __("Canned Responses"),
+  };
+});
 </script>

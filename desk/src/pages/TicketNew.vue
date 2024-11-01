@@ -2,7 +2,7 @@
   <div class="flex flex-col overflow-y-auto">
     <TicketBreadcrumbs
       :parent="route.meta.parent"
-      title="New"
+      :title="__('New')"
       :current="route.name"
     />
     <div v-if="template.data?.about" class="mx-5 my-3">
@@ -21,8 +21,8 @@
       <FormControl
         v-model="subject"
         type="text"
-        label="Subject*"
-        placeholder="A short description"
+        :label="__('Subject*')"
+        :placeholder="__('A short description')"
       />
     </div>
     <TicketNewArticles
@@ -36,12 +36,12 @@
         ref="editor"
         v-model:attachments="attachments"
         v-model:content="description"
-        placeholder="Detailed explanation"
+        :placeholder="__('Detailed explanation')"
         expand
       >
         <template #bottom-right>
           <Button
-            label="Submit"
+            :label="__('Submit')"
             theme="gray"
             variant="solid"
             :disabled="
@@ -55,7 +55,7 @@
         v-show="subject.length <= 2 && description.length === 0"
         class="flex items-center justify-center text-lg text-gray-500"
       >
-        Please enter a subject to continue
+        {{ __("Please enter a subject to continue") }}
       </h4>
     </div>
 
@@ -65,12 +65,12 @@
         ref="editor"
         v-model:attachments="attachments"
         v-model:content="description"
-        placeholder="Detailed explanation"
+        :placeholder="__('Detailed explanation')"
         expand
       >
         <template #bottom-right>
           <Button
-            label="Submit"
+            :label="__('Submit')"
             theme="gray"
             variant="solid"
             :disabled="
@@ -178,7 +178,7 @@ function sanitize(html: string) {
 }
 
 usePageMeta(() => ({
-  title: "New Ticket",
+  title: __("New Ticket"),
 }));
 
 const { userId: userID } = useAuthStore();

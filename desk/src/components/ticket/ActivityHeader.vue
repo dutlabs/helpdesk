@@ -1,6 +1,6 @@
 <template>
   <div
-    class="md:mx-10 md:my-8 flex items-center justify-between text-lg font-medium mx-5 mb-4 mt-8"
+    class="mx-5 mb-4 mt-8 flex items-center justify-between text-lg font-medium md:mx-10 md:my-8"
   >
     <div class="flex h-8 items-center text-xl font-semibold text-gray-800">
       {{ title }}
@@ -13,7 +13,7 @@
       <template #prefix>
         <FeatherIcon name="plus" class="h-4 w-4" />
       </template>
-      <span>{{ "New Email" }}</span>
+      <span>{{ __("New Email") }}</span>
     </Button>
     <Button
       v-else-if="title == 'Comments'"
@@ -23,15 +23,15 @@
       <template #prefix>
         <FeatherIcon name="plus" class="h-4 w-4" />
       </template>
-      <span>{{ "New Comment" }}</span>
+      <span>{{ __("New Comment") }}</span>
     </Button>
     <Dropdown v-else :options="defaultActions" @click.stop>
-      <template v-slot="{ open }">
+      <template #default="{ open }">
         <Button variant="solid" class="flex items-center gap-1">
           <template #prefix>
             <FeatherIcon name="plus" class="h-4 w-4" />
           </template>
-          <span>{{ "New" }}</span>
+          <span>{{ __("New") }}</span>
           <template #suffix>
             <FeatherIcon
               :name="open ? 'chevron-up' : 'chevron-down'"
@@ -45,12 +45,9 @@
 </template>
 
 <script setup lang="ts">
-import { h } from "vue";
-import { computed } from "vue";
+import { computed, h, inject, Ref } from "vue";
 import { EmailIcon, CommentIcon } from "@/components/icons";
 import { Dropdown } from "frappe-ui";
-import { inject } from "vue";
-import { Ref } from "vue";
 defineProps({
   title: {
     type: String,
@@ -64,12 +61,12 @@ const defaultActions = computed(() => {
   let actions = [
     {
       icon: h(EmailIcon, { class: "h-4 w-4" }),
-      label: "New Email",
+      label: __("New Email"),
       onClick: () => communicationAreaRef.value.toggleEmailBox(),
     },
     {
       icon: h(CommentIcon, { class: "h-4 w-4" }),
-      label: "New Comment",
+      label: __("New Comment"),
       onClick: () => communicationAreaRef.value.toggleCommentBox(),
     },
   ];

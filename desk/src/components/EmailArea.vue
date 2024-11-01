@@ -60,14 +60,18 @@
       {{ subject }}
     </div> -->
     <div class="mb-3 text-sm leading-5 text-gray-600">
-      <span v-if="to" class="text-2xs mr-1 font-bold text-gray-500">TO:</span>
+      <span v-if="to" class="text-2xs mr-1 font-bold text-gray-500">{{
+        __("TO:")
+      }}</span>
       <span v-if="to"> {{ to }} </span>
       <span v-if="cc">, </span>
-      <span v-if="cc" class="text-2xs mr-1 font-bold text-gray-500"> CC: </span>
+      <span v-if="cc" class="text-2xs mr-1 font-bold text-gray-500">
+        {{ __("CC:") }}
+      </span>
       <span v-if="cc">{{ cc }}</span>
       <span v-if="bcc">, </span>
       <span v-if="bcc" class="text-2xs mr-1 font-bold text-gray-500">
-        BCC:
+        {{ __("BCC:") }}
       </span>
       <span v-if="bcc">{{ bcc }}</span>
     </div>

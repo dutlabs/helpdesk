@@ -7,7 +7,7 @@
       <template #right>
         <div class="space-x-2">
           <Button
-            label="Edit"
+            :label="__('Edit')"
             theme="gray"
             variant="outline"
             @click="showEdit = !showEdit"
@@ -17,7 +17,7 @@
             </template>
           </Button>
           <Button
-            label="Add new"
+            :label="__('Add new')"
             theme="gray"
             variant="solid"
             @click="toNewArticle"
@@ -47,7 +47,7 @@
         </Badge>
       </template>
       <template #emptyMessage>
-        <EmptyMessage message="This sub category is empty" />
+        <EmptyMessage :message="__('This sub category is empty')" />
       </template>
     </ListView>
     <Dialog v-model="showEdit" :options="{ title: 'Edit' }">
@@ -57,19 +57,19 @@
             <FormControl
               v-model="newSubCategoryName"
               :placeholder="subCategory.doc.category_name"
-              label="Name"
+              :label="__('Name')"
               type="text"
             />
             <FormControl
               v-model="newSubCategoryDescription"
               :placeholder="subCategory.doc.description"
-              label="Description"
+              :label="__('Description')"
               type="textarea"
             />
             <Button
               :disabled="!newSubCategoryName && !newSubCategoryDescription"
               class="w-full"
-              label="Save"
+              :label="__('Save')"
               theme="gray"
               variant="solid"
             />
@@ -118,7 +118,7 @@ const subCategory = createDocumentResource({
   name: props.subCategoryId,
   auto: true,
   setValue: {
-    onError: useError({ title: "Error creating sub category" }),
+    onError: useError({ title: __("Error creating sub category") }),
   },
 });
 
@@ -157,12 +157,12 @@ const articles = createListManager({
 
 const columns = [
   {
-    label: "Title",
+    label: __("Title"),
     key: "title",
     width: "w-96",
   },
   {
-    label: "Status",
+    label: __("Status"),
     key: "status",
     width: "w-40",
   },

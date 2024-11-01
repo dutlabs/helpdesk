@@ -39,12 +39,12 @@ import EmailConfig from "./EmailConfig.vue";
 import Branding from "./Branding.vue";
 let tabs = [
   {
-    label: "Email Accounts",
+    label: __("Email Accounts"),
     icon: LucideMail,
     component: EmailConfig,
   },
   {
-    label: "Branding",
+    label: __("Branding"),
     icon: ImageUp,
     component: Branding,
   },

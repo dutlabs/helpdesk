@@ -2,11 +2,13 @@
   <div class="flex flex-col">
     <LayoutHeader>
       <template #left-header>
-        <div class="text-lg font-medium text-gray-900">Customers</div>
+        <div class="text-lg font-medium text-gray-900">
+          {{ __("Customers") }}
+        </div>
       </template>
       <template #right-header>
         <Button
-          label="New customer"
+          :label="__('New customer')"
           theme="gray"
           variant="solid"
           @click="isDialogVisible = !isDialogVisible"
@@ -58,12 +60,12 @@ const selectedCustomer = ref(null);
 // const emptyMessage = "No Customers Found";
 const columns = [
   {
-    label: "Name",
+    label: __("Name"),
     key: "name",
     width: "w-80",
   },
   {
-    label: "Domain",
+    label: __("Domain"),
     key: "domain",
     width: "w-80",
   },
@@ -83,7 +85,7 @@ const customers = createListManager({
 
 usePageMeta(() => {
   return {
-    title: "Customers",
+    title: __("Customers"),
   };
 });
 
