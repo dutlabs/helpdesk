@@ -30,7 +30,7 @@ class TicketSummary:
     def get_columns(self):
         self.columns = []
 
-        if self.filters.based_on == "Contact":
+        if self.filters.based_on == _("Contact"):
             self.columns.append(
                 {
                     "label": _("Contact"),
@@ -41,7 +41,7 @@ class TicketSummary:
                 }
             )
 
-        elif self.filters.based_on == "Assigned To":
+        elif self.filters.based_on == _("Assigned To"):
             self.columns.append(
                 {
                     "label": _("User"),
@@ -52,7 +52,7 @@ class TicketSummary:
                 }
             )
 
-        elif self.filters.based_on == "Ticket Type":
+        elif self.filters.based_on == _("Ticket Type"):
             self.columns.append(
                 {
                     "label": _("Ticket Type"),
@@ -63,7 +63,7 @@ class TicketSummary:
                 }
             )
 
-        elif self.filters.based_on == "Ticket Priority":
+        elif self.filters.based_on == _("Ticket Priority"):
             self.columns.append(
                 {
                     "label": _("Ticket Priority"),
@@ -78,7 +78,7 @@ class TicketSummary:
         for status in self.statuses:
             self.columns.append(
                 {
-                    "label": _(status),
+                    "label": status,
                     "fieldname": scrub(status),
                     "fieldtype": "Int",
                     "width": 80,
@@ -95,15 +95,15 @@ class TicketSummary:
         )
 
         self.sla_status_map = {
-            "SLA Failed": "failed",
-            "SLA Fulfilled": "fulfilled",
-            "SLA Ongoing": "ongoing",
+            _("SLA Failed"): "failed",
+            _("SLA Fulfilled"): "fulfilled",
+            _("SLA Ongoing"): "ongoing",
         }
 
         for label, fieldname in self.sla_status_map.items():
             self.columns.append(
                 {
-                    "label": _(label),
+                    "label": label,
                     "fieldname": fieldname,
                     "fieldtype": "Int",
                     "width": 100,
@@ -121,7 +121,7 @@ class TicketSummary:
         for metric in self.metrics:
             self.columns.append(
                 {
-                    "label": _(metric),
+                    "label": metric,
                     "fieldname": scrub(metric),
                     "fieldtype": "Duration",
                     "width": 170,
@@ -135,10 +135,10 @@ class TicketSummary:
     def get_tickets(self):
         filters = self.get_common_filters()
         self.field_map = {
-            "Contact": "contact",
-            "Ticket Type": "ticket_type",
-            "Ticket Priority": "priority",
-            "Assigned To": "_assign",
+            _("Contact"): "contact",
+            _("Ticket Type"): "ticket_type",
+            _("Ticket Priority"): "priority",
+            _("Assigned To"): "_assign",
         }
 
         self.entries = frappe.db.get_all(
@@ -179,13 +179,13 @@ class TicketSummary:
         self.get_summary_data()
 
         for entity, data in iteritems(self.ticket_summary_data):
-            if self.filters.based_on == "Contact":
+            if self.filters.based_on == _("Contact"):
                 row = {"contact": entity}
-            elif self.filters.based_on == "Assigned To":
+            elif self.filters.based_on == _("Assigned To"):
                 row = {"user": entity}
-            elif self.filters.based_on == "Ticket Type":
+            elif self.filters.based_on == _("Ticket Type"):
                 row = {"ticket_type": entity}
-            elif self.filters.based_on == "Ticket Priority":
+            elif self.filters.based_on == _("Ticket Priority"):
                 row = {"priority": entity}
 
             for status in self.statuses:
@@ -211,7 +211,7 @@ class TicketSummary:
             status = d.status
             agreement_status = scrub(d.agreement_status)
 
-            if self.filters.based_on == "Assigned To":
+            if self.filters.based_on == _("Assigned To"):
                 if d._assign:
                     for entry in json.loads(d._assign):
                         self.ticket_summary_data.setdefault(
@@ -265,7 +265,7 @@ class TicketSummary:
         field = self.field_map.get(self.filters.based_on)
 
         if ticket:
-            if self.filters.based_on == "Assigned To":
+            if self.filters.based_on == _("Assigned To"):
                 assignment_map = frappe._dict()
                 for d in self.entries:
                     if d._assign:
@@ -358,7 +358,7 @@ class TicketSummary:
 
         entity = self.filters.based_on
         entity_field = self.field_map.get(entity)
-        if entity == "Assigned To":
+        if entity == _("Assigned To"):
             entity_field = "user"
 
         for entry in self.data:
@@ -372,10 +372,10 @@ class TicketSummary:
             "data": {
                 "labels": labels[:30],
                 "datasets": [
-                    {"name": "Open", "values": open_tickets[:30]},
-                    {"name": "Replied", "values": replied_tickets[:30]},
-                    {"name": "Resolved", "values": resolved_tickets[:30]},
-                    {"name": "Closed", "values": closed_tickets[:30]},
+                    {"name": _("Open"), "values": open_tickets[:30]},
+                    {"name": _("Replied"), "values": replied_tickets[:30]},
+                    {"name": _("Resolved"), "values": resolved_tickets[:30]},
+                    {"name": _("Closed"), "values": closed_tickets[:30]},
                 ],
             },
             "type": "bar",
