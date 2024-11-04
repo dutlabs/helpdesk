@@ -3899,3 +3899,6 @@ msgstr "contatos"
 
 msgid "teams"
 msgstr "equipes"
+
+msgid "customers"
+msgstr "clientes"

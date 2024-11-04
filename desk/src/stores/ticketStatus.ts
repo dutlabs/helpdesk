@@ -5,7 +5,7 @@ export const useTicketStatusStore = defineStore("ticketStatus", () => {
   const options = ref(["Open", "Replied", "Resolved", "Closed"]);
   const dropdown = computed(() =>
     options.value.map((o) => ({
-      label: __(o),
+      label: o,
       value: o,
     }))
   );

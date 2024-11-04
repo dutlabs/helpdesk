@@ -7,7 +7,7 @@
     >
       <Tooltip :text="__(o.label)">
         <div class="w-[106px] shrink-0 truncate text-sm text-gray-600">
-          {{ __(o.label) }}
+          {{ o.label }}
         </div>
       </Tooltip>
       <div

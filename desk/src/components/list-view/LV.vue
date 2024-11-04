@@ -77,11 +77,14 @@ const props = withDefaults(defineProps<P>(), {
 const route = useRoute();
 const body = ref<HTMLElement | null>(null);
 const singular = computed(() => {
-  // TODO: find a better way to translate this
-  return __(props.doctype.replace("HD ", "").toLowerCase().trim());
+  const singular_value = __(
+    props.doctype.replace("HD ", "").toLowerCase().trim()
+  );
+  return singular_value;
 });
 const plural = computed(() => {
-  return pluralize(singular.value);
+  const plural_value = pluralize(singular.value);
+  return __(plural_value);
 });
 const emptyMsg = computed(() => {
   return __("No {0} found", [plural.value]);

@@ -55,13 +55,13 @@
               data.first_responded_on &&
               dayjs(data.first_responded_on).isBefore(data.response_by)
             "
-            :label="__('Fulfilled')"
+            :label="translateResolution('Fulfilled')"
             theme="green"
             variant="outline"
           />
           <Badge
             v-else-if="dayjs(data.first_responded_on).isAfter(data.response_by)"
-            :label="__('Failed')"
+            :label="translateResolution('Failed')"
             theme="red"
             variant="outline"
           />
@@ -77,7 +77,7 @@
               data.resolution_date &&
               dayjs(data.resolution_date).isBefore(data.resolution_by)
             "
-            :label="__('Fulfilled')"
+            :label="translateResolution('Fulfilled')"
             theme="green"
             variant="outline"
           />
@@ -220,5 +220,9 @@ function transformStatus(status: string) {
     default:
       return __(status);
   }
+}
+
+function translateResolution(resolution: string) {
+  return __(resolution);
 }
 </script>
