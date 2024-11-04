@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-between border-t px-5 py-2">
     <TabButtons
-      :buttons="pageLengthOptions.map((o) => ({ label: o }))"
+      :buttons="pageLengthOptions.map((o) => ({ label: __(o) }))"
       :model-value="resource.pageLength"
       @update:model-value="
         (val) => {
@@ -19,7 +19,7 @@
       />
       <span v-if="resource.data?.length" class="space-x-1 text-base">
         <span class="text-gray-900">{{ resource.data?.length }}</span>
-        <span class="text-gray-700">of</span>
+        <span class="text-gray-700">{{ __("of") }}</span>
         <span class="text-gray-900">{{ resource.totalCount }}</span>
       </span>
     </span>

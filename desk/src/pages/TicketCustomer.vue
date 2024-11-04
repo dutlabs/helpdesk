@@ -20,7 +20,7 @@
         </Button>
         <Button
           v-if="showResolveButton"
-          label="Close"
+          :label="__('Close')"
           theme="gray"
           variant="solid"
           @click="handleClose()"

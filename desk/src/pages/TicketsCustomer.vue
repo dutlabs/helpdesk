@@ -45,6 +45,9 @@
           variant="outline"
         />
       </template>
+      <template #priority="{ data }">
+        <Badge :label="__(data.priority)" variant="outline" />
+      </template>
       <template #response_by="{ data }">
         <span v-if="data.response_by">
           <Badge
@@ -175,7 +178,7 @@ const tickets = createListManager({
 });
 
 const ACTIVE_TICKET_TYPES = ["Open", "Replied"];
-const dropdownTitle = ref("All tickets");
+const dropdownTitle = ref(__("All tickets"));
 const dropdownOptions = [
   {
     label: __("All tickets"),
@@ -213,9 +216,9 @@ function filter(title: string, filters: Record<string, any>) {
 function transformStatus(status: string) {
   switch (status) {
     case "Replied":
-      return "Awaiting reply";
+      return __("Awaiting reply");
     default:
-      return status;
+      return __(status);
   }
 }
 </script>

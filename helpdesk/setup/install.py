@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import frappe
+from frappe import _
 from frappe.permissions import add_permission
 
 from .default_template import create_default_template
@@ -53,16 +54,16 @@ def add_default_categories_and_articles():
     category = frappe.get_doc(
         {
             "doctype": "HD Article Category",
-            "category_name": "Getting Started",
-            "description": "Content for your Category",
+            "category_name": _("Getting Started"),
+            "description": _("Content for your Category"),
         }
     ).insert()
 
     frappe.get_doc(
         {
             "doctype": "HD Article",
-            "title": "Introduction",
-            "content": "Content for your Article",
+            "title": _("Introduction"),
+            "content": _("Content for your Article"),
             "category": category.name,
             "published": False,
         }
@@ -77,7 +78,7 @@ def add_default_sla():
 
     sla_doc = frappe.new_doc("HD Service Level Agreement")
 
-    sla_doc.service_level = "Default"
+    sla_doc.service_level = _("Default")
     sla_doc.document_type = "HD Ticket"
     sla_doc.default_sla = 1
     sla_doc.enabled = 1
@@ -150,9 +151,9 @@ def add_default_sla():
 
     sla_doc.append("pause_sla_on", sla_paused_on_replied)
 
-    sla_doc.holiday_list = "Default"
+    sla_doc.holiday_list = _("Default")
 
-    for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]:
+    for day in [_("Monday"), _("Tuesday"), _("Wednesday"), _("Thursday"), _("Friday")]:
         service_day = frappe.get_doc(
             {
                 "doctype": "HD Service Day",
@@ -170,7 +171,7 @@ def add_default_holidy_list():
     frappe.get_doc(
         {
             "doctype": "HD Service Holiday List",
-            "holiday_list_name": "Default",
+            "holiday_list_name": _("Default"),
             "from_date": datetime.strptime(f"Jan 1 {datetime.now().year}", "%b %d %Y"),
             "to_date": datetime.strptime(
                 f"Jan 1 {datetime.now().year + 1}", "%b %d %Y"
@@ -246,17 +247,17 @@ def add_system_preset_filters():
         preset_filters.append(
             {
                 "doctype": "HD Preset Filter",
-                "title": f"My {status} Tickets",
+                "title": _("My {0} Tickets").format(status),
                 "reference_doctype": "HD Ticket",
                 "filters": [
                     {
-                        "label": "Assigned To",
+                        "label": _("Assigned To"),
                         "fieldname": "_assign",
                         "filter_type": "is",
                         "value": "@me",
                     },
                     {
-                        "label": "Status",
+                        "label": _("Status"),
                         "fieldname": "status",
                         "filter_type": "is",
                         "value": status,
@@ -267,7 +268,7 @@ def add_system_preset_filters():
     preset_filters.append(
         {
             "doctype": "HD Preset Filter",
-            "title": "All Tickets",
+            "title": _("All Tickets"),
             "reference_doctype": "HD Ticket",
             "filters": [],
         }

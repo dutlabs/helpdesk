@@ -1,4 +1,5 @@
 import frappe
+from frappe import _
 from frappe.desk.form.assign_to import add as add_assign
 
 AUTHOR_EMAIl = "ritvik@frappe.io"
@@ -32,7 +33,7 @@ def create_ticket():
         return
 
     d = frappe.new_doc("HD Ticket")
-    d.subject = "Welcome to Helpdesk"
+    d.subject = _("Welcome to Helpdesk")
     d.description = CONTENT
     d.raised_by = AUTHOR_EMAIl
     d.contact = AUTHOR_NAME

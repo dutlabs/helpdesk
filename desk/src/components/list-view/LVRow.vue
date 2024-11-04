@@ -99,7 +99,7 @@ async function filterFunc(event: InputEvent, c: Column) {
       }
       return {
         fieldname: field.fieldname,
-        label: field.label,
+        label: __(field.label),
         operator: "is",
         value: val,
       };

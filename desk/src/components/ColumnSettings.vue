@@ -27,7 +27,7 @@
               >
                 <div class="flex items-center gap-2">
                   <DragIcon class="h-3.5" />
-                  <div>{{ element.label }}</div>
+                  <div>{{ __(element.label) }}</div>
                 </div>
                 <div class="flex cursor-pointer items-center gap-1">
                   <Button
@@ -185,7 +185,7 @@ function addColumn(c) {
   let columnEvent = {
     event: "add",
     data: {
-      label: c.label,
+      label: __(c.label),
       type: c.type,
       key: c.value,
       width: "10rem",

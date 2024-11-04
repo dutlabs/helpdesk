@@ -236,7 +236,7 @@ watch(
 
 const dropdownOptions = computed(() =>
   ticketStatusStore.options.map((o) => ({
-    label: o, // TODO: This was with gettext function, is it necessary?
+    label: __(o),
     value: o,
     onClick: () => updateTicket("status", o),
     icon: () =>

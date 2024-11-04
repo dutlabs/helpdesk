@@ -186,7 +186,8 @@ class HDTicket(Document):
         self.apply_sla()
 
     def after_insert(self):
-        log_ticket_activity(self.name, _("created this ticket"))
+        activity = _("created this ticket")
+        log_ticket_activity(self.name, activity)
         capture_event("ticket_created")
         publish_event("helpdesk:new-ticket", {"name": self.name})
 
@@ -327,8 +328,9 @@ class HDTicket(Document):
             "ticket_type",
         ]:
             if self.has_value_changed(field):
+                field_value = self.as_dict()[field]
                 log_ticket_activity(
-                    self.name, _("set {0} to {1}").format(field_maps[field], self.as_dict()[field])
+                    self.name, _("set {0} to {1}").format(field_maps[field], _(field_value))
                 )
 
     def remove_assignment_if_not_in_team(self):
@@ -577,7 +579,8 @@ class HDTicket(Document):
     def create_communication_via_contact(self, message, attachments=[]):
         if self.status == "Replied":
             self.status = "Open"
-            log_ticket_activity(self.name, _("set status to Open"))
+            activity = _("set status to Open")
+            log_ticket_activity(self.name, activity)
             self.save(ignore_permissions=True)
 
         c = frappe.new_doc("Communication")

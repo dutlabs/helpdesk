@@ -42,8 +42,8 @@
                 class="!w-32"
                 type="select"
                 :options="[
-                  { label: 'Ascending', value: 'asc' },
-                  { label: 'Descending', value: 'desc' },
+                  { label: __('Ascending'), value: 'asc' },
+                  { label: __('Descending'), value: 'desc' },
                 ]"
                 :placeholder="__('Sort by')"
                 @change="(e) => updateSort(i, null, e.target.value)"

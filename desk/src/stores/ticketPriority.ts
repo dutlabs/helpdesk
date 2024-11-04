@@ -20,16 +20,16 @@ export const useTicketPriorityStore = defineStore("ticketPriority", () => {
   );
   const dropdown = computed(() =>
     options.value.map((o) => ({
-      label: o.name,
+      label: __(o.name),
       value: o.name,
     }))
   );
   const names = computed(() => options.value.map((o) => o.name));
   const colorMap = {
-    Urgent: "red",
-    High: "orange",
-    Medium: "blue",
-    Low: "green",
+    [__("Urgent")]: "red",
+    [__("High")]: "orange",
+    [__("Medium")]: "blue",
+    [__("Low")]: "green",
   };
 
   return {

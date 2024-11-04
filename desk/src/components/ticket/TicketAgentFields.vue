@@ -5,9 +5,9 @@
       :key="o.field"
       class="flex items-center gap-2 px-6 pb-1 leading-5 first:mt-3"
     >
-      <Tooltip :text="o.label">
+      <Tooltip :text="__(o.label)">
         <div class="w-[106px] shrink-0 truncate text-sm text-gray-600">
-          {{ o.label }}
+          {{ __(o.label) }}
         </div>
       </Tooltip>
       <div

@@ -9,7 +9,7 @@
     <div class="space-y-1.5">
       <span class="block text-sm text-gray-700"> {{ __("Priority") }} </span>
       <span class="block break-words text-base font-medium text-gray-900">
-        {{ ticket.data.priority }}
+        {{ __(ticket.data.priority) }}
       </span>
     </div>
     <div v-for="data in slaData" :key="data.label" class="space-y-1.5">
@@ -60,12 +60,15 @@ const slaData = computed(() => {
       : "Failed";
 
   //TODO: no resolution date for unclassified tickets, configurable?
-  if (ticket.data.priority === "Unclassified") {
+  if (
+    ticket.data.priority === "Unclassified" ||
+    ticket.data.priority === "Não classificado"
+  ) {
     return [
       {
         title: __("Expected First Response"),
         showSla: ticket.data.first_responded_on,
-        label: responseSla,
+        label: __(responseSla),
         theme: responseSla === "Fulfilled" ? "green" : "red",
         value: ticket.data.response_by,
       },
@@ -99,9 +102,9 @@ const slaData = computed(() => {
 function transformStatus(status: string) {
   switch (status) {
     case "Replied":
-      return "Awaiting reply";
+      return __("Awaiting reply");
     default:
-      return status;
+      return __(status);
   }
 }
 </script>

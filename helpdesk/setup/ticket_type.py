@@ -1,9 +1,10 @@
 import frappe
+from frappe import _
 
 from helpdesk.consts import DEFAULT_TICKET_TYPE
 
 DT = "HD Ticket Type"
-TICKET_TYPES = ["Question", "Bug", "Incident"]
+TICKET_TYPES = [_("Question"), _("Bug"), _("Incident")]
 
 
 def create_fallback_ticket_type():

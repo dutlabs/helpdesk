@@ -9,7 +9,7 @@
       @event:filter="(e) => emitToParent(e, 'event:filter')"
     />
     <div class="flex items-center gap-2">
-      <Button :label="'Refresh'" @click="emit('event:reload')">
+      <Button :label="__('Refresh')" @click="emit('event:reload')">
         <template #icon>
           <RefreshIcon class="h-4 w-4" />
         </template>
@@ -33,7 +33,7 @@
     <div class="flex items-center gap-2">
       <Dropdown :options="presetFilters">
         <template #default="{ open }">
-          <Button :label="currentPreset">
+          <Button :label="__(currentPreset)">
             <template #suffix>
               <FeatherIcon
                 :name="open ? 'chevron-up' : 'chevron-down'"
@@ -99,7 +99,7 @@ import { RefreshIcon } from "@/components/icons";
 import { useScreenSize } from "@/composables/screen";
 
 const authStore = useAuthStore();
-let currentPreset = ref("All Tickets");
+let currentPreset = ref(__("All Tickets"));
 
 const props = defineProps({
   filter: {
@@ -232,9 +232,9 @@ const emit = defineEmits([
 function emitToParent(data, event) {
   if (event === "event:filter") {
     if (data.event === "clear") {
-      currentPreset.value = "All Tickets"; //TODO: verify if it needs to be translated
+      currentPreset.value = __("All Tickets"); //TODO: verify if it needs to be translated
     } else {
-      currentPreset.value = "Filtered Tickets";
+      currentPreset.value = __("Filtered Tickets");
     }
   }
   emit(event, data);
@@ -258,7 +258,7 @@ function updateFilter(filter, value) {
           field: {
             fieldname: filter.name,
             fieldtype: filter.fieldtype,
-            label: filter.label,
+            label: __(filter.label),
           },
           filterToApply: {
             [filter.name]: ["=", value],

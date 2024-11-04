@@ -4,7 +4,7 @@
       <span class="font-medium text-gray-800">
         {{ user }}
       </span>
-      <span> {{ content }}</span>
+      <span> {{ __(content) }}</span>
     </div>
     <Tooltip :text="dateFormat(creation, dateTooltipFormat)">
       <div class="text-gray-600">
@@ -12,7 +12,7 @@
       </div>
     </Tooltip>
   </div>
-  <div v-if="show_others && content !== __('created this ticket')">
+  <div v-if="show_others && content !== 'created this ticket'">
     <div
       v-for="relatedActivity in relatedActivities"
       :key="relatedActivity.creation"
@@ -32,7 +32,7 @@
     </div>
   </div>
   <Button
-    v-if="relatedActivities.length && content !== __('created this ticket')"
+    v-if="relatedActivities.length && content !== 'created this ticket'"
     :label="
       show_others
         ? __('Hide')
