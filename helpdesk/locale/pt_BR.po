@@ -23,12 +23,12 @@ msgstr "(Ver Tudo)"
 #. Header text in the Helpdesk Workspace
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
 msgid "<span class=\"h3\" style=\"\"><a href=\"/helpdesk\">Visit Helpdesk</a></span>"
-msgstr "<span class=\"h3\" style=\"\"><a href=\"/helpdesk\">Visitar Helpdesk</a></span>"
+msgstr "<span class=\"h3\" style=\"\"><a href=\"/helpdesk\">Acessar página de suporte</a></span>"
 
 #. Paragraph text in the Helpdesk Workspace
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
 msgid "<span class=\"h4\">Helpdesk Configuration<br></span>"
-msgstr "<span class=\"h4\">Configuração do Helpdesk<br></span>"
+msgstr "<span class=\"h4\">Configuração de Suporte<br></span>"
 
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:65
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategoryNew.vue:15
@@ -1715,24 +1715,24 @@ msgstr "Peso de Título"
 
 #: helpdesk/config/desktop.py:11
 msgid "HelpDesk"
-msgstr "Helpdesk"
+msgstr "Suporte"
 
 #. Name of a Workspace
 #: desk/src/components/UserMenu.vue:24
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
 msgid "Helpdesk"
-msgstr "Helpdesk"
+msgstr "Suporte"
 
 #. Name of a role
 #: helpdesk/helpdesk/doctype/hd_ticket_priority/hd_ticket_priority.json
 #: helpdesk/helpdesk/doctype/hd_ticket_type/hd_ticket_type.json
 msgid "Helpdesk Contact"
-msgstr "Contato Helpdesk"
+msgstr "Contato Suporte"
 
 #. Label of a Card Break in the Helpdesk Workspace
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
 msgid "Helpdesk Reports"
-msgstr "Relatórios do Helpdesk"
+msgstr "Relatórios de Suporte"
 
 #: helpdesk/setup/ticket_feedback.py:7
 msgid "Helpful answers, reasonable wait"
@@ -2110,7 +2110,7 @@ msgstr "Meus Tickets Encerrados"
 
 #: desk/src/pages/onboarding/SetupName.vue:34
 msgid "My Helpdesk"
-msgstr "Meu Helpdesk"
+msgstr "Minha área de suporte"
 
 #: desk/src/components/ViewControls.vue:141
 msgid "My Open Tickets"
@@ -3629,11 +3629,11 @@ msgstr "Folga Semanal"
 
 #: desk/src/pages/onboarding/SimpleOnboarding.vue:43
 msgid "Welcome to Frappe Helpdesk! 🎉"
-msgstr "Bem-vindo ao Frappe Helpdesk! 🎉"
+msgstr "Bem-vindo ao Suporte Dut Labs! 🎉"
 
 #: helpdesk/setup/welcome_ticket.py:36
 msgid "Welcome to Helpdesk"
-msgstr "Bem-vindo ao Helpdesk"
+msgstr "Bem-vindo à página de Suporte"
 
 #: desk/src/components/ColumnSettings.vue:99
 msgid "Width"
