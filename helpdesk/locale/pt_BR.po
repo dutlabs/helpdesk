@@ -1277,7 +1277,7 @@ msgstr "Falha ao atualizar, por favor, tente novamente"
 
 #: desk/src/pages/onboarding/email/SuccessMessage.vue:17
 msgid "Fantastic! Your email is now active. You are ready unleash true potential of Frappe Helpdesk!"
-msgstr "Fantástico! Seu e-mail agora está ativo. Você está pronto para liberar todo o potencial do Frappe Helpdesk!"
+msgstr "Fantástico! Seu e-mail agora está ativo. Você está pronto para liberar todo o potencial do Suporte Dut!"
 
 #: desk/src/components/Settings/Branding.vue:147
 msgid "Favicon Updated"
@@ -2353,7 +2353,7 @@ msgstr "Ao clicar (Javascript)"
 
 #: desk/src/pages/onboarding/OnboardingIntro.vue:19
 msgid "Once again, welcome to Frappe Helpdesk! Let's hope for a long and smooth journey!"
-msgstr "Mais uma vez, bem-vindo ao Frappe Helpdesk! Vamos torcer por uma jornada longa e tranquila!"
+msgstr "Mais uma vez, bem-vindo ao Suporte Dut Labs! Vamos torcer por uma jornada longa e tranquila!"
 
 #. Option for the 'Status' (Select) field in DocType 'HD Pause Service Level
 #. Agreement On Status'
