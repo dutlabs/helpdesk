@@ -1,5 +1,5 @@
 <template>
-  <Dialog v-bind="attrs" :options="{ title: 'New category' }">
+  <Dialog v-bind="attrs" :options="{ title: __('New category') }">
     <template #body-content>
       <form @submit.prevent="newCategoryRes.submit">
         <div class="space-y-4">
@@ -12,20 +12,25 @@
               />
               <FormControl
                 v-model="newCategoryName"
-                placeholder="A brief guide"
+                :placeholder="__('A brief guide')"
                 type="text"
               />
             </div>
           </div>
           <div class="space-y-2">
-            <div class="text-xs text-gray-700">Description</div>
+            <div class="text-xs text-gray-700">{{ __("Description") }}</div>
             <FormControl
               v-model="newCategoryDescription"
-              placeholder="A short description"
+              :placeholder="__('A short description')"
               type="textarea"
             />
           </div>
-          <Button class="w-full" label="Create" theme="gray" variant="solid" />
+          <Button
+            class="w-full"
+            :label="__('Create')"
+            theme="gray"
+            variant="solid"
+          />
         </div>
       </form>
     </template>
@@ -70,7 +75,7 @@ const newCategoryRes = createResource({
     for (const f of requiredFields) {
       if (params.doc[f]) return;
       const field = f.replace("_", " ").toUpperCase();
-      return `${field} is required`;
+      return __("{0} is required", [field]);
     }
   },
   onSuccess(data) {

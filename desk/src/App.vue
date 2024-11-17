@@ -17,7 +17,7 @@ useConfigStore();
 onMounted(async () => {
   window.addEventListener("online", () => {
     createToast({
-      title: "You are now online",
+      title: __("You are now online"),
       icon: "wifi",
       iconClasses: "stroke-green-600",
     });
@@ -25,7 +25,7 @@ onMounted(async () => {
 
   window.addEventListener("offline", () => {
     createToast({
-      title: "You are now offline",
+      title: __("You are now offline"),
       icon: "wifi-off",
       iconClasses: "stroke-red-600",
     });

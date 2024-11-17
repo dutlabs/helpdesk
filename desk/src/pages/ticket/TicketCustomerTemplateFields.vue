@@ -62,9 +62,9 @@ const slaData = computed(() => {
   if (ticket.data.priority === "Unclassified") {
     return [
       {
-        title: "Expected First Response",
+        title: __("Expected First Response"),
         showSla: ticket.data.first_responded_on,
-        label: responseSla,
+        label: __(responseSla),
         theme: responseSla === "Fulfilled" ? "green" : "red",
         value: ticket.data.response_by,
       },
@@ -79,16 +79,16 @@ const slaData = computed(() => {
 
   return [
     {
-      title: "Expected First Response",
+      title: __("Expected First Response"),
       showSla: ticket.data.first_responded_on,
-      label: responseSla,
+      label: __(responseSla),
       theme: responseSla === "Fulfilled" ? "green" : "red",
       value: ticket.data.response_by,
     },
     {
-      title: "Expected Resolution",
+      title: __("Expected Resolution"),
       showSla: ticket.data.resolution_date,
-      label: resolutionSla,
+      label: __(resolutionSla),
       theme: resolutionSla === "Fulfilled" ? "green" : "red",
       value: ticket.data.resolution_by,
     },
@@ -107,7 +107,7 @@ const customFields = computed(() => {
 function transformStatus(status: string) {
   switch (status) {
     case "Replied":
-      return "Awaiting reply";
+      return __("Awaiting reply");
     default:
       return status;
   }

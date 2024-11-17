@@ -1,7 +1,7 @@
 <template>
   <div class="flex-col text-base">
     <div class="mb-1 ml-0.5 flex items-center justify-between">
-      <div class="text-gray-600 flex items-center gap-2">
+      <div class="flex items-center gap-2 text-gray-600">
         <Avatar
           size="sm"
           :label="commenter"
@@ -11,9 +11,9 @@
           <span class="font-medium text-gray-800">
             {{ commenter }}
           </span>
-          <span> added a</span>
+          <span>{{ " " + __("added a") }}</span>
           <span class="max-w-xs truncate font-medium text-gray-800">
-            comment
+            {{ " " + __("comment") }}
           </span>
         </p>
       </div>
@@ -25,7 +25,9 @@
         </Tooltip>
         <div v-if="authStore.userId === commentedBy">
           <Dropdown
-            :options="[{ label: 'Delete', onClick: () => (showDialog = true) }]"
+            :options="[
+              { label: __('Delete'), onClick: () => (showDialog = true) },
+            ]"
           >
             <Button
               icon="more-horizontal"
@@ -44,12 +46,12 @@
   <Dialog
     v-model="showDialog"
     :options="{
-      title: 'Delete Comment',
-      message: 'Are you sure you want to confirm this action?',
+      title: __('Delete Comment'),
+      message: __('Are you sure you want to confirm this action?'),
       actions: [
-        { label: 'Cancel', onClick: () => (showDialog = false) },
+        { label: __('Cancel'), onClick: () => (showDialog = false) },
         {
-          label: 'Delete',
+          label: __('Delete'),
           onClick: () => deleteComment.submit(),
           variant: 'solid',
         },
@@ -88,7 +90,7 @@ const deleteComment = createResource({
   onSuccess() {
     emit("update");
     createToast({
-      title: "Comment deleted",
+      title: __("Comment deleted"),
       icon: "check",
       iconClasses: "text-green-500",
     });

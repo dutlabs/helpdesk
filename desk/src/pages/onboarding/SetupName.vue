@@ -25,13 +25,15 @@ import { createResource } from "frappe-ui";
 import { capture } from "@/telemetry";
 import IconCheck from "~icons/ph/check-bold";
 
-const text =
+const text = __(
   "Now, let's set a name for your Helpdesk that reflects your organization's \
-	identity and values. So, what would you like to name your Helpdesk?";
-const subText =
+	identity and values. So, what would you like to name your Helpdesk?"
+);
+const subText = __(
   "Choose a name that resonates with your brand and instills \
-	trust in your customers";
-const placeholder = "My Helpdesk";
+	trust in your customers"
+);
+const placeholder = __("My Helpdesk");
 const isCheckVisible = ref(false);
 
 const r = createResource({

@@ -1,11 +1,11 @@
 <template>
-  <div class="flex-1 flex flex-col">
+  <div class="flex flex-1 flex-col">
     <ActivityHeader :title="title" />
     <div v-if="activities.length">
       <div v-for="(activity, i) in activities" :key="activity.key">
         <!-- single activity -->
         <div
-          class="w-full activity px-3 sm:px-10 grid grid-cols-[30px_minmax(auto,_1fr)] gap-2 sm:gap-4"
+          class="activity grid w-full grid-cols-[30px_minmax(auto,_1fr)] gap-2 px-3 sm:gap-4 sm:px-10"
         >
           <div
             class="relative flex justify-center after:absolute after:left-[50%] after:top-0 after:-z-10 after:border-l after:border-gray-200"
@@ -51,18 +51,18 @@
     </div>
     <div
       v-else
-      class="h-full flex flex-col items-center justify-center gap-3 text-xl font-medium text-gray-500"
+      class="flex h-full flex-col items-center justify-center gap-3 text-xl font-medium text-gray-500"
     >
       <component :is="emptyTextIcon" class="h-10 w-10" />
       <span>{{ emptyText }}</span>
       <Button
-        v-if="title == 'Emails'"
-        label="New Email"
+        v-if="title == __('Emails')"
+        :label="__('New Email')"
         @click="communicationAreaRef.toggleEmailBox()"
       />
       <Button
-        v-else-if="title == 'Comments'"
-        label="New Comment"
+        v-else-if="title == __('Comments')"
+        :label="__('New Comment')"
         @click="communicationAreaRef.toggleCommentBox()"
       />
     </div>
@@ -99,21 +99,22 @@ const emit = defineEmits(["email:reply", "update"]);
 const { getUser } = useUserStore();
 const communicationAreaRef: Ref = inject("communicationArea");
 
+// TODO: Check if translating these titles affect behaviour
 const emptyText = computed(() => {
-  let text = "No Activities";
-  if (props.title == "Emails") {
-    text = "No Email Communications";
-  } else if (props.title == "Comments") {
-    text = "No Comments";
-    return text;
+  let text = __("No Activities");
+  if (props.title == __("Emails")) {
+    text = __("No Email Communications");
+  } else if (props.title == __("Comments")) {
+    text = __("No Comments");
   }
+  return text;
 });
 
 const emptyTextIcon = computed(() => {
   let icon = ActivityIcon;
-  if (props.title == "Emails") {
+  if (props.title == __("Emails")) {
     icon = EmailIcon;
-  } else if (props.title == "Comments") {
+  } else if (props.title == __("Comments")) {
     icon = CommentIcon;
   }
   return h(icon, { class: "text-gray-500" });

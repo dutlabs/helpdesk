@@ -18,7 +18,7 @@
         />
       </template>
     </LayoutHeader>
-    <div class="overflow-auto mx-auto w-full max-w-4xl px-5">
+    <div class="mx-auto w-full max-w-4xl overflow-auto px-5">
       <div class="py-6">
         <TextEditor
           :content="textEditorContentWithIDs"
@@ -33,7 +33,7 @@
           editor-class="prose-f"
           @change="articleContent = $event"
         >
-          <template #top v-if="!route.meta.public">
+          <template v-if="!route.meta.public" #top>
             <component
               :is="topComponent"
               v-model:title="articleTitle"
@@ -176,7 +176,7 @@ const breadcrumbs = computed(() => {
   }
   const customerPortalItems = [
     {
-      label: "Knowledge Base",
+      label: __("Knowledge Base"),
       route: {
         name: "KnowledgeBasePublicNew",
       },
@@ -207,7 +207,7 @@ const breadcrumbs = computed(() => {
   return customerPortalItems;
 });
 const placeholder = computed(() =>
-  editMode.value ? "Write something..." : "Content is empty"
+  editMode.value ? __("Write something...") : __("Content is empty")
 );
 const articleContent = ref("");
 const articleTitle = ref("");
@@ -282,8 +282,8 @@ const insertRes = createResource({
     };
   },
   validate(params) {
-    if (!params.doc.title) throw "Title is required";
-    if (!params.doc.content) throw "Content is required";
+    if (!params.doc.title) throw __("Title is required");
+    if (!params.doc.content) throw __("Content is required");
   },
   onSuccess(data) {
     router.push({
@@ -293,7 +293,7 @@ const insertRes = createResource({
       },
     });
   },
-  onError: useError({ title: "Error creating article" }),
+  onError: useError({ title: __("Error creating article") }),
 });
 
 const setValueRes = createResource({
@@ -301,12 +301,12 @@ const setValueRes = createResource({
   onSuccess() {
     article.reload();
     createToast({
-      title: "Article updated",
+      title: __("Article updated"),
       icon: "check",
       iconClasses: "text-green-500",
     });
   },
-  onError: useError({ title: "Error updating article" }),
+  onError: useError({ title: __("Error updating article") }),
 });
 
 const deleteRes = createResource({
@@ -352,26 +352,32 @@ const backTo = computed(() => ({
 }));
 
 const textEditorMenuButtons = [
-  "Paragraph",
-  ["Heading 2", "Heading 3", "Heading 4", "Heading 5", "Heading 6"],
-  "Separator",
-  "Bold",
-  "Italic",
-  "Separator",
-  "Bullet List",
-  "Numbered List",
-  "Separator",
-  "Align Left",
-  "Align Center",
-  "Align Right",
-  "FontColor",
-  "Separator",
-  "Image",
-  "Video",
-  "Link",
-  "Blockquote",
-  "Code",
-  "Horizontal Rule",
+  __("Paragraph"),
+  [
+    __("Heading 2"),
+    __("Heading 3"),
+    __("Heading 4"),
+    __("Heading 5"),
+    __("Heading 6"),
+  ],
+  __("Separator"),
+  __("Bold"),
+  __("Italic"),
+  __("Separator"),
+  __("Bullet List"),
+  __("Numbered List"),
+  __("Separator"),
+  __("Align Left"),
+  __("Align Center"),
+  __("Align Right"),
+  __("FontColor"),
+  __("Separator"),
+  __("Image"),
+  __("Video"),
+  __("Link"),
+  __("Blockquote"),
+  __("Code"),
+  __("Horizontal Rule"),
   [
     "InsertTable",
     "AddColumnBefore",

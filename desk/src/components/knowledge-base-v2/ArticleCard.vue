@@ -1,26 +1,26 @@
 <template>
   <div
-    class="flex justify-between items-center cursor-pointer w-full"
+    class="flex w-full cursor-pointer items-center justify-between"
     @click="handleArticleClick"
   >
     <!-- Left Side -->
-    <div class="flex p-2 gap-3 flex-1 max-w-[50%]">
+    <div class="flex max-w-[50%] flex-1 gap-3 p-2">
       <Avatar label="JD" shape="square" size="2xl" :image="articleImg" />
-      <div class="flex flex-col gap-1.5 w-full">
+      <div class="flex w-full flex-col gap-1.5">
         <h5 class="text-lg font-semibold text-gray-800">
           {{ article.title }}
         </h5>
-        <div class="text-sm text-gray-600 truncate max-w-[70%]">
+        <div class="max-w-[70%] truncate text-sm text-gray-600">
           {{ articleSubTitle }}
         </div>
       </div>
     </div>
 
     <!-- Right Side -->
-    <div class="flex flex-1 justify-between p-2 items-center gap-10">
-      <div class="flex gap-2 items-center">
+    <div class="flex flex-1 items-center justify-between gap-10 p-2">
+      <div class="flex items-center gap-2">
         <Avatar :label="author.name" :image="author.image" />
-        <span class="text-sm text-gray-600 flex-1 truncate">{{
+        <span class="flex-1 truncate text-sm text-gray-600">{{
           author.name
         }}</span>
       </div>
@@ -48,7 +48,7 @@ const router = useRouter();
 const articleSubTitle = computed(
   () =>
     props.article.subtitle ||
-    "This article helps you understand the topic effectively."
+    __("This article helps you understand the topic effectively.")
 );
 
 const articleImg = computed(

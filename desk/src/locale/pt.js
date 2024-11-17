@@ -1,0 +1,22 @@
+export const messages = {
+  timeAgo: {
+    "just-now": "agora mesmo",
+    ago: "{0} atrás",
+    in: "em {0}",
+    "last-month": "último mês",
+    "next-month": "próximo mês",
+    month: "mês | meses",
+    "last-year": "ano passado",
+    "next-year": "próximo ano",
+    year: "ano | anos",
+    yesterday: "ontem",
+    tomorrow: "amanhã",
+    day: "dia | dias",
+    "last-week": "última semana",
+    "next-week": "próxima semana",
+    week: "semana | semanas",
+    hour: "hora | horas",
+    minute: "minuto | minutos",
+    second: "segundo | segundos",
+  },
+};

@@ -23,7 +23,7 @@
       :resolution-date="ticket.resolution_date"
       :resolution-by="ticket.resolution_by"
       :ticket-created-on="ticket.creation"
-      :source="ticket.via_customer_portal ? 'Portal' : 'Mail'"
+      :source="ticket.via_customer_portal ? __('Portal') : __('Mail')"
     />
     <!-- fields -->
     <TicketAgentFields :ticket="ticket" @update="update" />
@@ -52,7 +52,7 @@ function update(val) {
 function copyToClipboard() {
   navigator.clipboard.writeText(`${props.ticket.name}`);
   createToast({
-    title: "Copied to clipboard",
+    title: __("Copied to clipboard"),
     text: props.ticket.name,
     icon: "check",
     iconClasses: "text-green-600",

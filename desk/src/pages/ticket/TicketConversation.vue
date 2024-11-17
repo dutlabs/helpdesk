@@ -1,27 +1,27 @@
 <template>
   <div
-    class="md:mx-5 md:my-8 mb-4 mt-8 flex items-center justify-between h-8 text-xl font-semibold text-gray-800"
+    class="mb-4 mt-8 flex h-8 items-center justify-between text-xl font-semibold text-gray-800 md:mx-5 md:my-8"
   >
     Activity
   </div>
-  <div class="overflow-auto px-5 pb-20 grow">
+  <div class="grow overflow-auto px-5 pb-20">
     <div
       v-for="c in communications"
       :id="c.name"
       :key="c.name"
-      class="mt-4 flex items-between justify-center gap-4 relative"
+      class="items-between relative mt-4 flex justify-center gap-4"
     >
       <div
-        class="w-full activity grid grid-cols-[30px_minmax(auto,_1fr)] gap-2 sm:gap-4"
+        class="activity grid w-full grid-cols-[30px_minmax(auto,_1fr)] gap-2 sm:gap-4"
       >
         <div
-          class="relative flex justify-center after:absolute after:left-[50%] after:top-[12%] after:-z-10 after:border-l after:border-gray-200 after:h-full"
+          class="relative flex justify-center after:absolute after:left-[50%] after:top-[12%] after:-z-10 after:h-full after:border-l after:border-gray-200"
         >
           <Avatar
             size="lg"
             :label="c.user.name"
             :image="c.user.image"
-            class="mt-1 relative"
+            class="relative mt-1"
           />
         </div>
         <TicketCommunication

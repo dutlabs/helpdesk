@@ -13,7 +13,8 @@
     >
       <div class="inline-block w-64 pl-2 align-middle text-gray-900">
         {{ selection.storage.size }}
-        {{ selection.storage.size < 2 ? singular : plural }} selected
+        {{ selection.storage.size < 2 ? __(singular) : __(plural) }}
+        {{ __("selected") }}
       </div>
       <span class="space-x-2">
         <slot name="actions" :selection="selection.storage" />
@@ -21,7 +22,7 @@
       <div class="text-gray-300">&#x007C;</div>
       <Button
         :disabled="resource.data?.length === selection.storage.size"
-        label="Select all"
+        :label="__('Select all')"
         variant="ghost"
         @click="toggle()"
       />

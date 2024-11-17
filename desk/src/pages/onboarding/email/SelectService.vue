@@ -29,7 +29,7 @@
       </div>
     </div>
     <Button
-      label="Continue"
+      :label="__('Continue')"
       :disabled="isEmpty(service)"
       class="w-max"
       variant="outline"
@@ -56,13 +56,15 @@ import LogoYandex from "@/assets/images/yandex.png";
 const onboardingEmailStore = useOnboardingEmailStore();
 const { next } = onboardingEmailStore;
 const { service } = storeToRefs(onboardingEmailStore);
-const title = "Which service do you want to add?";
+const title = __("Which service do you want to add?");
 const services = [
   {
     name: "GMail",
     icon: LogoGmail,
-    info: "Setting up GMail requires you to enable two factor authentication \
-		and app specific passwords. Read more at https://support.google.com/accounts/answer/185833",
+    info: __(
+      "Setting up GMail requires you to enable two factor authentication \
+		and app specific passwords. Read more at https://support.google.com/accounts/answer/185833"
+    ),
   },
   {
     name: "Outlook",

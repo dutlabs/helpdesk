@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import frappe
+from frappe import _
 from frappe.permissions import add_permission
 
 from .default_template import create_default_template
@@ -53,16 +54,16 @@ def add_default_categories_and_articles():
     category = frappe.get_doc(
         {
             "doctype": "HD Article Category",
-            "category_name": "Getting Started",
-            "description": "Content for your Category",
+            "category_name": _("Getting Started"),
+            "description": _("Content for your Category"),
         }
     ).insert()
 
     frappe.get_doc(
         {
             "doctype": "HD Article",
-            "title": "Introduction",
-            "content": "Content for your Article",
+            "title": _("Introduction"),
+            "content": _("Content for your Article"),
             "category": category.name,
             "published": False,
         }
@@ -250,13 +251,13 @@ def add_system_preset_filters():
                 "reference_doctype": "HD Ticket",
                 "filters": [
                     {
-                        "label": "Assigned To",
+                        "label": _("Assigned To"),
                         "fieldname": "_assign",
                         "filter_type": "is",
                         "value": "@me",
                     },
                     {
-                        "label": "Status",
+                        "label": _("Status"),
                         "fieldname": "status",
                         "filter_type": "is",
                         "value": status,
@@ -267,7 +268,7 @@ def add_system_preset_filters():
     preset_filters.append(
         {
             "doctype": "HD Preset Filter",
-            "title": "All Tickets",
+            "title": _("All Tickets"),
             "reference_doctype": "HD Ticket",
             "filters": [],
         }

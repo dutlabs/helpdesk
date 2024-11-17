@@ -46,8 +46,8 @@
     <div v-if="ticket.data" class="flex h-screen overflow-hidden">
       <div class="flex flex-1 flex-col">
         <!-- ticket activities -->
-        <div class="overflow-y-auto flex-1">
-          <Tabs v-model="tabIndex" v-slot="{ tab }" :tabs="tabs" class="h-full">
+        <div class="flex-1 overflow-y-auto">
+          <Tabs v-slot="{ tab }" v-model="tabIndex" :tabs="tabs" class="h-full">
             <TicketAgentActivities
               ref="ticketAgentActivitiesRef"
               :activities="filterActivities(tab.name)"
@@ -108,7 +108,7 @@
           size="sm"
           variant="subtle"
           :disabled="false"
-          label="New Subject"
+          :label="__('New Subject')"
         />
       </template>
       <template #actions>
@@ -123,9 +123,11 @@
             }
           "
         >
-          Confirm
+          {{ __("Confirm") }}
         </Button>
-        <Button class="ml-2" @click="showSubjectDialog = false"> Close </Button>
+        <Button class="ml-2" @click="showSubjectDialog = false">
+          {{ __("Close") }}
+        </Button>
       </template>
     </Dialog>
   </div>
@@ -212,7 +214,7 @@ const ticket = createResource({
 });
 
 const breadcrumbs = computed(() => {
-  let items = [{ label: "Tickets", route: { name: "TicketsAgent" } }];
+  let items = [{ label: __("Tickets"), route: { name: "TicketsAgent" } }];
   items.push({
     label: ticket.data?.subject,
     route: { name: "TicketAgent" },
@@ -243,17 +245,17 @@ const tabIndex = ref(0);
 const tabs: TabObject[] = [
   {
     name: "activity",
-    label: "Activity",
+    label: __("Activity"),
     icon: ActivityIcon,
   },
   {
     name: "email",
-    label: "Emails",
+    label: __("Emails"),
     icon: EmailIcon,
   },
   {
     name: "comment",
-    label: "Comments",
+    label: __("Comments"),
     icon: CommentIcon,
   },
 ];
@@ -355,7 +357,7 @@ function updateTicket(fieldname: string, value: string) {
       isLoading.value = false;
       ticket.reload();
       createToast({
-        title: "Ticket updated",
+        title: __("Ticket updated"),
         icon: "check",
         iconClasses: "text-green-600",
       });
@@ -366,7 +368,7 @@ function updateTicket(fieldname: string, value: string) {
       const title =
         e.messages && e.messages.length > 0
           ? e.messages[0]
-          : "Failed to update ticket";
+          : __("Failed to update ticket");
 
       createToast({
         title,
@@ -381,6 +383,6 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  document.title = "Helpdesk";
+  document.title = __("Helpdesk");
 });
 </script>

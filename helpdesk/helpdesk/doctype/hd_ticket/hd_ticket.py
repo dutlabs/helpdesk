@@ -149,11 +149,11 @@ class HDTicket(Document):
             return query
 
         return {
-            "Due date": ("resolution_by", Order.asc),
-            "Created on": ("creation", Order.asc),
-            "High to low priority": lambda q: by_priority(q, Order.asc),
-            "Low to high priority": lambda q: by_priority(q, Order.desc),
-            "Last modified on": "modified",
+            _("Due date"): ("resolution_by", Order.asc),
+            _("Created on"): ("creation", Order.asc),
+            _("High to low priority"): lambda q: by_priority(q, Order.asc),
+            _("Low to high priority"): lambda q: by_priority(q, Order.desc),
+            _("Last modified on"): "modified",
         }
 
     def publish_update(self):
@@ -188,7 +188,7 @@ class HDTicket(Document):
         self.apply_sla()
 
     def after_insert(self):
-        log_ticket_activity(self.name, "created this ticket")
+        log_ticket_activity(self.name, _("created this ticket"))
         capture_event("ticket_created")
         publish_event("helpdesk:new-ticket", {"name": self.name})
         # create communication if we are not hitting the new ticket creation API
@@ -332,8 +332,9 @@ class HDTicket(Document):
             "ticket_type",
         ]:
             if self.has_value_changed(field):
+                field_value = self.as_dict()[field]
                 log_ticket_activity(
-                    self.name, f"set {field_maps[field]} to {self.as_dict()[field]}"
+                    self.name, _("set {0} to {1}").format(field_maps[field], _(field_value))
                 )
 
     def remove_assignment_if_not_in_team(self):
@@ -586,7 +587,7 @@ class HDTicket(Document):
     def create_communication_via_contact(self, message, attachments=[]):
         if self.status == "Replied":
             self.status = "Open"
-            log_ticket_activity(self.name, "set status to Open")
+            log_ticket_activity(self.name, _("set status to Open"))
             self.save(ignore_permissions=True)
 
         c = frappe.new_doc("Communication")
@@ -717,92 +718,92 @@ class HDTicket(Document):
     def default_list_data(show_customer_portal_fields=False):
         columns = [
             {
-                "label": "ID",
+                "label": _("ID"),
                 "type": "Int",
                 "key": "name",
                 "width": "5rem",
             },
             {
-                "label": "Subject",
+                "label": _("Subject"),
                 "type": "Data",
                 "key": "subject",
                 "width": "25rem",
             },
             {
-                "label": "Status",
+                "label": _("Status"),
                 "type": "Select",
                 "key": "status",
                 "width": "8rem",
             },
             {
-                "label": "Priority",
+                "label": _("Priority"),
                 "type": "Link",
                 "options": "HD Ticket Priority",
                 "key": "priority",
                 "width": "10rem",
             },
             {
-                "label": "Type",
+                "label": _("Type"),
                 "type": "Link",
                 "options": "HD Ticket Type",
                 "key": "ticket_type",
                 "width": "11rem",
             },
             {
-                "label": "Team",
+                "label": _("Team"),
                 "type": "Link",
                 "options": "HD Team",
                 "key": "agent_group",
                 "width": "10rem",
             },
             {
-                "label": "Contact",
+                "label": _("Contact"),
                 "type": "Link",
                 "key": "contact",
                 "options": "Contact",
                 "width": "8rem",
             },
             {
-                "label": "Agreement status",
+                "label": _("Agreement status"),
                 "fieldtype": "Select",
                 "key": "agreement_status",
                 "options": "\nFirst Response Due\nResolution Due\nFailed\nFulfilled\nPaused",
                 "width": "10rem",
             },
             {
-                "label": "First response",
+                "label": _("First response"),
                 "type": "Datetime",
                 "key": "response_by",
                 "width": "8rem",
             },
             {
-                "label": "Resolution",
+                "label": _("Resolution"),
                 "type": "Datetime",
                 "key": "resolution_by",
                 "width": "8rem",
             },
             {
-                "label": "Customer",
+                "label": _("Customer"),
                 "type": "Link",
                 "key": "customer",
                 "options": "HD Customer",
                 "width": "8rem",
             },
             {
-                "label": "Assigned To",
+                "label": _("Assigned To"),
                 "type": "Text",
                 "key": "_assign",
                 "width": "10rem",
             },
             {
-                "label": "Last modified",
+                "label": _("Last modified"),
                 "type": "Datetime",
                 "key": "modified",
                 "options": "Contact",
                 "width": "8rem",
             },
             {
-                "label": "Created",
+                "label": _("Created"),
                 "type": "Datetime",
                 "key": "creation",
                 "options": "Contact",
@@ -811,44 +812,44 @@ class HDTicket(Document):
         ]
         customer_portal_columns = [
             {
-                "label": "ID",
+                "label": _("ID"),
                 "type": "Int",
                 "key": "name",
                 "width": "5rem",
             },
             {
-                "label": "Subject",
+                "label": _("Subject"),
                 "type": "Data",
                 "key": "subject",
                 "width": "22rem",
             },
             {
-                "label": "Status",
+                "label": _("Status"),
                 "type": "Select",
                 "key": "status",
                 "width": "11rem",
             },
             {
-                "label": "Priority",
+                "label": _("Priority"),
                 "type": "Link",
                 "options": "HD Ticket Priority",
                 "key": "priority",
                 "width": "10rem",
             },
             {
-                "label": "First response",
+                "label": _("First response"),
                 "type": "Datetime",
                 "key": "response_by",
                 "width": "8rem",
             },
             {
-                "label": "Resolution",
+                "label": _("Resolution"),
                 "type": "Datetime",
                 "key": "resolution_by",
                 "width": "8rem",
             },
             {
-                "label": "Team",
+                "label": _("Team"),
                 "type": "Link",
                 "options": "HD Team",
                 "key": "agent_group",
@@ -861,7 +862,7 @@ class HDTicket(Document):
             #     "width": "10rem",
             # },
             {
-                "label": "Created",
+                "label": _("Created"),
                 "type": "Datetime",
                 "key": "creation",
                 "options": "Contact",

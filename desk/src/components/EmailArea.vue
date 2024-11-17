@@ -1,23 +1,23 @@
 <template>
   <div
-    class="grow cursor-pointer border-transparent bg-white rounded-md shadow text-base leading-6 transition-all duration-300 ease-in-out"
+    class="grow cursor-pointer rounded-md border-transparent bg-white text-base leading-6 shadow transition-all duration-300 ease-in-out"
   >
     <div class="mb-1 flex items-center justify-between gap-2">
       <!-- email design for mobile -->
       <div v-if="isMobileView" class="flex items-center gap-2">
         <div class="leading-tight">
-          <span>{{ sender.full_name || "No name found" }}</span>
+          <span>{{ sender.full_name || __("No name found") }}</span>
           <span
-            class="sm:flex hidden text-sm text-gray-600"
             v-if="sender.name"
+            class="hidden text-sm text-gray-600 sm:flex"
             >{{ "<" + sender.name + ">" }}</span
           >
         </div>
       </div>
       <!-- email design for desktop -->
       <div v-else class="flex items-center gap-2">
-        <span>{{ sender.full_name || "No name found" }}</span>
-        <span class="sm:flex hidden text-sm text-gray-600" v-if="sender.name">{{
+        <span>{{ sender.full_name || __("No name found") }}</span>
+        <span v-if="sender.name" class="hidden text-sm text-gray-600 sm:flex">{{
           "<" + sender.name + ">"
         }}</span>
       </div>
@@ -60,14 +60,18 @@
       {{ subject }}
     </div> -->
     <div class="mb-3 text-sm leading-5 text-gray-600">
-      <span v-if="to" class="text-2xs mr-1 font-bold text-gray-500">TO:</span>
+      <span v-if="to" class="text-2xs mr-1 font-bold text-gray-500">
+        {{ __("TO:") }}
+      </span>
       <span v-if="to"> {{ to }} </span>
       <span v-if="cc">, </span>
-      <span v-if="cc" class="text-2xs mr-1 font-bold text-gray-500"> CC: </span>
+      <span v-if="cc" class="text-2xs mr-1 font-bold text-gray-500">
+        {{ __("CC:") }}
+      </span>
       <span v-if="cc">{{ cc }}</span>
       <span v-if="bcc">, </span>
       <span v-if="bcc" class="text-2xs mr-1 font-bold text-gray-500">
-        BCC:
+        {{ __("BCC:") }}
       </span>
       <span v-if="bcc">{{ bcc }}</span>
     </div>

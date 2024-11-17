@@ -1,11 +1,12 @@
 import frappe
+from frappe import _
 
 OPTIONS = {
-    0.2: ["Response did not help", "No resolution provided"],
-    0.4: ["Delayed response time", "Adequate help, bit slow"],
-    0.6: ["Clear guidance given", "Helpful answers, reasonable wait"],
-    0.8: ["Quick and precise solutions", "Prompt, informative support"],
-    1.0: ["Exceptional support experience", "Instant, top-notch help"],
+    0.2: [_("Response did not help"), _("No resolution provided")],
+    0.4: [_("Delayed response time"), _("Adequate help, bit slow")],
+    0.6: [_("Clear guidance given"), _("Helpful answers, reasonable wait")],
+    0.8: [_("Quick and precise solutions"), _("Prompt, informative support")],
+    1.0: [_("Exceptional support experience"), _("Instant, top-notch help")],
 }
 
 

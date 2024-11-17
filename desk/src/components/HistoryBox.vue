@@ -34,7 +34,9 @@
   <Button
     v-if="relatedActivities.length && content !== 'created this ticket'"
     :label="
-      show_others ? 'Hide' : `${relatedActivities.length} other activities`
+      show_others
+        ? __('Hide')
+        : __('{0} other activities', [relatedActivities.length])
     "
     variant="outline"
     class="mt-2"

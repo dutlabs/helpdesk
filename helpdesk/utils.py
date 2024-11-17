@@ -2,6 +2,7 @@ import re
 from typing import List
 
 import frappe
+from frappe import _
 from bs4 import BeautifulSoup
 from frappe.model.document import Document
 from frappe.realtime import get_website_room
@@ -20,7 +21,7 @@ def check_permissions(doctype, parent):
     ]
 
     if not has_select_permission and not has_read_permission:
-        frappe.throw(f"Insufficient Permission for {doctype}", frappe.PermissionError)
+        frappe.throw(_("Insufficient Permission for {0}").format(doctype), frappe.PermissionError)
 
 
 def is_admin(user: str = None) -> bool:

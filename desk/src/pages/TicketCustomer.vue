@@ -7,7 +7,7 @@
       <template #right-header>
         <Button
           v-if="showResolveButton"
-          label="Close"
+          :label="__('Close')"
           theme="gray"
           variant="solid"
           @click="handleClose()"
@@ -18,9 +18,9 @@
         </Button>
       </template>
     </LayoutHeader>
-    <div class="flex overflow-hidden h-full">
+    <div class="flex h-full overflow-hidden">
       <!-- Main Ticket Comm -->
-      <section class="flex flex-col flex-1">
+      <section class="flex flex-1 flex-col">
         <!-- show for only mobile -->
         <TicketCustomerTemplateFields v-if="isMobileView" />
 
@@ -38,7 +38,7 @@
           >
             <template #bottom-right>
               <Button
-                label="Send"
+                :label="__('Send')"
                 theme="gray"
                 variant="solid"
                 :disabled="$refs.editor.editor.isEmpty || send.loading"
@@ -85,7 +85,7 @@ const ticket = createResource({
   },
   onError: () => {
     createToast({
-      title: "Ticket not found",
+      title: __("Ticket not found"),
       icon: "x",
       iconClasses: "text-red-600",
     });
@@ -94,7 +94,7 @@ const ticket = createResource({
 });
 provide(ITicket, ticket);
 const editor = ref(null);
-const placeholder = "Type a message";
+const placeholder = __("Type a message");
 const editorContent = ref("");
 const attachments = ref([]);
 const showFeedbackDialog = ref(false);
@@ -149,7 +149,7 @@ const setValue = createResource({
 });
 
 const breadcrumbs = computed(() => {
-  let items = [{ label: "Tickets", route: { name: "TicketsCustomer" } }];
+  let items = [{ label: __("Tickets"), route: { name: "TicketsCustomer" } }];
   items.push({
     label: ticket.data?.subject,
     route: { name: "TicketCustomer" },

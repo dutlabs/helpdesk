@@ -10,7 +10,7 @@
   <div class="border-b pb-3">
     <FormControl
       type="text"
-      placeholder="Title"
+      :placeholder="__('Title')"
       @change="emit('update:title', $event.target.value)"
     />
   </div>

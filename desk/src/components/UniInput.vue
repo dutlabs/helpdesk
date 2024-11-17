@@ -62,11 +62,11 @@ const component = computed(() => {
     return h(Autocomplete, {
       options: [
         {
-          label: "Yes",
+          label: __("Yes"),
           value: 1,
         },
         {
-          label: "No",
+          label:__( "No"),
           value: 0,
         },
       ],
@@ -90,16 +90,16 @@ const apiOptions = createResource({
 
 const transValue = computed(() => {
   if (props.field.fieldtype === "Check") {
-    return props.value ? "Yes" : "No";
+    return props.value ? __("Yes") : __("No");
   }
   return props.value;
 });
 
 const placeholder = computed(() => {
   if (props.field.fieldtype === "Data" && !props.field.url_method) {
-    return "Type something";
+    return __("Type something");
   }
-  return "Select an option";
+  return __("Select an option");
 });
 
 function emitUpdate(fieldname: Field["fieldname"], value: Value) {

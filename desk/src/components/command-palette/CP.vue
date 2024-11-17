@@ -112,7 +112,7 @@ export default {
         debounce: 300,
         transform(groups) {
           for (let group of groups) {
-            if (group.title === "Tickets") {
+            if (group.title === __("Tickets")) {
               group.component = "CPGroupResult";
               group.items = group.items.map((item) => {
                 item.showName = true;
@@ -124,7 +124,7 @@ export default {
                 };
                 return item;
               });
-            } else if (group.title === "Articles") {
+            } else if (group.title === __("Articles")) {
               group.component = "CPGroupResult";
               group.items = group.items.map((item) => {
                 if (item.headings) {
@@ -148,11 +148,11 @@ export default {
   computed: {
     navigationItems() {
       return {
-        title: "Jump to",
+        title: __("Jump to"),
         component: "CPGroup",
         items: [
           {
-            title: "Tickets",
+            title: __("Tickets"),
             icon: () => h(LucideTicket),
             route: { name: "TicketsAgent" },
           },
@@ -163,7 +163,7 @@ export default {
           //   condition: () => true,
           // },
           {
-            title: "Knowledge Base",
+            title: __("Knowledge Base"),
             icon: () => h(LucideBookOpen),
             route: { name: "DeskKBHome" },
             condition: () => true,
@@ -173,12 +173,12 @@ export default {
     },
     fullSearchItem() {
       return {
-        title: "Search",
+        title: __("Search"),
         hideTitle: true,
         component: "CPGroup",
         items: [
           {
-            title: `Search for "${this.query}"`,
+            title: __('Search for "${0}"', [this.query]),
             icon: () => h(LucideSearch),
             route: { name: "Search", query: { q: this.query } },
           },
@@ -186,7 +186,7 @@ export default {
       };
     },
     groupedSearchResults() {
-      let groups = [{ title: "Tickets", component: "CPTicket" }];
+      let groups = [{ title: __("Tickets"), component: "CPTicket" }];
       let itemsByGroup = {};
       for (const group of groups) {
         itemsByGroup[group.title] = [];

@@ -6,7 +6,7 @@
       </template>
       <template #right-header>
         <Button
-          label="Create"
+          :label="__('Create')"
           theme="gray"
           variant="solid"
           @click="
@@ -26,7 +26,7 @@
     <div class="flex-1 overflow-y-auto p-2">
       <div
         v-if="!cannedResponses.loading"
-        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-5 pb-3"
+        class="grid grid-cols-1 gap-4 px-5 pb-3 md:grid-cols-3 lg:grid-cols-4"
       >
         <div
           v-for="cannedResponse in cannedResponses.data"
@@ -41,7 +41,7 @@
             <Dropdown
               :options="[
                 {
-                  label: 'Delete',
+                  label: __('Delete'),
                   icon: 'trash-2',
                   onClick: () => deleteItem(cannedResponse.name),
                 },
@@ -125,7 +125,7 @@ import { dayjs } from "@/dayjs";
 const { getUser } = useUserStore();
 
 const breadcrumbs = [
-  { label: "Canned Responses", route: { name: "CannedResponses" } },
+  { label: __("Canned Responses"), route: { name: "CannedResponses" } },
 ];
 
 const title = ref(null);

@@ -80,10 +80,11 @@ const singular = computed(() => {
   return props.doctype.replace("HD ", "").toLowerCase().trim();
 });
 const plural = computed(() => {
-  return pluralize(singular.value);
+  const singular_text = __(singular.value);
+  return pluralize(singular_text);
 });
 const emptyMsg = computed(() => {
-  return `No ${plural.value} found`;
+  return __("No {0} found", [plural.value]);
 });
 const id = computed(() => {
   return route.path + "_" + props.doctype;

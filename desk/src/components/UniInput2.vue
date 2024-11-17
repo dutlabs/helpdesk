@@ -13,7 +13,7 @@
         :is="component"
         :key="transValue"
         class="form-control"
-        :placeholder="`Add ${field.label}`"
+        :placeholder="__('Add {0}', [field.label])"
         :value="transValue"
         @change="
           emitUpdate(field.fieldname, $event.value || $event.target.value)
@@ -66,11 +66,11 @@ const component = computed(() => {
     return h(Autocomplete, {
       options: [
         {
-          label: "Yes",
+          label: __("Yes"),
           value: 1,
         },
         {
-          label: "No",
+          label: __("No"),
           value: 0,
         },
       ],
@@ -92,7 +92,7 @@ const apiOptions = createResource({
 
 const transValue = computed(() => {
   if (props.field.fieldtype === "Check") {
-    return props.value ? "Yes" : "No";
+    return props.value ? __("Yes") : __("No");
   }
   return props.value;
 });

@@ -1,4 +1,5 @@
 import frappe
+from frappe import _
 
 
 def assign_ticket_to_agent(ticket_id, agent_id=None):
@@ -12,7 +13,7 @@ def assign_ticket_to_agent(ticket_id, agent_id=None):
         agent_id = frappe.session.user
 
     if not frappe.db.exists("HD Agent", agent_id):
-        frappe.throw("Tickets can only assigned to agents")
+        frappe.throw(_("Tickets can only assigned to agents"))
 
     ticket_doc.assign_agent(agent_id)
     return ticket_doc

@@ -40,38 +40,38 @@ const configStore = useConfigStore();
 const step = ref(0);
 const steps = [
   {
-    title: "Welcome to Frappe Helpdesk! 🎉",
+    title: __("Welcome to Frappe Helpdesk! 🎉"),
     component: OnboardingIntro,
   },
   {
-    title: "Begin with a name! 🖋️",
+    title: __("Begin with a name! 🖋️"),
     component: SetupName,
   },
   {
-    title: "Let's set a logo 💫",
+    title: __("Let's set a logo 💫"),
     component: SetupLogo,
   },
   {
-    title: "How about a Favicon? 🌏",
+    title: __("How about a Favicon? 🌏"),
     component: SetupFavicon,
   },
   {
-    title: "Did you know? 💡",
+    title: __("Did you know? 💡"),
     component: SetupSkipEmail,
   },
   {
-    title: "Let's setup an email 📬",
+    title: __("Let's setup an email 📬"),
     component: SetupEmail,
   },
   {
-    title: "That's it for now! 🙏",
+    title: __("That's it for now! 🙏"),
     component: SuccessMessage,
   },
 ];
 const actions = computed(() =>
   [
     {
-      label: "← Previous",
+      label: __("← Previous"),
       appearance: "minimal",
       variant: "ghost",
       onClick() {
@@ -80,7 +80,7 @@ const actions = computed(() =>
       condition: step.value + 1 > 1 && step.value + 1 <= steps.length,
     },
     {
-      label: "Next →",
+      label: __("Next →"),
       appearance: "primary",
       variant: "solid",
       onClick() {
@@ -89,7 +89,7 @@ const actions = computed(() =>
       condition: step.value + 1 < steps.length,
     },
     {
-      label: "Finish ✓",
+      label: __("Finish ✓"),
       variant: "solid",
       onClick() {
         finish();

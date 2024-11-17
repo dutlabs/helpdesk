@@ -4,6 +4,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import { useAuthStore } from "./stores/auth";
+import "dayjs/locale/pt";
 
 const authStore = useAuthStore();
 declare module "dayjs" {
@@ -28,5 +29,6 @@ d.extend(function (_, cls) {
 d.extend(utc);
 d.extend(timezone);
 d.tz.setDefault(authStore.timezone);
+d.locale("pt");
 
 export const dayjs = d;

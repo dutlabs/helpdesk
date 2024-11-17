@@ -14,9 +14,10 @@ import { onMounted } from "vue";
 import { capture } from "@/telemetry";
 
 const emoji = "✔️";
-const message =
+const message = __(
   "Fantastic! Your email is now active. You are ready unleash true \
-	potential of Frappe Helpdesk!";
+	potential of Frappe Helpdesk!"
+);
 
 onMounted(() => capture("onboarding_email_finished"));
 </script>

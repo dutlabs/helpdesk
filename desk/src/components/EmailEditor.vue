@@ -13,20 +13,22 @@
   >
     <template #top>
       <div class="mx-10 flex items-center gap-2 border-y py-2.5">
-        <span class="text-xs text-gray-500">TO:</span>
+        <span class="text-xs text-gray-500">{{ __("TO:") }}</span>
         <MultiSelectInput
           v-model="toEmailsClone"
           class="flex-1"
           :validate="validateEmail"
-          :error-message="(value) => `${value} is an invalid email address`"
+          :error-message="
+            (value) => __('{0} is an invalid email address', [value])
+          "
         />
         <Button
-          :label="'CC'"
+          :label="__('CC')"
           :class="[cc ? 'bg-gray-300 hover:bg-gray-200' : '']"
           @click="toggleCC()"
         />
         <Button
-          :label="'BCC'"
+          :label="__('BCC')"
           :class="[bcc ? 'bg-gray-300 hover:bg-gray-200' : '']"
           @click="toggleBCC()"
         />
@@ -36,13 +38,15 @@
         class="mx-10 flex items-center gap-2 py-2.5"
         :class="cc || showCC ? 'border-b' : ''"
       >
-        <span class="text-xs text-gray-500">CC:</span>
+        <span class="text-xs text-gray-500">{{ __("CC:") }}</span>
         <MultiSelectInput
           ref="ccInput"
           v-model="ccEmailsClone"
           class="flex-1"
           :validate="validateEmail"
-          :error-message="(value) => `${value} is an invalid email address`"
+          :error-message="
+            (value) => __('{0} is an invalid email address', [value])
+          "
         />
       </div>
       <div
@@ -50,13 +54,15 @@
         class="mx-10 flex items-center gap-2 py-2.5"
         :class="bcc || showBCC ? 'border-b' : ''"
       >
-        <span class="text-xs text-gray-500">BCC:</span>
+        <span class="text-xs text-gray-500">{{ __("BCC:") }}</span>
         <MultiSelectInput
           ref="bccInput"
           v-model="bccEmailsClone"
           class="flex-1"
           :validate="validateEmail"
-          :error-message="(value) => `${value} is an invalid email address`"
+          :error-message="
+            (value) => __('{0} is an invalid email address', [value])
+          "
         />
       </div>
     </template>
@@ -112,7 +118,7 @@
         </div>
         <div class="mt-2 flex items-center justify-end space-x-2 sm:mt-0">
           <Button
-            label="Discard"
+            :label="__('Discard')"
             @click="
               () => {
                 ccEmailsClone = [];
@@ -128,7 +134,7 @@
             variant="solid"
             :disabled="emailEmpty"
             :loading="loading"
-            label="Submit"
+            :label="__('Submit')"
             @click="
               () => {
                 loading = true;
@@ -287,26 +293,32 @@ function addToReply(
 }
 
 const textEditorMenuButtons = [
-  "Paragraph",
-  ["Heading 2", "Heading 3", "Heading 4", "Heading 5", "Heading 6"],
-  "Separator",
-  "Bold",
-  "Italic",
-  "Separator",
-  "Bullet List",
-  "Numbered List",
-  "Separator",
-  "Align Left",
-  "Align Center",
-  "Align Right",
-  "FontColor",
-  "Separator",
-  "Image",
-  "Video",
-  "Link",
-  "Blockquote",
-  "Code",
-  "Horizontal Rule",
+  __("Paragraph"),
+  [
+    __("Heading 2"),
+    __("Heading 3"),
+    __("Heading 4"),
+    __("Heading 5"),
+    __("Heading 6"),
+  ],
+  __("Separator"),
+  __("Bold"),
+  __("Italic"),
+  __("Separator"),
+  __("Bullet List"),
+  __("Numbered List"),
+  __("Separator"),
+  __("Align Left"),
+  __("Align Center"),
+  __("Align Right"),
+  __("Font Color"),
+  __("Separator"),
+  __("Image"),
+  __("Video"),
+  __("Link"),
+  __("Blockquote"),
+  __("Code"),
+  __("Horizontal Rule"),
   [
     "InsertTable",
     "AddColumnBefore",

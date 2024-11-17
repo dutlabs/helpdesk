@@ -1,22 +1,22 @@
 <template>
   <div
-    class="flex flex-col p-5 px-10 w-full overflow-hidden"
     v-if="
       !categoryTreeResource.isLoading &&
       (!!category.subCategories.length || !!category.articles.length)
     "
+    class="flex w-full flex-col overflow-hidden p-5 px-10"
   >
     <!-- Top Section -->
-    <section class="flex flex-col gap-3.5 mb-5">
+    <section class="mb-5 flex flex-col gap-3.5">
       <h3 class="text-2xl font-semibold text-gray-800">
         {{ category.categoryName }}
       </h3>
       <FormControl
+        v-model="categorySearch"
         type="text"
         class="w-full"
-        placeholder="Search (title, subtitle, author)"
+        :placeholder="__('Search (title, subtitle, author)')"
         size="md"
-        v-model="categorySearch"
         @input="searchArticles"
       >
         <template #prefix>
@@ -27,54 +27,56 @@
     <div class="overflow-scroll">
       <!-- Sub categories Section -->
       <section
-        class="flex flex-col gap-3 mb-8"
         v-if="!!category.subCategories.length"
+        class="mb-8 flex flex-col gap-3"
       >
-        <h3 class="text-lg font-semibold text-gray-900">Sub-categories</h3>
+        <h3 class="text-lg font-semibold text-gray-900">
+          {{ __("Sub-categories") }}
+        </h3>
         <!-- sub category card container-->
-        <div class="flex gap-5 flex-wrap text-lg">
+        <div class="flex flex-wrap gap-5 text-lg">
           <!-- sub category card -->
           <div
             v-for="subCategory in category.subCategories"
-            class="border rounded px-3.5 py-3 cursor-pointer max-w-[190px] min-w-[190px] hover:border-gray-500"
+            class="min-w-[190px] max-w-[190px] cursor-pointer rounded border px-3.5 py-3 hover:border-gray-500"
             @click="handleSubCategoryClick(subCategory)"
           >
             <h5 class="truncate text-lg">{{ subCategory?.category_name }}</h5>
             <span class="text-sm text-gray-600">
-              {{ subCategory.articles.length }} articles
+              {{ __("{0} articles", [subCategory.articles.length]) }}
             </span>
           </div>
         </div>
       </section>
       <!-- Article List View -->
-      <section class="flex flex-col gap-3" v-if="!!_articles.length">
+      <section v-if="!!_articles.length" class="flex flex-col gap-3">
         <h4 class="text-lg font-semibold text-gray-900">
-          {{ showAllArticles ? "All Articles" : "Articles" }}
+          {{ showAllArticles ? __("All Articles") : __("Articles") }}
         </h4>
         <!-- Article Container -->
-        <div class="flex flex-col gap-x-2 divide-y max-w-full">
+        <div class="flex max-w-full flex-col gap-x-2 divide-y">
           <!-- Article Card -->
           <ArticleCard
             v-for="article in _articles"
+            :key="article.name"
             :article="article"
             :author="category.authors[article.author]"
-            :key="article.name"
           />
         </div>
       </section>
       <div
         v-else
-        class="flex items center justify-center h-[300px] w-full text-gray-600"
+        class="items center flex h-[300px] w-full justify-center text-gray-600"
       >
-        No articles found
+        {{ __("No articles found") }}
       </div>
     </div>
   </div>
   <div
     v-else
-    class="flex items-center justify-center h-[300px] w-full text-gray-600"
+    class="flex h-[300px] w-full items-center justify-center text-gray-600"
   >
-    No articles found
+    {{ __("No articles found") }}
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <div>
   <h2><strong>Ticket #{{ ticket_id }}</strong></h2>
-  <h3>You have a new reply on this ticket</h3>
+  <h3>{{ __("You have a new reply on this ticket") }}</h3>
   <br />
   <div style="margin-bottom: 10px">
     <h3 style="margin-bottom: 20px">Message</h3>
@@ -15,12 +15,12 @@
       {{ message }}
     </div>
   </div>
-  <p>Please visit the customer portal to reply to this message</p>
+  <p>{{ _("Please visit the customer portal to reply to this message") }}</p>
   <a
     class="btn btn-primary"
     href="{{ portal_link }}"
     rel="noopener noreferrer"
     target="_blank"
-    >View in Portal</a
+    >{{ __("View in Portal") }}</a
   ><br />
 </div>

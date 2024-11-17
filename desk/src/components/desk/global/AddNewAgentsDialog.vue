@@ -1,17 +1,21 @@
 <template>
   <div>
-    <Dialog :options="{ title: 'Add Agents' }" :show="show" @close="close()">
+    <Dialog
+      :options="{ title: __('Add Agents') }"
+      :show="show"
+      @close="close()"
+    >
       <template #body-content>
         <div class="space-y-3">
           <form
-            @submit.prevent="onSubmit"
             class="flex flex-row items-center space-x-2"
+            @submit.prevent="onSubmit"
           >
             <Input
               id="searchInput"
+              v-model="searchInput"
               class="w-full"
               type="text"
-              v-model="searchInput"
               placeholder="Type emails"
               @input="(val) => onSearchInputChange(val)"
             />
@@ -26,18 +30,18 @@
                 }
               "
             >
-              Add
+              {{ __("Add") }}
             </Button>
           </form>
           <div
-            class="flex max-h-[300px] min-h-[100px] flex-col overflow-y-auto rounded border bg-gray-100 px-2"
             v-if="inviteQueue.length"
+            class="flex max-h-[300px] min-h-[100px] flex-col overflow-y-auto rounded border bg-gray-100 px-2"
           >
             <ul class="flex flex-wrap gap-2 py-2">
               <li
-                class="flex items-center space-x-2 rounded bg-white p-1 shadow"
                 v-for="email in inviteQueue.slice().reverse()"
                 :key="email"
+                class="flex items-center space-x-2 rounded bg-white p-1 shadow"
                 :title="email"
               >
                 <span class="ml-2 text-base">
@@ -54,24 +58,24 @@
           </div>
         </div>
       </template>
-      <template #actions v-if="inviteQueue.length">
+      <template v-if="inviteQueue.length" #actions>
         <Button
           :disabled="inviteQueue.length == 0"
           appearance="primary"
-          @click="sentInvites()"
           class="mr-2"
           :loading="$resources.sentInvites.loading"
-          >Send Invites</Button
+          @click="sentInvites()"
+          >{{ __("Send Invites") }}</Button
         >
-        <Button appearance="secondary" class="mr-2" @click="close()"
-          >Cancel</Button
+        <Button appearance="secondary" class="mr-2" @click="close()">
+          {{ __("Cancel") }}</Button
         >
         <div class="grow">
           <Button
-            @click="removeAllEmailFromQueue()"
             v-if="inviteQueue.length > 1"
+            @click="removeAllEmailFromQueue()"
           >
-            Clear All
+            {{ __("Clear All") }}
           </Button>
         </div>
       </template>
@@ -85,12 +89,12 @@ import { ref } from "@vue/reactivity";
 
 export default {
   name: "AddNewAgentsDialog",
-  props: ["show"],
   components: {
     Dialog,
     Input,
     FeatherIcon,
   },
+  props: ["show"],
   setup() {
     const searchInput = ref("");
     const inviteQueue = ref([]);
@@ -178,7 +182,7 @@ export default {
           this.inviteQueue = [];
 
           this.$toast({
-            title: "Invites Sent Successfully!",
+            title: __("Invites Sent Successfully!"),
             icon: "check",
             iconClasses: "text-green-500",
           });
@@ -188,14 +192,16 @@ export default {
         onError: (err) => {
           if (err.exc_type == "PaywallReachedError") {
             this.$toast({
-              title: "Paywall Reached!",
-              text: "You have reached the maximum number of agents you can add. Please upgrade your plan to add more agents.",
+              title: __("Paywall Reached!"),
+              text: __(
+                "You have reached the maximum number of agents you can add. Please upgrade your plan to add more agents."
+              ),
               icon: "x",
               iconClasses: "text-red-500",
             });
           } else {
             this.$toast({
-              title: "Error Sending Invites!",
+              title: __("Error Sending Invites!"),
               icon: "x",
               iconClasses: "text-red-500",
             });

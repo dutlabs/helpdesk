@@ -19,7 +19,7 @@
       />
       <span v-if="resource.data?.length" class="space-x-1 text-base">
         <span class="text-gray-900">{{ resource.data?.length }}</span>
-        <span class="text-gray-700">of</span>
+        <span class="text-gray-700">{{ __("of") }}</span>
         <span class="text-gray-900">{{ resource.totalCount }}</span>
       </span>
     </span>

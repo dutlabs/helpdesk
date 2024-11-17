@@ -19,8 +19,8 @@
           :label="category.category_name"
           :bg-color="'bg-gray-100'"
           :hv-color="'hover:bg-gray-300'"
-          @click="handleClick(category.name)"
           class="truncate text-ellipsis"
+          @click="handleClick(category.name)"
         />
       </div>
     </div>
@@ -44,7 +44,7 @@ const categories = createListResource({
   },
   transform: (data) => {
     const firstCategory = {
-      name: "Explore all articles",
+      name: __("Explore all articles"),
       category_name: "Explore all articles",
       icon: "search",
     };

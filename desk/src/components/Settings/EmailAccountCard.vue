@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex justify-between items-center border-b border-gray-200 p-2 cursor-pointer"
+    class="flex cursor-pointer items-center justify-between border-b border-gray-200 p-2"
   >
     <!-- avatar and name -->
-    <div class="flex justify-between items-center gap-2">
+    <div class="flex items-center justify-between gap-2">
       <EmailProviderIcon :logo="emailIcon[emailAccount.service]" />
       <div>
-        <p class="text-gray-700 font-semibold">
+        <p class="font-semibold text-gray-700">
           {{ emailAccount.email_account_name }}
         </p>
         <div class="text-sm text-gray-500">{{ emailAccount.email_id }}</div>
@@ -44,16 +44,16 @@ const badgeTitleColor = computed(() => {
       props.emailAccount.enable_incoming && props.emailAccount.enable_outgoing
         ? "blue"
         : "gray";
-    return ["Default Sending and Inbox", color];
+    return [__("Default Sending and Inbox"), color];
   } else if (props.emailAccount.default_incoming) {
     const color = props.emailAccount.enable_incoming ? "blue" : "gray";
-    return ["Default Inbox", color];
+    return [__("Default Inbox"), color];
   } else if (props.emailAccount.default_outgoing) {
     const color = props.emailAccount.enable_outgoing ? "blue" : "gray";
-    return ["Default Sending", color];
+    return [__("Default Sending"), color];
   } else {
     const color = props.emailAccount.enable_incoming ? "blue" : "gray";
-    return ["Inbox", color];
+    return [__("Inbox"), color];
   }
 });
 </script>
