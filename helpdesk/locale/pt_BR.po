@@ -4270,3 +4270,32 @@ msgstr "{0} outras atividades"
 msgid "← Previous"
 msgstr "← Anterior"
 
+msgid "Incident"
+msgstr "Incidente"
+
+msgid "Question"
+msgstr "Dúvida"
+
+msgid "Unspecified"
+msgstr "Não especificado"
+
+msgid "agents"
+msgstr "agentes"
+
+msgid "contacts"
+msgstr "contatos"
+
+msgid "teams"
+msgstr "equipes"
+
+msgid "customers"
+msgstr "clientes"
+
+msgid "Urgent"
+msgstr "Urgente"
+
+msgid "Awaiting response"
+msgstr "Aguardando resposta"
+
+msgid "Awaiting Response"
+msgstr "Aguardando resposta"
