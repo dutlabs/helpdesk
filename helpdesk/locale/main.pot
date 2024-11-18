@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helpdesk VERSION\n"
 "Report-Msgid-Bugs-To: hello@frappe.io\n"
-"POT-Creation-Date: 2024-11-18 12:44-0454\n"
-"PO-Revision-Date: 2024-11-18 12:44-0454\n"
+"POT-Creation-Date: 2024-11-18 16:29-0454\n"
+"PO-Revision-Date: 2024-11-18 16:29-0454\n"
 "Last-Translator: hello@frappe.io\n"
 "Language-Team: hello@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -96,6 +96,10 @@ msgstr ""
 msgid "Action to perform when clicking the button. The doc will be available as `this`"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:12
+msgid "Actions"
+msgstr ""
+
 #: desk/src/pages/MobileTicketAgent.vue:307 desk/src/pages/TicketAgent.vue:250
 #: helpdesk/api/dashboard.py:164
 msgid "Activity"
@@ -103,6 +107,7 @@ msgstr ""
 
 #: desk/src/components/desk/global/AddNewAgentsDialog.vue:33
 #: desk/src/components/desk/global/NewCustomerDialog.vue:27
+#: desk/src/pages/desk/team/TeamSingle.vue:120
 msgid "Add"
 msgstr ""
 
@@ -137,6 +142,11 @@ msgstr ""
 
 #: desk/src/components/Filter.vue:147
 msgid "Add filter"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:33
+#: desk/src/pages/desk/team/TeamSingle.vue:215
+msgid "Add member"
 msgstr ""
 
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:20
@@ -275,6 +285,10 @@ msgstr ""
 msgid "And"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialogFieldList.vue:12
+msgid "Any"
+msgstr ""
+
 #. Label of a Check field in DocType 'HD Service Level Agreement'
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.json
 msgid "Apply SLA for Resolution Time"
@@ -298,6 +312,10 @@ msgstr ""
 
 #: desk/src/components/CommentBox.vue:50
 msgid "Are you sure you want to confirm this action?"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:218
+msgid "Are you sure you want to delete {0}? This action cannot be reversed!"
 msgstr ""
 
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleActionsView.vue:58
@@ -338,6 +356,7 @@ msgid "Assign To"
 msgstr ""
 
 #. Label of a Section Break field in DocType 'HD Escalation Rule'
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:177
 #: helpdesk/helpdesk/doctype/hd_escalation_rule/hd_escalation_rule.json
 msgid "Assign to"
 msgstr ""
@@ -377,6 +396,10 @@ msgstr ""
 #. Label of a Section Break field in DocType 'HD Settings'
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
 msgid "Assignment Rules"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamList.vue:75
+msgid "Assignment rule"
 msgstr ""
 
 #: desk/src/pages/desk/contact/ContactDialog.vue:110
@@ -504,6 +527,10 @@ msgstr ""
 msgid "Button"
 msgstr ""
 
+#: desk/src/pages/desk/team/TeamSingle.vue:64
+msgid "Bypass restrictions"
+msgstr ""
+
 #: desk/src/components/EmailEditor.vue:26
 msgid "CC"
 msgstr ""
@@ -512,7 +539,7 @@ msgstr ""
 msgid "CC:"
 msgstr ""
 
-#: desk/src/components/ticket/TicketsListView.vue:185
+#: desk/src/components/ticket/TicketsListView.vue:200
 msgid "CSV"
 msgstr ""
 
@@ -536,6 +563,7 @@ msgstr ""
 msgid "Canned responses"
 msgstr ""
 
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:11
 #: desk/src/pages/knowledge-base/KnowledgeBaseSidebar.vue:11
 msgid "Categories"
 msgstr ""
@@ -554,7 +582,20 @@ msgid "Category updated"
 msgstr ""
 
 #: desk/src/pages/desk/contact/ContactDialog.vue:22
+#: desk/src/pages/desk/customer/CustomerDialog.vue:19
 msgid "Change photo"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:162
+msgid "Change priority to"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:167
+msgid "Change team to"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:172
+msgid "Change ticket type to"
 msgstr ""
 
 #. Label of a Card Break in the Helpdesk Workspace
@@ -609,7 +650,6 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'HD Service Level
 #. Agreement Fulfilled On Status'
 #. Option for the 'Status' (Select) field in DocType 'HD Ticket'
-#: desk/src/stores/ticketStatus.ts:37
 #: helpdesk/helpdesk/doctype/hd_pause_service_level_agreement_on_status/hd_pause_service_level_agreement_on_status.json
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement_fulfilled_on_status/hd_service_level_agreement_fulfilled_on_status.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
@@ -687,6 +727,7 @@ msgid "Condition"
 msgstr ""
 
 #: desk/src/pages/MobileTicketAgent.vue:174 desk/src/pages/TicketAgent.vue:128
+#: desk/src/pages/desk/team/TeamSingle.vue:224
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleActionsView.vue:67
 msgid "Confirm"
 msgstr ""
@@ -716,7 +757,7 @@ msgstr ""
 msgid "Contact HTML"
 msgstr ""
 
-#: desk/src/pages/desk/contact/ContactList.vue:109
+#: desk/src/pages/desk/contact/ContactList.vue:111
 msgid "Contact updated"
 msgstr ""
 
@@ -730,7 +771,8 @@ msgstr ""
 
 #. Label of a Table field in DocType 'HD Organization'
 #: desk/src/components/layouts/layoutSettings.ts:48
-#: desk/src/pages/desk/contact/ContactList.vue:93
+#: desk/src/pages/desk/contact/ContactList.vue:6
+#: desk/src/pages/desk/contact/ContactList.vue:95
 #: helpdesk/helpdesk/doctype/hd_organization/hd_organization.json
 msgid "Contacts"
 msgstr ""
@@ -768,6 +810,8 @@ msgstr ""
 #: desk/src/components/canned-response/CannedResponseModal.vue:8
 #: desk/src/components/desk/global/NewContactDialog.vue:31
 #: desk/src/pages/CannedResponses.vue:9 desk/src/pages/Tickets.vue:11
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:119
+#: desk/src/pages/desk/team/TeamList.vue:43
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleActionsNew.vue:25
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:110
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategoryNew.vue:30
@@ -794,6 +838,10 @@ msgstr ""
 
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:153
 msgid "Created on"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:7
+msgid "Criteria"
 msgstr ""
 
 #. Label of a Section Break field in DocType 'HD Escalation Rule'
@@ -836,7 +884,13 @@ msgstr ""
 msgid "Customer should not be empty"
 msgstr ""
 
+#: desk/src/pages/desk/customer/CustomerDialog.vue:80
+msgid "Customer updated"
+msgstr ""
+
 #: desk/src/components/layouts/layoutSettings.ts:43
+#: desk/src/pages/desk/customer/CustomerList.vue:6
+#: desk/src/pages/desk/customer/CustomerList.vue:88
 msgid "Customers"
 msgstr ""
 
@@ -907,6 +961,8 @@ msgstr ""
 
 #: desk/src/components/CommentBox.vue:29 desk/src/components/CommentBox.vue:54
 #: desk/src/pages/CannedResponses.vue:44
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:133
+#: desk/src/pages/desk/team/TeamSingle.vue:209
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleActionsView.vue:51
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleActionsView.vue:57
 #: desk/src/pages/ticket/TicketComment.vue:71
@@ -915,6 +971,10 @@ msgstr ""
 
 #: desk/src/components/CommentBox.vue:49
 msgid "Delete Comment"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:217
+msgid "Delete team"
 msgstr ""
 
 #: desk/src/components/Sort.vue:46
@@ -968,6 +1028,14 @@ msgstr ""
 msgid "Did you know? 💡"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:125
+msgid "Disable"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:25
+msgid "Disabled"
+msgstr ""
+
 #: desk/src/components/CommentTextEditor.vue:65
 #: desk/src/components/EmailEditor.vue:121
 #: desk/src/components/TextEditor.vue:38
@@ -999,6 +1067,8 @@ msgstr ""
 
 #. Label of a Data field in DocType 'HD Customer'
 #: desk/src/components/desk/global/NewCustomerDialog.vue:20
+#: desk/src/pages/desk/customer/CustomerDialog.vue:35
+#: desk/src/pages/desk/customer/CustomerList.vue:68
 #: helpdesk/helpdesk/doctype/hd_customer/hd_customer.json
 msgid "Domain"
 msgstr ""
@@ -1007,7 +1077,7 @@ msgstr ""
 msgid "Don't forget to star our GitHub repo"
 msgstr ""
 
-#: desk/src/components/ticket/TicketsListView.vue:157
+#: desk/src/components/ticket/TicketsListView.vue:172
 msgid "Download"
 msgstr ""
 
@@ -1038,13 +1108,17 @@ msgstr ""
 msgid "Edit Email"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:116
+msgid "Edit rule"
+msgstr ""
+
 #: helpdesk/helpdesk/doctype/hd_desk_account_request/hd_desk_account_request.py:38
 msgid "Either setup up Support email account or there should be a default outgoing email account"
 msgstr ""
 
 #. Label of a Data field in DocType 'HD Desk Account Request'
 #: desk/src/pages/desk/agent/AgentList.vue:72
-#: desk/src/pages/desk/contact/ContactList.vue:68
+#: desk/src/pages/desk/contact/ContactList.vue:70
 #: helpdesk/helpdesk/doctype/hd_desk_account_request/hd_desk_account_request.json
 msgid "Email"
 msgstr ""
@@ -1102,6 +1176,10 @@ msgstr ""
 msgid "Empty - Choose a field to sort by"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:125
+msgid "Enable"
+msgstr ""
+
 #: desk/src/components/Settings/emailConfig.ts:27
 msgid "Enable Incoming"
 msgstr ""
@@ -1115,6 +1193,7 @@ msgstr ""
 #. Label of a Check field in DocType 'HD Form Script'
 #. Label of a Check field in DocType 'HD Service Level Agreement'
 #. Label of a Check field in DocType 'HD Stopword'
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:25
 #: helpdesk/helpdesk/doctype/hd_action/hd_action.json
 #: helpdesk/helpdesk/doctype/hd_escalation_rule/hd_escalation_rule.json
 #: helpdesk/helpdesk/doctype/hd_form_script/hd_form_script.json
@@ -1162,9 +1241,29 @@ msgstr ""
 msgid "Error creating article"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:77
+msgid "Error creating rule"
+msgstr ""
+
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:208
 #: desk/src/pages/knowledge-base/KnowledgeBaseSubcategory.vue:121
 msgid "Error creating sub category"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamList.vue:120
+msgid "Error creating team"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:61
+msgid "Error deleting rule"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:180
+msgid "Error deleting team"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:255
+msgid "Error renaming team"
 msgstr ""
 
 #: desk/src/pages/KnowledgeBaseArticle.vue:309
@@ -1179,12 +1278,32 @@ msgstr ""
 msgid "Error updating contact"
 msgstr ""
 
+#: desk/src/pages/desk/customer/CustomerDialog.vue:85
+msgid "Error updating customer"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:51
+msgid "Error updating rule"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:172
+msgid "Error updating team"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:3
+msgid "Escalation Rules"
+msgstr ""
+
 #: helpdesk/helpdesk/doctype/hd_escalation_rule/hd_escalation_rule.py:43
 msgid "Escalation rule already exists for this criteria"
 msgstr ""
 
-#: desk/src/components/ticket/TicketsListView.vue:181
-#: desk/src/components/ticket/TicketsListView.vue:189
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:85
+msgid "Escalation rules"
+msgstr ""
+
+#: desk/src/components/ticket/TicketsListView.vue:196
+#: desk/src/components/ticket/TicketsListView.vue:204
 msgid "Excel"
 msgstr ""
 
@@ -1205,22 +1324,23 @@ msgstr ""
 msgid "Expected Resolution"
 msgstr ""
 
-#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:47
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:49
+#: desk/src/components/knowledge-base-v2/KnowledgeBaseSidebar.vue:50
 #: desk/src/pages/knowledge-base-v2/KnowledgeBasePublic.vue:11
 #: desk/src/pages/knowledge-base-v2/KnowledgeBasePublic.vue:33
 msgid "Explore all articles"
 msgstr ""
 
-#: desk/src/components/ticket/TicketsListView.vue:118
-#: desk/src/components/ticket/TicketsListView.vue:154
+#: desk/src/components/ticket/TicketsListView.vue:133
+#: desk/src/components/ticket/TicketsListView.vue:169
 msgid "Export"
 msgstr ""
 
-#: desk/src/components/ticket/TicketsListView.vue:195
+#: desk/src/components/ticket/TicketsListView.vue:210
 msgid "Export All {0} Record(s)"
 msgstr ""
 
-#: desk/src/components/ticket/TicketsListView.vue:177
+#: desk/src/components/ticket/TicketsListView.vue:192
 msgid "Export Type"
 msgstr ""
 
@@ -1234,8 +1354,8 @@ msgstr ""
 #: desk/src/components/ticket/TicketAgentDetails.vue:112
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:141
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:176
-#: desk/src/components/ticket/TicketsListView.vue:70
-#: desk/src/components/ticket/TicketsListView.vue:92
+#: desk/src/components/ticket/TicketsListView.vue:85
+#: desk/src/components/ticket/TicketsListView.vue:107
 #: desk/src/pages/TicketsCustomer.vue:43 desk/src/pages/TicketsCustomer.vue:65
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 msgid "Failed"
@@ -1425,8 +1545,8 @@ msgid "From Date"
 msgstr ""
 
 #. Option for the 'SLA Status' (Select) field in DocType 'HD Ticket'
-#: desk/src/components/ticket/TicketsListView.vue:64
-#: desk/src/components/ticket/TicketsListView.vue:86
+#: desk/src/components/ticket/TicketsListView.vue:79
+#: desk/src/components/ticket/TicketsListView.vue:101
 #: desk/src/pages/TicketsCustomer.vue:37 desk/src/pages/TicketsCustomer.vue:59
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
 msgid "Fulfilled"
@@ -2086,6 +2206,14 @@ msgstr ""
 msgid "Mark all as read"
 msgstr ""
 
+#: desk/src/pages/desk/team/TeamSingle.vue:48
+msgid "Members"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:65
+msgid "Members of this team will be able to bypass any team-wise restriction"
+msgstr ""
+
 #. Option for the 'Type' (Select) field in DocType 'HD Notification'
 #: helpdesk/helpdesk/doctype/hd_notification/hd_notification.json
 msgid "Mention"
@@ -2167,7 +2295,9 @@ msgstr ""
 #. Label of a Data field in DocType 'HD Organization'
 #. Label of a Data field in DocType 'HD Team'
 #: desk/src/pages/desk/agent/AgentList.vue:67
-#: desk/src/pages/desk/contact/ContactList.vue:63
+#: desk/src/pages/desk/contact/ContactList.vue:65
+#: desk/src/pages/desk/customer/CustomerList.vue:63
+#: desk/src/pages/desk/team/TeamList.vue:70
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:98
 #: desk/src/pages/knowledge-base/KnowledgeBaseSubcategory.vue:60
 #: helpdesk/api/doc.py:138 helpdesk/api/doc.py:195 helpdesk/api/doc.py:244
@@ -2215,20 +2345,42 @@ msgstr ""
 msgid "New agent"
 msgstr ""
 
+#: desk/src/pages/desk/team/TeamSingle.vue:245
+msgid "New and old title cannot be same"
+msgstr ""
+
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategoryNew.vue:2
 msgid "New category"
 msgstr ""
 
-#: desk/src/pages/desk/contact/ContactList.vue:9
+#: desk/src/pages/desk/contact/ContactList.vue:11
 msgid "New contact"
+msgstr ""
+
+#: desk/src/pages/desk/customer/CustomerList.vue:11
+msgid "New customer"
 msgstr ""
 
 #: helpdesk/helpdesk/doctype/hd_notification/hd_notification.py:58
 msgid "New notification"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:116
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:6
+msgid "New rule"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamList.vue:9
+#: desk/src/pages/desk/team/TeamList.vue:29
+msgid "New team"
+msgstr ""
+
 #: helpdesk/api/dashboard.py:108
 msgid "New tickets"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:243
+msgid "New title is required"
 msgstr ""
 
 #: desk/src/pages/onboarding/SimpleOnboarding.vue:83
@@ -2255,8 +2407,20 @@ msgstr ""
 msgid "No Email Communications"
 msgstr ""
 
-#: desk/src/components/ticket/TicketsListView.vue:140
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:47
+msgid "No Escalation Rules Found"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamList.vue:67
+msgid "No Teams Found"
+msgstr ""
+
+#: desk/src/components/ticket/TicketsListView.vue:155
 msgid "No Tickets Found"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:97
+msgid "No agents found, please add"
 msgstr ""
 
 #: desk/src/components/knowledge-base-v2/KnowledgeBaseCategory.vue:71
@@ -2274,6 +2438,10 @@ msgstr ""
 
 #: desk/src/pages/desk/contact/ContactDialog.vue:173
 msgid "No changes to save"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:59
+msgid "No members found in team: {0}"
 msgstr ""
 
 #: desk/src/components/EmailArea.vue:9 desk/src/components/EmailArea.vue:19
@@ -2366,7 +2534,6 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'HD Service Level
 #. Agreement Fulfilled On Status'
 #. Option for the 'Status' (Select) field in DocType 'HD Ticket'
-#: desk/src/stores/ticketStatus.ts:31
 #: helpdesk/helpdesk/doctype/hd_pause_service_level_agreement_on_status/hd_pause_service_level_agreement_on_status.json
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement_fulfilled_on_status/hd_service_level_agreement_fulfilled_on_status.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
@@ -2442,7 +2609,7 @@ msgid "Paywall Reached!"
 msgstr ""
 
 #: desk/src/components/desk/global/NewContactDialog.vue:119
-#: desk/src/pages/desk/contact/ContactList.vue:73
+#: desk/src/pages/desk/contact/ContactList.vue:75
 msgid "Phone"
 msgstr ""
 
@@ -2542,7 +2709,9 @@ msgstr ""
 #. Label of a Link field in DocType 'HD Ticket Type'
 #: desk/src/components/ticket/TicketAgentFields.vue:96
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:206
-#: desk/src/pages/TicketsCustomer.vue:110 helpdesk/api/dashboard.py:184
+#: desk/src/pages/TicketsCustomer.vue:110
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:50
+#: helpdesk/api/dashboard.py:184
 #: helpdesk/helpdesk/doctype/hd_escalation_rule/hd_escalation_rule.json
 #: helpdesk/helpdesk/doctype/hd_service_level_priority/hd_service_level_priority.json
 #: helpdesk/helpdesk/doctype/hd_settings/hd_settings.json
@@ -2553,12 +2722,24 @@ msgstr ""
 msgid "Priority"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:144
+msgid "Priority is"
+msgstr ""
+
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement/hd_service_level_agreement.py:65
 msgid "Priority {0} has been repeated."
 msgstr ""
 
 #: desk/src/components/ticket/TicketAgentFields.vue:114
 msgid "Problem in XYZ"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:78
+msgid "Product Experts"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamList.vue:37
+msgid "Product experts"
 msgstr ""
 
 #: helpdesk/setup/ticket_feedback.py:8
@@ -2669,11 +2850,17 @@ msgid "Remove"
 msgstr ""
 
 #: desk/src/pages/desk/contact/ContactDialog.vue:31
+#: desk/src/pages/desk/customer/CustomerDialog.vue:28
 msgid "Remove photo"
 msgstr ""
 
 #: desk/src/pages/TicketAgent.vue:104
+#: desk/src/pages/desk/team/TeamSingle.vue:204
 msgid "Rename"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:214
+msgid "Rename team"
 msgstr ""
 
 #. Option for the 'Status' (Select) field in DocType 'HD Pause Service Level
@@ -2681,7 +2868,6 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'HD Service Level
 #. Agreement Fulfilled On Status'
 #. Option for the 'Status' (Select) field in DocType 'HD Ticket'
-#: desk/src/stores/ticketStatus.ts:33
 #: helpdesk/helpdesk/doctype/hd_pause_service_level_agreement_on_status/hd_pause_service_level_agreement_on_status.json
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement_fulfilled_on_status/hd_service_level_agreement_fulfilled_on_status.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
@@ -2757,7 +2943,6 @@ msgstr ""
 #. Option for the 'Status' (Select) field in DocType 'HD Service Level
 #. Agreement Fulfilled On Status'
 #. Option for the 'Status' (Select) field in DocType 'HD Ticket'
-#: desk/src/stores/ticketStatus.ts:35
 #: helpdesk/helpdesk/doctype/hd_pause_service_level_agreement_on_status/hd_pause_service_level_agreement_on_status.json
 #: helpdesk/helpdesk/doctype/hd_service_level_agreement_fulfilled_on_status/hd_service_level_agreement_fulfilled_on_status.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.json
@@ -2825,6 +3010,18 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:69
+msgid "Rule created"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:56
+msgid "Rule deleted"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:46
+msgid "Rule updated"
+msgstr ""
+
 #. Label of a Link field in DocType 'HD Ticket'
 #. Label of a Tab Break field in DocType 'HD Ticket'
 #: desk/src/pages/MobileTicketAgent.vue:78
@@ -2866,6 +3063,8 @@ msgid "Saturday"
 msgstr ""
 
 #: desk/src/pages/desk/contact/ContactDialog.vue:162
+#: desk/src/pages/desk/customer/CustomerDialog.vue:93
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:119
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleActionsEdit.vue:26
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:80
 #: desk/src/pages/knowledge-base/KnowledgeBaseSubcategory.vue:72
@@ -3108,6 +3307,7 @@ msgstr ""
 #. Label of a Select field in DocType 'HD Ticket'
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:189
 #: desk/src/pages/TicketsCustomer.vue:105
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:65
 #: desk/src/pages/knowledge-base/KnowledgeBaseSubcategory.vue:165
 #: helpdesk/api/dashboard.py:36
 #: helpdesk/helpdesk/doctype/hd_article/hd_article.json
@@ -3283,6 +3483,7 @@ msgstr ""
 #. Label of a Link in the Helpdesk Workspace
 #: desk/src/components/ticket/TicketAgentFields.vue:101
 #: desk/src/components/ticket/TicketCustomerSidebar.vue:202
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:55
 #: helpdesk/helpdesk/doctype/hd_escalation_rule/hd_escalation_rule.json
 #: helpdesk/helpdesk/doctype/hd_team_item/hd_team_item.json
 #: helpdesk/helpdesk/doctype/hd_ticket/hd_ticket.py:755
@@ -3300,7 +3501,14 @@ msgstr ""
 msgid "Team Restrictions"
 msgstr ""
 
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:149
+msgid "Team is"
+msgstr ""
+
 #: desk/src/components/layouts/layoutSettings.ts:33
+#: desk/src/pages/desk/team/TeamList.vue:5
+#: desk/src/pages/desk/team/TeamList.vue:125
+#: desk/src/pages/desk/team/TeamSingle.vue:9
 msgid "Teams"
 msgstr ""
 
@@ -3460,8 +3668,13 @@ msgstr ""
 
 #. Label of a Link field in DocType 'HD Escalation Rule'
 #: desk/src/components/ticket/TicketAgentFields.vue:91
+#: desk/src/pages/desk/escalation/EscalationRuleList.vue:60
 #: helpdesk/helpdesk/doctype/hd_escalation_rule/hd_escalation_rule.json
 msgid "Ticket type"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialog.vue:154
+msgid "Ticket type is"
 msgstr ""
 
 #. Label of a Check field in DocType 'HD Settings'
@@ -3484,7 +3697,7 @@ msgstr ""
 #: desk/src/components/command-palette/CP.vue:189
 #: desk/src/components/layouts/layoutSettings.ts:18
 #: desk/src/components/layouts/layoutSettings.ts:56
-#: desk/src/components/ticket/TicketsListView.vue:305
+#: desk/src/components/ticket/TicketsListView.vue:320
 #: desk/src/pages/MobileTicketAgent.vue:270 desk/src/pages/TicketAgent.vue:219
 #: desk/src/pages/TicketCustomer.vue:152 desk/src/pages/TicketNew.vue:196
 #: desk/src/pages/Tickets.vue:67 desk/src/pages/TicketsCustomer.vue:159
@@ -3500,6 +3713,8 @@ msgstr ""
 #. Label of a Data field in DocType 'HD Canned Response'
 #. Label of a Data field in DocType 'HD Preset Filter'
 #: desk/src/components/canned-response/CannedResponseModal.vue:27
+#: desk/src/pages/desk/team/TeamList.vue:36
+#: desk/src/pages/desk/team/TeamSingle.vue:77
 #: desk/src/pages/knowledge-base/KnowledgeBaseArticleTopNew.vue:13
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:57
 #: desk/src/pages/knowledge-base/KnowledgeBaseSubcategory.vue:160
@@ -3516,6 +3731,7 @@ msgid "Title Slug"
 msgstr ""
 
 #: desk/src/pages/KnowledgeBaseArticle.vue:285
+#: desk/src/pages/desk/team/TeamList.vue:109
 msgid "Title is required"
 msgstr ""
 
@@ -3641,6 +3857,7 @@ msgid "Upload Logo"
 msgstr ""
 
 #: desk/src/pages/desk/contact/ContactDialog.vue:22
+#: desk/src/pages/desk/customer/CustomerDialog.vue:19
 msgid "Upload photo"
 msgstr ""
 
@@ -3850,6 +4067,14 @@ msgstr ""
 msgid "after"
 msgstr ""
 
+#: desk/src/pages/desk/team/TeamSingle.vue:101
+msgid "agents"
+msgstr ""
+
+#: desk/src/pages/desk/escalation/EscalationRuleDialogFieldList.vue:17
+msgid "and"
+msgstr ""
+
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:48
 msgid "article"
 msgstr ""
@@ -3892,6 +4117,10 @@ msgstr ""
 msgid "eg: tesla.com, mycompany.com"
 msgstr ""
 
+#: desk/src/pages/desk/customer/CustomerDialog.vue:36
+msgid "example.com"
+msgstr ""
+
 #: desk/src/components/notifications/Notifications.vue:65
 #: desk/src/pages/MobileNotifications.vue:51
 msgid "has reopened the ticket"
@@ -3910,6 +4139,10 @@ msgstr ""
 #. Item'
 #: helpdesk/helpdesk/doctype/hd_preset_filter_item/hd_preset_filter_item.json
 msgid "in"
+msgstr ""
+
+#: desk/src/pages/desk/team/TeamSingle.vue:103
+msgid "in the system."
 msgstr ""
 
 #. Option for the 'Filter Type' (Select) field in DocType 'HD Preset Filter
