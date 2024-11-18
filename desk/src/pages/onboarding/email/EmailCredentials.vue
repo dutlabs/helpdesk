@@ -3,7 +3,7 @@
     <form class="space-y-4" @submit.prevent="submit">
       <Input
         v-model="accountName"
-        :label="Account name"
+        :label="'Account name'"
         :placeholder="__('John Doe (Example.com)')"
         type="text"
         required
