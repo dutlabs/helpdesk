@@ -4063,3 +4063,6 @@ msgstr "Urgente"
 
 msgid "Awaiting response"
 msgstr "Aguardando resposta"
+
+msgid "Awaiting Response"
+msgstr "Aguardando resposta"
