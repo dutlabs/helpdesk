@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-between border-t px-5 py-2">
     <TabButtons
-      :buttons="pageLengthOptions.map((o) => ({ label: o }))"
+      :buttons="pageLengthOptions.map((o) => ({ label: __(o) }))"
       :model-value="resource.pageLength"
       @update:model-value="
         (val) => {

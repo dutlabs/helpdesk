@@ -188,7 +188,8 @@ class HDTicket(Document):
         self.apply_sla()
 
     def after_insert(self):
-        log_ticket_activity(self.name, _("created this ticket"))
+        activity = _("created this ticket")
+        log_ticket_activity(self.name, activity)
         capture_event("ticket_created")
         publish_event("helpdesk:new-ticket", {"name": self.name})
         # create communication if we are not hitting the new ticket creation API
@@ -318,11 +319,11 @@ class HDTicket(Document):
         Should be called inside on_update
         """
         field_maps = {
-            "status": "status",
-            "priority": "priority",
-            "agent_group": "team",
-            "ticket_type": "type",
-            "contact": "contact",
+            "status": _("status"),
+            "priority": _("priority"),
+            "agent_group": _("team"),
+            "ticket_type": _("type"),
+            "contact": _("contact"),
         }
         for field in [
             "status",
@@ -587,7 +588,8 @@ class HDTicket(Document):
     def create_communication_via_contact(self, message, attachments=[]):
         if self.status == "Replied":
             self.status = "Open"
-            log_ticket_activity(self.name, _("set status to Open"))
+            activity = _("set status to Open")
+            log_ticket_activity(self.name, activity)
             self.save(ignore_permissions=True)
 
         c = frappe.new_doc("Communication")

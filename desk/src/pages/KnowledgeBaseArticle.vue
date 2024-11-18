@@ -59,7 +59,7 @@
           class=""
         >
           <Button
-            label="Still need help? Create a ticket"
+            :label="__('Still need help? Create a ticket')"
             size="md"
             theme="gray"
             variant="solid"

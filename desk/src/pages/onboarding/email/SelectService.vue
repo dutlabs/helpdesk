@@ -62,8 +62,7 @@ const services = [
     name: "GMail",
     icon: LogoGmail,
     info: __(
-      "Setting up GMail requires you to enable two factor authentication \
-		and app specific passwords. Read more at https://support.google.com/accounts/answer/185833"
+      "Setting up GMail requires you to enable two factor authentication and app specific passwords. Read more at https://support.google.com/accounts/answer/185833"
     ),
   },
   {

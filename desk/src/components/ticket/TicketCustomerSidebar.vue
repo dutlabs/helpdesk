@@ -134,7 +134,7 @@ function firstResponseData() {
           )
         ),
       ]),
-      color: __("green"),
+      color: "green",
     };
   } else {
     firstResponse = {

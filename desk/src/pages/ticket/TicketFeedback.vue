@@ -36,7 +36,7 @@
             <Button
               v-for="o in options.data"
               :key="o.name"
-              :label="o.label"
+              :label="__(o.label)"
               :theme="preset === o.name ? 'blue' : 'gray'"
               variant="subtle"
               @click="preset = o.name"
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="space-y-2">
-          <span> Other </span>
+          <span> {{ __("Other") }} </span>
           <FormControl
             v-model="text"
             type="textarea"

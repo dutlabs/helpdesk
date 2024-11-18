@@ -42,7 +42,7 @@ export function useFilter(doctype: string) {
     transform: (data) => {
       data = orderBy(
         data.map((f) => ({
-          label: f.label,
+          label: __(f.label),
           value: f.fieldname,
           ...f,
         })),

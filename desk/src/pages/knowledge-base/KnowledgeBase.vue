@@ -11,7 +11,7 @@
       <KnowledgeBaseSidebar />
       <RouterView :key="$route.fullPath" v-slot="{ Component }">
         <component :is="Component" v-if="Component" />
-        <EmptyMessage v-else message="Select a category" />
+        <EmptyMessage v-else :message="__('Select a category')" />
       </RouterView>
     </div>
   </div>

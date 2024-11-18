@@ -178,7 +178,7 @@ export default {
         component: "CPGroup",
         items: [
           {
-            title: __('Search for "${0}"', [this.query]),
+            title: __('Search for "{0}"', [this.query]),
             icon: () => h(LucideSearch),
             route: { name: "Search", query: { q: this.query } },
           },

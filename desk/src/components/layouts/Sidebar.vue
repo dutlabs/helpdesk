@@ -9,7 +9,7 @@
     <UserMenu class="mb-2 ml-0.5" :options="profileSettings" />
     <SidebarLink
       v-if="!isCustomerPortal"
-      label="Search"
+      :label="__('Search')"
       class="mb-1"
       :icon="LucideSearch"
       :on-click="() => openCommandPalette()"

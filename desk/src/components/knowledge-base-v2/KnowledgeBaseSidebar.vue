@@ -7,7 +7,9 @@
     }"
   >
     <div class="flex flex-col gap-1">
-      <div class="text-sm font-medium text-gray-600">Categories</div>
+      <div class="text-sm font-medium text-gray-600">
+        {{ __("Categories") }}
+      </div>
       <div v-if="!categories.isLoading" class="flex flex-col gap-1">
         <!-- all categories here -->
         <SidebarLink
@@ -45,7 +47,7 @@ const categories = createListResource({
   transform: (data) => {
     const firstCategory = {
       name: __("Explore all articles"),
-      category_name: "Explore all articles",
+      category_name: __("Explore all articles"),
       icon: "search",
     };
     return [firstCategory, ...data];

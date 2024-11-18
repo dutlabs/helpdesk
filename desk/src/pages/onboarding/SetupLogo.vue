@@ -27,8 +27,7 @@ import { createResource, FileUploader } from "frappe-ui";
 import { capture } from "@/telemetry";
 
 const help = __(
-  "this will be used in many places, including login and loading screens. \
-	An image with transparent background and a resolution of 160 x 32 is preferred"
+  "this will be used in many places, including login and loading screens. An image with transparent background and a resolution of 160 x 32 is preferred"
 );
 const imageUrl: Ref<string> = ref(null);
 

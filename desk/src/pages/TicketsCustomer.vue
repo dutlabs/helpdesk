@@ -160,7 +160,7 @@ const breadcrumbs = [
 ];
 
 const ACTIVE_TICKET_TYPES = ["Open", "Replied"];
-const dropdownTitle = ref("All tickets");
+const dropdownTitle = ref(__("All tickets"));
 const dropdownOptions = [
   {
     label: __("All tickets"),
@@ -175,7 +175,7 @@ const dropdownOptions = [
     },
   },
   {
-    label: "Closed tickets",
+    label: __("Closed tickets"),
     onClick() {
       filter("Closed tickets", { status: ["not in", ACTIVE_TICKET_TYPES] });
     },
@@ -200,7 +200,7 @@ function transformStatus(status: string) {
     case "Replied":
       return __("Awaiting reply");
     default:
-      return status;
+      return __(status);
   }
 }
 </script>

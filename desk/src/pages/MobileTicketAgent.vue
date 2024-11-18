@@ -8,10 +8,12 @@
         <div class="absolute right-0 pr-2">
           <Dropdown :options="dropdownOptions">
             <template #default="{ open }">
-              <Button :label="ticket.data.status">
+              <Button :label="__(ticket.data.status)">
                 <template #prefix>
                   <IndicatorIcon
-                    :class="ticketStatusStore.textColorMap[ticket.data.status]"
+                    :class="
+                      __(ticketStatusStore.textColorMap[ticket.data.status])
+                    "
                   />
                 </template>
                 <template #suffix>
@@ -282,7 +284,7 @@ watch(
 
 const dropdownOptions = computed(() =>
   ticketStatusStore.options.map((o) => ({
-    label: o,
+    label: __(o),
     value: o,
     onClick: () => updateTicket("status", o),
     icon: () =>

@@ -58,11 +58,11 @@ const i18n = createI18n({
 const pinia = createPinia();
 const app = createApp(App);
 
+app.use(translationPlugin);
 app.use(resourcesPlugin);
 app.use(i18n);
 app.use(pinia);
 app.use(router);
-app.use(translationPlugin);
 
 for (const c in globalComponents) {
   app.component(c, globalComponents[c]);

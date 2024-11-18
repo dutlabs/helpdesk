@@ -82,9 +82,9 @@ let columns = storage.value.columns ? storage.value.columns : [];
 let rows = storage.value.rows ? storage.value.rows : [];
 
 let filtersToApply = storage.value.filtersToApply;
-let filters = ref(storage.value.filters);
+let filters = ref(__(storage.value.filters));
 
-let sorts = ref(storage.value.sorts);
+let sorts = ref(__(storage.value.sorts));
 let sortsToApply = storage.value.sortsToApply;
 
 let pageLength = ref(storage.value.pageLength);
@@ -331,8 +331,10 @@ const filterableFields = createResource({
   transform: (data) => {
     return data
       .sort((fieldA, fieldB) => {
-        const labelA = fieldA.label.toUpperCase();
-        const labelB = fieldB.label.toUpperCase();
+        const A = __(fieldA.label);
+        const B = __(fieldB.label);
+        const labelA = A.toUpperCase();
+        const labelB = B.toUpperCase();
         if (labelA < labelB) {
           return -1;
         }
@@ -344,7 +346,7 @@ const filterableFields = createResource({
       })
       .map((field) => {
         return {
-          label: field.label,
+          label: __(field.label),
           value: field.fieldname,
           ...field,
         };

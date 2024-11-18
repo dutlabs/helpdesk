@@ -3,7 +3,7 @@
     <Button
       v-for="action in normalActions"
       :key="action.label"
-      :label="action.label"
+      :label="__(action.label)"
       @click="action.onClick()"
     >
       <template v-if="action.icon" #prefix>
@@ -17,7 +17,7 @@
   <div v-if="groupedWithLabelActions.length">
     <div v-for="g in groupedWithLabelActions" :key="g.label">
       <Dropdown v-slot="{ open }" :options="g.action">
-        <Button :label="g.label">
+        <Button :label="__(g.label)">
           <template #suffix>
             <FeatherIcon
               :name="open ? 'chevron-up' : 'chevron-down'"

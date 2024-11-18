@@ -2,8 +2,8 @@
 
 <td class="text-base leading-6 text-gray-900">
   <div class="from-markdown bg-white p-8">
-    <p>Hello,</p>
-    <p>Please confirm your email address by clicking the button below:</p>
+    <p>{{ __("Hello,") }}</p>
+    <p>{{ __("Please confirm your email address by clicking the button below:") }}</p>
     {{ utils.button(_('Verify Account'), link, true) }} {{ utils.separator() }} {{
     utils.signature() }}
   </div>

@@ -15,11 +15,7 @@ import { onMounted, ref } from "vue";
 import { createResource, Button } from "frappe-ui";
 import { capture } from "@/telemetry";
 
-const query = __(
-  "Did you know that our Helpdesk is designed to function independently, \
-	without relying on email? Our customer portal is finely tuned to be a \
-	standalone solution, eliminating the hassle of email setup. Would you \
-	like me to disable the email workflow for you?"
+const query = __("Did you know that our Helpdesk is designed to function independently, without relying on email? Our customer portal is finely tuned to be a standalone solution, eliminating the hassle of email setup. Would you like me to disable the email workflow for you?"
 );
 const isYes = ref(false);
 

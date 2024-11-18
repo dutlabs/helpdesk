@@ -13,10 +13,7 @@
 import { onMounted } from "vue";
 import { capture } from "@/telemetry";
 
-const text = __(
-  "We're excited to have you join us and explore the world of efficient customer support. \
-	We are here to transform the way you handle customer inquiries, streamline ticket \
-	management, and deliver outstanding service."
+const text = __("We're excited to have you join us and explore the world of efficient customer support. We are here to transform the way you handle customer inquiries, streamline ticket management, and deliver outstanding service."
 );
 const subText = __(
   "Once again, welcome to Frappe Helpdesk! Let's hope for a long and smooth journey!"

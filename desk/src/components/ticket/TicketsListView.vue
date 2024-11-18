@@ -21,6 +21,7 @@
         :key="row.name"
         v-slot="{ column, item }"
         :row="row"
+        :label="__(item)"
       >
         <div
           v-if="column.key === '_assign'"
@@ -35,17 +36,35 @@
           class="text-base text-gray-700"
           @click="(e) => handleFieldClick(e, column.key, item)"
         >
-          <template #prefix>
-            <div v-if="column.key === 'status'">
-              <IndicatorIcon :class="ticketStatusStore.textColorMap[item]" />
-            </div>
-          </template>
+          <div v-if="column.key === 'status'">
+            <Badge
+              :label="__(item)"
+              :theme="ticketStatusStore.colorMap[item]"
+              variant="outline"
+              class="whitespace-nowrap"
+            />
+          </div>
+          <div v-if="column.key === 'priority'">
+            <Badge
+              :label="__(item)"
+              variant="outline"
+              class="whitespace-nowrap"
+            />
+          </div>
+          <div v-if="column.key === 'ticket_type'">
+            <Badge
+              :label="__(item)"
+              variant="outline"
+              class="whitespace-nowrap"
+            />
+          </div>
           <div v-if="column.key === 'agreement_status'">
             <Badge
               v-if="item"
-              :label="item"
+              :label="__(item)"
               :theme="slaStatusColorMap[item]"
               variant="outline"
+              class="whitespace-nowrap"
             />
           </div>
           <div v-if="column.type === 'Rating'">

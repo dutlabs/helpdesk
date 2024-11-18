@@ -197,7 +197,7 @@ function setfilter(data) {
       field: {
         fieldname: data.fieldname,
         fieldtype: data.fieldtype,
-        label: data.label,
+        label: __(data.label),
         name: data.value, //TODO: why is this value can i remove this?
         options: data.options,
       },

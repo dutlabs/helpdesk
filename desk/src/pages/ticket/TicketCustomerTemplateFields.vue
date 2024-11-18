@@ -9,7 +9,7 @@
     <div class="space-y-1.5">
       <span class="block text-sm text-gray-700"> Priority </span>
       <span class="block break-words text-base font-medium text-gray-900">
-        {{ ticket.data.priority }}
+        {{ __(ticket.data.priority) }}
       </span>
     </div>
     <div v-for="data in slaData" :key="data.label" class="space-y-1.5">
@@ -19,7 +19,7 @@
       <span class="block break-words text-base font-medium text-gray-900">
         <Badge
           v-if="data.showSla"
-          :label="data.label"
+          :label="__(data.label)"
           :theme="data.theme"
           variant="outline"
         />
@@ -34,7 +34,7 @@
       class="space-y-1.5"
     >
       <span class="block text-sm text-gray-700">
-        {{ field.label }}
+        {{ __(field.label) }}
       </span>
       <span class="block break-words text-base font-medium text-gray-900">
         {{ ticket.data[field.fieldname] }}
@@ -109,7 +109,7 @@ function transformStatus(status: string) {
     case "Replied":
       return __("Awaiting reply");
     default:
-      return status;
+      return __(status);
   }
 }
 </script>

@@ -33,7 +33,7 @@
     <div class="flex items-center gap-2">
       <Dropdown :options="presetFilters">
         <template #default="{ open }">
-          <Button :label="currentPreset">
+          <Button :label="__(currentPreset)">
             <template #suffix>
               <FeatherIcon
                 :name="open ? 'chevron-up' : 'chevron-down'"
@@ -100,7 +100,7 @@ import { RefreshIcon } from "@/components/icons";
 import { useScreenSize } from "@/composables/screen";
 
 const authStore = useAuthStore();
-let currentPreset = ref("All Tickets");
+let currentPreset = ref(__("All Tickets"));
 
 const props = defineProps({
   filter: {
@@ -277,7 +277,7 @@ function updateFilter(filter, value) {
           field: {
             fieldname: filter.name,
             fieldtype: filter.fieldtype,
-            label: filter.label,
+            label: __(filter.label),
           },
           filterToApply: {
             [filter.name]: ["=", value],

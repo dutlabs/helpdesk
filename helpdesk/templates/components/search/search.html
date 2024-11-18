@@ -14,7 +14,7 @@
             autocomplete="off"
             class="form-control bg-white"
             type="search"
-            placeholder="Type your question..."
+            :placeholder="_('Type your question...')"
             autofocus
           />
         </div>
@@ -74,7 +74,7 @@
 
     resultsBlock.append(`
 			<div>
-				<span>Searching Knowledge Base</span>
+				<span>{{ _("Searching Knowledge Base") }}</span>
 			</div>
 		`);
   }
@@ -102,7 +102,7 @@
     if (results.length == 0) {
       resultsBlock.append(`
 				<div>
-					<span>No results found</span>
+					<span>{{ _("No results found") }}</span>
 				</div>
 			`);
     }

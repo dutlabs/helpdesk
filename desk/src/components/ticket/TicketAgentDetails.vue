@@ -14,7 +14,7 @@
           <Badge
             v-if="s.badgeText"
             class="-ml-1"
-            :label="s.badgeText"
+            :label="__(s.badgeText)"
             variant="subtle"
             :theme="s.badgeColor"
           />

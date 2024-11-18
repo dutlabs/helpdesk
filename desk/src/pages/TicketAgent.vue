@@ -22,14 +22,16 @@
           class="rounded bg-gray-100 px-2 py-1.5 text-base text-gray-800"
           @click="showAssignmentModal = true"
         >
-          Assign
+          {{ __("Assign") }}
         </button>
         <Dropdown :options="dropdownOptions">
           <template #default="{ open }">
-            <Button :label="ticket.data.status">
+            <Button :label="__(ticket.data.status)">
               <template #prefix>
                 <IndicatorIcon
-                  :class="ticketStatusStore.textColorMap[ticket.data.status]"
+                  :class="
+                    __(ticketStatusStore.textColorMap[ticket.data.status])
+                  "
                 />
               </template>
               <template #suffix>
@@ -99,7 +101,7 @@
     />
     <Dialog v-model="showSubjectDialog">
       <template #body-title>
-        <h3>Rename</h3>
+        <h3>{{ __("Rename") }}</h3>
       </template>
       <template #body-content>
         <FormControl
@@ -231,7 +233,7 @@ watch(
 
 const dropdownOptions = computed(() =>
   ticketStatusStore.options.map((o) => ({
-    label: o,
+    label: __(o),
     value: o,
     onClick: () => updateTicket("status", o),
     icon: () =>
