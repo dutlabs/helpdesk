@@ -22,13 +22,13 @@ msgstr "(Ver Tudo)"
 
 #. Header text in the Helpdesk Workspace
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
-msgid "<span class=\"h3\" style=\"\"><a href=\"/helpdesk\">Visit Helpdesk</a></span>"
-msgstr "<span class=\"h3\" style=\"\"><a href=\"/helpdesk\">Visitar Helpdesk</a></span>"
+msgid "<span class=\"h3\" style=\"\"><a href=\"/helpdesk\">Visit página de suporte</a></span>"
+msgstr "<span class=\"h3\" style=\"\"><a href=\"/helpdesk\">Visitar página de suporte</a></span>"
 
 #. Paragraph text in the Helpdesk Workspace
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
 msgid "<span class=\"h4\">Helpdesk Configuration<br></span>"
-msgstr "<span class=\"h4\">Configuração do Helpdesk<br></span>"
+msgstr "<span class=\"h4\">Configuração de Suporte<br></span>"
 
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategory.vue:65
 #: desk/src/pages/knowledge-base/KnowledgeBaseCategoryNew.vue:15
@@ -896,7 +896,7 @@ msgstr "Clientes"
 
 #: desk/src/components/Settings/Branding.vue:3
 msgid "Customise your Helpdesk"
-msgstr "Personalize seu Helpdesk"
+msgstr "Personalize sua página de suporte"
 
 #. Label of a Date field in DocType 'HD Holiday'
 #: helpdesk/helpdesk/doctype/hd_holiday/hd_holiday.json
@@ -1379,7 +1379,7 @@ msgstr "Falha ao atualizar, por favor, tente novamente"
 
 #: desk/src/pages/onboarding/email/SuccessMessage.vue:17
 msgid "Fantastic! Your email is now active. You are ready unleash true potential of Frappe Helpdesk!"
-msgstr "Fantástico! Seu e-mail está agora ativo. Você está pronto para liberar o verdadeiro potencial do Helpdesk!"
+msgstr "Fantástico! Seu e-mail está agora ativo. Você está pronto para liberar o verdadeiro potencial do Suporte Dut Labs!"
 
 #: desk/src/components/Settings/Branding.vue:143
 msgid "Favicon Updated"
@@ -1832,7 +1832,7 @@ msgstr "Olá,"
 
 #: helpdesk/config/desktop.py:11
 msgid "HelpDesk"
-msgstr "Helpdesk"
+msgstr "Suporte"
 
 #. Name of a Workspace
 #: desk/src/pages/MobileTicketAgent.vue:446 desk/src/pages/TicketAgent.vue:388
@@ -1849,7 +1849,7 @@ msgstr "Contato Helpdesk"
 #. Label of a Card Break in the Helpdesk Workspace
 #: helpdesk/helpdesk/workspace/helpdesk/helpdesk.json
 msgid "Helpdesk Reports"
-msgstr "Relatórios do Helpdesk"
+msgstr "Relatórios de Suporte"
 
 #: helpdesk/setup/ticket_feedback.py:7
 msgid "Helpful answers, reasonable wait"
@@ -2503,7 +2503,7 @@ msgstr "Notificações"
 
 #: desk/src/pages/onboarding/SetupName.vue:28
 msgid "Now, let's set a name for your Helpdesk that reflects your organization's identity and values. So, what would you like to name your Helpdesk?"
-msgstr "Agora, vamos definir um nome para o seu Helpdesk que reflita a identidade e os valores da sua organização. Então, qual nome você gostaria de dar ao seu Helpdesk?"
+msgstr "Agora, vamos definir um nome para a sua página de suporte Dut Labs que reflita a identidade e os valores da sua organização. Então, qual nome você gostaria de dar?"
 
 #: desk/src/components/CommentTextEditor.vue:179
 #: desk/src/components/EmailEditor.vue:309
@@ -2529,7 +2529,7 @@ msgstr "Ao clicar (Javascript)"
 
 #: desk/src/pages/onboarding/OnboardingIntro.vue:18
 msgid "Once again, welcome to Frappe Helpdesk! Let's hope for a long and smooth journey!"
-msgstr "Mais uma vez, bem-vindo ao Frappe Helpdesk! Vamos torcer por uma jornada longa e tranquila!"
+msgstr "Mais uma vez, bem-vindo ao Suporte Dut Labs! Vamos torcer por uma jornada longa e tranquila!"
 
 #. Option for the 'Status' (Select) field in DocType 'HD Pause Service Level
 #. Agreement On Status'
