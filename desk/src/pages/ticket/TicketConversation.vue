@@ -62,7 +62,6 @@ const communications = computed(() => {
     ...(ticket.data.communications || []),
     ...(ticket.data.comments || []),
   ];
-
   return orderBy(combined, (c) => dayjs(c.creation));
 });
 
