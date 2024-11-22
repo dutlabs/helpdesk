@@ -6,7 +6,7 @@
   </div>
   <div class="grow overflow-auto px-5 pb-20">
     <div
-      v-for="c in allCommunications"
+      v-for="c in communications"
       :id="c.name"
       :key="c.name"
       class="items-between relative mt-4 flex justify-center gap-4"
@@ -57,7 +57,7 @@ const props = withDefaults(defineProps<P>(), {
 });
 const route = useRoute();
 const ticket = inject(ITicket);
-const allCommunications = computed(() => {
+const communications = computed(() => {
   const combined = [
     ...(ticket.data.communications || []),
     ...(ticket.data.comments || []),
@@ -80,7 +80,7 @@ watch(
 );
 nextTick(() => {
   const hash = route.hash.slice(1);
-  const id = hash || allCommunications.value.slice(-1).pop()?.name;
+  const id = hash || communications.value.slice(-1).pop()?.name;
   if (id) setTimeout(() => scroll(id), 1000);
 });
 </script>
