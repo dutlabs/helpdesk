@@ -6,7 +6,7 @@
   </div>
   <div class="grow overflow-auto px-5 pb-20">
     <div
-      v-for="c in allCommunications"
+      v-for="c in communications"
       :id="c.name"
       :key="c.name"
       class="items-between relative mt-4 flex justify-center gap-4"
@@ -57,13 +57,9 @@ const props = withDefaults(defineProps<P>(), {
 });
 const route = useRoute();
 const ticket = inject(ITicket);
-const allCommunications = computed(() => {
-  const combined = [
-    ...(ticket.data.communications || []),
-    ...(ticket.data.comments || []),
-  ];
-
-  return orderBy(combined, (c) => dayjs(c.creation));
+const communications = computed(() => {
+  const _communications = ticket.data.communications || [];
+  return orderBy(_communications, (c) => dayjs(c.creation));
 });
 
 function scroll(id: string) {
