@@ -269,7 +269,7 @@ function handleColumnConfig(column) {
 
 const statusMap: Record<string, BadgeStatus> = props.options
   .statusMap as Record<string, BadgeStatus>;
-function handleStatusColor(status: string): BadgeStatus {
+function handleStatusColor(status: "Published" | "Draft"): BadgeStatus {
   if (!statusMap)
     return {
       label: status,
