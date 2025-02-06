@@ -27,11 +27,11 @@
       </template>
     </LayoutHeader>
     <header
-      class="flex h-12 items-center justify-between py-[7px] px-3 border-b"
       v-if="ticket.data"
+      class="flex h-12 items-center justify-between border-b py-[7px] px-3"
     >
       <!-- left side -->
-      <div class="flex items-center gap-2 max-w-[50%]">
+      <div class="flex max-w-[50%] items-center gap-2">
         <div v-if="ticket.data.assignees?.length">
           <component :is="ticket.data.assignees.length == 1 ? 'Button' : 'div'">
             <MultipleAvatar
@@ -45,7 +45,7 @@
           class="rounded bg-gray-100 px-2 py-1.5 text-base text-gray-800"
           @click="showAssignmentModal = true"
         >
-          Assign
+          {{ __("Assign") }}
         </button>
       </div>
       <!-- right side -->
@@ -58,7 +58,7 @@
     </header>
     <div v-if="ticket.data" class="flex flex-1 overflow-x-hidden">
       <div class="flex flex-1 flex-col overflow-x-hidden">
-        <div class="flex-1 flex flex-col">
+        <div class="flex flex-1 flex-col">
           <Tabs v-model="tabIndex" :tabs="tabs">
             <TabList />
             <TabPanel v-slot="{ tab }" class="h-full">
@@ -75,7 +75,9 @@
                   :ticket="ticket.data"
                 />
                 <!-- SLA Section -->
-                <h3 class="px-6 pt-3 font-semibold text-base">SLA</h3>
+                <h3 class="px-6 pt-3 text-base font-semibold">
+                  {{ __("SLA") }}
+                </h3>
                 <TicketAgentDetails
                   :agreement-status="ticket.data.agreement_status"
                   :first-responded-on="ticket.data.first_responded_on"
@@ -86,11 +88,13 @@
                   :source="ticket.data.via_customer_portal ? 'Portal' : 'Mail'"
                 />
                 <!-- Ticket Fields -->
-                <h3 class="px-6 pt-3 font-semibold text-base">Details</h3>
+                <h3 class="px-6 pt-3 text-base font-semibold">
+                  {{ __("Details") }}
+                </h3>
                 <TicketAgentFields
                   :ticket="ticket.data"
-                  @update="({ field, value }) => updateTicket(field, value)"
                   class="!border-0"
+                  @update="({ field, value }) => updateTicket(field, value)"
                 />
               </div>
 
@@ -114,9 +118,9 @@
             </TabPanel>
           </Tabs>
           <CommunicationArea
-            class="sticky bottom-0 z-50 bg-white"
             ref="communicationAreaRef"
             v-model="ticket.data"
+            class="sticky bottom-0 z-50 bg-white"
             :to-emails="[ticket.data.raised_by]"
             :cc-emails="[]"
             :bcc-emails="[]"
@@ -154,7 +158,7 @@
           size="sm"
           variant="subtle"
           :disabled="false"
-          label="New Subject"
+          :label="__('New Subject')"
         />
       </template>
       <template #actions>
@@ -169,9 +173,11 @@
             }
           "
         >
-          Confirm
+          {{ __("Confirm") }}
         </Button>
-        <Button class="ml-2" @click="showSubjectDialog = false"> Close </Button>
+        <Button class="ml-2" @click="showSubjectDialog = false">
+          {{ __("Close") }}
+        </Button>
       </template>
     </Dialog>
   </div>
@@ -267,7 +273,7 @@ const ticket = createResource({
 });
 
 const breadcrumbs = computed(() => {
-  let items = [{ label: "Tickets", route: { name: "TicketsAgent" } }];
+  let items = [{ label: __("Tickets"), route: { name: "TicketsAgent" } }];
   items.push({
     label: ticket.data?.subject,
     route: { name: "TicketAgent" },
@@ -298,23 +304,23 @@ const tabIndex = ref(0);
 const tabs: TabObject[] = [
   {
     name: "details",
-    label: "Details",
+    label: __("Details"),
     icon: DetailsIcon,
     condition: () => isMobileView.value,
   },
   {
     name: "activity",
-    label: "Activity",
+    label: __("Activity"),
     icon: ActivityIcon,
   },
   {
     name: "email",
-    label: "Emails",
+    label: __("Emails"),
     icon: EmailIcon,
   },
   {
     name: "comment",
-    label: "Comments",
+    label: __("Comments"),
     icon: CommentIcon,
   },
 ];
@@ -358,7 +364,7 @@ const activities = computed(() => {
       return {
         type: "history",
         key: h.creation,
-        content: h.action ? h.action : "viewed this",
+        content: h.action ? h.action : __("viewed this"),
         creation: h.creation,
         user: h.user.name + " ",
       };
@@ -417,7 +423,7 @@ function updateTicket(fieldname: string, value: string) {
       isLoading.value = false;
       ticket.reload();
       createToast({
-        title: "Ticket updated",
+        title: __("Ticket updated"),
         icon: "check",
         iconClasses: "text-green-600",
       });
@@ -428,7 +434,7 @@ function updateTicket(fieldname: string, value: string) {
       const title =
         e.messages && e.messages.length > 0
           ? e.messages[0]
-          : "Failed to update ticket";
+          : __("Failed to update ticket");
 
       createToast({
         title,
@@ -443,6 +449,6 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  document.title = "Helpdesk";
+  document.title = __("Helpdesk");
 });
 </script>

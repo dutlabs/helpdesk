@@ -7,7 +7,7 @@
     </LayoutHeader>
     <!-- Container -->
     <div
-      class="flex flex-col gap-5 py-6 h-full flex-1 self-center overflow-auto mx-auto w-full max-w-4xl px-5"
+      class="mx-auto flex h-full w-full max-w-4xl flex-1 flex-col gap-5 self-center overflow-auto py-6 px-5"
     >
       <!-- custom fields descriptions -->
       <div v-if="Boolean(template.data?.about)" class="">
@@ -30,13 +30,13 @@
       <div class="flex flex-col" :class="subject.length >= 2 && 'gap-5'">
         <div class="flex flex-col gap-2">
           <span class="block text-sm text-gray-700">
-            Subject
+            {{ __("Subject") }}
             <span class="place-self-center text-red-500"> * </span>
           </span>
           <FormControl
             v-model="subject"
             type="text"
-            placeholder="A short description"
+            :placeholder="__('A short description')"
           />
         </div>
         <SearchArticles
@@ -47,21 +47,21 @@
         <div v-if="isCustomerPortal">
           <h4
             v-show="subject.length <= 2 && description.length === 0"
-            class="text-p-sm text-gray-500 ml-1"
+            class="text-p-sm ml-1 text-gray-500"
           >
-            Please enter a subject to continue
+            {{ __("Please enter a subject to continue") }}
           </h4>
           <TicketTextEditor
             v-show="subject.length > 2 || description.length > 0"
             ref="editor"
             v-model:attachments="attachments"
             v-model:content="description"
-            placeholder="Detailed explanation"
+            :placeholder="__('Detailed explanation')"
             expand
           >
             <template #bottom-right>
               <Button
-                label="Submit"
+                :label="__('Submit')"
                 theme="gray"
                 variant="solid"
                 :disabled="
@@ -80,12 +80,12 @@
           ref="editor"
           v-model:attachments="attachments"
           v-model:content="description"
-          placeholder="Detailed explanation"
+          :placeholder="__('Detailed explanation')"
           expand
         >
           <template #bottom-right>
             <Button
-              label="Submit"
+              :label="__('Submit')"
               theme="gray"
               variant="solid"
               :disabled="
@@ -165,7 +165,7 @@ const ticket = createResource({
     const toVerify = [...fields, "subject", "description"];
     for (const field of toVerify) {
       if (isEmpty(params.doc[field.fieldname || field])) {
-        return `${field.label || field} is required`;
+        return __("{0} is required", [field.label || field]);
       }
     }
   },
@@ -200,13 +200,13 @@ function sanitize(html: string) {
 const breadcrumbs = computed(() => {
   const items = [
     {
-      label: "Tickets",
+      label: __("Tickets"),
       route: {
         name: "TicketsCustomer",
       },
     },
     {
-      label: "New Ticket",
+      label: __("New Ticket"),
       route: {
         name: "TicketNew",
       },
@@ -216,7 +216,7 @@ const breadcrumbs = computed(() => {
 });
 
 usePageMeta(() => ({
-  title: "New Ticket",
+  title: __("New Ticket"),
 }));
 
 const { userId: userID } = useAuthStore();

@@ -22,7 +22,7 @@
           class="rounded bg-gray-100 px-2 py-1.5 text-base text-gray-800"
           @click="showAssignmentModal = true"
         >
-          Assign
+          {{ __("Assign") }}
         </button>
         <Dropdown :options="dropdownOptions">
           <template #default="{ open }">
@@ -46,7 +46,7 @@
     <div v-if="ticket.data" class="flex h-full overflow-hidden">
       <div class="flex flex-1 flex-col">
         <!-- ticket activities -->
-        <div class="overflow-y-hidden flex flex-1 !h-full flex-col">
+        <div class="flex !h-full flex-1 flex-col overflow-y-hidden">
           <Tabs v-model="tabIndex" :tabs="tabs">
             <TabList />
             <TabPanel v-slot="{ tab }" class="h-full">
@@ -101,9 +101,12 @@
       "
     />
     <!-- Rename Subject Dialog -->
-    <Dialog v-model="showSubjectDialog" :options="{ title: 'Rename Subject' }">
+    <Dialog
+      v-model="showSubjectDialog"
+      :options="{ title: __('Rename Subject') }"
+    >
       <template #body-content>
-        <div class="flex flex-col flex-1 gap-3">
+        <div class="flex flex-1 flex-col gap-3">
           <FormControl
             v-model="renameSubject"
             type="textarea"
@@ -114,7 +117,7 @@
           <Button
             variant="solid"
             :loading="isLoading"
-            label="Rename"
+            :label="__('Rename')"
             @click="handleRename"
           />
         </div>
@@ -217,7 +220,7 @@ function updateField(name, value, callback = () => {}) {
 }
 
 const breadcrumbs = computed(() => {
-  let items = [{ label: "Tickets", route: { name: "TicketsAgent" } }];
+  let items = [{ label: __("Tickets"), route: { name: "TicketsAgent" } }];
   items.push({
     label: ticket.data?.subject,
     onClick: () => {
@@ -256,17 +259,17 @@ const tabIndex = ref(0);
 const tabs: TabObject[] = [
   {
     name: "activity",
-    label: "Activity",
+    label: __("Activity"),
     icon: ActivityIcon,
   },
   {
     name: "email",
-    label: "Emails",
+    label: __("Emails"),
     icon: EmailIcon,
   },
   {
     name: "comment",
-    label: "Comments",
+    label: __("Comments"),
     icon: CommentIcon,
   },
 ];
@@ -311,7 +314,7 @@ const activities = computed(() => {
       return {
         type: "history",
         key: h.creation,
-        content: h.action ? h.action : "viewed this",
+        content: h.action ? h.action : __("viewed this"),
         creation: h.creation,
         user: h.user.name + " ",
       };
@@ -368,7 +371,7 @@ function updateTicket(fieldname: string, value: string) {
     onSuccess: () => {
       isLoading.value = false;
       createToast({
-        title: "Ticket updated",
+        title: __("Ticket updated"),
         icon: "check",
         iconClasses: "text-green-600",
       });
@@ -379,7 +382,7 @@ function updateTicket(fieldname: string, value: string) {
       const title =
         e.messages && e.messages.length > 0
           ? e.messages[0]
-          : "Failed to update ticket";
+          : __("Failed to update ticket");
 
       createToast({
         title,
@@ -400,7 +403,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  document.title = "Helpdesk";
+  document.title = __("Helpdesk");
   socket.off("helpdesk:ticket-update");
 });
 </script>

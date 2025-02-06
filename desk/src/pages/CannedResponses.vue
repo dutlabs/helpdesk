@@ -6,7 +6,7 @@
       </template>
       <template #right-header>
         <Button
-          label="Create"
+          :label="__('Create')"
           theme="gray"
           variant="solid"
           @click="
@@ -26,7 +26,7 @@
     <div class="flex-1 overflow-y-auto p-2">
       <div
         v-if="cannedResponses.data?.length > 0"
-        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-5 pb-3"
+        class="grid grid-cols-1 gap-4 px-5 pb-3 md:grid-cols-3 lg:grid-cols-4"
       >
         <div
           v-for="cannedResponse in cannedResponses.data"
@@ -41,7 +41,7 @@
             <Dropdown
               :options="[
                 {
-                  label: 'Delete',
+                  label: __('Delete'),
                   icon: 'trash-2',
                   onClick: () => deleteItem(cannedResponse.name),
                 },
@@ -60,7 +60,7 @@
             :content="cannedResponse.message"
             :editable="false"
             editor-class="prose-sm"
-            class="flex-1 overflow-hidden response-preview"
+            class="response-preview flex-1 overflow-hidden"
           />
           <div class="mt-2 flex items-center justify-between gap-2">
             <div class="flex items-center gap-2">
@@ -81,8 +81,8 @@
       </div>
       <EmptyState
         v-else
-        title="No Canned Responses Found"
-        @emptyStateAction="showNewDialog = true"
+        :title="__('No Canned Responses Found')"
+        @empty-state-action="showNewDialog = true"
       />
     </div>
     <CannedResponseModal
@@ -132,7 +132,7 @@ import EmptyState from "../components/EmptyState.vue";
 const { getUser } = useUserStore();
 
 const breadcrumbs = [
-  { label: "Canned Responses", route: { name: "CannedResponses" } },
+  { label: __("Canned Responses"), route: { name: "CannedResponses" } },
 ];
 
 const title = ref(null);
@@ -163,7 +163,7 @@ async function deleteItem(name) {
 
 usePageMeta(() => {
   return {
-    title: "Canned Responses",
+    title: __("Canned Responses"),
   };
 });
 </script>

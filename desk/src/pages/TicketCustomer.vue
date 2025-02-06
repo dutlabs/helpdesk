@@ -11,7 +11,7 @@
         />
         <Button
           v-if="ticket.data.status !== 'Closed'"
-          label="Close"
+          :label="__('Close')"
           theme="gray"
           variant="solid"
           @click="handleClose()"
@@ -22,9 +22,9 @@
         </Button>
       </template>
     </LayoutHeader>
-    <div class="flex overflow-hidden h-full">
+    <div class="flex h-full overflow-hidden">
       <!-- Main Ticket Comm -->
-      <section class="flex flex-col flex-1">
+      <section class="flex flex-1 flex-col">
         <!-- show for only mobile -->
         <TicketCustomerTemplateFields v-if="isMobileView" />
 
@@ -42,7 +42,7 @@
           >
             <template #bottom-right>
               <Button
-                label="Send"
+                :label="__('Send')"
                 theme="gray"
                 variant="solid"
                 :disabled="$refs.editor.editor.isEmpty || send.loading"
@@ -61,7 +61,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, provide, ref } from "vue";
-import { createResource, Button, Breadcrumbs } from "frappe-ui";
+import { confirmDialog, createResource, Button, Breadcrumbs } from "frappe-ui";
 import { Icon } from "@iconify/vue";
 import { useError } from "@/composables/error";
 import TicketConversation from "./ticket/TicketConversation.vue";
@@ -70,14 +70,12 @@ import TicketFeedback from "./ticket/TicketFeedback.vue";
 import TicketTextEditor from "./ticket/TicketTextEditor.vue";
 import { ITicket } from "./ticket/symbols";
 import { useRouter } from "vue-router";
-import { createToast } from "@/utils";
+import { createToast, setupCustomActions } from "@/utils";
 import { socket } from "@/socket";
 import { LayoutHeader } from "@/components";
 import TicketCustomerSidebar from "@/components/ticket/TicketCustomerSidebar.vue";
 import { useScreenSize } from "@/composables/screen";
 import { useConfigStore } from "@/stores/config";
-import { confirmDialog } from "frappe-ui";
-import { setupCustomActions } from "@/utils";
 interface P {
   ticketId: string;
 }
@@ -94,7 +92,7 @@ const ticket = createResource({
   },
   onError: () => {
     createToast({
-      title: "Ticket not found",
+      title: __("Ticket not found"),
       icon: "x",
       iconClasses: "text-red-600",
     });
@@ -109,7 +107,7 @@ const ticket = createResource({
 });
 provide(ITicket, ticket);
 const editor = ref(null);
-const placeholder = "Type a message";
+const placeholder = __("Type a message");
 const editorContent = ref("");
 const attachments = ref([]);
 const showFeedbackDialog = ref(false);
@@ -155,7 +153,7 @@ function updateTicket(fieldname: string, value: string) {
     onSuccess: () => {
       ticket.reload();
       createToast({
-        title: "Ticket updated",
+        title: __("Ticket updated"),
         icon: "check",
         iconClasses: "text-green-600",
       });
@@ -164,7 +162,7 @@ function updateTicket(fieldname: string, value: string) {
       const title =
         e.messages && e.messages.length > 0
           ? e.messages[0]
-          : "Failed to update ticket";
+          : __("Failed to update ticket");
 
       createToast({
         title,
@@ -185,8 +183,8 @@ function handleClose() {
 
 function showConfirmationDialog() {
   confirmDialog({
-    title: "Close Ticket",
-    message: "Are you sure you want to close this ticket?",
+    title: __("Close Ticket"),
+    message: __("Are you sure you want to close this ticket?"),
     onConfirm: ({ hideDialog }: { hideDialog: Function }) => {
       ticket.data.status = "Closed";
       setValue.submit({ fieldname: "status", value: "Closed" });
@@ -214,7 +212,7 @@ const setValue = createResource({
 });
 
 const breadcrumbs = computed(() => {
-  let items = [{ label: "Tickets", route: { name: "TicketsCustomer" } }];
+  let items = [{ label: __("Tickets"), route: { name: "TicketsCustomer" } }];
   items.push({
     label: ticket.data?.subject,
     route: { name: "TicketCustomer" },
@@ -243,7 +241,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  document.title = "Helpdesk";
+  document.title = __("Helpdesk");
   socket.off("helpdesk:ticket-update");
 });
 </script>
