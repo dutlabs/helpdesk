@@ -3,11 +3,11 @@
     v-if="!sortValues?.size"
     :options="options"
     value=""
-    :placeholder="'First Name'"
+    :placeholder="__('First Name')"
     @change="(e) => setSort(e)"
   >
     <template #target="{ togglePopover }">
-      <Button :label="'Sort'" @click="togglePopover()">
+      <Button :label="__('Sort')" @click="togglePopover()">
         <template v-if="hideLabel">
           <SortIcon class="h-4" />
         </template>
@@ -19,14 +19,14 @@
   </Autocomplete>
   <NestedPopover v-else>
     <template #target="{ open }">
-      <Button v-if="sortValues.size > 1" :label="'Sort'">
+      <Button v-if="sortValues.size > 1" :label="__('Sort')">
         <template v-if="hideLabel">
           <SortIcon class="h-4" />
         </template>
         <template v-if="!hideLabel" #prefix><SortIcon class="h-4" /></template>
         <template v-if="sortValues?.size" #suffix>
           <div
-            class="flex h-5 w-5 items-center justify-center rounded bg-gray-900 pt-[1px] text-2xs font-medium text-white"
+            class="text-2xs flex h-5 w-5 items-center justify-center rounded bg-gray-900 pt-[1px] font-medium text-white"
           >
             {{ sortValues.size }}
           </div>
@@ -100,8 +100,8 @@
                   class="!w-32"
                   :value="sort.fieldname"
                   :options="sortOptions.data"
+                  :placeholder="__('First Name')"
                   @change="(e) => updateSort(e, i)"
-                  :placeholder="'First Name'"
                 >
                   <template
                     #target="{ togglePopover, selectedValue, displayValue }"
@@ -129,21 +129,21 @@
             v-else
             class="mb-3 flex h-7 items-center px-3 text-sm text-gray-600"
           >
-            {{ "Empty - Choose a field to sort by" }}
+            {{ __("Empty - Choose a field to sort by") }}
           </div>
           <div class="flex items-center justify-between gap-2">
             <Autocomplete
               :options="options"
               value=""
-              :placeholder="'First Name'"
+              :placeholder="__('First Name')"
               @change="(e) => setSort(e)"
             >
               <template #target="{ togglePopover }">
                 <Button
                   class="!text-gray-600"
                   variant="ghost"
+                  :label="__('Add Sort')"
                   @click="togglePopover()"
-                  :label="'Add Sort'"
                 >
                   <template #prefix>
                     <FeatherIcon name="plus" class="h-4" />
@@ -155,7 +155,7 @@
               v-if="sortValues?.size"
               class="!text-gray-600"
               variant="ghost"
-              :label="'Clear Sort'"
+              :label="__('Clear Sort')"
               @click="clearSort(close)"
             />
           </div>
@@ -226,7 +226,7 @@ const sortSortable = useSortable("#sort-list", sortValues, {
 });
 
 function getSortLabel() {
-  if (!sortValues.value.size) return "Sort";
+  if (!sortValues.value.size) return __("Sort");
   let values = Array.from(sortValues.value);
   let label = sortOptions.data?.find(
     (option) => option.value === values[0].fieldname
