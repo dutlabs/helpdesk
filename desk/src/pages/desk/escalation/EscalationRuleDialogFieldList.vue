@@ -9,7 +9,7 @@
       >
         <div class="text-gray-800">{{ item.label }}</div>
         <SearchComplete
-          placeholder="Any"
+          :placeholder="__('Any')"
           :doctype="item.doctype"
           :value="doc[item.key]"
           @change="(v) => onChange(item.key, v.value)"

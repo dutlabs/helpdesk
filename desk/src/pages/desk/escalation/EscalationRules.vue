@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle title="Escalation Rules">
+    <PageTitle :title="__('Escalation Rules')">
       <template #right>
         <Button
-          label="New rule"
+          :label="__('New rule')"
           theme="gray"
           variant="solid"
           @click="openDialog(null)"
@@ -42,7 +42,7 @@ const selectedRule = ref(null);
 
 usePageMeta(() => {
   return {
-    title: "Escalation rules",
+    title: __("Escalation rules"),
   };
 });
 
