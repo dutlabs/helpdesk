@@ -1,17 +1,17 @@
 <template>
   <div v-if="!quickFilters.loading">
     <FadedScrollableDiv
-      class="flex flex-1 items-center overflow-x-auto -ml-1"
+      class="-ml-1 flex flex-1 items-center overflow-x-auto"
       orientation="horizontal"
     >
       <div
         v-for="filter in quickFilters.data"
         :key="filter.name"
-        class="m-1 min-w-36"
+        class="min-w-36 m-1"
       >
         <QuickFilterField
           :filter="filter"
-          @applyQuickFilter="(f, v) => applyQuickFilter(f, v)"
+          @apply-quick-filter="(f, v) => applyQuickFilter(f, v)"
         />
       </div>
     </FadedScrollableDiv>

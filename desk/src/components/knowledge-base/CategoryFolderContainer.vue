@@ -1,7 +1,7 @@
 <template>
   <div
-    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
     v-if="!categories.loading"
+    class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4"
   >
     <CategoryFolder v-for="category in categories.data" :category="category" />
   </div>

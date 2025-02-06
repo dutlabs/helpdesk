@@ -1,6 +1,6 @@
 <template>
   <Combobox v-model="selectedValue" nullable v-slot="{ open: isComboboxOpen }">
-    <Popover class="w-full" v-model:show="showOptions">
+    <Popover v-model:show="showOptions" class="w-full">
       <template #target="{ open: openPopover, togglePopover }">
         <slot
           name="target"
@@ -21,12 +21,12 @@
               <div class="flex items-center">
                 <slot name="prefix" />
                 <span
-                  class="overflow-hidden text-ellipsis whitespace-nowrap text-base leading-5"
                   v-if="selectedValue"
+                  class="overflow-hidden text-ellipsis whitespace-nowrap text-base leading-5"
                 >
                   {{ displayValue(selectedValue) }}
                 </span>
-                <span class="text-base leading-5 text-gray-500" v-else>
+                <span v-else class="text-base leading-5 text-gray-500">
                   {{ placeholder || "" }}
                 </span>
               </div>
@@ -47,14 +47,14 @@
                 ref="search"
                 class="form-input w-full"
                 type="text"
+                :value="query"
+                autocomplete="off"
+                :placeholder="__('Search')"
                 @change="
                   (e) => {
                     query = e.target.value;
                   }
                 "
-                :value="query"
-                autocomplete="off"
-                placeholder="Search"
               />
               <button
                 class="absolute right-1.5 inline-flex h-7 w-7 items-center justify-center"
@@ -68,10 +68,10 @@
               static
             >
               <div
-                class="mt-1.5"
                 v-for="group in groups"
-                :key="group.key"
                 v-show="group.items.length > 0"
+                :key="group.key"
+                class="mt-1.5"
               >
                 <div
                   v-if="group.group && !group.hideLabel"
@@ -80,11 +80,11 @@
                   {{ group.group }}
                 </div>
                 <ComboboxOption
-                  as="template"
                   v-for="option in group.items"
                   :key="option.value"
-                  :value="option"
                   v-slot="{ active, selected }"
+                  as="template"
+                  :value="option"
                 >
                   <li
                     :class="[
@@ -109,7 +109,7 @@
                 v-if="groups.length == 0"
                 class="mt-1.5 rounded-md px-2.5 py-1.5 text-base text-gray-600"
               >
-                No results found
+                {{ __("No results found") }}
               </li>
             </ComboboxOptions>
             <div v-if="slots.footer" class="border-t p-1.5 pb-0.5">

@@ -1,16 +1,16 @@
 <template>
   <FormControl
     v-if="filter.type == 'Check'"
+    v-model="filter.value"
     :label="filter.label"
     type="checkbox"
-    v-model="filter.value"
     @change.stop="updateFilter(filter, $event.target.checked)"
   />
   <FormControl
     v-else-if="filter.type === 'Select'"
+    v-model="filter.value"
     class="form-control cursor-pointer [&_select]:cursor-pointer"
     type="select"
-    v-model="filter.value"
     :options="filter.options"
     :placeholder="filter.label"
     @change.stop="updateFilter(filter, $event.target.value)"
@@ -23,12 +23,12 @@
     @change="(data) => updateFilter(filter, data)"
   />
   <component
+    :is="filter.type === 'Date' ? DatePicker : DateTimePicker"
     v-else-if="['Date', 'Datetime'].includes(filter.type)"
     class="border-none"
-    :is="filter.type === 'Date' ? DatePicker : DateTimePicker"
     :value="filter.value"
-    @change="(v) => updateFilter(filter, v)"
     :placeholder="filter.label"
+    @change="(v) => updateFilter(filter, v)"
   />
   <TextInput
     v-else
