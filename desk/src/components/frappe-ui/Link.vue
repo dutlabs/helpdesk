@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-1.5">
-    <label class="block" :class="labelClasses" v-if="attrs.label">
+    <label v-if="attrs.label" class="block" :class="labelClasses">
       {{ attrs.label }}
     </label>
     <Autocomplete
@@ -28,12 +28,12 @@
         <slot name="item-label" v-bind="{ active, selected, option }" />
       </template>
 
-      <template #footer="{ value, close }" v-if="!hideClearButton">
+      <template v-if="!hideClearButton" #footer="{ value, close }">
         <div v-if="attrs.onCreate">
           <Button
             variant="ghost"
             class="w-full !justify-start"
-            :label="'Create New'"
+            :label="__('Create New')"
             @click="attrs.onCreate(value, close)"
           >
             <template #prefix>
@@ -45,7 +45,7 @@
           <Button
             variant="ghost"
             class="w-full !justify-start"
-            :label="'Clear'"
+            :label="__('Clear')"
             @click="() => clearValue(close)"
           >
             <template #prefix>
