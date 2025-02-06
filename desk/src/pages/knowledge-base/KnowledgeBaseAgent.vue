@@ -2,11 +2,13 @@
   <div class="flex flex-col">
     <LayoutHeader>
       <template #left-header>
-        <div class="text-lg font-medium text-gray-900">Knowledge Base</div>
+        <div class="text-lg font-medium text-gray-900">
+          {{ __("Knowledge Base") }}
+        </div>
       </template>
       <template #right-header>
         <Dropdown :options="headerOptions">
-          <Button label="Add new" variant="solid">
+          <Button :label="__('Add new')" variant="solid">
             <template #prefix>
               <LucidePlus class="h-4 w-4" />
             </template>
@@ -20,17 +22,17 @@
       @row-click="(row) => $router.push(`kb/articles/${row}`)"
     />
     <CategoryModal
-      :edit="editTitle"
       v-model="showCategoryModal"
       v-model:title="category.title"
+      :edit="editTitle"
       @update="handleCategoryUpdate"
       @create="handleCategoryCreate"
     />
     <MoveToCategoryModal v-model="moveToModal" @move="handleMoveToCategory" />
     <MergeCategoryModal
-      :categoryTitle="category.title"
-      :category-id="category.id"
       v-model="mergeModal"
+      :category-title="category.title"
+      :category-id="category.id"
       @merge="handleMergeCategory"
     />
   </div>
@@ -88,7 +90,7 @@ const generalCategory = createResource({
 
 const headerOptions = [
   {
-    label: "Category",
+    label: __("Category"),
     icon: "folder",
     onClick: () => {
       resetState();
@@ -97,7 +99,7 @@ const headerOptions = [
     },
   },
   {
-    label: "Article",
+    label: __("Article"),
     icon: "file-text",
     onClick: () => {
       router.push({
@@ -106,7 +108,7 @@ const headerOptions = [
           id: generalCategory.data,
         },
         query: {
-          title: "General",
+          title: __("General"),
         },
       });
     },
@@ -115,7 +117,7 @@ const headerOptions = [
 
 const groupByActions = [
   {
-    label: "Add New Article",
+    label: __("Add New Article"),
     icon: "plus",
     onClick: (groupedRow) => {
       router.push({
@@ -130,7 +132,7 @@ const groupByActions = [
     },
   },
   {
-    label: "Edit Title",
+    label: __("Edit Title"),
     icon: "edit",
     onClick: (groupedRow) => {
       editTitle.value = true;
@@ -141,7 +143,7 @@ const groupByActions = [
     },
   },
   {
-    label: "Merge",
+    label: __("Merge"),
     icon: LucideMerge,
     onClick: (groupedRow) => {
       console.log(groupedRow);
@@ -151,7 +153,7 @@ const groupByActions = [
     },
   },
   {
-    label: "Share",
+    label: __("Share"),
     icon: "link",
     onClick: async ({ group }) => {
       const { label, value } = group;
@@ -161,7 +163,7 @@ const groupByActions = [
     },
   },
   {
-    label: "Delete",
+    label: __("Delete"),
     icon: "trash-2",
     onClick: (groupedRow) => {
       handleCategoryDelete(groupedRow);
@@ -173,7 +175,7 @@ const listSelections = ref(new Set());
 const showSelectBanner = ref(true);
 const selectBannerActions = [
   {
-    label: "Move To",
+    label: __("Move To"),
     icon: "corner-up-right",
     onClick: (selections: Set<string>) => {
       listSelections.value = selections;
@@ -181,13 +183,13 @@ const selectBannerActions = [
     },
   },
   {
-    label: "Delete",
+    label: __("Delete"),
     icon: "trash-2",
     onClick: (selections: Set<string>) => {
       listSelections.value = selections;
       confirmDialog({
-        title: "Delete articles?",
-        message: `Are you sure you want to delete these articles?`,
+        title: __("Delete articles?"),
+        message: __("Are you sure you want to delete these articles?"),
         onConfirm: ({ hideDialog }: { hideDialog: Function }) => {
           handleDeleteArticles();
           hideDialog();
@@ -209,7 +211,7 @@ function handleMoveToCategory(category: string) {
         moveToModal.value = false;
         listSelections.value.clear();
         createToast({
-          title: "Articles moved successfully",
+          title: __("Articles moved successfully"),
           icon: "check",
           iconClasses: "text-green-600",
         });
@@ -247,7 +249,7 @@ function handleCategoryCreate() {
           },
         });
         createToast({
-          title: "Category Created Successfully",
+          title: __("Category Created Successfully"),
           icon: "check",
           iconClasses: "text-green-600",
         });
@@ -289,7 +291,7 @@ function handleCategoryUpdate() {
         showCategoryModal.value = false;
         editTitle.value = false;
         createToast({
-          title: "Category Updated Successfully",
+          title: __("Category Updated Successfully"),
           icon: "check",
           iconClasses: "text-green-600",
         });
@@ -309,8 +311,10 @@ function handleCategoryUpdate() {
 
 function handleCategoryDelete(groupedRow) {
   confirmDialog({
-    title: "Delete category?",
-    message: `All articles from this category will move to General category.`,
+    title: __("Delete category?"),
+    message: __(
+      "All articles from this category will move to General category."
+    ),
     onConfirm: ({ hideDialog }: { hideDialog: Function }) => {
       deleteCategory.submit(
         {
@@ -320,7 +324,7 @@ function handleCategoryDelete(groupedRow) {
         {
           onSuccess: () => {
             createToast({
-              title: "Category deleted successfully",
+              title: __("Category deleted successfully"),
               icon: "check",
               iconClasses: "text-green-600",
             });
@@ -343,7 +347,7 @@ function handleDeleteArticles() {
         listViewRef.value.reload();
         listSelections.value.clear();
         createToast({
-          title: "Articles deleted successfully",
+          title: __("Articles deleted successfully"),
           icon: "check",
           iconClasses: "text-green-600",
         });
@@ -362,7 +366,7 @@ function handleMergeCategory(source: string, target: string) {
       onSuccess: () => {
         listViewRef.value.reload();
         createToast({
-          title: "Category merged successfully",
+          title: __("Category merged successfully"),
           icon: "check",
           iconClasses: "text-green-600",
         });
@@ -397,15 +401,15 @@ const options = computed(() => {
     },
     statusMap: {
       Published: {
-        label: "Published",
+        label: __("Published"),
         theme: "green",
       },
       Draft: {
-        label: "Draft",
+        label: __("Draft"),
         theme: "orange",
       },
       Archived: {
-        label: "Archived",
+        label: __("Archived"),
         theme: "gray",
       },
     },
@@ -432,7 +436,7 @@ onMounted(() => {
 
 usePageMeta(() => {
   return {
-    title: "Knowledge Base",
+    title: __("Knowledge Base"),
   };
 });
 </script>

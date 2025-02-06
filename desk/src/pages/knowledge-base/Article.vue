@@ -2,16 +2,20 @@
   <div>
     <LayoutHeader>
       <template #left-header>
-        <div class="flex gap-1 items-center crumbs truncate">
+        <div class="crumbs flex items-center gap-1 truncate">
           <Breadcrumbs :items="breadcrumbs" />
         </div>
       </template>
-      <template #right-header v-if="!isCustomerPortal">
+      <template v-if="!isCustomerPortal" #right-header>
         <!-- Default Buttons -->
-        <div class="flex gap-2" v-if="!editable">
+        <div v-if="!editable" class="flex gap-2">
           <Button
-            :label="article.data?.status === 'Draft' ? 'Publish' : 'Unpublish'"
-            :iconLeft="article.data?.status !== 'Published' && 'globe'"
+            :label="
+              article.data?.status === __('Draft')
+                ? __('Publish')
+                : __('Unpublish')
+            "
+            :icon-left="article.data?.status !== __('Published') && 'globe'"
             @click="toggleStatus()"
           />
         </div>
@@ -19,26 +23,26 @@
     </LayoutHeader>
 
     <div
-      class="py-4 mx-auto w-full max-w-3xl px-5 flex flex-col"
       v-if="!article.loading"
+      class="mx-auto flex w-full max-w-3xl flex-col py-4 px-5"
     >
       <!-- article Info -->
       <div
-        class="flex flex-col gap-3 p-4 w-full"
+        class="flex w-full flex-col gap-3 p-4"
         :class="editable && 'border rounded-lg overflow-hidden'"
       >
         <!-- Top Element -->
         <div class="flex flex-col gap-3">
-          <div class="flex gap-1 items-center justify-between">
-            <div class="flex gap-1 items-center">
+          <div class="flex items-center justify-between gap-1">
+            <div class="flex items-center gap-1">
               <!-- Avatar -->
-              <div class="flex gap-1 items-center justify-center">
+              <div class="flex items-center justify-center gap-1">
                 <Avatar
                   :image="article.data.author.image"
                   :label="article.data.author.name"
                 />
                 <span
-                  class="truncate capitalize text-base text-ink-gray-9 font-medium"
+                  class="text-ink-gray-9 truncate text-base font-medium capitalize"
                 >
                   {{ article.data.author.name }}
                 </span>
@@ -49,8 +53,8 @@
               </div>
             </div>
             <Dropdown
-              :options="articleActions"
               v-if="!editable && !isCustomerPortal"
+              :options="articleActions"
             >
               <Button variant="ghost">
                 <template #icon>
@@ -58,23 +62,23 @@
                 </template>
               </Button>
             </Dropdown>
-            <div class="flex gap-2" v-if="editable">
+            <div v-if="editable" class="flex gap-2">
               <DiscardButton
                 :hide-dialog="!isDirty"
-                title="Discard changes?"
-                message="Are you sure you want to discard changes?"
+                :title="__('Discard changes?')"
+                :message="__('Are you sure you want to discard changes?')"
                 @discard="handleDiscard"
               />
 
-              <Button label="Save" @click="handleSave" variant="solid" />
+              <Button :label="__('Save')" variant="solid" @click="handleSave" />
             </div>
           </div>
           <!-- Title -->
           <textarea
             ref="titleRef"
-            class="w-full resize-none border-0 text-3xl font-bold placeholder-ink-gray-3 p-0 pb-3 border-b border-gray-200 focus:ring-0 focus:border-gray-200 overflow-hidden"
             v-model="title"
-            placeholder="Title"
+            class="placeholder:text-ink-gray-3 w-full resize-none overflow-hidden border-0 border-b border-gray-200 p-0 pb-3 text-3xl font-bold focus:border-gray-200 focus:ring-0"
+            :placeholder="__('Title')"
             rows="1"
             wrap="soft"
             maxlength="140"
@@ -89,20 +93,20 @@
           :content="textEditorContentWithIDs"
           :extensions="[PreserveIds]"
           :editable="editable"
+          :placeholder="__('Write your article here...')"
           @change="(event:string) => {
 			      content = event;
 		      }"
-          placeholder="Write your article here..."
         >
-          <template #bottom v-if="editable">
+          <template v-if="editable" #bottom>
             <TextEditorFixedMenu
-              class="-ml-1 overflow-x-auto w-full"
+              class="-ml-1 w-full overflow-x-auto"
               :buttons="textEditorMenuButtons"
             />
           </template>
         </TextEditor>
       </div>
-      <div class="p-4" v-if="isCustomerPortal">
+      <div v-if="isCustomerPortal" class="p-4">
         <ArticleFeedback :feedback="feedback" :article-id="articleId" />
       </div>
     </div>
@@ -253,7 +257,7 @@ function handleMoveToCategory(category: string) {
         article.reload();
         moveToModal.value = false;
         createToast({
-          title: "Articles moved successfully",
+          title: __("Articles moved successfully"),
           icon: "check",
           iconClasses: "text-green-600",
         });
@@ -306,7 +310,7 @@ function handleArticleUpdate() {
           },
         });
         createToast({
-          title: "Article updated successfully",
+          title: __("Article updated successfully"),
           icon: "check",
           iconClasses: "text-green-600",
         });
@@ -319,8 +323,8 @@ function handleArticleUpdate() {
 
 function handleDelete() {
   confirmDialog({
-    title: "Delete Article",
-    message: "Are you sure you want to delete this article?",
+    title: __("Delete Article"),
+    message: __("Are you sure you want to delete this article?"),
     onConfirm: ({ hideDialog }: { hideDialog: Function }) => {
       deleteArticle.submit(
         {
@@ -330,7 +334,7 @@ function handleDelete() {
         {
           onSuccess: () => {
             createToast({
-              title: "Article deleted successfully",
+              title: __("Article deleted successfully"),
               icon: "check",
               iconClasses: "text-green-600",
             });
@@ -391,19 +395,19 @@ const editorClass = computed(() => {
 
 const articleActions = computed(() => [
   {
-    label: "Edit",
+    label: __("Edit"),
     icon: "edit",
     onClick: () => {
       handleEditMode();
     },
   },
   {
-    label: "Move To",
+    label: __("Move To"),
     icon: "corner-up-right",
     onClick: () => (moveToModal.value = true),
   },
   {
-    label: "Share",
+    label: __("Share"),
     icon: "link",
     onClick: () => {
       const url = new URL(window.location.href);
@@ -416,9 +420,9 @@ const articleActions = computed(() => [
     hideLabel: true,
     items: [
       {
-        label: "Delete",
+        label: __("Delete"),
         component: h(Button, {
-          label: "Delete",
+          label: __("Delete"),
           variant: "ghost",
           iconLeft: "trash-2",
           theme: "red",
@@ -433,7 +437,7 @@ const articleActions = computed(() => [
 const breadcrumbs = computed(() => {
   const items: Breadcrumb[] = [
     {
-      label: "Knowledge Base",
+      label: __("Knowledge Base"),
       route: {
         name: isCustomerPortal.value
           ? "CustomerKnowledgeBase"

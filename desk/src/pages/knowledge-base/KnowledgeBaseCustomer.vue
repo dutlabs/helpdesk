@@ -1,12 +1,14 @@
 <template>
-  <div class="p-5 pb-10 px-10 w-full overflow-scroll items-center">
+  <div class="w-full items-center overflow-scroll p-5 px-10 pb-10">
     <LayoutHeader>
       <template #left-header>
-        <div class="text-lg font-medium text-gray-900">Knowledge Base</div>
+        <div class="text-lg font-medium text-gray-900">
+          {{ __("Knowledge Base") }}
+        </div>
       </template>
     </LayoutHeader>
     <div
-      class="max-w-4xl 2xl:max-w-5xl pt-4 sm:px-5 w-full flex flex-col gap-4"
+      class="flex w-full max-w-4xl flex-col gap-4 pt-4 sm:px-5 2xl:max-w-5xl"
     >
       <Popover
         :popover-class="['max-w-[310px] md:max-w-[842px] !top-1 ']"
@@ -15,13 +17,13 @@
         <template #target="{ open, close }">
           <FormControl
             ref="searchInputRef"
+            v-model="query"
             type="text"
-            class="w-full focus:outline-none outline-none border-inherit shadow-none"
-            placeholder="Ask a question..."
+            class="w-full border-inherit shadow-none outline-none focus:outline-none"
+            :placeholder="__('Ask a question...')"
             size="md"
             autofocus
             autocomplete="off"
-            v-model="query"
             @update:model-value="
               (e:string) => {
                 if (e.length >= 3) {
@@ -40,12 +42,12 @@
         <template #body-main>
           <!-- Searched Articles -->
           <div
-            class="max-h-[320px] md:max-h-[420px] overflow-scroll flex flex-col"
+            class="flex max-h-[320px] flex-col overflow-scroll md:max-h-[420px]"
           >
             <SearchArticles
               :query="query"
-              :hideViewAll="true"
-              class="p-3 py-2 border-0 pt-2"
+              :hide-view-all="true"
+              class="border-0 p-3 py-2"
             />
           </div>
         </template>
@@ -54,7 +56,7 @@
       <!-- Categories Folder -->
       <section class="flex flex-col gap-3">
         <!-- Heading -->
-        <p class="text-lg text-gray-900">Categories</p>
+        <p class="text-lg text-gray-900">{{ __("Categories") }}</p>
         <CategoryFolderContainer />
       </section>
     </div>
@@ -78,7 +80,7 @@ onMounted(() => {
 });
 usePageMeta(() => {
   return {
-    title: "Knowledge Base",
+    title: __("Knowledge Base"),
   };
 });
 </script>

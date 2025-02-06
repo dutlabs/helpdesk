@@ -1,26 +1,26 @@
 <template>
-  <div class="flex flex-col flex-1">
+  <div class="flex flex-1 flex-col">
     <LayoutHeader>
       <template #left-header>
         <Breadcrumbs :items="breadcrumbs" />
       </template>
       <template #right-header> </template>
     </LayoutHeader>
-    <div class="pt-6 mx-auto w-full max-w-4xl px-5">
-      <div class="flex flex-col gap-3 rounded-lg border w-full p-4">
-        <div class="flex justify-between items-center mb-3">
+    <div class="mx-auto w-full max-w-4xl px-5 pt-6">
+      <div class="flex w-full flex-col gap-3 rounded-lg border p-4">
+        <div class="mb-3 flex items-center justify-between">
           <!-- Author Info -->
           <div
-            class="flex gap-1 items-center flex-1 mr-7 max-w-fit overflow-hidden"
+            class="mr-7 flex max-w-fit flex-1 items-center gap-1 overflow-hidden"
           >
             <UserAvatar :name="user.name" :expand="true" />
             <span>in</span>
             <Link
+              v-model="categoryId"
               class="form-control"
               doctype="HD Article Category"
               placeholder="Select Category"
-              v-model="categoryId"
-              :pageLength="100"
+              :page-length="100"
               :hide-clear-button="true"
             />
           </div>
@@ -36,9 +36,9 @@
         </div>
         <!-- Title -->
         <textarea
-          class="w-full resize-none border-0 text-3xl font-bold placeholder-ink-gray-3 p-0 pb-3 border-b border-gray-200 focus:ring-0 focus:border-gray-200"
           v-model="title"
-          placeholder="Title"
+          class="placeholder:text-ink-gray-3 w-full resize-none border-0 border-b border-gray-200 p-0 pb-3 text-3xl font-bold focus:border-gray-200 focus:ring-0"
+          :placeholder="__('Title')"
           rows="1"
           wrap="soft"
           maxlength="140"
@@ -53,13 +53,13 @@
         <!-- Article Content -->
         <TextEditor
           :content="content"
-          @change="content = $event"
-          placeholder="Write your article here..."
+          :placeholder="__('Write your article here...')"
           editor-class="rounded-b-lg max-w-[unset] prose-sm h-[calc(100vh-340px)] sm:h-[calc(100vh-250px)] overflow-auto"
+          @change="content = $event"
         >
           <template #bottom>
             <TextEditorFixedMenu
-              class="-ml-1 overflow-x-auto w-full"
+              class="-ml-1 w-full overflow-x-auto"
               :buttons="textEditorMenuButtons"
             />
           </template>
@@ -109,7 +109,7 @@ function handleCreateArticle() {
     {
       onSuccess: (article: Article) => {
         createToast({
-          title: "Article created successfully",
+          title: __("Article created successfully"),
           icon: "check",
           iconClasses: "text-green-600",
         });
@@ -139,8 +139,8 @@ function handleArticleDiscard() {
     return;
   }
   confirmDialog({
-    title: "Discard Article",
-    message: "Are you sure you want to discard this article?",
+    title: __("Discard Article"),
+    message: __("Are you sure you want to discard this article?"),
     onConfirm: ({ hideDialog }: { hideDialog: Function }) => {
       router.push({
         name: "AgentKnowledgeBase",
@@ -159,7 +159,7 @@ function resetState() {
 const breadcrumbs = computed(() => {
   const options: Array<{ label: string; route?: { name: string } }> = [
     {
-      label: "Knowledge Base",
+      label: __("Knowledge Base"),
       route: { name: "AgentKnowledgeBase" },
     },
   ];
@@ -170,14 +170,14 @@ const breadcrumbs = computed(() => {
     });
   }
   options.push({
-    label: "New Article",
+    label: __("New Article"),
   });
   return options;
 });
 
 usePageMeta(() => {
   return {
-    title: "New Article",
+    title: __("New Article"),
   };
 });
 </script>
