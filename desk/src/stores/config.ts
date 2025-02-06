@@ -2,6 +2,7 @@ import { computed, ComputedRef } from "vue";
 import { defineStore } from "pinia";
 import { createResource } from "frappe-ui";
 import { socket } from "@/socket";
+import { useFavicon } from "@vueuse/core";
 
 export const useConfigStore = defineStore("config", () => {
   const configRes = createResource({
@@ -11,6 +12,7 @@ export const useConfigStore = defineStore("config", () => {
 
   const config = computed(() => configRes.data || {});
   const brandLogo = computed(() => config.value.brand_logo);
+  const brandFavicon = computed(() => config.value.brand_favicon);
   const skipEmailWorkflow: ComputedRef<boolean> = computed(
     () => !!parseInt(config.value.skip_email_workflow)
   );
@@ -20,6 +22,8 @@ export const useConfigStore = defineStore("config", () => {
   const isFeedbackMandatory = computed(
     () => !!parseInt(config.value.is_feedback_mandatory)
   );
+
+  useFavicon(brandFavicon);
 
   socket.on("helpdesk:settings-updated", () => configRes.reload());
 

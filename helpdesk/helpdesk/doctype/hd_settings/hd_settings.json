@@ -36,6 +36,7 @@
   "column_break_aomm",
   "branding_tab",
   "images_column",
+  "brand_favicon",
   "brand_logo",
   "column_break_fsjn",
   "misc_tab",
@@ -216,6 +217,12 @@
    "fieldtype": "Column Break",
    "label": "Images"
   },
+  {
+    "description": "Image to be used as website favicon",
+    "fieldname": "brand_favicon",
+    "fieldtype": "Attach Image",
+    "label": "Favicon"
+   },
   {
    "description": "Image to be used in various places, including Login and Signup pages. An image with transparent background and 160 x 32 is preferred",
    "fieldname": "brand_logo",
