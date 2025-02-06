@@ -12,7 +12,7 @@
               <LucideSearch class="h-4 w-4" />
             </div>
             <ComboboxInput
-              placeholder="Search"
+              :placeholder="__('Search')"
               class="pl-11.5 pr-4.5 w-full border-none bg-transparent py-3 text-base text-gray-800 placeholder:text-gray-500 focus:ring-0"
               autocomplete="off"
               @input="onInput"
@@ -156,7 +156,7 @@ export default {
         component: "CPGroup",
         items: [
           {
-            title: "Tickets",
+            title: __("Tickets"),
             icon: () => h(LucideTicket),
             route: { name: "TicketsAgent" },
           },
@@ -181,12 +181,12 @@ export default {
     },
     fullSearchItem() {
       return {
-        title: "Search",
+        title: __("Search"),
         hideTitle: true,
         component: "CPGroup",
         items: [
           {
-            title: `Search for "${this.query}"`,
+            title: __("Search for {0}", [this.query]),
             icon: () => h(LucideSearch),
             route: { name: "Search", query: { q: this.query } },
           },
@@ -194,7 +194,7 @@ export default {
       };
     },
     groupedSearchResults() {
-      let groups = [{ title: "Tickets", component: "CPTicket" }];
+      let groups = [{ title: __("Tickets"), component: "CPTicket" }];
       let itemsByGroup = {};
       for (const group of groups) {
         itemsByGroup[group.title] = [];
