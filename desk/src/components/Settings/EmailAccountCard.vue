@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex justify-between items-center border-b border-gray-200 p-2 cursor-pointer"
+    class="flex cursor-pointer items-center justify-between border-b border-gray-200 p-2"
   >
     <!-- avatar and name -->
-    <div class="flex justify-between items-center gap-2">
+    <div class="flex items-center justify-between gap-2">
       <EmailProviderIcon :logo="emailIcon[emailAccount.service]" />
       <div>
-        <p class="text-gray-700 font-semibold">
+        <p class="font-semibold text-gray-700">
           {{ emailAccount.email_account_name }}
         </p>
         <div class="text-sm text-gray-500">{{ emailAccount.email_id }}</div>
