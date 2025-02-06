@@ -4,12 +4,12 @@
     :options="{ title: dialogTitle, actions: getActionButton() }"
   >
     <template #body-content>
-      <div class="flex flex-col flex-1 gap-3">
+      <div class="flex flex-1 flex-col gap-3">
         <textarea
-          class="text-base rounded py-1.5 px-2 border border-[--surface-gray-2] bg-surface-gray-2 placeholder-ink-gray-4 hover:border-outline-gray-modals hover:bg-surface-gray-3 focus:bg-surface-white focus:border-outline-gray-4 focus:shadow-sm focus:ring-0 focus-visible:ring-2 focus-visible:ring-outline-gray-3 text-ink-gray-8 transition-colors w-full block"
           ref="titleRef"
-          placeholder="Support Issues"
           v-model="newTitle"
+          class="bg-surface-gray-2 placeholder:text-ink-gray-4 hover:border-outline-gray-modals hover:bg-surface-gray-3 focus:bg-surface-white focus:border-outline-gray-4 focus-visible:ring-outline-gray-3 text-ink-gray-8 block w-full rounded border border-[--surface-gray-2] py-1.5 px-2 text-base transition-colors focus:shadow-sm focus:ring-0 focus-visible:ring-2"
+          :placeholder="__('Support Issues')"
           :rows="1"
           maxlength="50"
           autofocus
@@ -24,10 +24,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref, watch } from "vue";
 import { Dialog } from "frappe-ui";
-import { ref } from "vue";
-import { watch } from "vue";
 
 const props = defineProps({
   title: {
@@ -46,7 +44,7 @@ const showDialog = defineModel<boolean>();
 const newTitle = defineModel<string>("title");
 
 const dialogTitle = computed(() =>
-  props.edit ? "Edit Category" : "Create Category"
+  props.edit ? __("Edit Category") : __("Create Category")
 );
 
 const titleRef = ref(null);
@@ -65,7 +63,7 @@ function getActionButton() {
   const action = [];
   if (props.edit) {
     action.push({
-      label: "Save",
+      label: __("Save"),
       variant: "solid",
       onClick: () => {
         emit("update");
@@ -73,7 +71,7 @@ function getActionButton() {
     });
   } else {
     action.push({
-      label: "Create",
+      label: __("Create"),
       variant: "solid",
       onClick: () => {
         emit("create");

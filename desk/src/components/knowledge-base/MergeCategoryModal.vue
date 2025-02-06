@@ -1,27 +1,29 @@
 <template>
   <Dialog
+    v-model="showDialog"
     :options="{
-      title: 'Merge with another category',
+      title: __('Merge with another category'),
     }"
     @after-leave="
       () => {
         toCategory = null;
       }
     "
-    v-model="showDialog"
   >
     <template #body-content>
       <p class="text-p-base text-ink-gray-8 mb-4">
-        This will move all articles of the
+        {{ __("This will move all articles of the") }}
         <span class="whitespace-nowrap font-semibold">{{ categoryTitle }}</span>
-        category to the selected category. This change is irreversible!
+        {{
+          __("category to the selected category. This change is irreversible!")
+        }}
       </p>
       <Link
+        v-model="toCategory"
         class="form-control"
         doctype="HD Article Category"
-        placeholder="Select Category"
-        v-model="toCategory"
-        label="Category"
+        :placeholder="__('Select Category')"
+        :label="__('Category')"
         :page-length="100"
       />
     </template>
@@ -29,7 +31,7 @@
       <Button
         class="w-full"
         variant="solid"
-        label="Merge"
+        :label="__('Merge')"
         @click="emit('merge', categoryId, toCategory)"
       />
     </template>

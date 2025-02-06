@@ -1,6 +1,6 @@
 <template>
   <router-link
-    class="flex flex-col gap-3 border border-gray-200 rounded p-4 pb-2 cursor-pointer h-30 hover:bg-surface-gray-2 transition-all"
+    class="h-30 hover:bg-surface-gray-2 flex cursor-pointer flex-col gap-3 rounded border border-gray-200 p-4 pb-2 transition-all"
     :to="{
       name: 'ArticlePublic',
       params: {
@@ -9,21 +9,21 @@
     }"
   >
     <!-- Title and sub content -->
-    <div class="flex gap-3 flex-1">
-      <div class="flex flex-col gap-1.5 w-full">
-        <h5 class="text-base font-medium text-gray-800 truncate">
+    <div class="flex flex-1 gap-3">
+      <div class="flex w-full flex-col gap-1.5">
+        <h5 class="truncate text-base font-medium text-gray-800">
           {{ article.title }}
         </h5>
-        <div class="text-p-sm text-gray-600 line-clamp-2">
+        <div class="text-p-sm line-clamp-2 text-gray-600">
           {{ article.content }}
         </div>
       </div>
     </div>
     <!-- Avatar and published date -->
-    <div class="flex justify-between items-center">
-      <div class="flex gap-2 items-center">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
         <Avatar :label="article.author.name" :image="article.author.image" />
-        <span class="text-sm text-gray-600 flex-1 truncate">{{
+        <span class="flex-1 truncate text-sm text-gray-600">{{
           article.author.name
         }}</span>
       </div>
