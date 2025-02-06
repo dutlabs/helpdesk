@@ -40,7 +40,7 @@
           @failure="
             () =>
               createToast({
-                title: 'Error Uploading File',
+                title: __('Error Uploading File'),
                 icon: 'x',
                 iconClasses: 'text-red-600',
               })
