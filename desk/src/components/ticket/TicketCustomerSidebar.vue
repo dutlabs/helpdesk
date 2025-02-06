@@ -1,11 +1,13 @@
 <template>
-  <div class="flex w-[382px] flex-col border-l gap-4">
+  <div class="flex w-[382px] flex-col gap-4 border-l">
     <!-- Ticket ID -->
     <div class="flex items-center justify-between border-b px-5 py-3">
-      <span class="cursor-copy text-lg font-semibold">Ticket details</span>
+      <span class="cursor-copy text-lg font-semibold">{{
+        __("Ticket details")
+      }}</span>
     </div>
     <!-- user info and sla info -->
-    <div class="flex flex-col gap-4 pt-0 px-5 py-3 border-b">
+    <div class="flex flex-col gap-4 border-b px-5 py-3 pt-0">
       <!-- user info -->
       <div class="flex gap-2">
         <Avatar
@@ -19,7 +21,7 @@
               {{ ticket.data.contact.name }}
             </div>
           </Tooltip>
-          <div class="flex gap-1.5" v-if="!ticket.data.feedback_rating">
+          <div v-if="!ticket.data.feedback_rating" class="flex gap-1.5">
             <Tooltip :text="ticket.data.contact.email_id">
               <Button class="h-7 w-7" @click="emit('open')">
                 <EmailIcon class="h-4 w-4" />
@@ -31,11 +33,11 @@
 
       <!-- Ticket Info -->
       <div
-        class="flex items-center text-base leading-5"
         v-for="field in ticketBasicInfo"
+        class="flex items-center text-base leading-5"
       >
         <span class="w-[126px] text-sm text-gray-600">{{ field.label }}</span>
-        <span class="text-base text-gray-800 flex-1">
+        <span class="flex-1 text-base text-gray-800">
           {{ field.value }}
         </span>
       </div>
@@ -46,7 +48,7 @@
         :key="data.label"
         class="flex items-center text-base"
       >
-        <div class="w-[126px] text-gray-600 text-sm">{{ data.title }}</div>
+        <div class="w-[126px] text-sm text-gray-600">{{ data.title }}</div>
 
         <div class="break-words text-base text-gray-800">
           <Tooltip :text="dayjs(data.value).long()">
@@ -61,13 +63,13 @@
       class="border-b px-6 py-3 text-base text-gray-600"
       :ticket="ticket.data"
     />
-    <div class="flex flex-col gap-4 pt-0 px-5 py-3">
+    <div class="flex flex-col gap-4 px-5 py-3 pt-0">
       <div
-        class="flex items-center text-base leading-5"
         v-for="field in ticketAdditionalInfo"
+        class="flex items-center text-base leading-5"
       >
         <span class="w-[126px] text-sm text-gray-600">{{ field.label }}</span>
-        <span class="text-base text-gray-800 flex-1">
+        <span class="flex-1 text-base text-gray-800">
           {{ field.value }}
         </span>
       </div>
@@ -92,13 +94,13 @@ const slaData = computed(() => {
   const resolution = resolutionData();
   return [
     {
-      title: "First Response",
+      title: __("First Response"),
       value: ticket.data.first_responded_on || ticket.data.response_by,
       label: firstResponse.label,
       theme: firstResponse.color,
     },
     {
-      title: "Resolution",
+      title: __("Resolution"),
       value: ticket.data.resolution_date || ticket.data.resolution_by,
       label: resolution.label,
       theme: resolution.color,
@@ -113,9 +115,9 @@ function firstResponseData() {
     dayjs().isBefore(dayjs(ticket.data.response_by))
   ) {
     firstResponse = {
-      label: `Due in ${formatTime(
-        dayjs(ticket.data.response_by).diff(dayjs(), "s")
-      )}`,
+      label: __("Due in {0}", [
+        formatTime(dayjs(ticket.data.response_by).diff(dayjs(), "s")),
+      ]),
       color: "orange",
     };
   } else if (
@@ -124,17 +126,19 @@ function firstResponseData() {
     )
   ) {
     firstResponse = {
-      label: `Fulfilled in ${formatTime(
-        dayjs(ticket.data.first_responded_on).diff(
-          dayjs(ticket.data.creation),
-          "s"
-        )
-      )}`,
+      label: __("Fulfilled in {0}", [
+        formatTime(
+          dayjs(ticket.data.first_responded_on).diff(
+            dayjs(ticket.data.creation),
+            "s"
+          )
+        ),
+      ]),
       color: "green",
     };
   } else {
     firstResponse = {
-      label: "Failed",
+      label: __("Failed"),
       color: "red",
     };
   }
@@ -148,26 +152,28 @@ function resolutionData() {
     dayjs().isBefore(ticket.data.resolution_by)
   ) {
     resolution = {
-      label: `Due in ${formatTime(
-        dayjs(ticket.data.resolution_by).diff(dayjs(), "s")
-      )}`,
+      label: __("Due in {0}", [
+        formatTime(dayjs(ticket.data.resolution_by).diff(dayjs(), "s")),
+      ]),
       color: "orange",
     };
   } else if (
     dayjs(ticket.data.resolution_date).isBefore(ticket.data.resolution_by)
   ) {
     resolution = {
-      label: `Fulfilled in ${formatTime(
-        dayjs(ticket.data.resolution_date).diff(
-          dayjs(ticket.data.creation),
-          "s"
-        )
-      )}`,
+      label: __("Fulfilled in {0}", [
+        formatTime(
+          dayjs(ticket.data.resolution_date).diff(
+            dayjs(ticket.data.creation),
+            "s"
+          )
+        ),
+      ]),
       color: "green",
     };
   } else {
     resolution = {
-      label: "Failed",
+      label: __("Failed"),
       color: "red",
     };
   }
@@ -176,11 +182,11 @@ function resolutionData() {
 
 const ticketBasicInfo = computed(() => [
   {
-    label: "Ticket ID",
+    label: __("Ticket ID"),
     value: ticket.data.name,
   },
   {
-    label: "Status",
+    label: __("Status"),
     value: transformStatus(ticket.data.status),
     bold: true,
   },
@@ -189,15 +195,15 @@ const ticketBasicInfo = computed(() => [
 const ticketAdditionalInfo = computed(() => {
   const fields = [
     {
-      label: "Subject",
+      label: __("Subject"),
       value: ticket.data.subject,
     },
     {
-      label: "Team",
+      label: __("Team"),
       value: ticket.data.agent_group || "-",
     },
     {
-      label: "Priority",
+      label: __("Priority"),
       value: ticket.data.priority,
     },
   ];

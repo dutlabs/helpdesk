@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-[382px] flex-col justify-between border-l">
-    <div class="h-[2.83rem] flex items-center justify-between border-b px-5">
+    <div class="flex h-[2.83rem] items-center justify-between border-b px-5">
       <span
         class="cursor-copy text-lg font-semibold"
         @click="copyToClipboard(ticket.name, ticket.name)"
@@ -25,7 +25,7 @@
       :resolution-date="ticket.resolution_date"
       :resolution-by="ticket.resolution_by"
       :ticket-created-on="ticket.creation"
-      :source="ticket.via_customer_portal ? 'Portal' : 'Mail'"
+      :source="ticket.via_customer_portal ? __('Portal') : __('Mail')"
     />
     <!-- fields -->
     <TicketAgentFields :ticket="ticket" @update="update" />
