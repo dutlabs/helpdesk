@@ -1,6 +1,6 @@
 <template>
   <TransitionRoot :show="sidebarOpened">
-    <Dialog as="div" @close="sidebarOpened = false" class="fixed inset-0 z-40">
+    <Dialog as="div" class="fixed inset-0 z-40" @close="sidebarOpened = false">
       <TransitionChild
         as="template"
         enter="transition ease-in-out duration-200 transform"
@@ -14,13 +14,13 @@
           class="relative z-10 flex h-full w-[230px] flex-col border-r bg-gray-50 transition-all duration-300 ease-in-out"
         >
           <!-- user dropwdown -->
-          <div><UserMenu class="p-2 mb-2" :options="profileSettings" /></div>
+          <div><UserMenu class="mb-2 p-2" :options="profileSettings" /></div>
           <!-- notifications -->
           <div class="overflow-y-auto px-2" v-if="!isCustomerPortal">
             <div class="mb-3 flex flex-col">
               <SidebarLink
                 class="relative"
-                label="Notifications"
+                :label="__('Notifications')"
                 :icon="LucideBell"
                 :on-click="() => (sidebarOpened = false)"
                 :is-expanded="true"
@@ -59,7 +59,7 @@
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <DialogOverlay class="fixed inset-0 bg-gray-600 bg-opacity-50" />
+        <DialogOverlay class="bg-opacity/50 fixed inset-0 bg-gray-600" />
       </TransitionChild>
     </Dialog>
   </TransitionRoot>
@@ -104,8 +104,8 @@ const menuOptions = computed(() => {
 
 const customerPortalDropdown = computed(() => [
   {
-    label: "Log out",
     icon: "log-out",
+    label: __("Log out"),
     onClick: () => authStore.logout(),
   },
 ]);
@@ -115,8 +115,8 @@ const agentPortalDropdown = computed(() => [
     component: markRaw(Apps),
   },
   {
-    label: "Customer portal",
     icon: "users",
+    label: __("Customer portal"),
     onClick: () => {
       const path = router.resolve({ name: CUSTOMER_PORTAL_LANDING });
       window.open(path.href);
@@ -124,17 +124,17 @@ const agentPortalDropdown = computed(() => [
   },
   {
     icon: "life-buoy",
-    label: "Support",
+    label: __("Support"),
     onClick: () => window.open("https://t.me/frappedesk"),
   },
   {
     icon: "book-open",
-    label: "Docs",
+    label: __("Docs"),
     onClick: () => window.open("https://docs.frappe.io/helpdesk"),
   },
   {
-    label: "Log out",
     icon: "log-out",
+    label: __("Log out"),
     onClick: () => authStore.logout(),
   },
 ]);

@@ -22,10 +22,10 @@
         </span>
       </template>
     </SidebarLink>
-    <div class="mb-4" v-if="!isCustomerPortal">
+    <div v-if="!isCustomerPortal" class="mb-4">
       <div
         v-if="notificationStore.unread"
-        class="absolute z-20 h-1.5 w-1.5 translate-x-6 translate-y-1 rounded-full bg-blue-400 left-1"
+        class="absolute left-1 z-20 h-1.5 w-1.5 translate-x-6 translate-y-1 rounded-full bg-blue-400"
         theme="gray"
         variant="solid"
       />
@@ -62,7 +62,7 @@
       :icon="isExpanded ? LucideArrowLeftFromLine : LucideArrowRightFromLine"
       :is-active="false"
       :is-expanded="isExpanded"
-      :label="isExpanded ? 'Collapse' : 'Expand'"
+      :label="isExpanded ? __('Collapse') : __('Expand')"
       :on-click="() => (isExpanded = !isExpanded)"
     />
     <SettingsModal v-if="authStore.isAdmin" v-model="showSettingsModal" />
@@ -108,8 +108,8 @@ const menuOptions = computed(() => {
 
 const customerPortalDropdown = computed(() => [
   {
-    label: "Log out",
     icon: "log-out",
+    label: __("Log out"),
     onClick: () => authStore.logout(),
   },
 ]);
@@ -119,8 +119,8 @@ const agentPortalDropdown = computed(() => [
     component: markRaw(Apps),
   },
   {
-    label: "Customer portal",
     icon: "users",
+    label: __("Customer portal"),
     onClick: () => {
       const path = router.resolve({ name: CUSTOMER_PORTAL_LANDING });
       window.open(path.href);
@@ -128,23 +128,23 @@ const agentPortalDropdown = computed(() => [
   },
   {
     icon: "life-buoy",
-    label: "Support",
+    label: __("Support"),
     onClick: () => window.open("https://t.me/frappedesk"),
   },
   {
     icon: "book-open",
-    label: "Docs",
+    label: __("Docs"),
     onClick: () => window.open("https://docs.frappe.io/helpdesk"),
   },
   {
-    label: "Settings",
     icon: "settings",
+    label: __("Settings"),
     onClick: () => (showSettingsModal.value = true),
     condition: () => authStore.isAdmin,
   },
   {
-    label: "Log out",
     icon: "log-out",
+    label: __("Log out"),
     onClick: () => authStore.logout(),
   },
 ]);
