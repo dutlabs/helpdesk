@@ -12,8 +12,8 @@
     :placeholder="placeholder"
     :editable="editable"
     :mentions="agents"
-    @change="editable ? (newComment = $event) : null"
     :extensions="[PreserveVideoControls]"
+    @change="editable ? (newComment = $event) : null"
   >
     <template #bottom>
       <div v-if="editable" class="flex flex-col gap-2">
@@ -63,7 +63,7 @@
           </div>
           <div class="mt-2 flex items-center justify-end space-x-2 sm:mt-0">
             <Button
-              label="Discard"
+              :label="__('Discard')"
               @click="
                 () => {
                   newComment = '';
@@ -73,7 +73,7 @@
             />
             <Button
               variant="solid"
-              label="Submit"
+              :label="__('Submit')"
               :disabled="commentEmpty"
               :loading="loading"
               @click="

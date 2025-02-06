@@ -1,18 +1,18 @@
 <template>
-  <div class="mx-3 h-full overflow-y-auto sm:mx-5" v-if="showGroupedRows">
+  <div v-if="showGroupedRows" class="mx-3 h-full overflow-y-auto sm:mx-5">
     <div v-for="group in groupedRows" :key="group.group">
       <ListGroupHeader :group="group">
         <div
-          class="my-2 flex items-center gap-2 text-base font-medium text-ink-gray-8 justify-between w-full mr-1"
+          class="text-ink-gray-8 my-2 mr-1 flex w-full items-center justify-between gap-2 text-base font-medium"
         >
-          <div class="flex items-center gap-2 w-full">
-            <component v-if="group.icon" :is="group.icon" />
+          <div class="flex w-full items-center gap-2">
+            <component :is="group.icon" v-if="group.icon" />
             <div
               v-if="group.group.label != ''"
-              class="flex items-center gap-1 w-full"
+              class="flex w-full items-center gap-1"
             >
               <span>{{ group.group.label }}</span>
-              <span class="text-xs text-ink-gray-5"
+              <span class="text-ink-gray-5 text-xs"
                 >{{
                   group.rows.length +
                   " Article" +
@@ -21,7 +21,7 @@
               </span>
             </div>
           </div>
-          <Dropdown :options="actions(group)" v-if="groupByActions.length > 0">
+          <Dropdown v-if="groupByActions.length > 0" :options="actions(group)">
             <Button variant="ghost">
               <template #icon>
                 <IconMoreHorizontal class="h-4 w-4" />
@@ -30,20 +30,20 @@
           </Dropdown>
         </div>
       </ListGroupHeader>
-      <ListGroupRows :group="group" id="list-rows" class="!mt-0">
+      <ListGroupRows id="list-rows" :group="group" class="!mt-0">
         <ListRow
           v-for="row in group.rows"
           :key="row.name"
           v-slot="{ idx, column, item }"
           :row="row"
-          class="truncate text-base row"
+          class="row truncate text-base"
         >
           <slot v-bind="{ idx, column, item, row }" />
         </ListRow>
       </ListGroupRows>
     </div>
   </div>
-  <ListRows class="mx-3 sm:mx-5" v-else id="list-rows">
+  <ListRows v-else id="list-rows" class="mx-3 sm:mx-5">
     <ListRow
       v-for="row in groupedRows"
       :key="row.name"
@@ -89,7 +89,9 @@ const actions = (group) => {
     };
   });
   if (group.group.label == "General") {
-    _actions = _actions.filter((action) => action.label === "Add New Article");
+    _actions = _actions.filter(
+      (action) => action.label === __("Add New Article")
+    );
   }
   return _actions;
 };

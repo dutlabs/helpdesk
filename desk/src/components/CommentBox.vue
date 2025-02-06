@@ -1,7 +1,7 @@
 <template>
-  <div class="flex-col text-base flex-1" ref="commentBoxRef">
+  <div ref="commentBoxRef" class="flex-1 flex-col text-base">
     <div class="mb-1 ml-0.5 flex items-center justify-between">
-      <div class="text-gray-600 flex items-center gap-2">
+      <div class="flex items-center gap-2 text-gray-600">
         <Avatar
           size="sm"
           :label="commenter"
@@ -11,9 +11,9 @@
           <span class="font-medium text-gray-800">
             {{ commenter }}
           </span>
-          <span> added a</span>
+          <span> {{ __("added a") }}</span>
           <span class="max-w-xs truncate font-medium text-gray-800">
-            comment
+            {{ __("comment") }}
           </span>
         </p>
       </div>
@@ -27,12 +27,12 @@
           <Dropdown
             :options="[
               {
-                label: 'Edit',
+                label: __('Edit'),
                 onClick: () => handleEditMode(),
                 icon: 'edit-2',
               },
               {
-                label: 'Delete',
+                label: __('Delete'),
                 onClick: () => (showDialog = true),
                 icon: 'trash-2',
               },
@@ -56,14 +56,18 @@
         :bubble-menu="textEditorMenuButtons"
         @change="(event:string) => {_content = event}"
       >
-        <template #bottom v-if="editable">
+        <template v-if="editable" #bottom>
           <div class="flex flex-row-reverse gap-2">
-            <Button label="Save" @click="handleSaveComment" variant="solid" />
-            <Button label="Discard" @click="handleDiscard" />
+            <Button
+              :label="__('Save')"
+              variant="solid"
+              @click="handleSaveComment"
+            />
+            <Button :label="__('Discard')" @click="handleDiscard" />
           </div>
         </template>
       </TextEditor>
-      <div class="flex flex-wrap gap-2" v-if="!editable">
+      <div v-if="!editable" class="flex flex-wrap gap-2">
         <AttachmentItem
           v-for="a in attachments"
           :key="a.file_url"
@@ -76,12 +80,12 @@
   <Dialog
     v-model="showDialog"
     :options="{
-      title: 'Delete Comment',
-      message: 'Are you sure you want to confirm this action?',
+      title: __('Delete Comment'),
+      message: __('Are you sure you want to confirm this action?'),
       actions: [
-        { label: 'Cancel', onClick: () => (showDialog = false) },
+        { label: __('Cancel'), onClick: () => (showDialog = false) },
         {
-          label: 'Delete',
+          label: __('Delete'),
           onClick: () => deleteComment.submit(),
           variant: 'solid',
         },
@@ -152,7 +156,7 @@ const deleteComment = createResource({
   onSuccess() {
     emit("update");
     createToast({
-      title: "Comment deleted",
+      title: __("Comment deleted"),
       icon: "check",
       iconClasses: "text-green-500",
     });
@@ -166,7 +170,7 @@ function handleSaveComment() {
   }
   if (isContentEmpty(_content.value)) {
     createToast({
-      title: "Comment cannot be empty",
+      title: __("Comment cannot be empty"),
       icon: "x",
       iconClasses: "text-red-600",
     });
@@ -185,7 +189,7 @@ function handleSaveComment() {
         editable.value = false;
         emit("update");
         createToast({
-          title: "Comment updated",
+          title: __("Comment updated"),
           icon: "check",
           iconClasses: "text-green-500",
         });

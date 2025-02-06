@@ -3,8 +3,8 @@
     v-if="!isEmpty(articles.data) && query.length > 2"
     class="rounded border p-4 text-base"
   >
-    <div class="mb-2 font-medium pl-2" v-if="!hideViewAll">
-      These articles may already cover what you are looking for
+    <div v-if="!hideViewAll" class="mb-2 pl-2 font-medium">
+      {{ __("These articles may already cover what you are looking for") }}
       <RouterLink
         class="group cursor-pointer space-x-1 hover:text-gray-900"
         :to="{
@@ -12,20 +12,20 @@
         }"
         target="_blank"
       >
-        <span class="text-xs underline">(View All)</span>
+        <span class="text-xs underline">{{ __("(View All)") }}</span>
       </RouterLink>
     </div>
     <dl
-      class="mx-auto w-full flex flex-col gap-2"
       v-if="articles.data.length > 0"
+      class="mx-auto flex w-full flex-col gap-2"
     >
       <div
         v-for="a in articles.data"
         :key="a.id"
-        class="rounded-md border-2 p-2 border-hidden hover:bg-surface-gray-2"
+        class="hover:bg-surface-gray-2 rounded-md border-2 border-hidden p-2"
       >
         <RouterLink
-          class="group cursor-pointer hover:text-gray-900 flex flex-col gap-1"
+          class="group flex cursor-pointer flex-col gap-1 hover:text-gray-900"
           :to="{
             name: 'ArticlePublic',
             params: {
@@ -33,13 +33,13 @@
             },
             hash: `#${a.name.split('#')[1]}`,
           }"
-          @click="handleSearchArticleClick(a)"
           target="_blank"
+          @click="handleSearchArticleClick(a)"
         >
           <dt class="font-base">{{ a.subject }} - {{ a.headings }}</dt>
           <!-- eslint-disable-next-line vue/no-v-html -->
           <dd
-            class="font-base text-p-sm text-gray-600 line-clamp-1"
+            class="font-base text-p-sm line-clamp-1 text-gray-600"
             v-html="a.description"
           ></dd>
         </RouterLink>
@@ -50,26 +50,26 @@
     v-else-if="
       !articles.loading && articles.data?.length === 0 && query.length > 2
     "
-    class="flex flex-col items-center justify-center h-[240px] gap-2 rounded border"
+    class="flex h-[240px] flex-col items-center justify-center gap-2 rounded border"
   >
     <Icon icon="heroicons-outline:search" class="h-8 w-8 text-gray-400" />
-    <div class="flex items-center flex-col justify-center">
-      <p class="font-base">No answers found</p>
-      <span class="font-base text-p-sm text-gray-600 text-center"
-        >Rephrase the question and try again with some keywords</span
-      >
+    <div class="flex flex-col items-center justify-center">
+      <p class="font-base">{{ __("No answers found") }}</p>
+      <span class="font-base text-p-sm text-center text-gray-600">
+        {{ __("Rephrase the question and try again with some keywords") }}
+      </span>
     </div>
   </div>
   <div
     v-else-if="articles.loading"
-    class="flex flex-col items-center justify-center h-[240px] gap-2 rounded border"
+    class="flex h-[240px] flex-col items-center justify-center gap-2 rounded border"
   >
     <Icon icon="heroicons-outline:search" class="h-8 w-8 text-gray-400" />
-    <div class="flex items-center flex-col justify-center">
-      <p class="font-base">Searching...</p>
-      <span class="font-base text-p-sm text-gray-600 text-center"
-        >Please wait while we search for the answers</span
-      >
+    <div class="flex flex-col items-center justify-center">
+      <p class="font-base">{{ __("Searching...") }}</p>
+      <span class="font-base text-p-sm text-center text-gray-600">
+        {{ __("Please wait while we search for the answers") }}
+      </span>
     </div>
   </div>
 </template>

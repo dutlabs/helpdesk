@@ -1,8 +1,8 @@
 <template>
-  <Teleport to="#app-header" v-if="showHeader">
+  <Teleport v-if="showHeader" to="#app-header">
     <slot>
-      <header class="flex h-10.5 items-center justify-between mx-4 md:mr-0">
-        <div class="flex items-center gap-2 max-w-[50%]">
+      <header class="h-10.5 mx-4 flex items-center justify-between md:mr-0">
+        <div class="flex max-w-[50%] items-center gap-2">
           <slot name="left-header" />
         </div>
         <div class="flex items-center gap-2">

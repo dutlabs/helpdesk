@@ -1,19 +1,19 @@
 <template>
   <!-- View Controls -->
   <div
-    class="flex items-center justify-between gap-2 px-5 pb-4 pt-3"
     v-if="showViewControls"
+    class="flex items-center justify-between gap-2 px-5 pb-4 pt-3"
   >
     <QuickFilters v-if="!isMobileView" />
-    <div class="flex items-center gap-2" v-if="!isMobileView">
-      <Reload @click="reload" :loading="list.loading" />
+    <div v-if="!isMobileView" class="flex items-center gap-2">
+      <Reload :loading="list.loading" @click="reload" />
       <Filter :default_filters="defaultParams.filters" />
       <SortBy :hide-label="isMobileView" />
     </div>
-    <div v-else class="flex justify-between items-center w-full">
+    <div v-else class="flex w-full items-center justify-between">
       <Filter :default_filters="defaultParams.filters" />
       <div class="flex items-center gap-2">
-        <Reload @click="reload" :loding="list.loading" />
+        <Reload :loding="list.loading" @click="reload" />
         <SortBy :hide-label="isMobileView" />
       </div>
     </div>
@@ -34,17 +34,17 @@
       emptyState,
     }"
   >
-    <ListHeader class="sm:mx-5 mx-3">
+    <ListHeader class="mx-3 sm:mx-5">
       <ListHeaderItem
         v-for="column in columns"
         :key="column.key"
         :item="column"
-        @columnWidthUpdated="(width) => console.log(width)"
+        @column-width-updated="(width) => console.log(width)"
       />
     </ListHeader>
     <ListRows
-      :rows="rows"
       v-slot="{ idx, column, item, row }"
+      :rows="rows"
       :group-by-actions="props.options.groupByActions"
     >
       <ListRowItem :item="item" :row="row" :column="column">
@@ -75,18 +75,18 @@
 
   <!-- List Footer -->
   <div
-    class="p-20 border-t sm:px-5 px-3 py-2"
     v-if="list.data?.data.length > 0"
+    class="border-t p-20 px-3 py-2 sm:px-5"
   >
     <ListFooter
+      v-model="defaultParams.page_length_count"
       :options="{
         rowCount: list?.data?.row_count,
         totalCount: list?.data?.total_count,
       }"
-      :pageLengthCount="defaultParams.page_length_count"
-      @loadMore="handlePageLength(defaultParams.page_length_count, true)"
-      v-model="defaultParams.page_length_count"
-      @update:modelValue="
+      :page-length-count="defaultParams.page_length_count"
+      @load-more="handlePageLength(defaultParams.page_length_count, true)"
+      @update:model-value="
         (count) => {
           handlePageLength(count);
         }
@@ -97,7 +97,7 @@
   <EmptyState
     v-else
     :title="emptyState.title"
-    @emptyStateAction="emit('emptyStateAction')"
+    @empty-state-action="emit('emptyStateAction')"
   />
 </template>
 
@@ -173,7 +173,7 @@ const emit = defineEmits<E>();
 const { isMobileView } = useScreenSize();
 const defaultEmptyState = {
   icon: "",
-  title: "No Data Found",
+  title: __("No Data Found"),
 };
 
 const defaultParams = reactive({
@@ -314,7 +314,7 @@ const quickFilters = createResource({
   },
   transform: (data) => {
     if (Boolean(data.length)) return;
-    data = [{ name: "name", label: "Name", fieldtype: "Data" }];
+    data = [{ name: "name", label: __("Name"), fieldtype: "Data" }];
     return data;
   },
 });

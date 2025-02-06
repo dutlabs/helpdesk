@@ -1,14 +1,14 @@
 <template>
   <div class="flex items-center gap-2">
     <Avatar
+      v-if="!hideAvatar"
       :label="user.name"
       :image="user.user_image"
       v-bind="$attrs"
-      v-if="!hideAvatar"
     />
     <span
       v-if="expand"
-      class="truncate capitalize text-base text-ink-gray-9 font-medium"
+      class="text-ink-gray-9 truncate text-base font-medium capitalize"
       :class="{
         'font-medium': strong,
       }"

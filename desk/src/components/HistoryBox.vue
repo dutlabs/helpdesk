@@ -1,6 +1,6 @@
 <template>
   <div class="flex-1">
-    <div class="mt-1.5 flex justify-between text-base items-center">
+    <div class="mt-1.5 flex items-center justify-between text-base">
       <div class="text-gray-600">
         <span class="font-medium text-gray-800">
           {{ user }}
@@ -8,12 +8,12 @@
         <span> {{ content }}</span>
       </div>
       <Tooltip :text="dateFormat(creation, dateTooltipFormat)">
-        <div class="text-gray-600 text-sm">
+        <div class="text-sm text-gray-600">
           {{ timeAgo(creation) }}
         </div>
       </Tooltip>
     </div>
-    <div v-if="show_others && content !== 'created this ticket'">
+    <div v-if="show_others && content !== __('created this ticket')">
       <div
         v-for="relatedActivity in relatedActivities"
         :key="relatedActivity.creation"
@@ -28,16 +28,18 @@
         <Tooltip
           :text="dateFormat(relatedActivity.creation, dateTooltipFormat)"
         >
-          <div class="text-gray-600 text-sm">
+          <div class="text-sm text-gray-600">
             {{ timeAgo(relatedActivity.creation) }}
           </div>
         </Tooltip>
       </div>
     </div>
     <Button
-      v-if="relatedActivities.length && content !== 'created this ticket'"
+      v-if="relatedActivities.length && content !== __('created this ticket')"
       :label="
-        show_others ? 'Hide' : `${relatedActivities.length} other activities`
+        show_others
+          ? __('Hide')
+          : __('{0} other activities', [relatedActivities.length])
       "
       variant="outline"
       class="mt-2"
