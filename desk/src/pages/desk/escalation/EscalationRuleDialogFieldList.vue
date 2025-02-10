@@ -14,7 +14,9 @@
           :value="doc[item.key]"
           @change="(v) => onChange(item.key, v.value)"
         />
-        <span v-if="index + 1 < items.length" class="text-gray-600"> and </span>
+        <span v-if="index + 1 < items.length" class="text-gray-600">
+          {{ __("and") }}
+        </span>
       </div>
     </div>
   </div>
