@@ -13,7 +13,7 @@
         :is="component"
         :key="field.fieldname"
         class="form-control"
-        :placeholder="__('Add {0}, [field.label]')"
+        :placeholder="__('Add {0}', [field.label])"
         :value="transValue"
         v-on="
           textFields.includes(field.fieldtype)
