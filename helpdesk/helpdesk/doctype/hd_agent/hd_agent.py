@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
+from frappe import _
 from frappe.model.document import Document
 
 
@@ -23,19 +24,19 @@ class HDAgent(Document):
     def default_list_data():
         columns = [
             {
-                "label": "Agent Name",
+                "label": _("Agent Name"),
                 "key": "agent_name",
                 "width": "17rem",
                 "type": "Data",
             },
             {
-                "label": "Email",
+                "label": _("Email"),
                 "key": "user.email as email",
                 "width": "24rem",
                 "type": "Data",
             },
             {
-                "label": "Created On",
+                "label": _("Created On"),
                 "key": "creation",
                 "width": "8rem",
                 "type": "Datetime",

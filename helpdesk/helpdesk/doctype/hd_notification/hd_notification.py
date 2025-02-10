@@ -1,4 +1,5 @@
 import frappe
+from frappe import _
 from frappe.model.document import Document
 
 from helpdesk.utils import refetch_resource
@@ -9,8 +10,8 @@ class HDNotification(Document):
         user_from = self.get_from()
         if self.notification_type == "Mention":
             if self.reference_comment:
-                return f"{user_from} mentioned you in a comment"
-            return f"{user_from} mentioned you"
+                return _("{0} mentioned you in a comment").format(user_from)
+            return _("{0} mentioned you").format(user_from)
         return ""
 
     def get_from(self):
@@ -20,8 +21,8 @@ class HDNotification(Document):
 
     def get_button_label(self):
         if self.reference_comment:
-            return "See Comment"
-        return "Visit"
+            return _("See Comment")
+        return _("Visit")
 
     def get_url(self):
         res = "/helpdesk"
@@ -54,7 +55,7 @@ class HDNotification(Document):
         if self.notification_type == "Mention":
             frappe.sendmail(
                 recipients=self.user_to,
-                subject="New notification",
+                subject=_("New notification"),
                 message=self.format_message(),
                 template="notification",
                 args=self.get_args(),

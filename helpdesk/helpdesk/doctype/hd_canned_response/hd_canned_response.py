@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 # import frappe
+from frappe import _
 from frappe.model.document import Document
 
 
@@ -10,25 +11,25 @@ class HDCannedResponse(Document):
 
         columns = [
             {
-                "label": "Title",
+                "label": _("Title"),
                 "type": "Data",
                 "key": "title",
                 "width": "5rem",
             },
             {
-                "label": "Message",
+                "label": _("Message"),
                 "type": "Text Editor",
                 "key": "message",
                 "width": "25rem",
             },
             {
-                "label": "Owner",
+                "label": _("Owner"),
                 "type": "Link",
                 "key": "owner",
                 "width": "5rem",
             },
             {
-                "label": "Modified On",
+                "label": _("Modified On"),
                 "type": "Datetime",
                 "key": "modified",
                 "width": "5rem",

@@ -55,8 +55,8 @@ class HDTeam(Document):
             frappe.db.commit()
         except DoesNotExistError:
             frappe.log_error(
-                title="Assignment Rule not found",
-                message=f"Assignment Rule {rule} not found",
+                title=_("Assignment Rule not found"),
+                message=_("Assignment Rule {0} not found").format(rule),
             )
 
     def create_assignment_rule(self):
@@ -167,19 +167,19 @@ class HDTeam(Document):
     def default_list_data():
         columns = [
             {
-                "label": "Name",
+                "label": _("Name"),
                 "key": "name",
                 "width": "17rem",
                 "type": "Data",
             },
             {
-                "label": "Assignment rule",
+                "label": _("Assignment rule"),
                 "key": "assignment_rule",
                 "width": "24rem",
                 "type": "Data",
             },
             {
-                "label": "Created On",
+                "label": _("Created On"),
                 "key": "creation",
                 "width": "8rem",
                 "type": "Datetime",
