@@ -1,4 +1,5 @@
 import frappe
+from frappe import _
 
 
 @frappe.whitelist()
@@ -6,7 +7,7 @@ def create_email_account(data):
     service = data.get("service")
     service_config = email_service_config.get(service)
     if not service_config:
-        return "Service not supported"
+        return _("Service not supported")
 
     try:
         email_doc = frappe.get_doc(

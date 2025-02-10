@@ -1,4 +1,5 @@
 import frappe
+from frappe import _
 from frappe.core.doctype.user.user import test_password_strength
 
 """
@@ -38,7 +39,7 @@ def signup(email, first_name, last_name):
         frappe.set_user(current_user)
     else:
         frappe.set_user(current_user)
-        frappe.throw("User already exists, please try loggin in using this email")
+        frappe.throw(_("User already exists, please try loggin in using this email"))
 
 
 @frappe.whitelist(allow_guest=True)
@@ -55,9 +56,9 @@ def verify_and_create_account(request_key, email, password):
 
             frappe.set_user(current_user)
         else:
-            frappe.throw("Ivalid request key")
+            frappe.throw(_("Invalid request key"))
     else:
-        frappe.throw(f"Account request for {email} not found, please signup first")
+        frappe.throw(_("Account request for {0} not found, please signup first").format(email))
 
 
 @frappe.whitelist(allow_guest=True)

@@ -53,7 +53,7 @@ def delete_articles(articles):
 def create_category(title: str):
     category = frappe.new_doc("HD Article Category", category_name=title).insert()
     article = frappe.new_doc(
-        "HD Article", title="New Article", category=category.name
+        "HD Article", title=_("New Article"), category=category.name
     ).insert()
     return {"article": article.name, "category": category.name}
 

@@ -97,7 +97,7 @@ def get_filterable_fields(doctype: str, show_customer_portal_fields=False):
             {
                 "fieldname": "_assign",
                 "fieldtype": "Link",
-                "label": "Assigned to",
+                "label": _("Assigned to"),
                 "name": "_assign",
                 "options": "HD Agent",
             }
@@ -107,7 +107,7 @@ def get_filterable_fields(doctype: str, show_customer_portal_fields=False):
         {
             "fieldname": "name",
             "fieldtype": "Data",
-            "label": "ID",
+            "label": _("ID"),
             "name": "name",
         },
     )
@@ -142,7 +142,7 @@ def get_list_data(
         columns = [
             {"label": "Name", "type": "Data", "key": "name", "width": "16rem"},
             {
-                "label": "Last Modified",
+                "label": _("Last Modified"),
                 "type": "Datetime",
                 "key": "modified",
                 "width": "8rem",
@@ -207,17 +207,17 @@ def get_list_data(
     ]
 
     std_fields = [
-        {"label": "Name", "type": "Data", "value": "name"},
-        {"label": "Created On", "type": "Datetime", "value": "creation"},
-        {"label": "Last Modified", "type": "Datetime", "value": "modified"},
+        {"label": _("Name"), "type": "Data", "value": "name"},
+        {"label": _("Created On"), "type": "Datetime", "value": "creation"},
+        {"label": _("Last Modified"), "type": "Datetime", "value": "modified"},
         {
-            "label": "Modified By",
+            "label": _("Modified By"),
             "type": "Link",
             "value": "modified_by",
             "options": "User",
         },
-        {"label": "Assigned To", "type": "Text", "value": "_assign"},
-        {"label": "Owner", "type": "Link", "value": "owner", "options": "User"},
+        {"label": _("Assigned To"), "type": "Text", "value": "_assign"},
+        {"label": _("Owner"), "type": "Link", "value": "owner", "options": "User"},
     ]
 
     for field in std_fields:
@@ -319,11 +319,11 @@ def sort_options(doctype: str, show_customer_portal_fields=False):
         fields = get_customer_portal_fields(doctype, fields)
 
     standard_fields = [
-        {"label": "Name", "value": "name"},
-        {"label": "Created On", "value": "creation"},
-        {"label": "Last Modified", "value": "modified"},
-        {"label": "Modified By", "value": "modified_by"},
-        {"label": "Owner", "value": "owner"},
+        {"label": _("Name"), "value": "name"},
+        {"label": _("Created On"), "value": "creation"},
+        {"label": _("Last Modified"), "value": "modified"},
+        {"label": _("Modified By"), "value": "modified_by"},
+        {"label": _("Owner"), "value": "owner"},
     ]
 
     fields.extend(standard_fields)
@@ -336,7 +336,7 @@ def get_quick_filters(doctype: str):
     meta = frappe.get_meta(doctype)
     fields = [field for field in meta.fields if field.in_standard_filter]
     quick_filters = []
-    name_filter = {"label": "ID", "name": "name", "type": "Data"}
+    name_filter = {"label": _("ID"), "name": "name", "type": "Data"}
     if doctype == "Contact":
         quick_filters.append(name_filter)
         return quick_filters
