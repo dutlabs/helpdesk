@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import frappe
+from frappe import _
 from frappe.permissions import add_permission
 
 from helpdesk.consts import DEFAULT_ARTICLE_CATEGORY
@@ -62,8 +63,8 @@ def add_default_categories_and_articles():
     frappe.get_doc(
         {
             "doctype": "HD Article",
-            "title": "Introduction",
-            "content": "Content for your Article",
+            "title": _("Introduction"),
+            "content": _("Content for your Article"),
             "category": category.name,
             "published": False,
         }
