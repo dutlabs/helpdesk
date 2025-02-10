@@ -61,7 +61,7 @@
             <Autocomplete
               :options="sortableFields"
               value=""
-              placeholder="Sort by"
+              :placeholder="__('Sort by')"
               @change="(e) => setSort(e)"
             >
               <template #target="{ togglePopover }">

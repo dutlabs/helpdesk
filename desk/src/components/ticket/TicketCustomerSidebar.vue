@@ -204,7 +204,7 @@ const ticketAdditionalInfo = computed(() => {
     },
     {
       label: __("Priority"),
-      value: ticket.data.priority,
+      value: __(ticket.data.priority),
     },
   ];
   const custom_fields = ticket.data.template.fields

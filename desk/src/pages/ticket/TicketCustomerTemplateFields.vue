@@ -109,7 +109,7 @@ function transformStatus(status: string) {
     case "Replied":
       return __("Awaiting reply");
     default:
-      return status;
+      return __(status);
   }
 }
 </script>

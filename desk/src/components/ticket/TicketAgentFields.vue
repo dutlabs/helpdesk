@@ -34,7 +34,7 @@
           v-else
           class="form-control"
           :options="o.store.dropdown"
-          :placeholder="`Add ${o.label}`"
+          :placeholder="__('Add {0}', [o.label])"
           :value="ticket[o.field]"
           @change="update(o.field, $event.value)"
         />
@@ -92,7 +92,7 @@ const options = computed(() => {
       label: __("Customer"),
       type: "link",
       options: "HD Customer",
-      placeholder: "Select Customer",
+      placeholder: __("Select Customer"),
     },
   ];
 });
