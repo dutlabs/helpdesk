@@ -16,37 +16,37 @@ import {
 
 export const agentPortalSidebarOptions = [
   {
-    label: "Tickets",
+    label: __("Tickets"),
     icon: LucideTicket,
     to: AGENT_PORTAL_TICKET_LIST,
   },
   {
-    label: "Agents",
+    label: __("Agents"),
     icon: LucideUser,
     to: AGENT_PORTAL_AGENT_LIST,
   },
   {
-    label: "Knowledge Base",
+    label: __("Knowledge base"),
     icon: LucideBookOpen,
     to: "AgentKnowledgeBase",
   },
   {
-    label: "Teams",
+    label: __("Teams"),
     icon: LucideUsers,
     to: AGENT_PORTAL_TEAM_LIST,
   },
   {
-    label: "Canned responses",
+    label: __("Canned responses"),
     icon: LucideCloudLightning,
     to: "CannedResponses",
   },
   {
-    label: "Customers",
+    label: __("Customers"),
     icon: OrganizationsIcon,
     to: AGENT_PORTAL_CUSTOMER_LIST,
   },
   {
-    label: "Contacts",
+    label: __("Contacts"),
     icon: LucideContact2,
     to: AGENT_PORTAL_CONTACT_LIST,
   },
@@ -54,12 +54,12 @@ export const agentPortalSidebarOptions = [
 
 export const customerPortalSidebarOptions = [
   {
-    label: "Tickets",
+    label: __("Tickets"),
     icon: LucideTicket,
     to: "TicketsCustomer",
   },
   {
-    label: "Knowledge Base",
+    label: __("Knowledge base"),
     icon: LucideBookOpen,
     to: "CustomerKnowledgeBase",
   },
