@@ -2,6 +2,7 @@ import { useClipboard, useDateFormat, useTimeAgo } from "@vueuse/core";
 import { toast } from "frappe-ui";
 import { ref } from "vue";
 import zod from "zod";
+import __ from "@/translation";
 /**
  * Wrapper to create toasts, supplied with default options.
  * https://frappeui.com/components/toast.html
@@ -142,7 +143,13 @@ export async function copyToClipboard(text: string, message?: string) {
 
 export const textEditorMenuButtons = [
   __("Paragraph"),
-  [__("Heading 2"), __("Heading 3"), __("Heading 4"), __("Heading 5"), __("Heading 6")],
+  [
+    __("Heading 2"),
+    __("Heading 3"),
+    __("Heading 4"),
+    __("Heading 5"),
+    __("Heading 6"),
+  ],
   __("Separator"),
   __("Bold"),
   __("Italic"),
