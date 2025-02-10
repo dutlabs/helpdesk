@@ -30,7 +30,7 @@ window.FileAttachmentHandler = class FileAttachmentHandler {
 
     var table = $(this.get_attachment_table_header_html()).appendTo(wrapper);
     if (!this.attachments || !this.attachments.length)
-      return "No attachments uploaded";
+      return __("No attachments uploaded");
 
     this.attachments.forEach((f) => {
       const row = $("<tr></tr>").appendTo(table.find("tbody"));
