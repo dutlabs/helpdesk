@@ -26,7 +26,7 @@
           </div>
           <!-- Action Buttons -->
           <div class="flex gap-2">
-            <Button :label=__('Discard') @click="handleArticleDiscard" />
+            <Button :label="__('Discard')" @click="handleArticleDiscard" />
             <Button
               :label="__('Create')"
               variant="solid"
