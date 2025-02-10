@@ -7,18 +7,17 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
-import { Toasts } from "frappe-ui";
 import { createToast } from "@/utils";
 import { useConfigStore } from "@/stores/config";
 import KeymapDialog from "@/pages/KeymapDialog.vue";
 import { stopSession } from "@/telemetry";
-import { Dialogs } from "frappe-ui";
+import { Dialogs, Toasts } from "frappe-ui";
 useConfigStore();
 
 onMounted(() => {
   window.addEventListener("online", () => {
     createToast({
-      title: "You are now online",
+      title: __("You are now online"),
       icon: "wifi",
       iconClasses: "stroke-green-600",
     });
@@ -26,7 +25,7 @@ onMounted(() => {
 
   window.addEventListener("offline", () => {
     createToast({
-      title: "You are now offline",
+      title: __("You are now offline"),
       icon: "wifi-off",
       iconClasses: "stroke-red-600",
     });

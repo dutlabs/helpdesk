@@ -74,22 +74,22 @@ const options = computed(() => {
   return [
     {
       field: "ticket_type",
-      label: "Ticket type",
+      label: __("Ticket type"),
       store: useTicketTypeStore(),
     },
     {
       field: "priority",
-      label: "Priority",
+      label: __("Priority"),
       store: useTicketPriorityStore(),
     },
     {
       field: "agent_group",
-      label: "Team",
+      label: __("Team"),
       store: useTeamStore(),
     },
     {
       field: "customer",
-      label: "Customer",
+      label: __("Customer"),
       type: "link",
       options: "HD Customer",
       placeholder: "Select Customer",
@@ -108,7 +108,7 @@ const customFields = computed(() => {
 function update(field: Field["fieldname"], value: FieldValue, event = null) {
   if (field === "subject" && value === "") {
     createToast({
-      title: "Subject is required",
+      title: __("Subject is required"),
       icon: "x",
       iconClasses: "text-red-600",
     });

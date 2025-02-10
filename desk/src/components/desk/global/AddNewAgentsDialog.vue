@@ -67,9 +67,9 @@
           @click="sentInvites()"
           >{{ __("Send Invites") }}</Button
         >
-        <Button appearance="secondary" class="mr-2" @click="close()"
-          >Cancel</Button
-        >
+        <Button appearance="secondary" class="mr-2" @click="close()">
+          {{ __("Cancel") }}
+        </Button>
         <div class="mt-2 grow">
           <Button
             v-if="inviteQueue.length > 1"
