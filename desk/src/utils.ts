@@ -22,7 +22,7 @@ export async function copy(s: string) {
   const { copy: c } = useClipboard();
   c(s).then(() =>
     createToast({
-      title: "Copied to clipboard",
+      title: __("Copied to clipboard"),
       icon: "check",
       iconClasses: "text-green-600",
     })
@@ -65,7 +65,7 @@ export const dateTooltipFormat = "ddd, MMM D, YYYY h:mm A";
 
 export function errorMessage(title, message) {
   createToast({
-    title: title || "Error",
+    title: title || __("Error"),
     text: message,
     icon: "x",
     iconClasses: "text-red-600",
@@ -133,7 +133,7 @@ export async function copyToClipboard(text: string, message?: string) {
     input.remove();
   }
   createToast({
-    title: "Copied to clipboard",
+    title: __("Copied to clipboard"),
     text: message,
     icon: "check",
     iconClasses: "text-green-600",
@@ -141,26 +141,26 @@ export async function copyToClipboard(text: string, message?: string) {
 }
 
 export const textEditorMenuButtons = [
-  "Paragraph",
-  ["Heading 2", "Heading 3", "Heading 4", "Heading 5", "Heading 6"],
-  "Separator",
-  "Bold",
-  "Italic",
-  "Separator",
-  "Bullet List",
-  "Numbered List",
-  "Separator",
-  "Align Left",
-  "Align Center",
-  "Align Right",
-  "FontColor",
-  "Separator",
-  "Image",
-  "Video",
-  "Link",
-  "Blockquote",
-  "Code",
-  "Horizontal Rule",
+  __("Paragraph"),
+  [__("Heading 2"), __("Heading 3"), __("Heading 4"), __("Heading 5"), __("Heading 6")],
+  __("Separator"),
+  __("Bold"),
+  __("Italic"),
+  __("Separator"),
+  __("Bullet List"),
+  __("Numbered List"),
+  __("Separator"),
+  __("Align Left"),
+  __("Align Center"),
+  __("Align Right"),
+  __("FontColor"),
+  __("Separator"),
+  __("Image"),
+  __("Video"),
+  __("Link"),
+  __("Blockquote"),
+  __("Code"),
+  __("Horizontal Rule"),
   [
     "InsertTable",
     "AddColumnBefore",
