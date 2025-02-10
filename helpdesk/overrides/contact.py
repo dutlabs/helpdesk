@@ -1,3 +1,4 @@
+from frappe import _
 from frappe.contacts.doctype.contact.contact import Contact
 
 
@@ -6,13 +7,13 @@ class CustomContact(Contact):
     def default_list_data():
         columns = [
             {
-                "label": "Name",
+                "label": _("Name"),
                 "type": "Data",
                 "key": "full_name",
                 "width": "17rem",
             },
             {
-                "label": "Email",
+                "label": _("Email"),
                 "type": "Data",
                 "key": "email_id",
                 "width": "24rem",
@@ -24,7 +25,7 @@ class CustomContact(Contact):
             #     "width": "12rem",
             # },
             {
-                "label": "Created On",
+                "label": _("Created On"),
                 "type": "Datetime",
                 "key": "creation",
                 "width": "8rem",
