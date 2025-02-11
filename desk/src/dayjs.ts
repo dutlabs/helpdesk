@@ -1,4 +1,6 @@
 import d from "dayjs";
+import "dayjs/locale/pt-br";
+import "dayjs/locale/es";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import relativeTime from "dayjs/plugin/relativeTime";
 import utc from "dayjs/plugin/utc";
@@ -15,6 +17,8 @@ declare module "dayjs" {
   }
 }
 
+const language = authStore.language.toLowerCase();
+
 d.extend(localizedFormat);
 d.extend(relativeTime);
 d.extend(function (_, cls) {
@@ -28,5 +32,6 @@ d.extend(function (_, cls) {
 d.extend(utc);
 d.extend(timezone);
 d.tz.setDefault(authStore.timezone);
+d.locale(language);
 
 export const dayjs = d;
