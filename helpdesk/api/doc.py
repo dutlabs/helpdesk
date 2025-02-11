@@ -203,7 +203,7 @@ def get_list_data(
     fields = [field for field in fields if field.fieldtype not in no_value_fields]
     fields = [
         {
-            "label": __(field.label),
+            "label": _(field.label),
             "type": field.fieldtype,
             "value": field.fieldname,
             "options": field.options,
@@ -314,7 +314,7 @@ def sort_options(doctype: str, show_customer_portal_fields=False):
     fields = [field for field in fields if field.fieldtype not in no_value_fields]
     fields = [
         {
-            "label": __(field.label),
+            "label": _(field.label),
             "value": field.fieldname,
         }
         for field in fields
