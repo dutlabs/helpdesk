@@ -87,6 +87,12 @@ def get_filterable_fields(doctype: str, show_customer_portal_fields=False):
     from_doc_fields = from_doc_fields.run(as_dict=True)
     # from hd ticket template get children with fieldname and hidden_from_customer
 
+    for field in from_doc_fields:
+        field['label'] = _(field['label'])
+
+    for field in from_custom_fields:
+        field['label'] = _(field['label']) 
+
     res = []
     res.extend(from_doc_fields)
     # TODO: Ritvik => till a better way we have for custom fields, just show custom fields
@@ -197,7 +203,7 @@ def get_list_data(
     fields = [field for field in fields if field.fieldtype not in no_value_fields]
     fields = [
         {
-            "label": field.label,
+            "label": __(field.label),
             "type": field.fieldtype,
             "value": field.fieldname,
             "options": field.options,
@@ -308,7 +314,7 @@ def sort_options(doctype: str, show_customer_portal_fields=False):
     fields = [field for field in fields if field.fieldtype not in no_value_fields]
     fields = [
         {
-            "label": field.label,
+            "label": __(field.label),
             "value": field.fieldname,
         }
         for field in fields
