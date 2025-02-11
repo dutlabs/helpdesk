@@ -26,7 +26,7 @@
         </button>
         <Dropdown :options="dropdownOptions">
           <template #default="{ open }">
-            <Button :label="ticket.data.status">
+            <Button :label="__(ticket.data.status)">
               <template #prefix>
                 <IndicatorIcon
                   :class="ticketStatusStore.textColorMap[ticket.data.status]"
@@ -245,7 +245,7 @@ watch(
 
 const dropdownOptions = computed(() =>
   ticketStatusStore.options.map((o) => ({
-    label: o,
+    label: __(o),
     value: o,
     onClick: () => updateTicket("status", o),
     icon: () =>

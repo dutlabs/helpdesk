@@ -79,7 +79,7 @@ const slaData = computed(() => {
 
   return [
     {
-      title: "Expected First Response",
+      title: __("Expected First Response"),
       showSla: ticket.data.first_responded_on,
       label: responseSla,
       theme: responseSla === "Fulfilled" ? "green" : "red",

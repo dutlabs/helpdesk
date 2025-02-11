@@ -114,10 +114,11 @@ function firstResponseData() {
     !ticket.data.first_responded_on &&
     dayjs().isBefore(dayjs(ticket.data.response_by))
   ) {
+    let formattedTime = formatTime(
+      dayjs(ticket.data.response_by).diff(dayjs(), "s")
+    );
     firstResponse = {
-      label: __("Due in {0}", [
-        formatTime(dayjs(ticket.data.response_by).diff(dayjs(), "s")),
-      ]),
+      label: __("Due in {0}", [formattedTime]),
       color: "orange",
     };
   } else if (
@@ -125,15 +126,14 @@ function firstResponseData() {
       dayjs(ticket.data.response_by)
     )
   ) {
+    let formattedTime = formatTime(
+      dayjs(ticket.data.first_responded_on).diff(
+        dayjs(ticket.data.creation),
+        "s"
+      )
+    );
     firstResponse = {
-      label: __("Fulfilled in {0}", [
-        formatTime(
-          dayjs(ticket.data.first_responded_on).diff(
-            dayjs(ticket.data.creation),
-            "s"
-          )
-        ),
-      ]),
+      label: __("Fulfilled in {0}", [formattedTime]),
       color: "green",
     };
   } else {
@@ -151,24 +151,21 @@ function resolutionData() {
     !ticket.data.resolution_date &&
     dayjs().isBefore(ticket.data.resolution_by)
   ) {
+    let formattedTime = formatTime(
+      dayjs(ticket.data.resolution_by).diff(dayjs(), "s")
+    );
     resolution = {
-      label: __("Due in {0}", [
-        formatTime(dayjs(ticket.data.resolution_by).diff(dayjs(), "s")),
-      ]),
+      label: __("Due in {0}", [formattedTime]),
       color: "orange",
     };
   } else if (
     dayjs(ticket.data.resolution_date).isBefore(ticket.data.resolution_by)
   ) {
+    let formattedTime = formatTime(
+      dayjs(ticket.data.resolution_date).diff(dayjs(ticket.data.creation), "s")
+    );
     resolution = {
-      label: __("Fulfilled in {0}", [
-        formatTime(
-          dayjs(ticket.data.resolution_date).diff(
-            dayjs(ticket.data.creation),
-            "s"
-          )
-        ),
-      ]),
+      label: __("Fulfilled in {0}", [formattedTime]),
       color: "green",
     };
   } else {
@@ -223,9 +220,9 @@ const ticketAdditionalInfo = computed(() => {
 function transformStatus(status: string) {
   switch (status) {
     case "Replied":
-      return "Awaiting reply";
+      return __("Awaiting reply");
     default:
-      return status;
+      return __(status);
   }
 }
 </script>

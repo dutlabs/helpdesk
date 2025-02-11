@@ -290,7 +290,7 @@ watch(
 
 const dropdownOptions = computed(() =>
   ticketStatusStore.options.map((o) => ({
-    label: o,
+    label: __(o),
     value: o,
     onClick: () => updateTicket("status", o),
     icon: () =>
