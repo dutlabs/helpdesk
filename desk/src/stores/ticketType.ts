@@ -21,7 +21,7 @@ export const useTicketTypeStore = defineStore("ticketType", () => {
   );
   const dropdown = computed(() =>
     options.value.map((o) => ({
-      label: o.name,
+      label: __(o.name),
       value: o.name,
     }))
   );
