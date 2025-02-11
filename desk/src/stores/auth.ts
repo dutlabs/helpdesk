@@ -36,7 +36,9 @@ export const useAuthStore = defineStore("auth", () => {
   const userName: ComputedRef<string> = computed(() => user__.value.user_name);
   const username: ComputedRef<string> = computed(() => user__.value.username);
   const timezone: ComputedRef<string> = computed(() => user__.value.time_zone);
-  const language: ComputedRef<string> = computed(() => user__.value.language);
+  const language: ComputedRef<string> = computed(
+    () => user__.value.language || "en"
+  );
 
   function sessionUser() {
     const cookies = new URLSearchParams(document.cookie.split("; ").join("&"));
