@@ -15,7 +15,7 @@
               <span class="text-ink-gray-5 text-xs"
                 >{{
                   group.rows.length +
-                  " Article" +
+                  __(" Article") +
                   (group.rows.length > 1 ? "s" : "")
                 }}
               </span>
