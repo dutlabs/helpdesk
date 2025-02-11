@@ -20,7 +20,7 @@
       <div class="flex items-center gap-1">
         <Tooltip :text="dateFormat(creation, dateTooltipFormat)">
           <span class="pl-0.5 text-sm text-gray-600">
-            {{ timeAgo(creation) }}
+            {{ dayjs(creation).fromNow() }}
           </span>
         </Tooltip>
         <div v-if="authStore.userId === commentedBy && !editable">
@@ -105,7 +105,6 @@ import {
 } from "frappe-ui";
 import {
   dateFormat,
-  timeAgo,
   dateTooltipFormat,
   createToast,
   textEditorMenuButtons,
@@ -116,6 +115,7 @@ import { useAuthStore } from "@/stores/auth";
 import { useUserStore } from "@/stores/user";
 import { CommentActivity } from "@/types";
 import { updateRes as updateComment } from "@/stores/knowledgeBase";
+import { dayjs } from "@/dayjs";
 const authStore = useAuthStore();
 const props = defineProps({
   activity: {

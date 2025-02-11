@@ -25,7 +25,7 @@
       <div class="flex items-center gap-0.5">
         <Tooltip :text="dateFormat(creation, dateTooltipFormat)">
           <div class="text-sm text-gray-600">
-            {{ timeAgo(creation) }}
+            {{ dayjs(creation).fromNow() }}
           </div>
         </Tooltip>
         <Button
@@ -89,7 +89,8 @@
 
 <script setup lang="ts">
 import { AttachmentItem } from "@/components";
-import { dateFormat, timeAgo, dateTooltipFormat } from "@/utils";
+import { dateFormat, dateTooltipFormat } from "@/utils";
+import { dayjs } from "@/dayjs";
 import { ReplyIcon, ReplyAllIcon } from "./icons";
 import { useScreenSize } from "@/composables/screen";
 

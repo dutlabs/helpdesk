@@ -9,7 +9,7 @@
       </div>
       <Tooltip :text="dateFormat(creation, dateTooltipFormat)">
         <div class="text-sm text-gray-600">
-          {{ timeAgo(creation) }}
+          {{ dayjs(creation).fromNow() }}
         </div>
       </Tooltip>
     </div>
@@ -29,7 +29,7 @@
           :text="dateFormat(relatedActivity.creation, dateTooltipFormat)"
         >
           <div class="text-sm text-gray-600">
-            {{ timeAgo(relatedActivity.creation) }}
+            {{ dayjs(relatedActivity.creation).fromNow() }}
           </div>
         </Tooltip>
       </div>
@@ -57,7 +57,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { dateFormat, timeAgo, dateTooltipFormat } from "@/utils";
+import { dateFormat, dateTooltipFormat } from "@/utils";
+import { dayjs } from "@/dayjs";
 
 const props = defineProps({
   activity: {
