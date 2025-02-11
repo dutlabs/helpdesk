@@ -88,10 +88,12 @@ def get_filterable_fields(doctype: str, show_customer_portal_fields=False):
     # from hd ticket template get children with fieldname and hidden_from_customer
 
     for field in from_doc_fields:
-        field['label'] = _(field['label'])
+        label = field.get("label") or field.get("fieldname")
+        field['label'] = _(label)
 
     for field in from_custom_fields:
-        field['label'] = _(field['label']) 
+        label = field.get("label") or field.get("fieldname")
+        field['label'] = _(label) 
 
     res = []
     res.extend(from_doc_fields)
