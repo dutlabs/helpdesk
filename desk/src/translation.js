@@ -7,6 +7,11 @@ export default function translationPlugin(app) {
 }
 
 function format(message, replace) {
+  if (!Array.isArray(replace)) {
+    console.error("Error: replace should be an array");
+    return message;
+  }
+
   return message.replace(/{(\d+)}/g, function (match, number) {
     return typeof replace[number] != "undefined" ? replace[number] : match;
   });
