@@ -11,7 +11,7 @@
     v-model="filter.value"
     class="form-control cursor-pointer [&_select]:cursor-pointer"
     type="select"
-    :options="filter.options"
+    :options="translatedOptions"
     :placeholder="filter.label"
     @change.stop="updateFilter(filter, $event.target.value)"
   />
@@ -40,6 +40,7 @@
 </template>
 <script setup>
 import { TextInput, FormControl, DatePicker, DateTimePicker } from "frappe-ui";
+import { computed } from "vue";
 import { Link } from "@/components";
 import { useDebounceFn } from "@vueuse/core";
 
@@ -51,6 +52,16 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["applyQuickFilter"]);
+
+const translatedOptions = computed(() => {
+  if (props.filter.type === "Select" && Array.isArray(props.filter.options)) {
+    return props.filter.options.map((option) => ({
+      ...option,
+      label: __(option.label),
+    }));
+  }
+  return props.filter.options;
+});
 
 const debouncedFn = useDebounceFn((f, value) => {
   emit("applyQuickFilter", f, value);
