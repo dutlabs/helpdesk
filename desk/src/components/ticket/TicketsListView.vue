@@ -143,7 +143,16 @@
     :options="{ rowCount: options.rowCount, totalCount: options.totalCount }"
     @update:model-value="emit('update:pageLength', $event)"
     @load-more="emit('update:pageLength', 'loadMore')"
-  />
+  >
+    <template #right>
+      <div v-if="showLoadMore" class="mx-3 h-[80%] border-l" />
+      <div class="text-ink-gray-5 flex items-center gap-1 text-base">
+        <div>{{ options.rowCount || "0" }}</div>
+        <div>{{ __("of") }}</div>
+        <div>{{ options.totalCount || "0" }}</div>
+      </div>
+    </template>
+  </ListFooter>
   <Dialog
     v-model="showExportDialog"
     :options="{
@@ -207,12 +216,11 @@ import {
   ListRowItem,
   ListHeader,
   ListFooter,
-  ListSelectBanner,
   FeatherIcon,
   Dropdown,
   usePageMeta,
 } from "frappe-ui";
-import { MultipleAvatar, StarRating } from "@/components";
+import { ListSelectBanner, MultipleAvatar, StarRating } from "@/components";
 import { isCustomerPortal } from "@/utils";
 
 const ticketStatusStore = useTicketStatusStore();
