@@ -11,7 +11,11 @@
               v-if="group.group.label != ''"
               class="flex w-full items-center gap-1"
             >
-              <span>{{ group.group.label }}</span>
+              <span>{{
+                group.group.label === "General"
+                  ? __("General")
+                  : group.group.label
+              }}</span>
               <span class="text-ink-gray-5 text-xs"
                 >{{
                   group.rows.length +
