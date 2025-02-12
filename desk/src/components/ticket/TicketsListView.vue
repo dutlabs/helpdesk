@@ -31,7 +31,7 @@
         </div>
         <ListRowItem
           v-else
-          :item="item"
+          :item="__(item)"
           class="text-base text-gray-700"
           @click="(e) => handleFieldClick(e, column.key, item)"
         >
@@ -43,7 +43,7 @@
           <div v-if="column.key === 'agreement_status'">
             <Badge
               v-if="item"
-              :label="item"
+              :label="__(item)"
               :theme="slaStatusColorMap[item]"
               variant="outline"
             />
