@@ -14,7 +14,7 @@
             class="mr-7 flex max-w-fit flex-1 items-center gap-1 overflow-hidden"
           >
             <UserAvatar :name="user.name" :expand="true" />
-            <span>in</span>
+            <span>{{ __("in") }}</span>
             <Link
               v-model="categoryId"
               class="form-control"

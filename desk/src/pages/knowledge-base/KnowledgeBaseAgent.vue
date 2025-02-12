@@ -108,7 +108,7 @@ const headerOptions = [
           id: generalCategory.data,
         },
         query: {
-          title: __("General"),
+          title: "General",
         },
       });
     },

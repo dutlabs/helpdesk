@@ -15,7 +15,7 @@
                 ? __('Publish')
                 : __('Unpublish')
             "
-            :icon-left="article.data?.status !== __('Published') && 'globe'"
+            :icon-left="article.data?.status !== 'Published' && 'globe'"
             @click="toggleStatus()"
           />
         </div>
