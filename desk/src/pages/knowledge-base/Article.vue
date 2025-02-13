@@ -11,9 +11,7 @@
         <div v-if="!editable" class="flex gap-2">
           <Button
             :label="
-              article.data?.status === __('Draft')
-                ? __('Publish')
-                : __('Unpublish')
+              article.data?.status === 'Draft' ? __('Publish') : __('Unpublish')
             "
             :icon-left="article.data?.status !== 'Published' && 'globe'"
             @click="toggleStatus()"
