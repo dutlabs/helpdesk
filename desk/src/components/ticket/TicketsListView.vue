@@ -145,7 +145,7 @@
     @load-more="emit('update:pageLength', 'loadMore')"
   >
     <template #right>
-      <div v-if="showLoadMore" class="mx-3 h-[80%] border-l" />
+      <div class="mx-3 h-[80%] border-l" />
       <div class="text-ink-gray-5 flex items-center gap-1 text-base">
         <div>{{ options.rowCount || "0" }}</div>
         <div>{{ __("of") }}</div>

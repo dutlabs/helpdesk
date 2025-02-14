@@ -91,7 +91,16 @@
           handlePageLength(count);
         }
       "
-    />
+    >
+      <template #right>
+        <div class="mx-3 h-[80%] border-l" />
+        <div class="text-ink-gray-5 flex items-center gap-1 text-base">
+          <div>{{ list?.data?.row_count || "0" }}</div>
+          <div>{{ __("of") }}</div>
+          <div>{{ list?.data?.total_count || "0" }}</div>
+        </div>
+      </template>
+    </ListFooter>
   </div>
   <!-- Empty State -->
   <EmptyState
